@@ -1,0 +1,23 @@
+{
+  "name": "my-choice-homes",
+  "version": "1.0.0",
+  "description": "A Pro-active Approach to the Development of Young People",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d-rivers/My-Choice-Homes.git"
+  },
+  "author": "Daniel Rivers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/d-rivers/My-Choice-Homes/issues"
+  },
+  "homepage": "https://github.com/d-rivers/My-Choice-Homes#readme",
+  "devDependencies": {
+    "eslint": "^2.4.0",
+    "eslint-config-airbnb": "^6.1.0"
+  }
+}

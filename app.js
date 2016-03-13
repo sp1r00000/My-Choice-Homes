@@ -1,8 +1,19 @@
 'use strict';
 
 const Hapi = require('hapi');
+const Inert = require('inert');
+const Vision = require('vision');
+const Path = require('path');
 
-const server = new Hapi.Server();
+const server = new Hapi.Server({
+  connections: {
+    routes: {
+      files: {
+        relativeTo: Path.join(__dirname, 'public'),
+      },
+    },
+  },
+});
 
 /**
  * connection config
@@ -31,7 +42,7 @@ server.register({
   options: good,
 });
 
-server.register(require('vision'), () => {
+server.register([Inert, Vision], () => {
   /**
    * configure templates
    */
@@ -47,6 +58,21 @@ server.register(require('vision'), () => {
   });
 
   /**
+   * serve static files from public
+   */
+  server.route({
+    method: 'GET',
+    path: '/{filename*}',
+    handler: {
+      directory: {
+        path: __dirname + '/public',
+        listing: false,
+        index: false,
+      },
+    },
+  });
+
+  /**
    * home page
    */
   server.route({
@@ -57,5 +83,7 @@ server.register(require('vision'), () => {
     },
   });
 
-  server.start();
+  server.start((err) => {
+    if (err) throw err;
+  });
 });

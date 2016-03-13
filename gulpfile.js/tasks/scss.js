@@ -11,3 +11,12 @@ gulp.task('scss', () => {
     .pipe(sass())
     .pipe(gulp.dest('public/assets/stylesheets'));
 });
+
+/**
+ * compile scss
+ */
+gulp.task('bootstrap-scss', () => {
+  return gulp.src('bower_components/bootstrap/scss/bootstrap.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('public/assets/stylesheets'));
+});

@@ -8,7 +8,7 @@ const runSequence = require('run-sequence');
  */
 gulp.task('default', () => {
   runSequence(
-    ['scripts', 'scss', 'bootstrap-scss'],
+    ['scripts', 'jquery', 'bootstrap-script', 'scss', 'bootstrap-scss'],
     'watch'
   );
 });

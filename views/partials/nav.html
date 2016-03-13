@@ -1,7 +1,23 @@
-<nav>
+<nav class="nav nav-inline">
     <a href="#"><img src="http://placehold.it/200x400.gif"></a>
     <a href="#">Home</a>
-    <a href="#">About us</a>
+
+    <nav class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"
+           data-toggle="dropdown"
+           href="#" role="button"
+           aria-haspopup="true"
+           aria-expanded="false">About us</a>
+
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+    </nav>
+
     <a href="#">Our homes</a>
     <a href="#">Services</a>
     <a href="#">My choice school</a>

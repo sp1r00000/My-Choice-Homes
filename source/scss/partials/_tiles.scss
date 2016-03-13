@@ -1,0 +1,17 @@
+section.tiles {
+  padding: 0;
+
+  div {
+    padding: 18% 0;
+    min-height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #673147;
+    color: #fff;
+  }
+
+  p {
+    margin: 0;
+  }
+}

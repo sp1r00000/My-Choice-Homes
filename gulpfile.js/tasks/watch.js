@@ -8,5 +8,5 @@ const gulp = require('gulp');
  */
 gulp.task('watch', () => {
   gulp.watch('source/javascript/**/*.js', ['eslint']);
-  gulp.watch('source/scss/**/*.scss', ['build-css']);
+  gulp.watch('source/scss/**/*.scss', ['scss']);
 });

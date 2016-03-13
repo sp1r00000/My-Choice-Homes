@@ -71,7 +71,7 @@ server.register([Inert, Vision], () => {
     method: 'GET',
     path: '/',
     handler: (request, reply) => {
-      reply.view('partials/home/home');
+      reply.view('partials/home');
     },
   });
 

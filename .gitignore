@@ -2,4 +2,4 @@ npm-debug.log
 bower_components
 node_modules
 coverage
-build
+public/assets

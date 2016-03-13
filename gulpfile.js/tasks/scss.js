@@ -15,8 +15,8 @@ gulp.task('scss', () => {
 /**
  * compile scss
  */
-gulp.task('bootstrap-scss', () => {
-  return gulp.src('bower_components/bootstrap/scss/bootstrap.scss')
+gulp.task('bootstrap-flex', () => {
+  return gulp.src('bower_components/bootstrap/scss/bootstrap-flex.scss')
     .pipe(sass())
     .pipe(gulp.dest('public/assets/stylesheets'));
 });

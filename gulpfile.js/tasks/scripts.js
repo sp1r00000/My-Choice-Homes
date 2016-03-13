@@ -13,19 +13,3 @@ gulp.task('scripts', () => {
     }))
     .pipe(gulp.dest('public/assets/javascript'));
 });
-
-/**
- * jQuery for bootstrap
- */
-gulp.task('jquery', () => {
-  return gulp.src('bower_components/jquery/dist/jquery.js')
-    .pipe(gulp.dest('public/assets/javascript'));
-});
-
-/**
- * bootstrap script
- */
-gulp.task('bootstrap-script', () => {
-  return gulp.src('bower_components/bootstrap/dist/js/bootstrap.js')
-    .pipe(gulp.dest('public/assets/javascript'));
-});

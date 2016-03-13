@@ -16,7 +16,7 @@ server.connection({
  * good options config
  * @type {{reporters: *[]}}
  */
-let good = {
+const good = {
   reporters: [{
     reporter: require('good-console'),
     events: { log: ['error'], response: '*' },

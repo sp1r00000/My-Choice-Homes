@@ -1,0 +1,18 @@
+{
+  "name": "my-choice-homes",
+  "description": "A Pro-active Approach to the Development of Young People",
+  "main": "app.js",
+  "authors": [
+    "Daniel Rivers"
+  ],
+  "homepage": "https://github.com/d-rivers/My-Choice-Homes",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

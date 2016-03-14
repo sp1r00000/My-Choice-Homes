@@ -6,7 +6,7 @@ import gulpSass from 'gulp-sass';
  */
 export function scss() {
   return gulp.src('source/scss/app.scss')
-    .pipe(gulpSass())
+    .pipe(gulpSass.sync().on('error', gulpSass.logError))
     .pipe(gulp.dest('public/assets/stylesheets'));
 }
 
@@ -15,7 +15,7 @@ export function scss() {
  */
 export function bootstrapScss() {
   return gulp.src('bower_components/bootstrap/scss/bootstrap-flex.scss')
-    .pipe(gulpSass())
+    .pipe(gulpSass.sync().on('error', gulpSass.logError))
     .pipe(gulp.dest('public/assets/stylesheets'));
 }
 
@@ -24,6 +24,6 @@ export function bootstrapScss() {
  */
 export function iconicScss() {
   return gulp.src('source/iconic/scss/iconic-glyphs.scss')
-    .pipe(gulpSass())
+    .pipe(gulpSass.sync().on('error', gulpSass.logError))
     .pipe(gulp.dest('public/assets/stylesheets'));
 }

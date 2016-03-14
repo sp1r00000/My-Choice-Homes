@@ -2,7 +2,7 @@ import gulp from 'gulp';
 
 import { nodemon } from './tasks/nodemon';
 import { scripts } from './tasks/scripts';
-import { scss, bootstrapScss, iconicScss } from './tasks/scss';
+import { scss } from './tasks/scss';
 import { iconicFonts } from './tasks/fonts';
 import { images } from './tasks/images';
 import { watch } from './tasks/watch';
@@ -18,8 +18,6 @@ gulp.task('default', gulp.series(
   gulp.parallel(
     scripts,
     scss,
-    bootstrapScss,
-    iconicScss,
     iconicFonts,
     images
   ),
@@ -40,7 +38,7 @@ gulp.task('scripts', gulp.parallel(scripts));
 /**
  * execute scss tasks
  */
-gulp.task('scss', gulp.parallel(scss, bootstrapScss, iconicScss));
+gulp.task('scss', gulp.parallel(scss));
 
 /**
  * execute fonts tasks

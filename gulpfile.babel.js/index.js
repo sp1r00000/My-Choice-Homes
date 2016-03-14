@@ -6,6 +6,8 @@ import { iconicFonts } from './tasks/fonts';
 import { images } from './tasks/images';
 import { watch } from './tasks/watch';
 
+import { preTest, test } from './tasks/test';
+
 /**
  * default task builds everything
  * then watches for changes
@@ -41,3 +43,11 @@ gulp.task('iconic-fonts', gulp.parallel(iconicFonts));
  * execute images tasks
  */
 gulp.task('images', gulp.parallel(images));
+
+/**
+ * run unit tests
+ */
+gulp.task('test', done => {
+  preTest();
+  test(done);
+});

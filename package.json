@@ -28,7 +28,16 @@
     "eslint": "^2.4.0",
     "eslint-config-airbnb": "^6.1.0",
     "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-istanbul": "^0.10.3",
     "gulp-sass": "^2.2.0",
+    "istanbul": "^0.4.2",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-babel-preprocessor": "^6.0.1",
+    "karma-browserify": "^5.0.2",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-coverage": "^0.5.5",
+    "karma-jasmine": "^0.3.7",
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {

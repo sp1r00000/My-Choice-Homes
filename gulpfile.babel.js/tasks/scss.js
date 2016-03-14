@@ -1,14 +1,17 @@
 import gulp from 'gulp';
 import gulpSass from 'gulp-sass';
+import sourcemaps from 'gulp-sourcemaps';
 
 /**
  * custom scss
  */
 export function scss() {
   return gulp.src('source/scss/app.scss')
+    .pipe(sourcemaps.init())
     .pipe(gulpSass.sync({
       outputStyle: 'compressed',
     }).on('error', gulpSass.logError))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('public/assets/stylesheets'));
 }
 
@@ -17,9 +20,11 @@ export function scss() {
  */
 export function bootstrapScss() {
   return gulp.src('bower_components/bootstrap/scss/bootstrap-flex.scss')
+    .pipe(sourcemaps.init())
     .pipe(gulpSass.sync({
       outputStyle: 'compressed',
     }).on('error', gulpSass.logError))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('public/assets/stylesheets'));
 }
 
@@ -28,8 +33,10 @@ export function bootstrapScss() {
  */
 export function iconicScss() {
   return gulp.src('source/iconic/scss/iconic-glyphs.scss')
+    .pipe(sourcemaps.init())
     .pipe(gulpSass.sync({
       outputStyle: 'compressed',
     }).on('error', gulpSass.logError))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('public/assets/stylesheets'));
 }

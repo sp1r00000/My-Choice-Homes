@@ -14,7 +14,7 @@ export function scss() {
     'source/scss/app.scss',
     'source/iconic/scss/iconic-glyphs.scss',
     'bower_components/bootstrap/scss/bootstrap-flex.scss',
-    ])
+  ])
     .pipe(sourcemaps.init())
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],

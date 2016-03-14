@@ -1,7 +1,7 @@
 footer.mch-footer {
   color: white;
   background-color: #2c5357;
-  padding: 1rem 0;
+  padding: 1rem 0 0 0;
 
   h4 {
     margin: 1rem 0;
@@ -10,5 +10,11 @@ footer.mch-footer {
   a {
     color: white;
     text-decoration: underline;
+  }
+
+  .small {
+    background-color: #2d2d2d;
+    padding: 1rem 0;
+    border-top: 0.8rem solid #1b1b1b;
   }
 }

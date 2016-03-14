@@ -21,7 +21,6 @@ gulp.task('default', gulp.series(
     iconicFonts,
     images
   ),
-  nodemon,
   watch
 ));
 
@@ -31,24 +30,29 @@ gulp.task('default', gulp.series(
 gulp.task('nodemon', gulp.parallel(nodemon));
 
 /**
- * execute scripts tasks
+ * execute scripts task
  */
 gulp.task('scripts', gulp.parallel(scripts));
 
 /**
- * execute scss tasks
+ * execute scss task
  */
 gulp.task('scss', gulp.parallel(scss));
 
 /**
- * execute fonts tasks
+ * execute fonts task
  */
 gulp.task('iconic-fonts', gulp.parallel(iconicFonts));
 
 /**
- * execute images tasks
+ * execute images task
  */
 gulp.task('images', gulp.parallel(images));
+
+/**
+ * execute watch task
+ */
+gulp.task('watch', gulp.parallel(watch));
 
 /**
  * run unit tests

@@ -1,15 +1,13 @@
 import gulp from 'gulp';
 
-const paths = {
-  scripts: ['./source/javascript/**/*.js'],
-  scss: './source/scss/**/*.scss',
-};
+import { scripts } from './scripts';
+import { scss } from './scss';
 
 /**
  * watch source files for changes
  * run eslint when javascript is modified
  */
 export function watch() {
-  gulp.watch(paths.scripts);
-  gulp.watch(paths.scss);
+  gulp.watch('source/javascript/**/*', scripts);
+  gulp.watch('source/scss/**/*', scss);
 }

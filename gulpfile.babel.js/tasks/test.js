@@ -5,7 +5,7 @@ import istanbul from 'gulp-istanbul';
 const Server = karma.Server;
 
 /**
- * Run test once and exit
+ * generate coverage report
  */
 export function preTest() {
   return gulp.src(['public/assets/javascript/**/*.js'])
@@ -13,6 +13,10 @@ export function preTest() {
     .pipe(istanbul.hookRequire());
 }
 
+/**
+ * run unit tests
+ * @param done
+ */
 export function test(done) {
   new Server({
     configFile: __dirname + '/../../karma.conf.js',

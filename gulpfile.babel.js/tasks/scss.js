@@ -2,7 +2,7 @@ import gulp from 'gulp';
 import gulpSass from 'gulp-sass';
 
 /**
- * compile scss
+ * custom scss
  */
 export function scss() {
   return gulp.src('source/scss/app.scss')
@@ -11,7 +11,7 @@ export function scss() {
 }
 
 /**
- * compile scss
+ * bootstrap flex scss
  */
 export function bootstrapScss() {
   return gulp.src('bower_components/bootstrap/scss/bootstrap-flex.scss')

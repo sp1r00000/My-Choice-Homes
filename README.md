@@ -8,6 +8,12 @@ A Pro-active Approach to the Development of Young People
 2. bower install
 3. Terminal 1: gulp nodemon
 4. Terminal 2: gulp
+5. Go to http://localhost:8000
+
+## Tests
+1. gulp test
+
+Code coverage also generated under ./coverage
 
 ## License
 

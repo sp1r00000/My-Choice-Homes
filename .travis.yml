@@ -3,4 +3,4 @@ node_js:
   - '5.6.0'
 before_script:
   - npm i -g gulpjs/gulp-cli#4.0
-script: gulp
+script: gulp test

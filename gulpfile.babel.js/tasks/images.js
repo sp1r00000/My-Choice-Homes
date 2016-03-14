@@ -1,11 +1,9 @@
-'use strict';
-
-const gulp = require('gulp');
+import gulp from 'gulp';
 
 /**
  * images
  */
-gulp.task('images', () => {
+export function images() {
   return gulp.src('source/images/*')
     .pipe(gulp.dest('public/assets/images'));
-});
+}

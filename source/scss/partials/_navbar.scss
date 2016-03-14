@@ -1,4 +1,4 @@
-nav.mch-navbar {
+div.mch-fixed-navbar {
   position: fixed;
   z-index: 1;
   top: 0;
@@ -12,5 +12,24 @@ nav.mch-navbar {
     width: 100%;
   }
 
+  nav.mch-navbar {
+    position: fixed;
+    top: -100%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 1rem 0;
+    width: 100%;
+    height: 100%;
 
+    &.open {
+      top: 4rem;
+    }
+
+    a {
+      padding: 0.5rem;
+      border-bottom: 0.1rem dashed;
+    }
+  }
 }

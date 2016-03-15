@@ -74,6 +74,14 @@ server.register([Inert, Vision], () => {
     },
   });
 
+  server.route({
+    method: 'GET',
+    path: '/about-us',
+    handler: (request, reply) => {
+      reply.view('partials/home');
+    },
+  });
+
   server.start((err) => {
     if (err) throw err;
   });

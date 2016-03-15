@@ -41,6 +41,7 @@
     "karma-chrome-launcher": "^0.2.2",
     "karma-coverage": "^0.5.5",
     "karma-jasmine": "^0.3.7",
+    "rimraf": "^2.5.2",
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {

@@ -1,6 +1,7 @@
 import gulp from 'gulp';
 
 import { nodemon } from './tasks/nodemon';
+import { clean } from './tasks/clean';
 import { scripts } from './tasks/scripts';
 import { scss } from './tasks/scss';
 import { iconicFonts } from './tasks/fonts';
@@ -15,6 +16,7 @@ import { preTest, test } from './tasks/test';
  * then watches for changes
  */
 gulp.task('default', gulp.series(
+  clean,
   gulp.parallel(
     scripts,
     scss,
@@ -28,6 +30,11 @@ gulp.task('default', gulp.series(
  * start server
  */
 gulp.task('nodemon', gulp.parallel(nodemon));
+
+/**
+ * execute clean task
+ */
+gulp.task('clean', gulp.parallel(clean));
 
 /**
  * execute scripts task

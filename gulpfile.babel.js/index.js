@@ -12,7 +12,6 @@ import { preTest, test } from './tasks/test';
 
 /**
  * default task builds everything
- * starts server
  * then watches for changes
  */
 gulp.task('default', gulp.series(

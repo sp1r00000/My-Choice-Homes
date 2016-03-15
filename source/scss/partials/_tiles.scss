@@ -18,6 +18,17 @@ section.tiles {
     }
   }
 
+  .dark-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2d2d2d;
+    color: $white;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 300;
+  }
+
   a {
     margin: 0;
     padding: 0;
@@ -40,5 +51,11 @@ section.tiles {
 
   img {
     width: 100%;
+  }
+}
+
+@media only screen and (min-width : 992px) {
+  section.tiles {
+    padding: 0 0.9375rem;
   }
 }

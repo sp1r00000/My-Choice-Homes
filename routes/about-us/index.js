@@ -1,5 +1,6 @@
 /**
- * route configuration for about us page
+ * route configuration for
+ * about us page
  * @param server
  */
 module.exports = function aboutUs(server) {
@@ -7,7 +8,7 @@ module.exports = function aboutUs(server) {
     method: 'GET',
     path: '/about-us',
     handler: (request, reply) => {
-      reply.view('partials/about-us');
+      reply.view('pages/about-us/about-us');
     },
   });
 };

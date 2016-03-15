@@ -4,7 +4,7 @@ const Vision = require('vision');
 
 const server = new Hapi.Server();
 
-const routes = require('./routes/index');
+const routes = require('./routes');
 
 /**
  * connection config
@@ -26,7 +26,8 @@ const good = {
 };
 
 /**
- * register good options with server
+ * register good options
+ * with server
  */
 server.register({
   register: require('good'),
@@ -49,7 +50,8 @@ server.register([Inert, Vision], () => {
   });
 
   /**
-   * serve static files from public directory
+   * serve static files from
+   * public directory
    */
   server.route({
     method: 'GET',
@@ -64,14 +66,17 @@ server.register([Inert, Vision], () => {
   });
 
   /**
-   * home page
-   */
-  routes.home(server);
-
-  /**
-   * about us page
+   * setup top level routes
    */
   routes.aboutUs(server);
+  routes.activities(server);
+  routes.careers(server);
+  routes.contactUs(server);
+  routes.home(server);
+  routes.myChoiceSchool(server);
+  routes.ourHomes(server);
+  routes.referrals(server);
+  routes.services(server);
 
   server.start((err) => {
     if (err) throw err;

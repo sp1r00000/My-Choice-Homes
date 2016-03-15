@@ -1,7 +1,8 @@
-const tiles = require('../tmp-data/tiles');
+const tiles = require('../../tmp-data/tiles');
 
 /**
- * route configuration for home page
+ * route configuration for
+ * home page
  * @param server
  */
 module.exports = function home(server) {
@@ -9,7 +10,7 @@ module.exports = function home(server) {
     method: 'GET',
     path: '/',
     handler: (request, reply) => {
-      reply.view('partials/home', tiles);
+      reply.view('pages/home/home', tiles);
     },
   });
 };

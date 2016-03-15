@@ -1,10 +1,11 @@
 header.mch-header {
   padding: 10% 0;
+  margin-bottom: 1rem;
   color: white;
   background: url('/assets/images/header-bg.jpg') no-repeat scroll 0 0;
   background-size: cover;
 
   span {
-    color: #ba3d70;
+    color: $mauve-light;
   }
 }

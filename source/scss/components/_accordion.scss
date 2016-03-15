@@ -1,5 +1,6 @@
 .accordion {
   padding: 0;
+  margin-bottom: 1rem;
 
   .accordion-title {
     margin: 0;
@@ -9,26 +10,16 @@
     cursor: pointer;
   }
 
-  @keyframes slideContentIn {
-    from {
-      max-height: 0;
-    }
-    to {
-      max-height: 100%;
-    }
-  }
-
   .accordion-content {
-    animation-duration: 0.5s;
     overflow: hidden;
     max-height: 0;
-    padding: 0 1rem;
-    background-color: #e7e5d7;
     margin-bottom: 0.5rem;
+    background-color: #e7e5d7;
   }
 
-  .accordion-content.animated {
-    animation-name: slideContentIn;
+  .accordion-content.open {
+    padding: 1rem;
+    margin-bottom: 0;
     max-height: 100%;
   }
 }

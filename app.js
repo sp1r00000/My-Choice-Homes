@@ -1,4 +1,6 @@
-'use strict';
+/**
+ * todo: modularize server
+ */
 
 const Hapi = require('hapi');
 const Inert = require('inert');
@@ -70,7 +72,9 @@ server.register([Inert, Vision], () => {
     method: 'GET',
     path: '/',
     handler: (request, reply) => {
-      reply.view('partials/home');
+      const tiles = require('./tmp-data/tiles');
+
+      reply.view('partials/home', tiles);
     },
   });
 

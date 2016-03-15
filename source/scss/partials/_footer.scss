@@ -3,6 +3,10 @@ footer.mch-footer {
   background-color: $teal;
   padding: 1rem 0 0 0;
 
+  .row {
+    margin: 0;
+  }
+
   h4 {
     margin: 1rem 0;
   }
@@ -16,5 +20,11 @@ footer.mch-footer {
     background-color: $dark;
     padding: 1rem 0;
     border-top: 0.8rem solid $darker;
+  }
+}
+
+@media only screen and (min-width : 992px) {
+  footer.mch-footer {
+    padding: 0 0.9375rem;
   }
 }

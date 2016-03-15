@@ -1,7 +1,3 @@
-/**
- * todo: modularize server
- */
-
 const Hapi = require('hapi');
 const Inert = require('inert');
 const Vision = require('vision');

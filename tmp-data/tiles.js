@@ -4,7 +4,7 @@ module.exports = {
       title: 'Our Services',
       description: 'We provide the children in our care with a child centered approach where' +
       ' the needs of the child are at the forefront of everything we do.',
-      color: 'class-a',
+      color: 'mauve-bg',
       blocks: [
         {
           title: 'About Us',
@@ -44,7 +44,7 @@ module.exports = {
       title: 'Our Homes',
       description: 'We provide small residential homes for children aged between 10 – 18yrs' +
       ' old who display emotional and behavioural difficulties.',
-      color: 'class-b',
+      color: 'teal-bg',
       blocks: [
         {
           title: 'Ocean Pearl',

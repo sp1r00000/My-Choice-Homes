@@ -1,16 +1,41 @@
 section.tiles {
   padding: 0;
+  margin-bottom: 1rem;
 
-  a, div {
+  &.mauve-bg a {
+    background-color: $mauve;
+
+    &:hover {
+      background-color: $mauve-light;
+    }
+  }
+
+  &.teal-bg a {
+    background-color: $teal;
+
+    &:hover {
+      background-color: $teal-light;
+    }
+  }
+
+  a {
     margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #673147;
     font-weight: 300;
-    color: #fff;
+    color: $white;
     text-transform: uppercase;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  div {
+    padding: 0;
+    margin: 0;
   }
 
   img {

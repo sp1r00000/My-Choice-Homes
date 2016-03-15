@@ -1,0 +1,56 @@
+$mch-colour-key: 'base' !default;
+
+/**
+ * set the colour pallet
+ */
+$mch-colours: (
+    'mauve': (
+        'base': #673147,
+        'light': #ba3d70,
+        'lighter': #C44F7F
+    ),
+    'teal': (
+        'base': #316267,
+        'light': #41848a
+    ),
+    'utility': (
+        'white': #ffffff,
+        'dark': #2d2d2d,
+        'darker': #1b1b1b
+    )
+);
+
+@function mch-colour(
+  $name: 'mauve',
+  $variant: $mch-colour-key
+) {
+  $colour: null;
+
+  /**
+   * get the colour spectrum
+   */
+  $colour-spectrum: map-get($mch-colours, $name);
+
+  /**
+   * get the colour variant
+   */
+  @if $colour-spectrum {
+    $colour: map-get($colour-spectrum, $variant);
+  }
+
+  @return $colour;
+}
+
+/**
+ * set colours to variables once
+ */
+$mauve: mch-colour('mauve');
+$mauve-light: mch-colour('mauve', 'light');
+$mauve-lighter: mch-colour('mauve', 'lighter');
+
+$teal: mch-colour('teal');
+$teal-light: mch-colour('teal', 'light');
+
+$white: mch-colour('utility', 'white');
+$dark: mch-colour('utility', 'dark');
+$darker: mch-colour('utility', 'darker');

@@ -8,6 +8,8 @@ const Vision = require('vision');
 
 const server = new Hapi.Server();
 
+const routes = require('./routes/index');
+
 /**
  * connection config
  */
@@ -51,7 +53,7 @@ server.register([Inert, Vision], () => {
   });
 
   /**
-   * serve static files from public
+   * serve static files from public directory
    */
   server.route({
     method: 'GET',
@@ -68,23 +70,12 @@ server.register([Inert, Vision], () => {
   /**
    * home page
    */
-  server.route({
-    method: 'GET',
-    path: '/',
-    handler: (request, reply) => {
-      const tiles = require('./tmp-data/tiles');
+  routes.home(server);
 
-      reply.view('partials/home', tiles);
-    },
-  });
-
-  server.route({
-    method: 'GET',
-    path: '/about-us',
-    handler: (request, reply) => {
-      reply.view('partials/home');
-    },
-  });
+  /**
+   * about us page
+   */
+  routes.aboutUs(server);
 
   server.start((err) => {
     if (err) throw err;

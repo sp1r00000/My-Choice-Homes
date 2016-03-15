@@ -1,8 +1,8 @@
 /**
- * bootstrap application here
+ * temp setup
  */
-export function app() {
-  console.log('im alive');
-}
 
-export default app();
+import { toggleNavbar, navItem } from './global/navbar';
+
+toggleNavbar();
+navItem();

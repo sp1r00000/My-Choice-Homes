@@ -14,20 +14,21 @@ div.mch-fixed-navbar {
 
   nav.mch-navbar {
     position: fixed;
-    top: -100%;
-    right: 0;
+    top: 4rem;
+    right: -100%;
     display: flex;
     flex-direction: column;
     background-color: white;
-    padding: 1rem 0;
-    width: 100%;
+    width: 90%;
     height: 100%;
 
     &.open {
-      top: 4rem;
+      right: 0;
     }
 
     a {
+      display: flex;
+      align-items: center;
       padding: 0.5rem;
       border-bottom: 0.1rem dashed;
     }

@@ -31,32 +31,32 @@ gulp.task('default', gulp.series(
 gulp.task('nodemon', gulp.parallel(nodemon));
 
 /**
- * execute clean task
+ * run clean task
  */
 gulp.task('clean', gulp.parallel(clean));
 
 /**
- * execute scripts task
+ * run scripts task
  */
 gulp.task('scripts', gulp.parallel(scripts));
 
 /**
- * execute scss task
+ * run scss task
  */
 gulp.task('scss', gulp.parallel(scss));
 
 /**
- * execute fonts task
+ * run fonts task
  */
 gulp.task('iconic-fonts', gulp.parallel(iconicFonts));
 
 /**
- * execute images task
+ * run images task
  */
 gulp.task('images', gulp.parallel(images));
 
 /**
- * execute watch task
+ * run watch task
  */
 gulp.task('watch', gulp.parallel(watch));
 

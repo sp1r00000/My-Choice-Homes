@@ -7,7 +7,7 @@ module.exports = function aboutUs(server) {
     method: 'GET',
     path: '/about-us',
     handler: (request, reply) => {
-      reply.view('partials/home');
+      reply.view('partials/about-us');
     },
   });
 };

@@ -2,6 +2,9 @@ const Hapi = require('hapi');
 const Inert = require('inert');
 const Vision = require('vision');
 
+const PrerenderPlugin = require('hapi-prerender');
+const config = require('./config');
+
 const server = new Hapi.Server();
 
 const routes = require('./routes');
@@ -24,6 +27,16 @@ const good = {
     events: { log: ['error'], response: '*' },
   }],
 };
+
+/**
+ * register prerender plugin
+ */
+server.register({
+  register: PrerenderPlugin,
+  options: {
+    token: config.prerender,
+  },
+});
 
 /**
  * register good options
@@ -66,7 +79,7 @@ server.register([Inert, Vision], () => {
   });
 
   /**
-   * setup top level routes
+   * setup routes
    */
   routes.aboutUs(server);
   routes.activities(server);

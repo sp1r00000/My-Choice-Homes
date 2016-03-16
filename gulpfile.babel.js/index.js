@@ -26,6 +26,15 @@ gulp.task('default', gulp.series(
 ));
 
 /**
+ * travis task runs scrips
+ * then runs tests
+ */
+gulp.task('travis', gulp.series(
+  scripts,
+  test
+));
+
+/**
  * start server
  */
 gulp.task('nodemon', gulp.parallel(nodemon));

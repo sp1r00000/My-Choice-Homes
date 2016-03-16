@@ -5,9 +5,9 @@ import { forEach } from '../helpers/for-each';
  */
 export function toggleNavbar() {
   const icon = document.querySelector('[data-glyph="menu"');
-  const nav = document.querySelector('.mch-navbar');
 
   icon.addEventListener('click', () => {
+    const nav = document.querySelector('.mch-navbar');
     nav.classList.toggle('open');
   });
 }
@@ -25,5 +25,3 @@ export function navItem() {
     links[index].style.height = `${height}px`;
   });
 }
-
-export { toggleNavbar, navItem };

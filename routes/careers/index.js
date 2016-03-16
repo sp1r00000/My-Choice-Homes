@@ -1,3 +1,6 @@
+const casualWorker = require('./casual-worker');
+const supportWorker = require('./support-worker');
+
 /**
  * route configuration for
  * careers page
@@ -11,4 +14,10 @@ module.exports = function careers(server) {
       reply.view('pages/careers/careers');
     },
   });
+
+  /**
+   * setup child routes
+   */
+  casualWorker(server);
+  supportWorker(server);
 };

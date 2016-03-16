@@ -1,3 +1,5 @@
+const keyworkSupport = require('./keywork-support');
+
 /**
  * route configuration for
  * services page
@@ -11,4 +13,9 @@ module.exports = function services(server) {
       reply.view('pages/services/services');
     },
   });
+
+  /**
+   * setup child routes
+   */
+  keyworkSupport(server);
 };

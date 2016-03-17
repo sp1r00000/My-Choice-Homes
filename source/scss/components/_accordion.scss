@@ -4,10 +4,17 @@ div.accordion {
 
   .accordion-title {
     margin: 0;
-    background-color: #2d2d2d;
+    background-color: $dark;
     color: white;
-    padding: 1rem;
+    padding: 0.8rem 1rem;
     cursor: pointer;
+
+    span::before {
+      padding: 0.6rem;
+      margin-right: 0.5rem;
+      border: 0.15rem solid;
+      border-radius: 1.5rem;
+    }
   }
 
   @keyframes slide-from-top {

@@ -2,7 +2,7 @@
  * karma configuration
  */
 module.exports = function(config) {
-  config.set({
+  const cfg = {
     /**
      * base path that will be used to resolve all patterns
      * eg. files, exclude
@@ -19,7 +19,7 @@ module.exports = function(config) {
      * list of files / patterns to load in the browser
      */
     files: [
-      'public/assets/javascript/**/*.js',
+      'public/assets/javascript/*.js',
       'test/**/*.spec.js',
     ],
 
@@ -41,7 +41,7 @@ module.exports = function(config) {
      * available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
      */
     preprocessors: {
-      'public/assets/javascript/**/*.js': ['coverage'],
+      'public/assets/javascript/*.js': ['coverage'],
     },
 
     /**
@@ -93,5 +93,11 @@ module.exports = function(config) {
      * how many browser should be started simultaneous
      */
     concurrency: Infinity,
-  });
+  };
+
+  if (process.env.TRAVIS) {
+    cfg.browsers = ['Chrome_travis_ci'];
+  }
+
+  config.set(cfg);
 };

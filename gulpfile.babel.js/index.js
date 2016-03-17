@@ -26,7 +26,7 @@ gulp.task('default', gulp.series(
 ));
 
 /**
- * travis task runs scrips
+ * travis task runs scrips task
  * then runs tests
  */
 gulp.task('travis', gulp.series(

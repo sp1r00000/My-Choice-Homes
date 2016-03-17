@@ -21,6 +21,10 @@
 
 {{> footer}}
 
-<script src="/assets/javascript/app.js"></script>
+<script src="/assets/javascript/global.js"></script>
+
+{{#if bundle}}
+<script src="/assets/javascript/{{bundle}}.js"></script>
+{{/if}}
 </body>
 </html>

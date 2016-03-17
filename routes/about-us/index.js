@@ -1,3 +1,5 @@
+const aboutUsData = require('../../tmp-data/about-us');
+
 const ofstedReportQuotes = require('./ofsted-report-quotes');
 const ourStaff = require('./our-staff');
 const quotes = require('./quotes');
@@ -13,7 +15,7 @@ module.exports = function aboutUs(server) {
     method: 'GET',
     path: '/about-us',
     handler: (request, reply) => {
-      reply.view('pages/about-us/about-us');
+      reply.view('pages/about-us/about-us', aboutUsData);
     },
   });
 

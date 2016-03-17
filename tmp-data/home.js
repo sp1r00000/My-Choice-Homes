@@ -1,4 +1,5 @@
 module.exports = {
+  bundle: 'home',
   tiles: [
     {
       title: 'Our Services',
@@ -49,26 +50,31 @@ module.exports = {
         {
           title: 'Ocean Pearl',
           image: '/assets/images/home/ocean-pearl.jpg',
+          alt: 'ocean pearl',
           href: '/our-homes/ocean-pearl',
         },
         {
           title: 'Kestral House',
           image: '/assets/images/home/kestral-house.jpg',
+          alt: 'kestral house',
           href: '/our-homes/kestral-house',
         },
         {
           title: 'Kingfisher View',
           image: '/assets/images/home/kingfisher-view.jpg',
+          alt: 'kingfisher view',
           href: '/our-homes/kingfisher-view',
         },
         {
           title: 'Ivy Cottage',
           image: '/assets/images/home/ivy-cottage.jpg',
+          alt: 'ivy cottage',
           href: '/our-homes/ivy-cottage',
         },
         {
           title: 'Osprey House',
           image: '/assets/images/home/osprey-house.jpg',
+          alt: 'osprey house',
           href: '/our-homes/osprey-house',
         },
       ],

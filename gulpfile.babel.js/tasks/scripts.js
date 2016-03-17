@@ -2,18 +2,33 @@ import gulp from 'gulp';
 import browserify from 'browserify';
 import babelify from 'babelify';
 import source from 'vinyl-source-stream';
+import glob from 'glob';
+import es from 'event-stream';
 
 /**
- * compile es6 into es5
+ * find all page specific js using glob
+ * push global js to the files array
+ * for each js file, run browserify,
+ * babelify & bundle
  */
-export function scripts() {
-  return browserify({
-    entries: 'source/javascript/app',
-    extensions: ['.js'],
-    debug: true,
-  })
-    .transform(babelify)
-    .bundle()
-    .pipe(source('app.js'))
-    .pipe(gulp.dest('./public/assets/javascript'));
+export function scripts(done) {
+  glob('source/javascript/pages/**/*.js', (err, files) => {
+    if (err) done(err);
+
+    const global = 'source/javascript/global.js';
+
+    files.push(global);
+
+    const tasks = files.map(entry => {
+      const fileName = entry.replace(/^.*[\\\/]/, '');
+
+      return browserify({ entries: [entry] })
+        .transform(babelify)
+        .bundle()
+        .pipe(source(fileName))
+        .pipe(gulp.dest('./public/assets/javascript'));
+    });
+
+    es.merge(tasks).on('end', done);
+  });
 }

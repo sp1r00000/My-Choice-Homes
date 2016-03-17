@@ -27,6 +27,8 @@
     "browserify": "^13.0.0",
     "eslint": "^2.4.0",
     "eslint-config-airbnb": "^6.1.0",
+    "event-stream": "^3.3.2",
+    "glob": "^7.0.3",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-imagemin": "^2.4.0",

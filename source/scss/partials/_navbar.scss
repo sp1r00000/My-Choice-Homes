@@ -18,7 +18,29 @@ div.mch-fixed-navbar {
     cursor: pointer;
   }
 
+  @keyframes slide-from-right {
+    from {
+      right: -100%;
+    }
+
+    to {
+      right: 0;
+    }
+  }
+
+  @keyframes slide-to-right {
+    from {
+      right: 0;
+    }
+
+    to {
+      right: -100%;
+    }
+  }
+
   nav.mch-navbar {
+    animation-duration: 0.01s;
+    animation-name: slide-to-right;
     position: fixed;
     top: 4rem;
     right: -100%;
@@ -29,6 +51,7 @@ div.mch-fixed-navbar {
     height: 100%;
 
     &.open {
+      animation-name: slide-from-right;
       right: 0;
     }
 

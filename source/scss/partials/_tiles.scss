@@ -44,6 +44,10 @@ section.tiles {
     }
   }
 
+  a, figure {
+    transition: .2s ease;
+  }
+
   figure, div {
     padding: 0;
     margin: 0;
@@ -51,6 +55,10 @@ section.tiles {
 
   figure img {
     filter: grayscale(100%);
+
+    &:hover {
+      filter: grayscale(0);
+    }
   }
 }
 

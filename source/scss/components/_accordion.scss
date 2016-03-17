@@ -44,6 +44,11 @@ div.accordion {
     max-height: 0;
     margin-bottom: 0.5rem;
     background-color: #e7e5d7;
+
+    a.btn {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   .accordion-content.open {

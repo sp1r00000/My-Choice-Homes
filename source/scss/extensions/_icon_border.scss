@@ -1,0 +1,17 @@
+.icon-xs-round {
+  ::before {
+    padding: 0.6rem;
+    margin-right: 0.5rem;
+    border: 0.15rem solid;
+    border-radius: 1.5rem;
+  }
+}
+
+.icon-md-round {
+  ::before {
+    padding: 1.2rem;
+    margin-top: 2rem;
+    border: 0.16rem solid;
+    border-radius: 2.4rem;
+  }
+}

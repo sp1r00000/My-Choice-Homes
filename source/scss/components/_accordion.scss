@@ -9,12 +9,7 @@ div.accordion {
     padding: 0.8rem 1rem;
     cursor: pointer;
 
-    span::before {
-      padding: 0.6rem;
-      margin-right: 0.5rem;
-      border: 0.15rem solid;
-      border-radius: 1.5rem;
-    }
+    @extend .icon-xs-round;
   }
 
   @keyframes slide-from-top {

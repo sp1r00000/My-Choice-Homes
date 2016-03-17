@@ -8,12 +8,14 @@ export function toggleNavbar() {
 
   body.addEventListener('click', event => {
     const nav = document.querySelector('nav.mch-navbar');
-    const icon = document.querySelector('[data-glyph="menu"]');
+    const icon = document.querySelector('.menu-icon');
 
     if (event.target === icon) {
+      icon.classList.toggle('open');
       nav.classList.toggle('open');
     } else {
       if (nav.classList.contains('open')) {
+        icon.classList.remove('open');
         nav.classList.remove('open');
       }
     }

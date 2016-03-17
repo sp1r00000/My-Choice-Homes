@@ -1,0 +1,24 @@
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+
+  .bar {
+    transition: all .2s ease;
+    height: 0.25rem;
+    width: 2.5rem;
+    background: #673147;
+    margin: 0.3rem auto;
+  }
+
+  &.open .top {
+    transform: translateY(0.7rem) rotateZ(45deg);
+  }
+
+  &.open .middle {
+    width: 0;
+  }
+
+  &.open .bottom {
+    transform: translateY(-1rem) rotateZ(-45deg);
+  }
+}

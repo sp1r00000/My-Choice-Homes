@@ -13,9 +13,9 @@ div.mch-fixed-navbar {
     max-height: 3rem;
   }
 
-  span {
-    color: $mauve;
-    cursor: pointer;
+  .menu-icon-container {
+    display: flex;
+    justify-content: flex-end;
   }
 
   @keyframes slide-from-right {

@@ -8,7 +8,7 @@ div.mch-fixed-navbar {
   width: 100%;
   height: 4rem;
 
-  img {
+  .mch-logo img {
     width: auto;
     max-height: 3rem;
   }
@@ -69,6 +69,23 @@ div.mch-fixed-navbar {
 
       &:hover {
         background-color: $mauve;
+      }
+    }
+  }
+}
+
+@media (min-width: 75em) {
+  div.mch-fixed-navbar {
+    align-items: flex-start;
+
+    .mch-logo {
+      padding-right: 0;
+
+      img {
+        width: 105%;
+        background-color: white;
+        padding: 3rem 2rem;
+        max-height: 100%;
       }
     }
   }

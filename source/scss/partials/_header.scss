@@ -10,3 +10,10 @@ header.mch-header {
     color: $mauve-light;
   }
 }
+
+@media (min-width: 75em) {
+  header.mch-header {
+    padding-top: 6%;
+    padding-bottom: 5%;
+  }
+}

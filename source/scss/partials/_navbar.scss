@@ -81,11 +81,55 @@ div.mch-fixed-navbar {
     .mch-logo {
       padding-right: 0;
 
+      &.animate img {
+        animation-name: logo-to;
+        width: auto;
+        max-height: 3rem;
+        padding: 0;
+      }
+
+      @keyframes logo-to {
+        0% {
+          width: 105%;
+          max-height: 100%;
+          padding: 3rem 2rem;
+        }
+
+        25% {
+          max-height: 3rem;
+        }
+
+        100% {
+          width: auto;
+          padding: 0;
+        }
+      }
+
+      @keyframes logo-from {
+        0% {
+          width: auto;
+          max-height: 3rem;
+          padding: 0;
+        }
+
+        25% {
+          padding: 3rem 2rem;
+        }
+
+        100% {
+          width: 105%;
+          max-height: 100%;
+          padding: 3rem 2rem;
+        }
+      }
+
       img {
+        animation-duration: .5s;
+        animation-name: logo-from;
         width: 105%;
-        background-color: white;
-        padding: 3rem 2rem;
         max-height: 100%;
+        padding: 3rem 2rem;
+        background-color: white;
       }
     }
   }

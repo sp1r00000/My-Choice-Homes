@@ -1,4 +1,5 @@
-import { toggleNavbar, navItem } from './global/navbar';
+import { toggleNav, navItem, navLogo } from './global/navbar';
 
-toggleNavbar();
+toggleNav();
 navItem();
+navLogo();

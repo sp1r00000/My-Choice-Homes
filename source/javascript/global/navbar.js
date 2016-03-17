@@ -3,7 +3,7 @@ import { forEach } from '../helpers/for-each';
 /**
  * open / close mobile menu
  */
-export function toggleNavbar() {
+export function toggleNav() {
   const body = document.body;
 
   body.addEventListener('click', event => {
@@ -34,4 +34,21 @@ export function navItem() {
   forEach(links, index => {
     links[index].style.height = `${height}px`;
   });
+}
+
+export function navLogo() {
+  const body = document.body;
+  const logo = document.querySelector('.mch-logo');
+
+  window.onscroll = function scroll() {
+    if (body.scrollTop > logo.clientHeight / 2) {
+      if (!logo.classList.contains('animate')) {
+        setTimeout(() => {
+          logo.classList.add('animate');
+        }, 10);
+      }
+    } else {
+      logo.classList.remove('animate');
+    }
+  };
 }

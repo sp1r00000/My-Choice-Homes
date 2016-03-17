@@ -15,9 +15,7 @@ export function scripts(done) {
   glob('source/javascript/pages/**/*.js', (err, files) => {
     if (err) done(err);
 
-    const global = 'source/javascript/global.js';
-
-    files.push(global);
+    files.push('source/javascript/global.js');
 
     const tasks = files.map(entry => {
       const fileName = entry.replace(/^.*[\\\/]/, '');

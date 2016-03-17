@@ -5,5 +5,5 @@ import rimraf from 'rimraf';
  * @param cb
  */
 export function clean(cb) {
-  rimraf('public', cb);
+  rimraf('public/assets', cb);
 }

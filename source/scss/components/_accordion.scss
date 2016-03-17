@@ -10,7 +10,29 @@ div.accordion {
     cursor: pointer;
   }
 
+  @keyframes slide-from-top {
+    from {
+      max-height: 0;
+    }
+
+    to {
+      max-height: 100%;
+    }
+  }
+
+  @keyframes slide-to-top {
+    from {
+      right: 0;
+    }
+
+    to {
+      right: -100%;
+    }
+  }
+
   .accordion-content {
+    animation-duration: .1s;
+    animation-name: slide-to-top;
     overflow: hidden;
     max-height: 0;
     margin-bottom: 0.5rem;
@@ -18,6 +40,7 @@ div.accordion {
   }
 
   .accordion-content.open {
+    animation-name: slide-from-top;
     padding: 1rem;
     margin-bottom: 0;
     max-height: 100%;

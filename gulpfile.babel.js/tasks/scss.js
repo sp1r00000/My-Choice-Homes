@@ -1,28 +1,19 @@
 import gulp from 'gulp';
-import gulpSass from 'gulp-sass';
+import sass from 'gulp-ruby-sass';
 import sourcemaps from 'gulp-sourcemaps';
-import autoprefixer from 'gulp-autoprefixer';
+import prefix from 'gulp-autoprefixer';
 
 /**
- * prefix css for older browsers
- * minify
- * log any errors if any
+ * prefix css
  * generate source maps
  */
 export function scss() {
-  return gulp.src([
+  return sass([
     'source/scss/app.scss',
     'source/iconic/scss/iconic-glyphs.scss',
     'bower_components/bootstrap/scss/bootstrap-flex.scss',
-  ])
-    .pipe(sourcemaps.init())
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false,
-    }))
-    .pipe(gulpSass.sync({
-      outputStyle: 'compressed',
-    }).on('error', gulpSass.logError))
-    .pipe(sourcemaps.write('./'))
+  ], { sourcemap: true, style: 'compact' })
+    .pipe(prefix('last 2 version'))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('public/assets/stylesheets'));
 }

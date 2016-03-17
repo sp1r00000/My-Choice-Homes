@@ -4,11 +4,19 @@ import { forEach } from '../helpers/for-each';
  * open / close mobile menu
  */
 export function toggleNavbar() {
-  const icon = document.querySelector('[data-glyph="menu"');
+  const body = document.body;
 
-  icon.addEventListener('click', () => {
-    const nav = document.querySelector('.mch-navbar');
-    nav.classList.toggle('open');
+  body.addEventListener('click', event => {
+    const nav = document.querySelector('nav.mch-navbar');
+    const icon = document.querySelector('[data-glyph="menu"]');
+
+    if (event.target === icon) {
+      nav.classList.toggle('open');
+    } else {
+      if (nav.classList.contains('open')) {
+        nav.classList.remove('open');
+      }
+    }
   });
 }
 

@@ -9,3 +9,34 @@
     }
   }
 }
+
+@media (min-width: 34em) {
+  .mch-services {
+    figure.mch-services-fig-a img {
+      bottom: 38vh;
+    }
+  }
+}
+
+@media (min-width: 62em) {
+  figure.mch-services-fig-a {
+    overflow: auto;
+    max-height: 100%;
+
+    img {
+      position: inherit;
+      bottom: 0;
+    }
+  }
+
+  figure.mch-services-fig-b {
+
+    img {
+      flex: 0 0 66.66667%;
+    }
+
+    figcaption {
+      flex: 0 0 33.33333%;
+    }
+  }
+}

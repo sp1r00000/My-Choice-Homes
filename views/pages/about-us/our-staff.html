@@ -1,1 +1,13 @@
-<h1>our staff</h1>
+<div class="container-fluid">
+  <div class="row">
+    {{#each staff}}
+    <figure class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      <img src="{{image}}" alt="{{name}}">
+      <figcaption>
+        <p>{{name}}</p>
+        <p>{{position}}</p>
+      </figcaption>
+    </figure>
+    {{/each}}
+  </div>
+</div>

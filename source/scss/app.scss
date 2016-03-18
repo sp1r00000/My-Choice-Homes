@@ -4,6 +4,7 @@
  * helpers
  */
 @import "helpers/colors";
+@import "helpers/variables";
 
 /**
  * extensions
@@ -33,7 +34,6 @@
 /**
  * views
  */
-@import "pages/about_us";
 @import "pages/activities";
 @import "pages/my_choice_school";
 @import "pages/referrals";

@@ -4,6 +4,46 @@ body {
   margin-top: 4rem;
 }
 
+h1, h2 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: $doubleSpace;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
 img {
   width: 100%;
+}
+
+figure {
+  margin: 0;
+
+  figcaption {
+    padding: $halfSpace;
+  }
+}
+
+blockquote {
+  border-left: 0.8rem solid #eee;
+  margin: $space 0 $space $space;
+}
+
+/**
+ * $mauve bg block with center
+ * aligned content
+ */
+.mch-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $mauve;
+  color: $white;
+  border-radius: 0.3rem;
 }

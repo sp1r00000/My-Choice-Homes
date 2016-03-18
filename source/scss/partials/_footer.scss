@@ -1,11 +1,12 @@
 footer.mch-footer {
   color: white;
   background-color: $teal;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: $space;
+  padding-bottom: $space;
+  margin-top: $space;
 
   h4 {
-    margin: 1rem 0;
+    margin: $space 0;
   }
 
   a {

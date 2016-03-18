@@ -61,7 +61,7 @@ div.mch-fixed-navbar {
       transition: .2s ease;
       display: flex;
       align-items: center;
-      padding: 0 1rem;
+      padding: 0 $space;
       color: $white;
       border-bottom: 0.1rem solid $mauve-lighter;
 
@@ -113,7 +113,7 @@ div.mch-fixed-navbar {
 
       a {
         display: inherit;
-        padding: 0 1rem;
+        padding: 0 $space;
         color: $teal;
         border-bottom: 0 none;
         height: 4rem !important;

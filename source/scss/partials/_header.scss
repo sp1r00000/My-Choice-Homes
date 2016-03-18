@@ -6,6 +6,10 @@ header.mch-header {
   background: url('/assets/images/header-bg.jpg') no-repeat scroll 0 0;
   background-size: cover;
 
+  h1 {
+    margin-bottom: $halfSpace;
+  }
+
   span {
     color: $mauve-light;
   }

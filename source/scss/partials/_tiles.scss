@@ -1,6 +1,6 @@
 section.tiles {
   padding: 0;
-  margin-bottom: 1rem;
+  margin-bottom: $space;
 
   &.mauve-bg a {
     background-color: $mauve;
@@ -25,14 +25,14 @@ section.tiles {
     justify-content: space-around;
     background-color: $dark;
     color: $white;
-    padding: 0.5rem;
+    padding: $halfSpace;
     font-size: 0.8rem;
     font-weight: 300;
 
     @extend .icon-md-round;
 
     h4 {
-      margin-bottom: 1rem;
+      margin-bottom: $space;
     }
   }
 
@@ -71,6 +71,6 @@ section.tiles {
 
 @media only screen and (min-width: 34em) {
   section.tiles {
-    padding: 0 0.9375rem;
+    padding: 0 $space;
   }
 }

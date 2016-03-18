@@ -1,7 +1,7 @@
 div.mch-copyright {
     color: $white;
     background-color: $dark;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-top: 0.8rem solid $darker;
+    padding-top: $space;
+    padding-bottom: $space;
+    border-top: $space solid $darker;
 }

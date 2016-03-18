@@ -1,0 +1,25 @@
+.mch-contact-us {
+  figure.mch-fig-a {
+    overflow: hidden;
+    max-height: 30vh;
+
+    img {
+      position: relative;
+      bottom: 15vh;
+    }
+  }
+}
+
+@media (min-width: 34em) {
+  .mch-contact-us {
+    figure.mch-fig-a {
+      overflow: auto;
+      max-height: 100%;
+
+      img {
+        position: inherit;
+        bottom: 0;
+      }
+    }
+  }
+}

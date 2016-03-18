@@ -1,0 +1,48 @@
+.mch-my-choice-school {
+  figure.mch-fig-a {
+    overflow: hidden;
+    max-height: 40vh;
+
+    img {
+      position: relative;
+      bottom: 15vh;
+    }
+  }
+
+  figure.mch-fig-b {
+    overflow: hidden;
+    max-height: 40vh;
+  }
+
+  figure.mch-fig-c {
+    overflow: hidden;
+    max-height: 40vh;
+
+    img {
+      position: relative;
+      bottom: 5vh;
+    }
+  }
+}
+
+@media (min-width: 34em) {
+  .mch-my-choice-school {
+    figure.mch-fig-a img, figure.mch-fig-b img {
+      bottom: 25vh;
+    }
+  }
+}
+
+@media (min-width: 48em) {
+  .mch-my-choice-school {
+    figure.mch-fig-a, figure.mch-fig-b, figure.mch-fig-c {
+      overflow: auto;
+      max-height: 100%;
+
+      img {
+        position: inherit;
+        bottom: 0;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 .mch-services {
-  figure.mch-services-fig-a {
+  figure.mch-fig-a {
     overflow: hidden;
     max-height: 50vh;
 
@@ -12,15 +12,15 @@
 
 @media (min-width: 34em) {
   .mch-services {
-    figure.mch-services-fig-a img {
+    figure.mch-fig-a img {
       bottom: 38vh;
     }
   }
 }
 
-@media (min-width: 62em) {
+@media (min-width: 48em) {
   .mch-services {
-    figure.mch-services-fig-a {
+    figure.mch-fig-a {
       overflow: auto;
       max-height: 100%;
 
@@ -29,8 +29,12 @@
         bottom: 0;
       }
     }
+  }
+}
 
-    figure.mch-services-fig-b {
+@media (min-width: 62em) {
+  .mch-services {
+    figure.mch-fig-b {
 
       img {
         flex: 0 0 66.66667%;

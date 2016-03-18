@@ -1,10 +1,10 @@
 .mch-referrals {
-  figure.mch-referrals-fig-a {
+  figure.mch-fig-a {
     overflow: hidden;
     max-height: 50vh;
   }
 
-  figure.mch-referrals-fig-b {
+  figure.mch-fig-b {
     overflow: hidden;
     max-height: 50vh;
 
@@ -17,12 +17,12 @@
 
 @media (min-width: 48em) {
   .mch-referrals {
-    figure.mch-referrals-fig-a {
+    figure.mch-fig-a {
       overflow: auto;
       max-height: 100%;
     }
 
-    figure.mch-referrals-fig-b {
+    figure.mch-fig-b {
       overflow: auto;
       max-height: 100%;
 

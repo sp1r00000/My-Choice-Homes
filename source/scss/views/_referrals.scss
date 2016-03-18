@@ -1,0 +1,35 @@
+.mch-referrals {
+  figure.mch-referrals-fig-a {
+    overflow: hidden;
+    max-height: 50vh;
+  }
+
+  figure.mch-referrals-fig-b {
+    overflow: hidden;
+    max-height: 50vh;
+
+    img {
+      position: relative;
+      bottom: 13vh;
+    }
+  }
+}
+
+@media (min-width: 48em) {
+  .mch-referrals {
+    figure.mch-referrals-fig-a {
+      overflow: auto;
+      max-height: 100%;
+    }
+
+    figure.mch-referrals-fig-b {
+      overflow: auto;
+      max-height: 100%;
+
+      img {
+        position: inherit;
+        bottom: 0;
+      }
+    }
+  }
+}

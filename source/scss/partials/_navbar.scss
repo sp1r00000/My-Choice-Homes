@@ -132,5 +132,37 @@ div.mch-fixed-navbar {
         background-color: white;
       }
     }
+
+    .menu-icon-container {
+      position: absolute;
+      right: -100%;
+    }
+
+    nav.mch-navbar {
+      position: relative;
+      top: 0;
+      right: 0;
+      display: flex;
+      background-color: $white;
+      width: auto;
+      height: auto;
+      flex-direction: row;
+
+      a {
+        display: inherit;
+        padding: 0 1rem;
+        color: $teal;
+        border-bottom: 0 none;
+        height: 4rem !important;
+
+        &:hover {
+          background-color: $white;
+        }
+
+        &:nth-child(10), &:nth-child(11) {
+          display: none;
+        }
+      }
+    }
   }
 }

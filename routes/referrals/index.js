@@ -1,3 +1,5 @@
+const data = require('../../tmp-data/referrals');
+
 /**
  * route configuration for
  * referrals page
@@ -8,7 +10,7 @@ module.exports = function referrals(server) {
     method: 'GET',
     path: '/referrals',
     handler: (request, reply) => {
-      reply.view('pages/referrals/referrals');
+      reply.view('pages/referrals/referrals', data);
     },
   });
 };

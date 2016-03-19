@@ -1,4 +1,4 @@
-const homeData = require('../../tmp-data/home');
+const data = require('../../tmp-data/home');
 
 /**
  * route configuration for
@@ -10,7 +10,7 @@ module.exports = function home(server) {
     method: 'GET',
     path: '/',
     handler: (request, reply) => {
-      reply.view('pages/home/home', homeData);
+      reply.view('pages/home/home', data);
     },
   });
 };

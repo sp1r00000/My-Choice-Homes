@@ -1,3 +1,5 @@
+const data = require('../../tmp-data/services');
+
 const keyworkSupport = require('./keywork-support');
 
 /**
@@ -10,7 +12,7 @@ module.exports = function services(server) {
     method: 'GET',
     path: '/services',
     handler: (request, reply) => {
-      reply.view('pages/services/services');
+      reply.view('pages/services/services', data);
     },
   });
 

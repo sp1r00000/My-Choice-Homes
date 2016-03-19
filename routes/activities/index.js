@@ -1,3 +1,5 @@
+const data = require('../../tmp-data/activities');
+
 /**
  * route configuration for
  * activities page
@@ -8,7 +10,7 @@ module.exports = function activities(server) {
     method: 'GET',
     path: '/activities',
     handler: (request, reply) => {
-      reply.view('pages/activities/activities');
+      reply.view('pages/activities/activities', data);
     },
   });
 };

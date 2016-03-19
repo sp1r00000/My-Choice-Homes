@@ -1,3 +1,5 @@
+const data = require('../../tmp-data/our-homes');
+
 const ivyCottage = require('./ivy-cottage');
 const kestralHouse = require('./kestral-house');
 const kingfisherView = require('./kingfisher-view');
@@ -16,7 +18,7 @@ module.exports = function ourHomes(server) {
     method: 'GET',
     path: '/our-homes',
     handler: (request, reply) => {
-      reply.view('pages/our-homes/our-homes');
+      reply.view('pages/our-homes/our-homes', data);
     },
   });
 

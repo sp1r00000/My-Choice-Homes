@@ -3,7 +3,7 @@ module.exports = {
   header: {
     title: 'Contact us',
     subtitle: {
-      first: 'At My Choice Head Office for',
+      first: 'at My Choice Head Office for',
       second: 'Referrals, Careers, My Choice School and our Accounts Department',
     },
   },

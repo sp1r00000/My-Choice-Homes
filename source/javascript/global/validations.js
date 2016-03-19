@@ -88,7 +88,7 @@ export default {
   /**
    * validates email field
    * @param event
-   * @param element
+   * @param element (field)
    */
   emailField(event, element) {
     event.preventDefault();
@@ -109,6 +109,7 @@ export default {
   /**
    * watch field for key up changes
    * remove danger class
+   * remove error message
    * @param element (field)
    */
   watchField(element) {

@@ -1,5 +1,5 @@
-import validations from '../global/validations';
 import helpers from '../helpers';
+import validations from '../global/validations';
 
 const contactForm = function contactForm() {
   const form = document.forms.contact;

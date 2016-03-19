@@ -1,0 +1,12 @@
+span.mch-error {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: $space;
+  height: 2.2rem;
+  padding: 0 $space;
+  margin-top: 0.4rem;
+  color: $white;
+  background-color: $teal-light;
+  border-radius: 0.3rem;
+}

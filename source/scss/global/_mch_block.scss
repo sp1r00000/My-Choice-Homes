@@ -1,0 +1,19 @@
+/**
+ * $mauve bg block with center
+ * aligned content
+ */
+.mch-pre-block {
+  display: flex;
+
+  .mch-block {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    background-color: $mauve;
+    color: $white;
+    border-radius: 0.3rem;
+    padding: $space;
+    margin-bottom: $space;
+  }
+}

@@ -1,14 +1,16 @@
 /**
  * accordion
  */
-export function accordion() {
-  const acc = document.querySelector('.accordion');
+export default {
+  accordion() {
+    const acc = document.querySelector('.accordion');
 
-  acc.addEventListener('click', event => {
-    const target = event.target;
+    acc.addEventListener('click', event => {
+      const target = event.target;
 
-    if (target.className === 'accordion-title') {
-      target.nextElementSibling.classList.toggle('open');
-    }
-  });
-}
+      if (target.className === 'accordion-title') {
+        target.nextElementSibling.classList.toggle('open');
+      }
+    });
+  },
+};

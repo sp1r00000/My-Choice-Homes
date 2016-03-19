@@ -1,5 +1,4 @@
 module.exports = {
-  bundle: 'about-us',
   header: {
     title: 'About us',
     subtitle: {

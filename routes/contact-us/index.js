@@ -1,3 +1,5 @@
+const contactUsData = require('../../tmp-data/contact-us');
+
 /**
  * route configuration for
  * contact-us page
@@ -8,7 +10,7 @@ module.exports = function contactUs(server) {
     method: 'GET',
     path: '/contact-us',
     handler: (request, reply) => {
-      reply.view('pages/contact-us/contact-us');
+      reply.view('pages/contact-us/contact-us', contactUsData);
     },
   });
 };

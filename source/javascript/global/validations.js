@@ -3,9 +3,8 @@
  * @param element (form-group)
  */
 export function addDangerClass(element) {
-  if (!element.classList.contains('has-danger')) {
-    element.classList.add('has-danger');
-  }
+  const hasDanger = element.classList.contains('has-danger');
+  if (!hasDanger) element.classList.add('has-danger');
 }
 
 /**
@@ -13,21 +12,21 @@ export function addDangerClass(element) {
  * @param element (form-group)
  */
 export function removeDangerClass(element) {
-  if (element.classList.contains('has-danger')) {
-    element.classList.remove('has-danger');
-  }
+  const hasDanger = element.classList.contains('has-danger');
+  if (hasDanger) element.classList.remove('has-danger');
 }
 
 /**
- * display custom error message
- * @param element (form-group)
+ * display error message
+ * @param element (field)
  * @param message
  */
 export function displayMessage(element, message) {
   const parent = element.parentElement;
-  const hasDanger = element.classList.contains('has-danger');
+  const last = parent.lastElementChild;
+  const hasMessage = last.classList.contains('mch-error');
 
-  if (!hasDanger) {
+  if (!hasMessage) {
     const tag = document.createElement('span');
     const text = document.createTextNode(message);
 
@@ -39,6 +38,7 @@ export function displayMessage(element, message) {
 }
 
 /**
+ * remove error message
  * @param element (form-group)
  */
 export function removeMessage(element) {
@@ -50,20 +50,22 @@ export function removeMessage(element) {
 
 export default {
   /**
-   * validates a name field
+   * validates name field
    * @param event
-   * @param name
+   * @param element (field)
    * @returns {boolean}
    */
-  nameField(event, name) {
+  nameField(event, element) {
+    const value = element.value;
+
     /**
      * error if no value entered
      */
-    if (name.value === null || name.value === '') {
+    if (value === null || value === '') {
       event.preventDefault();
 
-      addDangerClass(name.parentElement);
-      displayMessage(name, 'Please enter your name');
+      addDangerClass(element.parentElement);
+      displayMessage(element, 'Please enter your name');
 
       return false;
     }
@@ -71,11 +73,32 @@ export default {
     /**
      * error if value too short
      */
-    if (name.value.length < 3) {
+    if (value.length < 3) {
       event.preventDefault();
 
-      addDangerClass(name.parentElement);
-      displayMessage(name, 'Please enter at least 3 characters');
+      addDangerClass(element.parentElement);
+      displayMessage(element, 'Please enter at least 3 characters');
+
+      return false;
+    }
+
+    return true;
+  },
+
+  /**
+   * validates email field
+   * @param event
+   * @param element
+   */
+  emailField(event, element) {
+    event.preventDefault();
+
+    const value = element.value;
+    const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (!pattern.test(value)) {
+      addDangerClass(element.parentElement);
+      displayMessage(element, 'Please enter a valid email');
 
       return false;
     }

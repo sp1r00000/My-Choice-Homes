@@ -6,6 +6,7 @@ const contactForm = function contactForm() {
 
   form.onsubmit = function submit(event) {
     validations.nameField(event, form.name);
+    validations.emailField(event, form.email);
   };
 
   helpers.forEach(form.elements, (index, item) => {

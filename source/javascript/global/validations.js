@@ -25,8 +25,9 @@ export function removeDangerClass(element) {
  */
 export function displayMessage(element, message) {
   const parent = element.parentElement;
+  const hasDanger = element.classList.contains('has-danger');
 
-  if (!parent.getElementsByTagName('span').length) {
+  if (!hasDanger) {
     const tag = document.createElement('span');
     const text = document.createTextNode(message);
 
@@ -36,6 +37,16 @@ export function displayMessage(element, message) {
     parent.appendChild(tag);
   }
 }
+
+/**
+ * @param element (form-group)
+ */
+/*
+export function removeDisplayMessage(element) {
+  console.log('element', element);
+  element.removeChild(element.querySelector('.mch-error'));
+}
+*/
 
 export default {
   /**
@@ -80,6 +91,7 @@ export default {
   watchField(element) {
     element.addEventListener('keyup', () => {
       removeDangerClass(element.parentElement);
+      // removeDisplayMessage(element.parentElement);
     });
   },
 };

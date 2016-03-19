@@ -1,35 +1,24 @@
 div.accordion {
   padding: 0;
-  margin-bottom: 1rem;
 
   .accordion-title {
     margin: 0;
     background-color: $dark;
     color: white;
-    padding: 0.8rem 1rem;
+    padding: $space;
     cursor: pointer;
 
     @extend .icon-xs-round;
   }
 
   @keyframes slide-from-top {
-    from {
-      max-height: 0;
-    }
-
-    to {
-      max-height: 100%;
-    }
+    from { max-height: 0; }
+    to   { max-height: 100%; }
   }
 
   @keyframes slide-to-top {
-    from {
-      right: 0;
-    }
-
-    to {
-      right: -100%;
-    }
+    from { right: 0; }
+    to   { right: -100%; }
   }
 
   .accordion-content {
@@ -37,7 +26,7 @@ div.accordion {
     animation-name: slide-to-top;
     overflow: hidden;
     max-height: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: $halfSpace;
     background-color: #e7e5d7;
 
     a.btn {
@@ -48,7 +37,7 @@ div.accordion {
 
   .accordion-content.open {
     animation-name: slide-from-top;
-    padding: 1rem;
+    padding: $space;
     margin-bottom: 0;
     max-height: 100%;
   }
@@ -56,6 +45,6 @@ div.accordion {
 
 @media only screen and (min-width: 34em) {
   div.accordion {
-    padding: 0 0.9375rem;
+    padding: 0 $space;
   }
 }

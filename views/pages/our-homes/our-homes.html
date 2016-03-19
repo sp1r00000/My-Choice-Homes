@@ -1,19 +1,18 @@
 <div class="container mch-our-homes">
   <div class="row">
-    <div class="col-xs-12">
 
-      {{#each homes}}
-      <a href="#" class="row">
-        <figure class="col-xs-3">
-          <img class="img-thumbnail" src="{{thumbnail}}" alt="{{home}}">
-        </figure>
-        <div class="col-xs-9">
-          <h4>{{home}}</h4>
-          {{shortDescription}}
-        </div>
-      </a>
-      {{/each}}
-
+    {{#each homes}}
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+      <figure class="thumbnail">
+        <img src="http://placehold.it/500x300" alt="{{home}}">
+        <figcaption class="caption">
+          <h3>{{home}}</h3>
+          <p>{{description}}</p>
+          <a href="#" class="">view home</a>
+        </figcaption>
+      </figure>
     </div>
+    {{/each}}
+
   </div>
 </div>

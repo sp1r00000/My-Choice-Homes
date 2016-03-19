@@ -1,5 +1,6 @@
 module.exports = {
   bundle: 'home',
+  headerClass: 'mch-home-header',
   tiles: [
     {
       title: 'Our Services',

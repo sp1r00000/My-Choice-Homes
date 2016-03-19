@@ -41,12 +41,12 @@ export function displayMessage(element, message) {
 /**
  * @param element (form-group)
  */
-/*
-export function removeDisplayMessage(element) {
-  console.log('element', element);
-  element.removeChild(element.querySelector('.mch-error'));
+export function removeMessage(element) {
+  const last = element.lastElementChild;
+  const hasError = last.classList.contains('mch-error');
+
+  if (hasError) element.removeChild(last);
 }
-*/
 
 export default {
   /**
@@ -91,7 +91,7 @@ export default {
   watchField(element) {
     element.addEventListener('keyup', () => {
       removeDangerClass(element.parentElement);
-      // removeDisplayMessage(element.parentElement);
+      removeMessage(element.parentElement);
     });
   },
 };

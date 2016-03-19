@@ -1,5 +1,19 @@
-<div class="container">
+<div class="container mch-our-homes">
   <div class="row">
+    <div class="col-xs-12">
 
+      {{#each homes}}
+      <a href="#" class="row">
+        <figure class="col-xs-3">
+          <img class="img-thumbnail" src="{{thumbnail}}" alt="{{home}}">
+        </figure>
+        <div class="col-xs-9">
+          <h4>{{home}}</h4>
+          {{shortDescription}}
+        </div>
+      </a>
+      {{/each}}
+
+    </div>
   </div>
 </div>

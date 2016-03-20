@@ -1,3 +1,19 @@
 .mch-our-homes {
+  .display-flex {
+    display: flex;
 
+    figure.card {
+      flex: 1;
+    }
+
+    figcaption {
+      &.card-block {
+        padding-bottom: 3rem;
+      }
+      a.btn-primary-outline {
+        position: absolute;
+        bottom: $space;
+      }
+    }
+  }
 }

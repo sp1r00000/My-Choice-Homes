@@ -2,15 +2,17 @@
   <div class="row">
 
     {{#each homes}}
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <figure class="thumbnail">
-        <img class="img-thumbnail" src="{{thumbnail}}" alt="{{home}}">
-        <figcaption class="caption">
-          <h3>{{home}}</h3>
-          <p>{{limitTo description 290}}</p>
-          <a href="{{href}}">view home</a>
+    <div class="col-xs-12 col-md-6 col-lg-4 display-flex">
+      <figure class="card">
+        <img class="card-img-top" src="{{thumbnail}}" alt="{{home}}">
+        <figcaption class="card-block">
+          <h4 class="card-title">{{home}}</h4>
+          <p class="card-text"><small class="text-muted">{{location}}</small></p>
+          <p class="card-text">{{limitTo description 290}}</p>
+          <a class="btn btn-primary-outline btn-sm" href="{{href}}">view home</a>
         </figcaption>
       </figure>
+
     </div>
     {{/each}}
 

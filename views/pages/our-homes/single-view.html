@@ -1,1 +1,22 @@
-<h1>{{home}}</h1>
+<div class="container">
+  <div class="row">
+    <figure class="col-xs-12 col-lg-8 col-lg-push-4">
+      <img class="img-thumbnail" src="{{image}}" alt="{{home}}">
+      <div class="row">
+        {{#each images}}
+        <figure class="col-xs-6 col-md-3 col-lg-6">
+          <img class="img-thumbnail" src="{{this}}" alt="{{home}}">
+        </figure>
+        {{/each}}
+      </div>
+    </figure>
+
+    <div class="col-xs-12 col-lg-4 col-lg-pull-8">
+      <h3>The House</h3>
+      <p>{{description}}</p>
+
+      <h4>Facilities</h4>
+      <p>{{facilities}}</p>
+    </div>
+  </div>
+</div>

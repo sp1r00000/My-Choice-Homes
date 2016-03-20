@@ -6,14 +6,18 @@ header.mch-header {
   background-color: $mauve;
 
   &.mch-home-header {
-    background: url('/assets/images/header-bg.jpg') no-repeat scroll 0 0;
+    background: url('/assets/images/mch-header.jpeg') no-repeat scroll 0 0;
     background-size: cover;
 
     span {
       padding: 0;
-      color: $mauve-lighter;
+      color: $mauve-light;
       background-color: transparent;
     }
+  }
+
+  h1, h2 {
+    text-shadow: 0 0 0.2rem #363c4c;
   }
 
   h2 {
@@ -25,6 +29,7 @@ header.mch-header {
   span {
     padding: $halfSpace;
     background-color: $teal-light;
+    text-shadow: none;
   }
 }
 

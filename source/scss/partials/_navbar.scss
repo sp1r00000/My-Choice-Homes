@@ -20,23 +20,13 @@ div.mch-fixed-navbar {
   }
 
   @keyframes slide-from-right {
-    from {
-      right: -100%;
-    }
-
-    to {
-      right: 0;
-    }
+    from { right: -100%; }
+    to { right: 0; }
   }
 
   @keyframes slide-to-right {
-    from {
-      right: 0;
-    }
-
-    to {
-      right: -100%;
-    }
+    from { right: 0; }
+    to { right: -100%; }
   }
 
   nav.mch-navbar {
@@ -64,6 +54,7 @@ div.mch-fixed-navbar {
       padding: 0 $space;
       color: $white;
       border-bottom: 0.1rem solid $mauve-lighter;
+      text-decoration: none;
 
       &:last-child {
         border-bottom: 0 none;

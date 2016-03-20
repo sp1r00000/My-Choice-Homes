@@ -17,10 +17,14 @@ h2 {
   margin-bottom: $doubleSpace;
 }
 
-section h3 {
+section h2, h3 {
   padding-bottom: $halfSpace;
   margin-bottom: $space;
-  border-bottom: 0.2rem solid $mauve;
+  border-bottom: 0.2rem solid $mauve-lighter;
+}
+
+h4 a {
+  text-decoration: none;
 }
 
 a {
@@ -30,10 +34,6 @@ a {
   &:hover {
     color: $mauve;
   }
-}
-
-a.no-underline, a.btn {
-  text-decoration: none;
 }
 
 img {
@@ -52,4 +52,8 @@ blockquote {
   border-left: $halfSpace solid #eee;
   padding: 0 $space;
   margin: $space 0 $space 0;
+}
+
+hr {
+  margin: $doubleSpace 0;
 }

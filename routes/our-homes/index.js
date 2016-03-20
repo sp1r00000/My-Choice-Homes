@@ -1,4 +1,4 @@
-const singleView = require('./single-view');
+const singleView = require('./single-home');
 
 /**
  * route configuration for

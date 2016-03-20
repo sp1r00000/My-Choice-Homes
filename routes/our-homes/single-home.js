@@ -9,7 +9,7 @@ module.exports = function ivyCottage(server) {
     path: '/our-homes/{home}',
     handler: (request, reply) => {
       const data = require(`../../tmp-data/our-homes/${request.params.home}`);
-      reply.view('pages/our-homes/single-view', data);
+      reply.view('pages/our-homes/single-home', data);
     },
   });
 };

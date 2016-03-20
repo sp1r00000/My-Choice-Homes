@@ -6,9 +6,10 @@
 module.exports = function ivyCottage(server) {
   server.route({
     method: 'GET',
-    path: '/our-homes/ivy-cottage',
+    path: '/our-homes/{home}',
     handler: (request, reply) => {
-      reply.view('pages/our-homes/ivy-cottage');
+      const data = require(`../../tmp-data/our-homes/${request.params.home}`);
+      reply.view('pages/our-homes/single-view', data);
     },
   });
 };

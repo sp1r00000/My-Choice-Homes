@@ -23,12 +23,31 @@
       bottom: 5vh;
     }
   }
+
+  figure.mch-fig-e {
+    margin-bottom: 0;
+    margin-top: 1rem;
+  }
 }
 
 @media (min-width: 34em) {
   .mch-my-choice-school {
     figure.mch-fig-a img, figure.mch-fig-b img {
       bottom: 25vh;
+    }
+
+    figure.mch-fig-d {
+      padding-right: $halfSpace;
+      margin-bottom: 0;
+    }
+
+    .mch-pre-block {
+      padding: 0 $halfSpace;
+    }
+
+    figure.mch-fig-e {
+      padding-left: $halfSpace;
+      margin-top: 0;
     }
   }
 }

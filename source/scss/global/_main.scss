@@ -21,6 +21,10 @@ img {
   width: 100%;
 }
 
+figure {
+  margin: 0 0 $space;
+}
+
 figcaption {
   padding: $halfSpace;
 }

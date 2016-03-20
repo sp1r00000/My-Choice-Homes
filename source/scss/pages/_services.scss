@@ -1,4 +1,5 @@
 .mch-services {
+
   figure.mch-fig-a {
     overflow: hidden;
     max-height: 50vh;
@@ -28,6 +29,11 @@
         position: inherit;
         bottom: 0;
       }
+    }
+
+    figure.mch-fig-b {
+      padding-left: 0;
+      margin-bottom: 0;
     }
   }
 }

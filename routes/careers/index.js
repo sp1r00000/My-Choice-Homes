@@ -1,5 +1,3 @@
-const data = require('../../tmp-data/careers');
-
 const casualWorker = require('./casual-worker');
 const supportWorker = require('./support-worker');
 
@@ -13,6 +11,7 @@ module.exports = function careers(server) {
     method: 'GET',
     path: '/careers',
     handler: (request, reply) => {
+      const data = require('../../tmp-data/careers');
       reply.view('pages/careers/careers', data);
     },
   });

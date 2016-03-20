@@ -1,5 +1,3 @@
-const data = require('../../tmp-data/our-homes');
-
 const singleView = require('./single-view');
 
 /**
@@ -12,6 +10,7 @@ module.exports = function ourHomes(server) {
     method: 'GET',
     path: '/our-homes',
     handler: (request, reply) => {
+      const data = require('../../tmp-data/our-homes');
       reply.view('pages/our-homes/our-homes', data);
     },
   });

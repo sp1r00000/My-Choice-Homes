@@ -1,5 +1,3 @@
-const data = require('../../tmp-data/my-choice-school');
-
 /**
  * route configuration for
  * my-choice-school page
@@ -10,6 +8,7 @@ module.exports = function myChoiceSchool(server) {
     method: 'GET',
     path: '/my-choice-school',
     handler: (request, reply) => {
+      const data = require('../../tmp-data/my-choice-school');
       reply.view('pages/my-choice-school/my-choice-school', data);
     },
   });

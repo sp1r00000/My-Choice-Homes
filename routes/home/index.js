@@ -1,5 +1,3 @@
-const data = require('../../tmp-data/home');
-
 /**
  * route configuration for
  * home page
@@ -10,6 +8,7 @@ module.exports = function home(server) {
     method: 'GET',
     path: '/',
     handler: (request, reply) => {
+      const data = require('../../tmp-data/home');
       reply.view('pages/home/home', data);
     },
   });

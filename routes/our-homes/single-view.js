@@ -1,6 +1,6 @@
 /**
  * route configuration for
- * our-homes/ivy-cottage page
+ * our-homes/{home} page
  * @param server
  */
 module.exports = function ivyCottage(server) {

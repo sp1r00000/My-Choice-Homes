@@ -20,11 +20,20 @@ h2 {
 section h3 {
   padding-bottom: $halfSpace;
   margin-bottom: $space;
-  border-bottom: 0.2rem solid $teal;
+  border-bottom: 0.2rem solid $mauve;
 }
 
 a {
+  color: $mauve-lighter;
   text-decoration: underline;
+
+  &:hover {
+    color: $mauve;
+  }
+}
+
+a.no-underline, a.btn {
+  text-decoration: none;
 }
 
 img {

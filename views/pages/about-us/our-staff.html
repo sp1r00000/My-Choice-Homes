@@ -1,13 +1,15 @@
-<div class="container">
+<div class="container our-staff">
   <div class="row">
     {{#each staff}}
-    <figure class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-      <img src="{{image}}" alt="{{name}}">
-      <figcaption>
-        <p>{{name}}</p>
-        <p>{{position}}</p>
-      </figcaption>
-    </figure>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 display-flex">
+      <figure class="card">
+        <img class="card-img-top" src="{{image}}" alt="{{name}}">
+        <figcaption class="card-block">
+          <h4 class="card-title">{{name}}</h4>
+          <p class="card-text">{{position}}</p>
+        </figcaption>
+      </figure>
+    </div>
     {{/each}}
   </div>
 </div>

@@ -1,0 +1,31 @@
+.our-staff {
+  .display-flex {
+    display: flex;
+
+    figure.card {
+      flex: 1;
+    }
+  }
+}
+
+@media (min-width: 34em) {
+  .our-staff .display-flex {
+    &:nth-child(odd) {
+      padding-right: $halfSpace;
+    }
+    &:nth-child(even) {
+      padding-left: $halfSpace;
+    }
+  }
+}
+
+@media (min-width: 48em) {
+  .our-staff .display-flex {
+    &:nth-child(odd) {
+      padding-right: $space;
+    }
+    &:nth-child(even) {
+      padding-left: $space;
+    }
+  }
+}

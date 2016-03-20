@@ -10,18 +10,28 @@ h1, h2 {
 
 h1 {
   font-size: 2.2rem;
-  margin-bottom: $doubleSpace;
 }
 
 h2 {
   font-size: 1.8rem;
+  margin-bottom: $doubleSpace;
+}
+
+section h3 {
+  padding-bottom: $halfSpace;
+  margin-bottom: $space;
+  border-bottom: 0.2rem solid $teal;
+}
+
+a {
+  text-decoration: underline;
 }
 
 img {
   width: 100%;
 }
 
-figure {
+figure, .card {
   margin: 0 0 $space;
 }
 
@@ -30,7 +40,7 @@ figcaption {
 }
 
 blockquote {
-  border-left: 0.8rem solid #eee;
-  padding-left: $space;
-  margin: $space 0 $space $space;
+  border-left: $halfSpace solid #eee;
+  padding: 0 $space;
+  margin: $space 0 $space 0;
 }

@@ -8,7 +8,8 @@ module.exports = function services(server) {
     method: 'GET',
     path: '/services/keywork-support',
     handler: (request, reply) => {
-      reply.view('pages/services/keywork-support');
+      const data = require('../../tmp-data/services/keywork-support');
+      reply.view('pages/services/keywork-support', data);
     },
   });
 };

@@ -17,16 +17,16 @@ module.exports = {
           href: '/about-us',
         },
         {
-          title: 'Key Working',
-          image: '/assets/images/home/key-working.jpg',
+          title: 'Support',
+          image: '/assets/images/home/support.jpg',
           alt: 'key working',
-          href: '/key-working',
+          href: '/services',
         },
         {
-          title: 'Key Support',
-          image: '/assets/images/home/key-support.jpg',
+          title: 'Key Working',
+          image: '/assets/images/home/key-working.jpg',
           alt: 'ket support',
-          href: '/key-support',
+          href: '/services/keywork-support',
         },
         {
           title: 'Activities',

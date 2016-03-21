@@ -1,25 +1,41 @@
 <div class="container mch-single-home">
   <div class="row">
-
-    <figure class="col-xs-12 col-lg-6 col-lg-push-4 mch-fig-a">
-      <img class="img-thumbnail" src="{{image}}" alt="{{home}}">
-
+    <div class="col-xs-12 col-lg-9">
       <div class="row">
-        {{#each images}}
-        <figure class="col-xs-6 col-md-3 col-lg-6 mch-fig-b">
-          <img class="img-thumbnail" src="{{this}}" alt="{{home}}">
+        <figure class="col-xs-12 col-lg-8 col-lg-push-4 mch-fig-a">
+          <img class="img-thumbnail" src="{{image}}" alt="{{home}}">
+          <div class="row">
+            {{#each images}}
+            <figure class="col-xs-6 col-md-3 col-lg-6 mch-fig-b">
+              <img class="img-thumbnail" src="{{this}}" alt="{{home}}">
+            </figure>
+            {{/each}}
+          </div>
         </figure>
-        {{/each}}
-      </div>
-    </figure>
 
-    <div class="col-xs-12 col-lg-4 col-lg-pull-6">
-      <h3>The House</h3>
-      <p>{{description}}</p>
-      <p><a href="#">View gallery</a></p>
-      <hr>
-      <h4>Facilities</h4>
-      <p>{{facilities}}</p>
+        <div class="col-xs-12 col-lg-4 col-lg-pull-8">
+          <h3>The House</h3>
+          <p>{{description}}</p>
+          <p><a href="#">View gallery</a></p>
+          <hr>
+          <h4>Facilities</h4>
+          <p>{{facilities}}</p>
+        </div>
+      </div>
     </div>
+
+    <aside class="col-xs-12 col-lg-3">
+        <h3>Links</h3>
+        <nav class="mch-links">
+          <a href="/our-homes/ivy-cottage">Ivy Cottage</a>
+          <a href="/our-homes/kestral-house">Kestral House</a>
+          <a href="/our-homes/kingfisher-view">Kingfisher View</a>
+          <a href="/our-homes/maple-house">Maple House</a>
+          <a href="/our-homes/oak-house">Oak House</a>
+          <a href="/our-homes/ocean-pearl">Ocean Pearl</a>
+          <a href="/our-homes/osprey-house">Osprey House</a>
+          <a href="/our-homes/pebble-house">Pebble House</a>
+        </nav>
+    </aside>
   </div>
 </div>

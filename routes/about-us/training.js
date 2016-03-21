@@ -8,7 +8,8 @@ module.exports = function training(server) {
     method: 'GET',
     path: '/about-us/training',
     handler: (request, reply) => {
-      reply.view('pages/about-us/training');
+      const data = require('../../tmp-data/about-us/training');
+      reply.view('pages/about-us/training', data);
     },
   });
 };

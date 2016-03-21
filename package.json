@@ -49,6 +49,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "cheerio": "^0.20.0",
     "good": "^6.6.0",
     "good-console": "^5.3.1",
     "handlebars": "^4.0.5",
@@ -56,6 +57,7 @@
     "hapi-mongodb": "^6.0.0",
     "hapi-prerender": "^1.0.0",
     "inert": "^3.2.0",
+    "request": "^2.69.0",
     "vision": "^4.0.1"
   }
 }

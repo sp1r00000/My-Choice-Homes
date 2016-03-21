@@ -1,7 +1,5 @@
 'use strict';
 
-// run node scripts/careers.js
-
 const request = require('request');
 const cheerio = require('cheerio');
 const fs = require('fs');
@@ -17,18 +15,17 @@ const saveCareersData = function saveCareersData(careersData) {
 };
 
 /**
- * get data from each listing
+ * get data for each listing
+ * create promises for cb
+ * run async tasks
  * @param links
  */
 const getData = function getData(links) {
   const urls = [];
+  links.forEach(item => urls.push(item));
+
   const careersData = [];
 
-  /**
-   * create job object
-   * @param item
-   * @param cb
-   */
   function extractData(item, cb) {
     request(`http://www.allregionaljobs.com/${item}`, (err, response, document) => {
       if (err) throw err;
@@ -48,25 +45,10 @@ const getData = function getData(links) {
     });
   }
 
-  links.forEach(item => {
-    urls.push(item);
-  });
-
-  /**
-   * create promise for each url
-   * return fn with cb
-   * @type {Array}
-   */
   const requests = urls.map(item => {
-    return new Promise(resolve => {
-      extractData(item, resolve);
-    });
+    return new Promise(resolve => extractData(item, resolve));
   });
 
-  /**
-   * all async requests without
-   * synchronous execution
-   */
   Promise.all(requests).then(() => saveCareersData(JSON.stringify(careersData)));
 };
 
@@ -85,7 +67,7 @@ const getListings = function getJobData() {
     const links = [];
     const items = $('.calltoactionlink');
 
-    for (let i = 1, l = items.length; i < l; i++) {
+    for (let i = 0, l = items.length; i < l; i++) {
       const link = $(items[i]).attr('href');
       links.push(link);
     }

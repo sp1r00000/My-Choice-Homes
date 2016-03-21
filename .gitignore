@@ -6,3 +6,5 @@ coverage
 public/assets
 
 config.js
+
+scripts/careers.json

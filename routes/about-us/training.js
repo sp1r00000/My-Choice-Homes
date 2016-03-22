@@ -1,3 +1,6 @@
+const programme = require('./training/programme');
+const commitment = require('./training/commitment');
+
 /**
  * route configuration for
  * about-us/training page
@@ -12,4 +15,7 @@ module.exports = function training(server) {
       reply.view('pages/about-us/training', data);
     },
   });
+
+  programme(server);
+  commitment(server);
 };

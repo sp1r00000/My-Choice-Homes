@@ -6,4 +6,10 @@ module.exports = {
       second: 'to support young people in times of crisis',
     },
   },
+  links: [
+    {
+      href: '/services/keywork-support',
+      title: 'Keywork Support',
+    },
+  ],
 };

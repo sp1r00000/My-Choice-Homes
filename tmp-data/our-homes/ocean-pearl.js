@@ -6,6 +6,40 @@ module.exports = {
       second: 'homely environments for every child',
     },
   },
+  links: [
+    {
+      href: '/our-homes/ivy-cottage',
+      title: 'Ivy Cottage',
+    },
+    {
+      href: '/our-homes/kestral-house',
+      title: 'Kestral House',
+    },
+    {
+      href: '/our-homes/kingfisher-view',
+      title: 'Kingfisher View',
+    },
+    {
+      href: '/our-homes/maple-house',
+      title: 'Maple House',
+    },
+    {
+      href: '/our-homes/oak-house',
+      title: 'Oak House',
+    },
+    {
+      href: '/our-homes/ocean-pearl',
+      title: 'Ocean Pearl',
+    },
+    {
+      href: '/our-homes/osprey-house',
+      title: 'Osprey House',
+    },
+    {
+      href: '/our-homes/pebble-house',
+      title: 'Pebble House',
+    },
+  ],
   home: 'Ocean Pearl',
   image: '/assets/images/our-homes/ocean-pearl.jpg',
   images: [

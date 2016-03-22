@@ -39,7 +39,7 @@ const toggleNav = function toggleNav() {
 };
 
 /**
- * resize logo on scroll
+ * toggle logo class on scroll
  */
 const navLogo = function navLogo() {
   const body = document.body;

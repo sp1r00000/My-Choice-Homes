@@ -39,7 +39,7 @@ const contactForm = function contactForm() {
      */
     e.valid = false;
 
-    //validations.nameField(e, form.name);
+    validations.nameField(e, form.name);
     validations.emailField(e, form.email);
 
     if (e.valid) sendMessage(form);

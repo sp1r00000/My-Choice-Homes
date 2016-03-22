@@ -15,5 +15,9 @@ module.exports = {
       href: '/careers/support-worker',
       title: 'Life as a support worker',
     },
+    {
+      href: '/documents/recruitment-brochure.pub',
+      title: 'Recruitment Brochure',
+    },
   ],
 };

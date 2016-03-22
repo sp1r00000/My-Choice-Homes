@@ -1,5 +1,5 @@
-const programme = require('./training/programme');
-const commitment = require('./training/commitment');
+const programme = require('./programme');
+const commitment = require('./commitment');
 
 /**
  * route configuration for
@@ -11,8 +11,8 @@ module.exports = function training(server) {
     method: 'GET',
     path: '/about-us/training',
     handler: (request, reply) => {
-      const data = require('../../tmp-data/about-us/training');
-      reply.view('pages/about-us/training', data);
+      const data = require('../../../tmp-data/about-us/training');
+      reply.view('pages/about-us/training/training', data);
     },
   });
 

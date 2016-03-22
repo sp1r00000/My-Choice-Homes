@@ -1,4 +1,3 @@
-const ofstedReportQuotes = require('./ofsted-report-quotes');
 const ourStaff = require('./our-staff');
 const quotes = require('./quotes');
 const training = require('./training');
@@ -21,7 +20,6 @@ module.exports = function aboutUs(server) {
   /**
    * setup child routes
    */
-  ofstedReportQuotes(server);
   ourStaff(server);
   quotes(server);
   training(server);

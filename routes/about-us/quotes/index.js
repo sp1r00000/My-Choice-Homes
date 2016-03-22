@@ -1,3 +1,5 @@
+const ofsted = require('./ofsted');
+
 /**
  * route configuration for
  * about-us/quotes page
@@ -8,7 +10,10 @@ module.exports = function quotes(server) {
     method: 'GET',
     path: '/about-us/quotes',
     handler: (request, reply) => {
-      reply.view('pages/about-us/quotes');
+      const data = require('../../../tmp-data/about-us/quotes');
+      reply.view('pages/about-us/quotes/quotes', data);
     },
   });
+
+  ofsted(server);
 };

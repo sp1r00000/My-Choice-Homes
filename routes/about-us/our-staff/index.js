@@ -8,8 +8,8 @@ module.exports = function ourStaff(server) {
     method: 'GET',
     path: '/about-us/our-staff',
     handler: (request, reply) => {
-      const data = require('../../tmp-data/our-staff');
-      reply.view('pages/about-us/our-staff', data);
+      const data = require('../../../tmp-data/our-staff');
+      reply.view('pages/about-us/our-staff/our-staff', data);
     },
   });
 };

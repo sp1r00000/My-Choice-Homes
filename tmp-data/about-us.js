@@ -20,7 +20,7 @@ module.exports = {
       title: 'Quotes',
     },
     {
-      href: '/about-us/ofsted-report-quotes',
+      href: '/about-us/quotes/ofsted',
       title: 'Ofsted Quotes',
     },
   ],

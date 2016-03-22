@@ -1,4 +1,3 @@
-import gulp from 'gulp';
 import gulpNodemon from 'gulp-nodemon';
 
 /**

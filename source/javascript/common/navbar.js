@@ -2,12 +2,16 @@ import helpers from '../helpers';
 
 /**
  * set height of menu items
+ * to match window height
  */
 const navItem = function navItem() {
   const fixed = document.querySelector('.mch-fixed-navbar').clientHeight;
   const nav = document.querySelector('.mch-navbar');
   const links = document.querySelectorAll('.mch-navbar a');
-  const height = (nav.clientHeight - fixed) / links.length;
+
+  let height = (nav.clientHeight - fixed) / links.length;
+
+  if (height > 60) height = 60;
 
   helpers.forEach(links, index => {
     links[index].style.height = `${height}px`;
@@ -15,7 +19,8 @@ const navItem = function navItem() {
 };
 
 /**
- * open / close mobile menu
+ * add open class to menu
+ * & icon on click
  */
 const toggleNav = function toggleNav() {
   const body = document.body;
@@ -39,7 +44,8 @@ const toggleNav = function toggleNav() {
 };
 
 /**
- * toggle logo class on scroll
+ * add animate class to navbar
+ * on scroll
  */
 const navLogo = function navLogo() {
   const body = document.body;

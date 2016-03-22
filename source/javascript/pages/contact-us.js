@@ -1,5 +1,5 @@
 import helpers from '../helpers';
-import validations from '../global/validations';
+import validations from '../common/validations';
 
 const sendSuccess = function sendSuccess(form) {
   const success = form;
@@ -8,14 +8,6 @@ const sendSuccess = function sendSuccess(form) {
   success.email.value = '';
   success.telephone.value = '';
   success.message.value = '';
-
-  form.lastElementChild.classList.remove('btn-primary-outline');
-  form.lastElementChild.classList.add('btn-success-outline');
-
-  setTimeout(() => {
-    form.lastElementChild.classList.remove('btn-success-outline');
-    form.lastElementChild.classList.add('btn-primary-outline');
-  }, 2000);
 };
 
 /**

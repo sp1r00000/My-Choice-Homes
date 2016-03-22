@@ -1,4 +1,4 @@
-import navbar from './global/navbar';
+import navbar from './common/navbar';
 
 navbar.toggleNav();
 navbar.navLogo();

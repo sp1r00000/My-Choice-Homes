@@ -1,5 +1,5 @@
 div.mch-fixed-navbar {
-  transition: all 1s ease;
+  transition: all .5s ease;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -9,7 +9,7 @@ div.mch-fixed-navbar {
   box-shadow: 0 0 0.3rem $dark;
 
   &.animate {
-    opacity: .5;
+    opacity: .4;
 
     nav.mch-navbar a {
       visibility: hidden;

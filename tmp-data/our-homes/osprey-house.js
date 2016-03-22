@@ -44,9 +44,9 @@ module.exports = {
   image: '/assets/images/our-homes/osprey-house.jpg',
   images: [
     '/assets/images/our-homes/osprey-house.jpg',
-    'http://placehold.it/900x600',
-    'http://placehold.it/900x600',
-    'http://placehold.it/900x600',
+    '/assets/images/our-homes/osprey-house-1.jpg',
+    '/assets/images/our-homes/osprey-house-2.jpg',
+    '/assets/images/our-homes/osprey-house-3.jpg',
   ],
   location: 'Surrey',
   description: 'Osprey House is a large home in a residential area of Surrey. The home is close to local facilities and road and rail networks. The home is within easy reach of Crawley, Redhill and Reigate and access to all amenities therefore example, stables, leisure centres, cinemas, library and shopping centres. Osprey is accessible from the A23.',

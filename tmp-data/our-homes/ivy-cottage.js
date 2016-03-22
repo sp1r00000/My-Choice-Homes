@@ -44,9 +44,9 @@ module.exports = {
   image: '/assets/images/our-homes/ivy-cottage.jpg',
   images: [
     '/assets/images/our-homes/ivy-cottage.jpg',
-    'http://placehold.it/900x600',
-    'http://placehold.it/900x600',
-    'http://placehold.it/900x600',
+    '/assets/images/our-homes/ivy-cottage-1.jpg',
+    '/assets/images/our-homes/ivy-cottage-2.jpg',
+    '/assets/images/our-homes/ivy-cottage-3.jpg',
   ],
   location: 'West Sussex',
   description: 'Ivy Cottage is a large home located in a quiet area of, West Sussex. The home is close to local facilities and road and rail networks. The home is within easy reach of Littlehampton, Chichester, Brighton and Worthing and access to all amenities there, for example stables, leisure centres, cinemas, library and shopping centres. Ivy Cottage is accessible from the A24 and A27.',

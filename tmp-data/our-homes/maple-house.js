@@ -44,9 +44,9 @@ module.exports = {
   image: '/assets/images/our-homes/maple-house.jpg',
   images: [
     '/assets/images/our-homes/maple-house.jpg',
-    'http://placehold.it/900x600',
-    'http://placehold.it/900x600',
-    'http://placehold.it/900x600',
+    '/assets/images/our-homes/maple-house-1.jpg',
+    '/assets/images/our-homes/maple-house-2.jpg',
+    '/assets/images/our-homes/maple-house-3.jpg',
   ],
   location: 'West Sussex',
   description: 'Maple House is a pleasant family sized home West Sussex. There are two bedrooms for young people, a large lounge, a separate kitchen and dinning room. Maple is located a short walk from the local town centre which provides all the local amenities. A main line railway station, swimming pool (5 minutes drive by car) and the South Downs are all within a ten minutes car drive. The semi-detached house is located within a quiet residential area, with gardens to both front and rear with off road parking.',

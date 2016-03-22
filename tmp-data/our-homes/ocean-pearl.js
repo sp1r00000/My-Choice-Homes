@@ -44,9 +44,9 @@ module.exports = {
   image: '/assets/images/our-homes/ocean-pearl.jpg',
   images: [
     '/assets/images/our-homes/ocean-pearl.jpg',
-    'http://placehold.it/900x600',
-    'http://placehold.it/900x600',
-    'http://placehold.it/900x600',
+    '/assets/images/our-homes/ocean-pearl-1.jpg',
+    '/assets/images/our-homes/ocean-pearl-2.jpg',
+    '/assets/images/our-homes/ocean-pearl-3.jpg',
   ],
   location: 'West Sussex',
   description: 'Ocean Pearl is a large detached two storey dwelling, located in a secluded private road in a picturesque Sussex village. A unique feature of the property is that the bedrooms are located on the ground floor and the reception rooms upstairs which offer a superb view of the Sussex countryside.',

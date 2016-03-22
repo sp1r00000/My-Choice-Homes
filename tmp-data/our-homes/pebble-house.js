@@ -44,9 +44,9 @@ module.exports = {
   image: '/assets/images/our-homes/pebble-house.jpg',
   images: [
     '/assets/images/our-homes/pebble-house.jpg',
-    'http://placehold.it/900x600',
-    'http://placehold.it/900x600',
-    'http://placehold.it/900x600',
+    '/assets/images/our-homes/pebble-house-1.jpg',
+    '/assets/images/our-homes/pebble-house-2.jpg',
+    '/assets/images/our-homes/pebble-house-3.jpg',
   ],
   location: 'West Sussex',
   description: 'Pebble House is a pleasant family sized home West Sussex. There are two bedrooms for young people, a large lounge which is furnished to a high standard and the place where young people can spend time together and with staff to watch television, play games or generally relax. Pebble House is located a short walk from the village centre which provides all the local amenities. A main line railway station, swimming pool, beach and the South Downs are all within five minutes by car.',

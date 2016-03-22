@@ -44,9 +44,9 @@ module.exports = {
   image: '/assets/images/our-homes/kestral-house.jpg',
   images: [
     '/assets/images/our-homes/kestral-house.jpg',
-    'http://placehold.it/900x600',
-    'http://placehold.it/900x600',
-    'http://placehold.it/900x600',
+    '/assets/images/our-homes/kestral-house-1.jpg',
+    '/assets/images/our-homes/kestral-house-2.jpg',
+    '/assets/images/our-homes/kestral-house-3.jpg',
   ],
   location: 'West Sussex',
   description: 'Kestral House is a large Victorian property built in 1888 in West Sussex. The home is a pleasant detached house, set in a residential road, a convenient distance from local services. The bedrooms are situated on the top two floors, with a large modern fitted kitchen and an abundance of reception rooms on the ground floor. There are gardens to both the front and rear of the property and a garage.',

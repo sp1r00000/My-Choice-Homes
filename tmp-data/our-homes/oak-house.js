@@ -44,9 +44,9 @@ module.exports = {
   image: '/assets/images/our-homes/oak-house.jpg',
   images: [
     '/assets/images/our-homes/oak-house.jpg',
-    'http://placehold.it/900x600',
-    'http://placehold.it/900x600',
-    'http://placehold.it/900x600',
+    '/assets/images/our-homes/oak-house-1.jpg',
+    '/assets/images/our-homes/oak-house-2.jpg',
+    '/assets/images/our-homes/oak-house-3.jpg',
   ],
   location: 'East Sussex',
   description: 'Oak House is a large detached home, set within extensive gardens in East Sussex. All bedrooms are double sized and there is a large kitchen and dining room. There are two lounge rooms where young people can spend time together and with staff to watch television, play games or generally relax.',

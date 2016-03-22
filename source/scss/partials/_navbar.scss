@@ -1,10 +1,28 @@
 div.mch-fixed-navbar {
+  transition: all 1s ease;
   position: fixed;
   z-index: 1;
   top: 0;
   background-color: white;
   width: 100%;
   height: 4rem;
+  box-shadow: 0 0 0.3rem $dark;
+
+  &.animate {
+    opacity: .5;
+
+    nav.mch-navbar a {
+      visibility: hidden;
+    }
+
+    &:hover {
+      opacity: 1;
+
+      nav.mch-navbar a {
+        visibility: visible;
+      }
+    }
+  }
 
   .mch-logo img {
     width: 4rem;
@@ -71,13 +89,16 @@ div.mch-fixed-navbar {
   div.mch-fixed-navbar {
     align-items: flex-start;
 
-    .mch-logo {
+    &.animate {
 
-      &.animate img {
+      .mch-logo img {
         width: auto;
         max-height: 4rem;
         padding: 0.5rem 0;
       }
+    }
+
+    .mch-logo {
 
       img {
         position: fixed;

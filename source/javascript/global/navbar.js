@@ -43,17 +43,17 @@ const toggleNav = function toggleNav() {
  */
 const navLogo = function navLogo() {
   const body = document.body;
-  const logo = document.querySelector('.mch-logo');
+  const nav = document.querySelector('.mch-fixed-navbar');
 
   window.onscroll = function scroll() {
-    if (body.scrollTop > logo.clientHeight / 2) {
-      if (!logo.classList.contains('animate')) {
+    if (body.scrollTop > 100) {
+      if (!nav.classList.contains('animate')) {
         setTimeout(() => {
-          logo.classList.add('animate');
+          nav.classList.add('animate');
         }, 10);
       }
     } else {
-      logo.classList.remove('animate');
+      nav.classList.remove('animate');
     }
   };
 };

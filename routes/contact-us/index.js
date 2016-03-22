@@ -48,8 +48,8 @@ module.exports = function contactUs(server) {
           `,
       };
 
-      transporter.sendMail(email, (error, info) => {
-        if (error) console.log(error);
+      transporter.sendMail(email, error => {
+        if (error) throw error;
       });
 
       reply.view('pages/contact-us/contact-us', data);

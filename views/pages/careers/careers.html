@@ -1,1 +1,36 @@
-<h1>careers</h1>
+<div class="container">
+  <div class="row">
+
+    <aside class="col-xs-12 col-lg-3 col-lg-push-9">
+      <h3>Links</h3>
+      <nav class="mch-links">
+        <a href="/careers/casual-worker">Life as a casual worker</a>
+        <a href="/careers/support-worker">Life as a support worker</a>
+      </nav>
+    </aside>
+
+    <div class="col-xs-12 col-lg-7 col-lg-pull-1">
+      {{#each jobs}}
+      <h3>{{title}}</h3>
+
+      <dl class="row">
+        <dt class="col-xs-3 col-md-2">Location</dt>
+        <dd class="col-xs-9 col-md-10">{{location}}</dd>
+
+        <dt class="col-xs-3 col-md-2">Contract</dt>
+        <dd class="col-xs-9 col-md-10">{{contract}}</dd>
+
+        <dt class="col-xs-3 col-md-2">Salary</dt>
+        <dd class="col-xs-9 col-md-10">{{salary}}</dd>
+      </dl>
+
+      {{{description}}}
+
+      {{/each}}
+    </div>
+
+    <figure class="col-xs-12 col-lg-2 col-lg-pull-10">
+      <img class="img-thumbnail" src="http://placehold.it/300x250" alt="foo">
+    </figure>
+  </div>
+</div>

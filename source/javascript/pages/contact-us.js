@@ -1,6 +1,23 @@
 import helpers from '../helpers';
 import validations from '../global/validations';
 
+const sendSuccess = function sendSuccess(form) {
+  const success = form;
+
+  success.name.value = '';
+  success.email.value = '';
+  success.telephone.value = '';
+  success.message.value = '';
+
+  form.lastElementChild.classList.remove('btn-primary-outline');
+  form.lastElementChild.classList.add('btn-success-outline');
+
+  setTimeout(() => {
+    form.lastElementChild.classList.remove('btn-success-outline');
+    form.lastElementChild.classList.add('btn-primary-outline');
+  }, 2000);
+};
+
 /**
  * async post request
  * @param form
@@ -19,6 +36,8 @@ const sendMessage = function sendMessage(form) {
   };
 
   http.send(JSON.stringify(data));
+
+  sendSuccess(form);
 };
 
 /**
@@ -31,18 +50,10 @@ const contactForm = function contactForm() {
   form.method = 'POST';
 
   form.onsubmit = function submit(event) {
-    const e = event;
+    const name = validations.nameField(event, form.name);
+    const email = validations.emailField(event, form.email);
 
-    /**
-     * determine validity
-     * @type {boolean}
-     */
-    e.valid = false;
-
-    validations.nameField(e, form.name);
-    validations.emailField(e, form.email);
-
-    if (e.valid) sendMessage(form);
+    if (name && email) sendMessage(form);
   };
 
   helpers.forEach(form.elements, (index, item) => {

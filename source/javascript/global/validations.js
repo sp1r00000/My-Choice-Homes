@@ -3,8 +3,12 @@
  * @param element (form-group)
  */
 export function addDangerClass(element) {
-  const hasDanger = element.classList.contains('has-danger');
-  if (!hasDanger) element.classList.add('has-danger');
+  const hasDanger = element.parentElement.classList.contains('has-danger');
+
+  if (!hasDanger) {
+    element.classList.add('form-control-danger');
+    element.parentElement.classList.add('has-danger');
+  }
 }
 
 /**
@@ -12,8 +16,12 @@ export function addDangerClass(element) {
  * @param element (form-group)
  */
 export function removeDangerClass(element) {
-  const hasDanger = element.classList.contains('has-danger');
-  if (hasDanger) element.classList.remove('has-danger');
+  const hasDanger = element.parentElement.classList.contains('has-danger');
+
+  if (hasDanger) {
+    element.classList.remove('form-control-danger');
+    element.parentElement.classList.remove('has-danger');
+  }
 }
 
 /**
@@ -31,7 +39,7 @@ export function displayMessage(element, message) {
     const text = document.createTextNode(message);
 
     tag.appendChild(text);
-    tag.classList.add('mch-error');
+    tag.classList.add('mch-error', 'small');
 
     parent.appendChild(tag);
   }
@@ -56,19 +64,16 @@ export default {
    * @returns {boolean}
    */
   nameField(event, element) {
-    const e = event;
     const value = element.value;
 
     /**
      * error if no value entered
      */
     if (value === null || value === '') {
-      e.preventDefault();
+      event.preventDefault();
 
-      addDangerClass(element.parentElement);
+      addDangerClass(element);
       displayMessage(element, 'Please enter your name');
-
-      e.valid = false;
 
       return false;
     }
@@ -77,17 +82,13 @@ export default {
      * error if value too short
      */
     if (value.length < 3) {
-      e.preventDefault();
+      event.preventDefault();
 
-      addDangerClass(element.parentElement);
+      addDangerClass(element);
       displayMessage(element, 'Please enter at least 3 characters');
-
-      e.valid = false;
 
       return false;
     }
-
-    e.valid = true;
 
     return true;
   },
@@ -98,22 +99,17 @@ export default {
    * @param element (field)
    */
   emailField(event, element) {
-    const e = event;
-    e.preventDefault();
+    event.preventDefault();
 
     const value = element.value;
     const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (!pattern.test(value)) {
-      addDangerClass(element.parentElement);
+      addDangerClass(element);
       displayMessage(element, 'Please enter a valid email');
-
-      e.valid = false;
 
       return false;
     }
-
-    e.valid = true;
 
     return true;
   },
@@ -126,7 +122,7 @@ export default {
    */
   watchField(element) {
     element.addEventListener('keyup', () => {
-      removeDangerClass(element.parentElement);
+      removeDangerClass(element);
       removeMessage(element.parentElement);
     });
   },

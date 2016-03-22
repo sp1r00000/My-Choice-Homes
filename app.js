@@ -72,7 +72,7 @@ server.register([Inert, Vision], () => {
     path: '/{filename*}',
     handler: {
       directory: {
-        path: __dirname + '/public',
+        path: `${__dirname}/public`,
         listing: false,
         index: false,
       },

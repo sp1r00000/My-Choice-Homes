@@ -1,16 +1,17 @@
 /**
- * accordion
+ * toggle class for accordion
+ * content
  */
-export default {
-  accordion() {
-    const acc = document.querySelector('.accordion');
+const accordion = function accordion() {
+  const acc = document.querySelector('.accordion');
 
-    acc.addEventListener('click', event => {
-      const target = event.target;
+  acc.addEventListener('click', event => {
+    const target = event.target;
 
-      if (target.className === 'accordion-title') {
-        target.nextElementSibling.classList.toggle('open');
-      }
-    });
-  },
+    if (target.className === 'accordion-title') {
+      target.nextElementSibling.classList.toggle('open');
+    }
+  });
 };
+
+export default accordion;

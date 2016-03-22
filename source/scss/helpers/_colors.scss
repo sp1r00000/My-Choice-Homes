@@ -1,8 +1,5 @@
 $mch-colour-key: 'base' !default;
 
-/**
- * set the colour pallet
- */
 $mch-colours: (
     'mauve': (
         'base': #673147,
@@ -25,15 +22,8 @@ $mch-colours: (
   $variant: $mch-colour-key
 ) {
   $colour: null;
-
-  /**
-   * get the colour spectrum
-   */
   $colour-spectrum: map-get($mch-colours, $name);
 
-  /**
-   * get the colour variant
-   */
   @if $colour-spectrum {
     $colour: map-get($colour-spectrum, $variant);
   }
@@ -41,9 +31,6 @@ $mch-colours: (
   @return $colour;
 }
 
-/**
- * set colours to variables once
- */
 $mauve: mch-colour('mauve');
 $mauve-light: mch-colour('mauve', 'light');
 $mauve-lighter: mch-colour('mauve', 'lighter');

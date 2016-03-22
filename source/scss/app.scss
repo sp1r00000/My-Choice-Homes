@@ -12,11 +12,10 @@
 @import "extensions/icon_border";
 
 /**
- * global styles
+ * common styles
  */
-@import "global/main";
-@import "global/mch_block";
-@import "global/validations";
+@import "common/main";
+@import "common/validations";
 
 /**
  * components
@@ -38,7 +37,6 @@
  * pages
  */
 @import "pages/about_us";
-@import "pages/contact_us";
 @import "pages/keywork_support";
 @import "pages/my_choice_school";
 @import "pages/our_homes";

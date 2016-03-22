@@ -25,6 +25,7 @@ const sendMessage = function sendMessage(form) {
     email: form.email.value,
     telephone: form.telephone.value || 'n/a',
     message: form.message.value || 'User did not write a message.',
+    recaptcha: form['g-recaptcha-response'].value,
   };
 
   http.send(JSON.stringify(data));

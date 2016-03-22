@@ -33,6 +33,7 @@ module.exports = function contactUs(server) {
           email: Joi.string().email().required(),
           telephone: Joi.string().min(0),
           message: Joi.string().min(0),
+          recaptcha: Joi.string(),
         },
       },
     },

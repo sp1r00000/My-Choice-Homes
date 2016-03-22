@@ -1,17 +1,26 @@
-<div class="container our-staff">
+<div class="container mch-our-homes">
   <div class="row">
 
-    {{#each staff}}
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 display-flex">
-      <figure class="card">
-        <img class="card-img-top" src="{{image}}" alt="{{name}}">
-        <figcaption class="card-block">
-          <h4 class="card-title">{{name}}</h4>
-          <p class="card-text">{{position}}</p>
-        </figcaption>
-      </figure>
+    <div class="col-xs-12 col-lg-7">
+      <div class="row">
+        {{#each staff}}
+        <figure class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <img class="img-thumbnail" src="{{image}}" alt="{{name}}">
+          <figcaption>
+            <h4><a href="{{href}}">{{name}}</a></h4>
+            <p><small class="text-muted">{{position}}</small></p>
+            <a href="{{href}}">More about {{name}}</a>
+          </figcaption>
+        </figure>
+        {{/each}}
+      </div>
     </div>
-    {{/each}}
+
+    <div class="col-xs-12 col-lg-5">
+      <h3>{{staff.0.name}}</h3>
+      <p class="small">{{staff.0.position}}</p>
+      <p>{{staff.0.description}}</p>
+    </div>
 
   </div>
 </div>

@@ -69,7 +69,7 @@ module.exports = {
     },
     {
       name: 'Annie Murphy',
-      position: 'Head Teacher',
+      position: 'Head of Education',
       image: '/assets/images/about-us/our-staff/annie-murphy.jpg',
       description: 'Annie has a BSc (hons) in Experimental Psychology and a PGCE from the' +
       ' University of Sussex. Annie has 25years experience of managing services for children and' +
@@ -79,6 +79,12 @@ module.exports = {
       ' plans, ensuring standards are maintained and raised in line with DfE and Ofsted' +
       ' regulations, monitoring student performance and progress, monitoring IEPs and writing' +
       ' reports for PEPs, EHCP Annual Reviews and LAC reviews.',
+    },
+    {
+      name: 'Sue Evans',
+      position: 'Head Teacher',
+      image: '/assets/images/about-us/our-staff/peter-kazmarski.jpg',
+      description: '',
     },
     {
       name: 'Jackie D\'vaz',
@@ -109,11 +115,7 @@ module.exports = {
       name: 'Steve Williams',
       position: 'Recruitment Manager',
       image: '/assets/images/about-us/our-staff/steve-williams.jpg',
-      description: 'Steve is our Recruitment Manager and has over 15 years experience of working' +
-      ' within Human Resources, Recruitment and Selection, Training within a variety of work' +
-      ' settings from Pilot Recruitment to Call Centre Staff in the Aviation, Tourism and Social' +
-      ' Sector. Steve has worked at My Choice for four years based at our Head Office and manages' +
-      ' the recruitment and selection of our staff.',
+      description: 'Steve is our Recruitment Manager and has over 15 years experience of working within Human Resources, Recruitment and Selection. Training within a variety of work settings from Recruitment within the Not for Profit sector, Media and Professional Services. Steve has been with My Choice since April 2014 and is based at our Head Office and manages all aspects of the recruitment and selection process of our staff.',
     },
     {
       name: 'Mark Kazmarski',
@@ -148,14 +150,10 @@ module.exports = {
       ' currently undertaking the Level 5 Diploma Qualification in Care, Leadership and Management.',
     },
     {
-      name: 'Samantha McNeil',
-      position: 'Registered Care Manager at Kestral House',
-      image: '/assets/images/about-us/our-staff/samantha-mc-neil.jpg',
-      description: 'Sam has over 10 years experience working with young people who display' +
-      ' emotional & behavioural difficulties and challenging behaviour in a residential setting' +
-      ' and has achieved the Level 4 Management and Care Qualification. Sam has developed her' +
-      ' career with My Choice from Residential Support Worker to her current position as' +
-      ' Registered Care Manager.',
+      name: 'Theo Barclay',
+      position: 'Acting Care Manager at Kestral House',
+      image: '/assets/images/about-us/our-staff/theo-barclay.jpg',
+      description: 'Theo has worked within residential services for young people for over six years. Previous to his current Acting Manager position at My Choice Homes he worked at an establishment providing care to young people with challenging behaviour. Theo has extensive experience in supervisory roles and leading staff members working in residential child care. Theo has worked as a shift leader, senior and deputy manager. Theo has achieved his level 3 diploma and is currently working on his Level 5 diploma in leadership and management and has commenced his therapeutic Practitioners Award. Theo’s experience and knowledge has enabled him to develop as an established practitioner and provide high quality care to the young people he works with.',
     },
     {
       name: 'Ed Glaves',
@@ -168,14 +166,10 @@ module.exports = {
       ' Leadership and Management.',
     },
     {
-      name: 'Georgios Vramis',
+      name: 'Eerik Sjostedt',
       position: 'Registered Care Manager at Maple House',
-      image: '/assets/images/about-us/our-staff/georgios-vramis.jpg',
-      description: 'Georgios is an experienced care professional with over 9 years experience' +
-      ' working within residential care services dedicated to providing a high standard of' +
-      ' service to young people. Georgios has developed his career with My Choice from Deputy' +
-      ' Care Manager to his current position as Registered Care Manager and has achieved the' +
-      ' Level 5 Diploma Qualification in Care, Leadership and Management.',
+      image: '/assets/images/about-us/our-staff/eerik-sjostedt.jpg',
+      description: 'Eerik has over 12 years’ experience working with children and young people in residential settings. He has worked with young people who display a variety of behaviors and difficulties. The settings have included residential schools and children’s homes. His previous positions have included Deputy manager for 5 years, progressing onto a manager position. Eerik has achieved the post-graduate therapeutic communication qualification with young people and is completing the MA in psychoanalytical infant observation and child development. Eerik will also be registered on the Level 5 management Diploma in January 2015. Eerik has worked at My Choice from August 2013 in the position of Deputy at Maple House. He is currently in the Registered Care Manager position and responsible for the day to day running of the home.',
     },
     {
       name: 'Declan Lola',
@@ -198,25 +192,16 @@ module.exports = {
       ' 4 Management and Care Qualification.',
     },
     {
-      name: 'Ashley Harvey',
-      position: 'Registered Care Manager at Osprey House',
-      image: '/assets/images/about-us/our-staff/ashley-harvey.jpg',
-      description: 'Ashley has worked in a variety of different settings within Residential Care,' +
-      ' including children’s homes and day centres. Ashley has extensive experience of working' +
-      ' with young people with emotional and behavioural difficulties and challenging behaviour.' +
-      ' Ashley has developed her career with My Choice from Deputy Care Manager to her current' +
-      ' position as Registered Care Manager and has achieved the Level 5 Diploma Qualification in' +
-      ' Care, Leadership and Management.',
+      name: 'Michelle Allen',
+      position: 'Care Manager – Pebble House',
+      image: '/assets/images/about-us/our-staff/michelle-allen.jpg',
+      description: 'Michelle has worked within the care sector since 2002, roles including Social Care Assistant, Registered Domiciliary Care Manager and Registered Service Manager at Mencap. She has gained a wealth of experience and progressed within My Choice, starting her employment in September 2012 as a Senior Residential Support Worker to Deputy Care Manager at Ivy Cottage and to her current position as Care Manager at Pebble House. Michelle has achieved her Level 3 Diploma and Level 4 in Health and Social Care. Michelle has also commenced her Diploma Level 5. Michelle has attended numerous training courses to maintain her CPD and has a wealth of experience supporting vulnerable young people.',
     },
     {
-      name: 'Lin Palfrey',
-      position: 'Registered Care Manager of Pebble House',
-      image: '/assets/images/about-us/our-staff/lin-palfrey.jpg',
-      description: 'Lin has over 15 years experience working with children and young people who' +
-      ' present with emotional and behavioural difficulties, learning difficulties and physical' +
-      ' disability within educational settings, residential children’s homes and domiciliary care.' +
-      ' Lin has achieved the Level 4 Management and Care Qualification and has completed an array' +
-      ' of training to develop her understanding towards the young people she works with.',
+      name: 'Lyn Henwood',
+      position: 'Area Manager West',
+      image: '/assets/images/about-us/our-staff/lyn-henwood.jpg',
+      description: 'Lyn has an extensive back ground and experience working in Children’s Services at a senior level. Lyn has worked at various settings over the last 10 years, including General Manager at a service providing care for young people on the Autistic spectrum and complex needs, Service Manager at Capital Care and Support implementing emergency measures following independent review of services. Most recently Acting Head of Care at Chailey Heritage, part of the senior management team managing adult and children’s residential services.  This included close liaison with the CQC and Ofsted.  Lyn has experience of working with company directors, commissioners, the young people and families. Lyn works closely with the staff teams to ensure high quality provisions are maintained and regulations and standards upheld. Lin has a passion for working together to endure the needs of the child remain paramount and the focus to enable positive outcomes and progression.  Lin has achieved her NVQ Level 4 in Social care and her registered Managers Award and safeguarding training. Lin has also achieved her NVQ level 4 in Operational Management.',
     },
   ],
 };

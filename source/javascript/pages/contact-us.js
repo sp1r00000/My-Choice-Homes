@@ -14,8 +14,8 @@ const sendMessage = function sendMessage(form) {
   const data = {
     name: form.name.value,
     email: form.email.value,
-    telephone: form.telephone.value,
-    message: form.message.value,
+    telephone: form.telephone.value || 'n/a',
+    message: form.message.value || 'User did not write a message.',
   };
 
   http.send(JSON.stringify(data));
@@ -39,7 +39,7 @@ const contactForm = function contactForm() {
      */
     e.valid = false;
 
-    validations.nameField(e, form.name);
+    //validations.nameField(e, form.name);
     validations.emailField(e, form.email);
 
     if (e.valid) sendMessage(form);

@@ -56,16 +56,19 @@ export default {
    * @returns {boolean}
    */
   nameField(event, element) {
+    const e = event;
     const value = element.value;
 
     /**
      * error if no value entered
      */
     if (value === null || value === '') {
-      event.preventDefault();
+      e.preventDefault();
 
       addDangerClass(element.parentElement);
       displayMessage(element, 'Please enter your name');
+
+      e.valid = false;
 
       return false;
     }
@@ -74,13 +77,17 @@ export default {
      * error if value too short
      */
     if (value.length < 3) {
-      event.preventDefault();
+      e.preventDefault();
 
       addDangerClass(element.parentElement);
       displayMessage(element, 'Please enter at least 3 characters');
 
+      e.valid = false;
+
       return false;
     }
+
+    e.valid = true;
 
     return true;
   },
@@ -91,7 +98,8 @@ export default {
    * @param element (field)
    */
   emailField(event, element) {
-    event.preventDefault();
+    const e = event;
+    e.preventDefault();
 
     const value = element.value;
     const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -100,8 +108,12 @@ export default {
       addDangerClass(element.parentElement);
       displayMessage(element, 'Please enter a valid email');
 
+      e.valid = false;
+
       return false;
     }
+
+    e.valid = true;
 
     return true;
   },

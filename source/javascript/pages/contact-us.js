@@ -1,12 +1,48 @@
 import helpers from '../helpers';
 import validations from '../global/validations';
 
+/**
+ * async post request
+ * @param form
+ */
+const sendMessage = function sendMessage(form) {
+  const http = new XMLHttpRequest();
+
+  http.open(form.method, form.action, true);
+  http.setRequestHeader('Content-type', 'application/json');
+
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    telephone: form.telephone.value,
+    message: form.message.value,
+  };
+
+  http.send(JSON.stringify(data));
+};
+
+/**
+ * validate form
+ * then sendMessage fn
+ */
 const contactForm = function contactForm() {
   const form = document.forms.contact;
+  form.action = '/contact-us';
+  form.method = 'POST';
 
   form.onsubmit = function submit(event) {
-    validations.nameField(event, form.name);
-    validations.emailField(event, form.email);
+    const e = event;
+
+    /**
+     * determine validity
+     * @type {boolean}
+     */
+    e.valid = false;
+
+    validations.nameField(e, form.name);
+    validations.emailField(e, form.email);
+
+    if (e.valid) sendMessage(form);
   };
 
   helpers.forEach(form.elements, (index, item) => {

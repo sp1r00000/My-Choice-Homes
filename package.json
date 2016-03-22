@@ -57,6 +57,9 @@
     "hapi-mongodb": "^6.0.0",
     "hapi-prerender": "^1.0.0",
     "inert": "^3.2.0",
+    "install": "^0.6.1",
+    "nodemailer": "^2.3.0",
+    "npm": "^3.8.2",
     "request": "^2.69.0",
     "vision": "^4.0.1"
   }

@@ -2,6 +2,18 @@ const Hapi = require('hapi');
 const Inert = require('inert');
 const Vision = require('vision');
 
+const MongoDB = require('hapi-mongodb');
+const Boom = require('boom');
+
+const dbOpts = {
+  url: 'mongodb://localhost:27017/mch',
+  settings: {
+    db: {
+      native_parser: false,
+    },
+  },
+};
+
 const PrerenderPlugin = require('hapi-prerender');
 const config = require('./config');
 
@@ -45,6 +57,13 @@ server.register({
 server.register({
   register: require('good'),
   options: good,
+});
+
+server.register({
+  register: MongoDB,
+  options: dbOpts,
+}, (err) => {
+  if (err) throw err;
 });
 
 server.register([Inert, Vision], () => {

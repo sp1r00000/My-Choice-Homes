@@ -8,8 +8,13 @@ module.exports = function home(server) {
     method: 'GET',
     path: '/',
     handler: (request, reply) => {
-      const data = require('../../tmp-data/home');
-      reply.view('pages/home/home', data);
+      const db = request.server.plugins['hapi-mongodb'].db;
+
+      db.collection('home').findOne((error, result) => {
+        if (error) throw error;
+
+        reply.view('pages/home/home', result);
+      });
     },
   });
 };

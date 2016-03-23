@@ -4,16 +4,16 @@ const config = require('../../config');
 
 const nodemailer = require('nodemailer');
 const Joi = require('joi');
-const req = require('request');
+const request = require('request');
 
 const transporter = nodemailer.createTransport(config.transporter);
 
-const sendMail = function sendMail(request) {
+const sendMail = function sendMail(req) {
   const emailConfig = {};
-  emailConfig.from = request.payload.email;
+  emailConfig.from = req.payload.email;
   emailConfig.to = config.emailTo;
   emailConfig.subject = 'My Choice Homes';
-  emailConfig.text = request.payload.message;
+  emailConfig.text = req.payload.message;
 
   transporter.sendMail(emailConfig, error => {
     if (error) console.log('send mail error', error);
@@ -31,7 +31,7 @@ module.exports = function contactUs(server) {
   server.route({
     method: 'GET',
     path: '/contact-us',
-    handler(request, reply) {
+    handler(req, reply) {
       reply.view('pages/contact-us/contact-us', data);
     },
   });
@@ -50,13 +50,13 @@ module.exports = function contactUs(server) {
         },
       },
     },
-    handler(request, reply) {
-      const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${config.captchaSecret}&response=${request.payload.recaptcha}`;
+    handler(req) {
+      const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${config.captchaSecret}&response=${req.payload.recaptcha}`;
 
-      req(verifyUrl, (error, response, body) => {
+      request(verifyUrl, (error, response, body) => {
         const result = JSON.parse(body);
 
-        if (result.success) sendMail(request);
+        if (result.success) sendMail(req);
       });
     },
   });

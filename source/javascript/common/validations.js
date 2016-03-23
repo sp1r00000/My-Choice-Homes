@@ -2,7 +2,7 @@
  * add danger class
  * @param element (form-group)
  */
-export function addDangerClass(element) {
+export function addErrorClasses(element) {
   const hasDanger = element.parentElement.classList.contains('has-danger');
 
   if (!hasDanger) {
@@ -15,7 +15,7 @@ export function addDangerClass(element) {
  * remove danger class
  * @param element (form-group)
  */
-export function removeDangerClass(element) {
+export function removeErrorClasses(element) {
   const hasDanger = element.parentElement.classList.contains('has-danger');
 
   if (hasDanger) {
@@ -29,7 +29,7 @@ export function removeDangerClass(element) {
  * @param element (field)
  * @param message
  */
-export function displayMessage(element, message) {
+export function displayError(element, message) {
   const parent = element.parentElement;
   const last = parent.lastElementChild;
   const hasMessage = last.classList.contains('mch-error');
@@ -49,14 +49,14 @@ export function displayMessage(element, message) {
  * remove error message
  * @param element (form-group)
  */
-export function removeMessage(element) {
+export function removeError(element) {
   const last = element.lastElementChild;
   const hasError = last.classList.contains('mch-error');
 
   if (hasError) element.removeChild(last);
 }
 
-export function displayRecaptchaMessage() {
+export function displayRecaptchaError() {
   const recaptcha = document.querySelector('.g-recaptcha');
   const tag = document.createElement('span');
 
@@ -82,8 +82,8 @@ export default {
     if (value === null || value === '') {
       event.preventDefault();
 
-      addDangerClass(element);
-      displayMessage(element, 'Please enter your name');
+      addErrorClasses(element);
+      displayError(element, 'Please enter your name');
 
       return false;
     }
@@ -94,8 +94,8 @@ export default {
     if (value.length < 3) {
       event.preventDefault();
 
-      addDangerClass(element);
-      displayMessage(element, 'Please enter at least 3 characters');
+      addErrorClasses(element);
+      displayError(element, 'Please enter at least 3 characters');
 
       return false;
     }
@@ -116,8 +116,8 @@ export default {
     const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (!pattern.test(value)) {
-      addDangerClass(element);
-      displayMessage(element, 'Please enter a valid email');
+      addErrorClasses(element);
+      displayError(element, 'Please enter a valid email');
 
       return false;
     }
@@ -137,7 +137,7 @@ export default {
     const value = element.value;
 
     if (value === null || value === '') {
-      displayRecaptchaMessage();
+      displayRecaptchaError();
 
       return false;
     }
@@ -153,8 +153,8 @@ export default {
    */
   watchField(element) {
     element.addEventListener('keyup', () => {
-      removeDangerClass(element);
-      removeMessage(element.parentElement);
+      removeErrorClasses(element);
+      removeError(element.parentElement);
     });
   },
 };

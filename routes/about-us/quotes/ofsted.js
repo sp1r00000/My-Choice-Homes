@@ -8,7 +8,7 @@ module.exports = function ofsted(server) {
     method: 'GET',
     path: '/about-us/quotes/ofsted',
     handler: (request, reply) => {
-      const data = require('../../../tmp-data/about-us/ofsted');
+      const data = require('../../../tmp-data/about-us/quotes/ofsted');
       reply.view('pages/about-us/quotes/ofsted', data);
     },
   });

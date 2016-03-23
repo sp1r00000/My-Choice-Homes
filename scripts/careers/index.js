@@ -9,7 +9,7 @@ const fs = require('fs');
  * @param careersData
  */
 const saveCareersData = function saveCareersData(careersData) {
-  fs.writeFile('./scripts/careers.json', careersData, err => {
+  fs.writeFile('../scripts/careers/careers.json', careersData, err => {
     if (err) throw err;
   });
 };

@@ -8,7 +8,7 @@ module.exports = function programme(server) {
     method: 'GET',
     path: '/about-us/training/commitment',
     handler: (request, reply) => {
-      const data = require('../../../tmp-data/about-us/commitment');
+      const data = require('../../../tmp-data/about-us/training/commitment');
       reply.view('pages/about-us/training/commitment', data);
     },
   });

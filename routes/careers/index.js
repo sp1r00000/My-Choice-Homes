@@ -12,7 +12,7 @@ module.exports = function careers(server) {
     path: '/careers',
     handler: (request, reply) => {
       const data = require('../../tmp-data/careers');
-      data.jobs = require('../../scripts/careers.json');
+      data.jobs = require('../../scripts/careers/careers.json');
 
       reply.view('pages/careers/careers', data);
     },

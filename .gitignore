@@ -4,7 +4,8 @@ bower_components
 node_modules
 coverage
 public/assets
-
+data
 config.js
 
-scripts/careers.json
+scripts/careers/careers.json
+scripts/data-config/config.json

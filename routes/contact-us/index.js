@@ -4,8 +4,21 @@ const config = require('../../config');
 
 const nodemailer = require('nodemailer');
 const Joi = require('joi');
+const req = require('request');
 
 const transporter = nodemailer.createTransport(config.transporter);
+
+const sendMail = function sendMail(request) {
+  const emailConfig = {};
+  emailConfig.from = request.payload.email;
+  emailConfig.to = config.emailTo;
+  emailConfig.subject = 'My Choice Homes';
+  emailConfig.text = request.payload.message;
+
+  transporter.sendMail(emailConfig, error => {
+    if (error) console.log('send mail error', error);
+  });
+};
 
 /**
  * route configuration for
@@ -33,27 +46,20 @@ module.exports = function contactUs(server) {
           email: Joi.string().email().required(),
           telephone: Joi.string().min(0),
           message: Joi.string().min(0),
-          recaptcha: Joi.string(),
+          recaptcha: Joi.string().required(),
         },
       },
     },
     handler(request, reply) {
-      const email = {
-        from: request.payload.email,
-        to: config.emailTo,
-        subject: 'My Choice Homes',
-        html: `
-            ${request.payload.message}
-            <p>Contact Name: ${request.payload.name}</p>
-            <p>Contact Number: ${request.payload.telephone}</p>
-          `,
-      };
+      const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${config.captchaSecret}&response=${request.payload.recaptcha}`;
 
-      transporter.sendMail(email, error => {
-        if (error) throw error;
+      req(verifyUrl, (error, response, body) => {
+        const result = JSON.parse(body);
+
+        if (result.success) sendMail(request);
+
+        reply.view('pages/contact-us/contact-us', data);
       });
-
-      reply.view('pages/contact-us/contact-us', data);
     },
   });
 };

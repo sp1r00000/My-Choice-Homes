@@ -45,8 +45,9 @@ const contactForm = function contactForm() {
   form.onsubmit = function submit(event) {
     const name = validations.nameField(event, form.name);
     const email = validations.emailField(event, form.email);
+    const recaptcha = validations.recaptcha(event, form['g-recaptcha-response']);
 
-    if (name && email) sendMessage(form);
+    if (name && email && recaptcha) sendMessage(form);
   };
 
   helpers.forEach(form.elements, (index, item) => {

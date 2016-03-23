@@ -57,8 +57,6 @@ module.exports = function contactUs(server) {
         const result = JSON.parse(body);
 
         if (result.success) sendMail(request);
-
-        reply.view('pages/contact-us/contact-us', data);
       });
     },
   });

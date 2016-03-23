@@ -56,7 +56,7 @@ const getData = function getData(links) {
  * get href's from listings page
  * return array
  */
-const getListings = function getJobData() {
+const getListings = function getListings() {
   const url = 'http://www.allregionaljobs.com/search-results.cfm?type=byrecruiter&recruiter=2405&' +
     'name=My-Choice-Children%27s-Homes-jobs';
 

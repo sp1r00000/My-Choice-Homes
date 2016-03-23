@@ -56,9 +56,19 @@ export function removeMessage(element) {
   if (hasError) element.removeChild(last);
 }
 
+export function displayRecaptchaMessage() {
+  const recaptcha = document.querySelector('.g-recaptcha');
+  const tag = document.createElement('span');
+
+  tag.innerText = 'Please verify you\'re human';
+  tag.classList.add('small');
+
+  recaptcha.appendChild(tag);
+}
+
 export default {
   /**
-   * validates name field
+   * validates name
    * @param event
    * @param element (field)
    * @returns {boolean}
@@ -94,9 +104,10 @@ export default {
   },
 
   /**
-   * validates email field
+   * validates email
    * @param event
    * @param element (field)
+   * @returns {boolean}
    */
   emailField(event, element) {
     event.preventDefault();
@@ -107,6 +118,26 @@ export default {
     if (!pattern.test(value)) {
       addDangerClass(element);
       displayMessage(element, 'Please enter a valid email');
+
+      return false;
+    }
+
+    return true;
+  },
+
+  /**
+   * checks recaptcha has value
+   * @param event
+   * @param element
+   * @returns {boolean}
+   */
+  recaptcha(event, element) {
+    event.preventDefault();
+
+    const value = element.value;
+
+    if (value === null || value === '') {
+      displayRecaptchaMessage();
 
       return false;
     }

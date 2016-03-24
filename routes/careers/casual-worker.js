@@ -8,7 +8,16 @@ module.exports = function casualWorker(server) {
     method: 'GET',
     path: '/careers/casual-worker',
     handler: (req, reply) => {
-      reply.view('pages/careers/casual-worker');
+      const db = req.server.plugins['hapi-mongodb'].db;
+
+      db.collection('careers').findOne((error, result) => {
+        if (error) throw error;
+
+        const data = result.casualWorker;
+        data.links = result.links;
+
+        reply.view('pages/careers/casual-worker', data);
+      });
     },
   });
 };

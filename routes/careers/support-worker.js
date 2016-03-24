@@ -8,7 +8,16 @@ module.exports = function supportWorker(server) {
     method: 'GET',
     path: '/careers/support-worker',
     handler: (req, reply) => {
-      reply.view('pages/careers/support-worker');
+      const db = req.server.plugins['hapi-mongodb'].db;
+
+      db.collection('careers').findOne((error, result) => {
+        if (error) throw error;
+
+        const data = result.supportWorker;
+        data.links = result.links;
+
+        reply.view('pages/careers/support-worker', data);
+      });
     },
   });
 };

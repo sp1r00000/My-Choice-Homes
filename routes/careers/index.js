@@ -12,11 +12,16 @@ module.exports = function careers(server) {
     path: '/careers',
     handler: (req, reply) => {
       const db = req.server.plugins['hapi-mongodb'].db;
+      const tmpData = require('../../scripts/careers/careers.json');
 
       db.collection('careers').findOne((error, result) => {
         if (error) throw error;
 
-        reply.view('pages/careers/careers', result.careers);
+        const data = result.careers;
+        data.links = result.links;
+        data.jobs = tmpData;
+
+        reply.view('pages/careers/careers', data);
       });
     },
   });

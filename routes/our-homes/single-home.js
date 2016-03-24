@@ -13,7 +13,10 @@ module.exports = function ivyCottage(server) {
       db.collection('ourHomes').findOne((error, result) => {
         if (error) throw error;
 
-        reply.view('pages/our-homes/single-home', result[req.params.home]);
+        const data = result[req.params.home];
+        data.links = result.links;
+
+        reply.view('pages/our-homes/single-home', data);
       });
     },
   });

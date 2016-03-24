@@ -15,7 +15,10 @@ module.exports = function services(server) {
       db.collection('services').findOne((error, result) => {
         if (error) throw error;
 
-        reply.view('pages/services/services', result.services);
+        const data = result.services;
+        data.links = result.links;
+
+        reply.view('pages/services/services', data);
       });
     },
   });

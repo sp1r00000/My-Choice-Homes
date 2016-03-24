@@ -8,8 +8,13 @@ module.exports = function ivyCottage(server) {
     method: 'GET',
     path: '/our-homes/{home}',
     handler: (req, reply) => {
-      const data = require(`../../tmp-data/our-homes/${req.params.home}`);
-      reply.view('pages/our-homes/single-home', data);
+      const db = req.server.plugins['hapi-mongodb'].db;
+
+      db.collection('ourHomes').findOne((error, result) => {
+        if (error) throw error;
+
+        reply.view('pages/our-homes/single-home', result[req.params.home]);
+      });
     },
   });
 };

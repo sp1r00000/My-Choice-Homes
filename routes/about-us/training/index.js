@@ -16,7 +16,10 @@ module.exports = function training(server) {
       db.collection('aboutUs').findOne((error, result) => {
         if (error) throw error;
 
-        reply.view('pages/about-us/training/training', result.training);
+        const data = result.training;
+        data.links = result.links;
+
+        reply.view('pages/about-us/training/training', data);
       });
     },
   });

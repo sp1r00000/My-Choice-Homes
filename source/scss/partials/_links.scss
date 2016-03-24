@@ -2,4 +2,10 @@ nav.mch-links {
   display: flex;
   flex-direction: column;
   margin-bottom: $doubleSpace;
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    padding-left: $halfSpace;
+  }
 }

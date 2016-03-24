@@ -8,4 +8,5 @@ data
 config.js
 
 scripts/careers/careers.json
-scripts/data-config/config.json
+
+dump

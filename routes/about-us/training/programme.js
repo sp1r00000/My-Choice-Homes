@@ -13,7 +13,10 @@ module.exports = function programme(server) {
       db.collection('aboutUs').findOne((error, result) => {
         if (error) throw error;
 
-        reply.view('pages/about-us/training/programme', result.programme);
+        const data = result.programme;
+        data.links = result.links;
+
+        reply.view('pages/about-us/training/programme', data);
       });
     },
   });

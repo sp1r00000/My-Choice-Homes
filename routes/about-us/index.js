@@ -17,7 +17,10 @@ module.exports = function aboutUs(server) {
       db.collection('aboutUs').findOne((error, result) => {
         if (error) throw error;
 
-        reply.view('pages/about-us/about-us', result.aboutUs);
+        const data = result.aboutUs;
+        data.links = result.links;
+
+        reply.view('pages/about-us/about-us', data);
       });
     },
   });

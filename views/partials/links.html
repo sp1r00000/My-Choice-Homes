@@ -2,5 +2,12 @@
 <nav class="mch-links">
   {{#each links}}
   <a href="{{href}}">{{title}}</a>
+  {{#if subLinks}}
+  <nav>
+    {{#each subLinks}}
+    <a href="{{href}}">{{title}}</a>
+    {{/each}}
+  </nav>
+  {{/if}}
   {{/each}}
 </nav>

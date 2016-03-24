@@ -9,9 +9,14 @@ module.exports = function ourHomes(server) {
   server.route({
     method: 'GET',
     path: '/our-homes',
-    handler: (request, reply) => {
-      const data = require('../../tmp-data/our-homes');
-      reply.view('pages/our-homes/our-homes', data);
+    handler: (req, reply) => {
+      const db = req.server.plugins['hapi-mongodb'].db;
+
+      db.collection('ourHomes').findOne((error, result) => {
+        if (error) throw error;
+
+        reply.view('pages/our-homes/our-homes', result.ourHomes);
+      });
     },
   });
 

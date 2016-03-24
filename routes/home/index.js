@@ -7,13 +7,13 @@ module.exports = function home(server) {
   server.route({
     method: 'GET',
     path: '/',
-    handler: (request, reply) => {
-      const db = request.server.plugins['hapi-mongodb'].db;
+    handler: (req, reply) => {
+      const db = req.server.plugins['hapi-mongodb'].db;
 
       db.collection('home').findOne((error, result) => {
         if (error) throw error;
 
-        reply.view('pages/home/home', result);
+        reply.view('pages/home/home', result.home);
       });
     },
   });

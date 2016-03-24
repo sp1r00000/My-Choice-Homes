@@ -7,7 +7,7 @@ module.exports = function supportWorker(server) {
   server.route({
     method: 'GET',
     path: '/careers/support-worker',
-    handler: (request, reply) => {
+    handler: (req, reply) => {
       reply.view('pages/careers/support-worker');
     },
   });

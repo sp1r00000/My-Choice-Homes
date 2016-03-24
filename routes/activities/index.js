@@ -7,9 +7,14 @@ module.exports = function activities(server) {
   server.route({
     method: 'GET',
     path: '/activities',
-    handler: (request, reply) => {
-      const data = require('../../tmp-data/activities');
-      reply.view('pages/activities/activities', data);
+    handler: (req, reply) => {
+      const db = req.server.plugins['hapi-mongodb'].db;
+
+      db.collection('activities').findOne((error, result) => {
+        if (error) throw error;
+
+        reply.view('pages/activities/activities', result.activities);
+      });
     },
   });
 };

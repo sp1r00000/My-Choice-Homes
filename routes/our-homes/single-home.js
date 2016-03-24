@@ -7,8 +7,8 @@ module.exports = function ivyCottage(server) {
   server.route({
     method: 'GET',
     path: '/our-homes/{home}',
-    handler: (request, reply) => {
-      const data = require(`../../tmp-data/our-homes/${request.params.home}`);
+    handler: (req, reply) => {
+      const data = require(`../../tmp-data/our-homes/${req.params.home}`);
       reply.view('pages/our-homes/single-home', data);
     },
   });

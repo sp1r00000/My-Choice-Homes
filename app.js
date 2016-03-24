@@ -3,7 +3,6 @@ const Inert = require('inert');
 const Vision = require('vision');
 
 const MongoDB = require('hapi-mongodb');
-const Boom = require('boom');
 
 const dbOpts = {
   url: 'mongodb://localhost:27017/mch',

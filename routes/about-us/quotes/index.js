@@ -9,9 +9,14 @@ module.exports = function quotes(server) {
   server.route({
     method: 'GET',
     path: '/about-us/quotes',
-    handler: (request, reply) => {
-      const data = require('../../../tmp-data/about-us/quotes');
-      reply.view('pages/about-us/quotes/quotes', data);
+    handler: (req, reply) => {
+      const db = req.server.plugins['hapi-mongodb'].db;
+
+      db.collection('aboutUs').findOne((error, result) => {
+        if (error) throw error;
+
+        reply.view('pages/about-us/quotes/quotes', result.quotes);
+      });
     },
   });
 

@@ -7,7 +7,7 @@ module.exports = function casualWorker(server) {
   server.route({
     method: 'GET',
     path: '/careers/casual-worker',
-    handler: (request, reply) => {
+    handler: (req, reply) => {
       reply.view('pages/careers/casual-worker');
     },
   });

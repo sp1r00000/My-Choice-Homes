@@ -13,10 +13,10 @@ const sendMail = function sendMail(req) {
   emailConfig.from = req.payload.email;
   emailConfig.to = config.emailTo;
   emailConfig.subject = 'My Choice Homes';
-  emailConfig.text = req.payload.message;
+  emailConfig.html = req.payload.message;
 
   transporter.sendMail(emailConfig, error => {
-    if (error) console.log('send mail error', error);
+    if (error) throw error;
   });
 };
 
@@ -26,13 +26,17 @@ const sendMail = function sendMail(req) {
  * @param server
  */
 module.exports = function contactUs(server) {
-  const data = require('../../tmp-data/contact-us');
-
   server.route({
     method: 'GET',
     path: '/contact-us',
     handler(req, reply) {
-      reply.view('pages/contact-us/contact-us', data);
+      const db = req.server.plugins['hapi-mongodb'].db;
+
+      db.collection('contactUs').findOne((error, result) => {
+        if (error) throw error;
+
+        reply.view('pages/contact-us/contact-us', result.contactUs);
+      });
     },
   });
 
@@ -54,8 +58,9 @@ module.exports = function contactUs(server) {
       const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${config.captchaSecret}&response=${req.payload.recaptcha}`;
 
       request(verifyUrl, (error, response, body) => {
-        const result = JSON.parse(body);
+        if (error) throw error;
 
+        const result = JSON.parse(body);
         if (result.success) sendMail(req);
       });
     },

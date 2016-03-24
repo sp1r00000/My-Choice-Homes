@@ -10,9 +10,14 @@ module.exports = function training(server) {
   server.route({
     method: 'GET',
     path: '/about-us/training',
-    handler: (request, reply) => {
-      const data = require('../../../tmp-data/about-us/training');
-      reply.view('pages/about-us/training/training', data);
+    handler: (req, reply) => {
+      const db = req.server.plugins['hapi-mongodb'].db;
+
+      db.collection('aboutUs').findOne((error, result) => {
+        if (error) throw error;
+
+        reply.view('pages/about-us/training/training', result.training);
+      });
     },
   });
 

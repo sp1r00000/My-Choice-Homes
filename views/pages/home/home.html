@@ -72,4 +72,19 @@
 </section>
 {{/each}}
 
-{{> accordion}}
+<div class="container-fluid accordion">
+  {{#each accordion}}
+  <h4 class="accordion-title">
+    <span class="iconic iconic-sm"
+          data-glyph="{{glyph}}"
+          title="{{title}}"
+          aria-hidden="true"></span>
+    {{title}}
+  </h4>
+
+  <div class="accordion-content">
+    <p>{{content}}</p>
+    <a class="btn btn-primary" href="{{href.path}}">{{href.title}}</a>
+  </div>
+  {{/each}}
+</div>

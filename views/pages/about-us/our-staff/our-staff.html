@@ -1,17 +1,24 @@
 <div class="container mch-our-homes">
   <div class="row">
 
-    {{#each staff}}
-    <figure class="col-xs-12 col-md-6 col-lg-4">
-      <img class="img-thumbnail" src="{{image}}" alt="{{name}}">
-      <figcaption>
-        <h4><a href="{{href}}">{{name}}</a></h4>
-        <p><small class="text-muted">{{position}}</small></p>
-        <p>{{limitTo description 200}}</p>
-        <a href="{{href}}">More about {{name}}</a>
-      </figcaption>
-    </figure>
-    {{/each}}
+    <div class="col-xs-12 col-lg-9">
+      <div class="row">
+        {{#each staff}}
+        <figure class="col-xs-6 col-md-4">
+          <img class="img-thumbnail" src="{{image}}" alt="{{name}}">
+          <figcaption>
+            <h4><a href="{{href}}">{{name}}</a></h4>
+            <p><small class="text-muted">{{position}}</small></p>
+            <p>{{limitTo description 50}}</p>
+            <a href="{{href}}">More about {{name}}</a>
+          </figcaption>
+        </figure>
+        {{/each}}
+      </div>
+    </div>
 
+    <aside class="col-xs-12 col-lg-3">
+      {{> links}}
+    </aside>
   </div>
 </div>

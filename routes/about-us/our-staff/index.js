@@ -13,7 +13,10 @@ module.exports = function ourStaff(server) {
       db.collection('aboutUs').findOne((error, result) => {
         if (error) throw error;
 
-        reply.view('pages/about-us/our-staff/our-staff', result.ourStaff);
+        const data = result.ourStaff;
+        data.links = result.links;
+
+        reply.view('pages/about-us/our-staff/our-staff', data);
       });
     },
   });

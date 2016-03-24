@@ -110,7 +110,7 @@ server.register([Inert, Vision], () => {
   routes.referrals(server);
   routes.services(server);
 
-  server.start((err) => {
+  server.start(err => {
     if (err) throw err;
   });
 });

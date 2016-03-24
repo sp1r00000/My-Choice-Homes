@@ -15,7 +15,10 @@ module.exports = function quotes(server) {
       db.collection('aboutUs').findOne((error, result) => {
         if (error) throw error;
 
-        reply.view('pages/about-us/quotes/quotes', result.quotes);
+        const data = result.quotes;
+        data.links = result.links;
+
+        reply.view('pages/about-us/quotes/quotes', data);
       });
     },
   });

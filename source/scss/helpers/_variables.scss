@@ -1,3 +1,14 @@
 $space: 0.9375rem;
 $doubleSpace: $space * 2;
 $halfSpace: $space / 2;
+
+$mauve: mch-colour('mauve');
+$mauve-light: mch-colour('mauve', 'light');
+$mauve-lighter: mch-colour('mauve', 'lighter');
+$teal: mch-colour('teal');
+$teal-light: mch-colour('teal', 'light');
+$white: mch-colour('utility', 'white');
+$gray: mch-colour('utility', 'gray');
+$dark: mch-colour('utility', 'dark');
+$darker: mch-colour('utility', 'darker');
+$past: mch-colour('utility', 'past');

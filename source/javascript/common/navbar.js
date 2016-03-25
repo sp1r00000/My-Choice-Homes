@@ -27,7 +27,7 @@ const toggleNav = function toggleNav() {
 
   body.addEventListener('click', event => {
     const nav = document.querySelector('nav.mch-navbar');
-    const icon = document.querySelector('.menu-icon');
+    const icon = document.querySelector('.mch-menu-icon');
 
     navItem();
 

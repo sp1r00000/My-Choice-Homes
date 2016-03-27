@@ -50,7 +50,7 @@
 // @import 'carousel';
 
 // Utility classes
-// @import 'utilities';
-// @import 'utilities-background';
-// @import 'utilities-spacing';
-// @import 'utilities-responsive';
+@import '../../bower_components/bootstrap/scss/utilities';
+@import '../../bower_components/bootstrap/scss/utilities-background';
+@import '../../bower_components/bootstrap/scss/utilities-spacing';
+@import '../../bower_components/bootstrap/scss/utilities-responsive';

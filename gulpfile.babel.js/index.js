@@ -6,6 +6,7 @@ import { scripts } from './tasks/scripts';
 import { scss } from './tasks/scss';
 import { iconicFonts } from './tasks/fonts';
 import { images } from './tasks/images';
+import { plugins } from './tasks/plugins';
 import { watch } from './tasks/watch';
 
 import { preTest, test } from './tasks/test';
@@ -20,7 +21,8 @@ gulp.task('default', gulp.series(
     scripts,
     scss,
     iconicFonts,
-    images
+    images,
+    plugins
   ),
   watch
 ));
@@ -63,6 +65,11 @@ gulp.task('iconic-fonts', gulp.parallel(iconicFonts));
  * run images task
  */
 gulp.task('images', gulp.parallel(images));
+
+/**
+ * run plugins task
+ */
+gulp.task('plugins', gulp.parallel(plugins));
 
 /**
  * run watch task

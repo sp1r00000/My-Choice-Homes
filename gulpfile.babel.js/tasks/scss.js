@@ -11,7 +11,8 @@ export function scss() {
   return sass([
     'source/scss/app.scss',
     'source/iconic/scss/iconic-glyphs.scss',
-    'bower_components/bootstrap/scss/bootstrap-flex.scss',
+    'source/scss/bootstrap-flex.scss',
+    'source/scss/ie.scss',
   ], { sourcemap: true, style: 'compact' })
     .pipe(prefix('last 2 version'))
     .pipe(sourcemaps.write('.'))

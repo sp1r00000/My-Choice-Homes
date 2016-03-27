@@ -4,15 +4,6 @@ const Vision = require('vision');
 
 const MongoDB = require('hapi-mongodb');
 
-const dbOpts = {
-  url: 'mongodb://localhost:27017/mch',
-  settings: {
-    db: {
-      native_parser: false,
-    },
-  },
-};
-
 const PrerenderPlugin = require('hapi-prerender');
 const config = require('./config');
 
@@ -60,7 +51,7 @@ server.register({
 
 server.register({
   register: MongoDB,
-  options: dbOpts,
+  options: config.mongo,
 }, (err) => {
   if (err) throw err;
 });

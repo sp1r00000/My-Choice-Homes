@@ -20,26 +20,7 @@ const sendMail = function sendMail(req) {
   });
 };
 
-/**
- * route configuration for
- * contact-us page
- * @param server
- */
 module.exports = function contactUs(server) {
-  server.route({
-    method: 'GET',
-    path: '/contact-us',
-    handler(req, reply) {
-      const db = req.server.plugins['hapi-mongodb'].db;
-
-      db.collection('contactUs').findOne((error, result) => {
-        if (error) throw error;
-
-        reply.view('pages/contact-us/contact-us', result.contactUs);
-      });
-    },
-  });
-
   server.route({
     method: 'POST',
     path: '/contact-us',

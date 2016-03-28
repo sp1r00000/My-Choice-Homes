@@ -78,6 +78,16 @@ module.exports = [
   },
 
   /**
+   * contact us route configuration
+   */
+  {
+    path: '/contact-us',
+    view: 'pages/contact-us/contact-us',
+    collection: 'contactUs',
+    subCollection: 'contactUs',
+  },
+
+  /**
    * home route configuration
    */
   {

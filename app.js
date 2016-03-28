@@ -17,21 +17,19 @@ const server = new Hapi.Server({
       name: 'mongoCache',
       engine: require('catbox-mongodb'),
       host: '127.0.0.1',
-      partition: 'mch',
+      partition: 'cache',
     },
   ],
 });
 
-const good = {
-  reporters: [{
-    reporter: require('good-console'),
-    events: { log: ['error'], response: '*' },
-  }],
-};
-
 server.register({
   register: require('good'),
-  options: good,
+  options: {
+    reporters: [{
+      reporter: require('good-console'),
+      events: { log: ['error'], response: '*' },
+    }],
+  },
 });
 
 server.connection({

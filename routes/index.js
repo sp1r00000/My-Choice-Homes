@@ -21,14 +21,14 @@ module.exports = function routes(server) {
     return currentDate;
   };
 
-  routesConfig.forEach(item => {
+  routesConfig.forEach(route => {
     server.route({
       method: 'GET',
-      path: item.path,
+      path: route.path,
       handler: (req, reply) => {
         const db = req.server.plugins['hapi-mongodb'].db;
 
-        db.collection(item.collection).findOne((error, result) => {
+        db.collection(route.collection).findOne((error, result) => {
           if (error) throw error;
 
           let data;
@@ -36,12 +36,12 @@ module.exports = function routes(server) {
           if (req.params.home) {
             data = result[req.params.home];
           } else {
-            data = result[item.subCollection];
+            data = result[route.subCollection];
           }
 
           if (result.links) data.links = result.links;
 
-          reply.view(item.view, data).header('Last-Modified', date(cacheDate).toUTCString());
+          reply.view(route.view, data).header('Last-Modified', date(cacheDate).toUTCString());
         });
       },
     });

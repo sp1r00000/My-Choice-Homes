@@ -57,3 +57,20 @@
 @import '../../bower_components/bootstrap/scss/utilities-background';
 @import '../../bower_components/bootstrap/scss/utilities-spacing';
 @import '../../bower_components/bootstrap/scss/utilities-responsive';
+
+
+/**
+ * IE 11 flexbox fix.
+ * Todo: Remove when fixed in bootstrap.
+ */
+@if $enable-flex {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      @for $size from 1 through $grid-columns {
+        .col-#{$breakpoint}-#{$size} {
+          max-width: percentage($size / $grid-columns);
+        }
+      }
+    }
+  }
+}

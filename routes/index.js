@@ -3,11 +3,22 @@
 module.exports = function routes(server) {
   const routesConfig = require('../routes/routes-config');
 
-  let date = new Date();
+  const cacheDate = new Date();
 
-  const newDate = function newDate() {
-    date = new Date();
-    return date;
+  /**
+   * generate new Date if cacheDate
+   * is more than 1 day behind
+   * @param currentDate
+   * @returns Date
+   */
+  const date = function date(currentDate) {
+    const newDate = new Date();
+    const timeDifference = Math.abs(newDate.getTime() - currentDate.getTime());
+    const dateDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
+
+    if (dateDifference > 1) return newDate;
+
+    return currentDate;
   };
 
   routesConfig.forEach(item => {
@@ -30,9 +41,7 @@ module.exports = function routes(server) {
 
           if (result.links) data.links = result.links;
 
-          if (date > new Date() + 1) newDate();
-
-          reply.view(item.view, data).header('Last-Modified', date.toUTCString());
+          reply.view(item.view, data).header('Last-Modified', date(cacheDate).toUTCString());
         });
       },
     });

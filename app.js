@@ -22,28 +22,6 @@ const server = new Hapi.Server({
   ],
 });
 
-/**
- * connection config
- */
-server.connection({
-  host: 'localhost',
-  port: 8000,
-});
-
-/**
- * register prerender plugin
- */
-server.register({
-  register: PrerenderPlugin,
-  options: {
-    token: config.prerender,
-  },
-});
-
-/**
- * good options config
- * @type {{reporters: *[]}}
- */
 const good = {
   reporters: [{
     reporter: require('good-console'),
@@ -51,13 +29,21 @@ const good = {
   }],
 };
 
-/**
- * register good options
- * with server
- */
 server.register({
   register: require('good'),
   options: good,
+});
+
+server.connection({
+  host: 'localhost',
+  port: 8000,
+});
+
+server.register({
+  register: PrerenderPlugin,
+  options: {
+    token: config.prerender,
+  },
 });
 
 server.register({
@@ -69,7 +55,7 @@ server.register({
 
 server.register([Inert, Vision], () => {
   /**
-   * configure templates
+   * configure views
    */
   server.views({
     engines: {
@@ -83,11 +69,6 @@ server.register([Inert, Vision], () => {
     relativeTo: __dirname,
   });
 
-  /**
-   * serve static files from
-   * public directory
-   * cache-control 1y
-   */
   server.route({
     method: 'GET',
     path: '/{filename*}',

@@ -1,15 +1,23 @@
+'use strict';
+
+const config = require('./config');
+
 const Hapi = require('hapi');
 const Inert = require('inert');
 const Vision = require('vision');
-
 const MongoDB = require('hapi-mongodb');
-
 const PrerenderPlugin = require('hapi-prerender');
-const config = require('./config');
 
-const server = new Hapi.Server();
-
-const routes = require('./routes');
+const server = new Hapi.Server({
+  cache: [
+    {
+      name: 'mongoCache',
+      engine: require('catbox-mongodb'),
+      host: '127.0.0.1',
+      partition: 'cache',
+    },
+  ],
+});
 
 /**
  * connection config
@@ -17,6 +25,16 @@ const routes = require('./routes');
 server.connection({
   host: 'localhost',
   port: 8000,
+});
+
+/**
+ * register prerender plugin
+ */
+server.register({
+  register: PrerenderPlugin,
+  options: {
+    token: config.prerender,
+  },
 });
 
 /**
@@ -31,16 +49,6 @@ const good = {
 };
 
 /**
- * register prerender plugin
- */
-server.register({
-  register: PrerenderPlugin,
-  options: {
-    token: config.prerender,
-  },
-});
-
-/**
  * register good options
  * with server
  */
@@ -52,7 +60,7 @@ server.register({
 server.register({
   register: MongoDB,
   options: config.mongo,
-}, (err) => {
+}, err => {
   if (err) throw err;
 });
 
@@ -75,6 +83,7 @@ server.register([Inert, Vision], () => {
   /**
    * serve static files from
    * public directory
+   * cache-control 1y
    */
   server.route({
     method: 'GET',
@@ -86,20 +95,46 @@ server.register([Inert, Vision], () => {
         index: false,
       },
     },
+    config: {
+      cache: {
+        expiresIn: 31536000,
+        privacy: 'private',
+      },
+    },
   });
 
   /**
    * setup routes
    */
-  routes.aboutUs(server);
-  routes.activities(server);
-  routes.careers(server);
-  routes.contactUs(server);
-  routes.home(server);
-  routes.myChoiceSchool(server);
-  routes.ourHomes(server);
-  routes.referrals(server);
-  routes.services(server);
+  const routesConfig = require('./routes/routes-config');
+  const contact = require('./routes/contact-us');
+  contact(server);
+
+  routesConfig.forEach(item => {
+    server.route({
+      method: 'GET',
+      path: item.path,
+      handler: (req, reply) => {
+        const db = req.server.plugins['hapi-mongodb'].db;
+
+        db.collection(item.collection).findOne((error, result) => {
+          if (error) throw error;
+
+          let data;
+
+          if (req.params.home) {
+            data = result[req.params.home];
+          } else {
+            data = result[item.subCollection];
+          }
+
+          if (result.links) data.links = result.links;
+
+          reply.view(item.view, data);
+        });
+      },
+    });
+  });
 
   server.start(err => {
     if (err) throw err;

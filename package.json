@@ -52,6 +52,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "catbox-mongodb": "^2.0.0",
     "cheerio": "^0.20.0",
     "good": "^6.6.0",
     "good-console": "^5.3.1",

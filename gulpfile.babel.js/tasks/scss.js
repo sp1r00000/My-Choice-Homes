@@ -19,7 +19,8 @@ export function scss() {
     'source/scss/app.scss',
     'source/iconic/scss/iconic-glyphs.scss',
     'source/scss/bootstrap-flex.scss',
-    'source/scss/ie.scss',
+    'source/scss/bootstrap-ie9.scss',
+    'source/scss/bootstrap-ie11.scss',
   ])
     .pipe(sourcemaps.init())
     .pipe(postcss(processors))

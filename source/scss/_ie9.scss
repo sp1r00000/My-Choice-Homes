@@ -1,0 +1,71 @@
+// Header
+header.mch-header { height: 260px; }
+
+// Navbar
+nav.mch-navbar {
+  width: 83.33333%;
+  height: 40px;
+  display: inline-block;
+
+  a { line-height: 64px; }
+}
+
+// Tiles
+.tiles {
+  display: inline-block;
+  margin-bottom: 10px;
+  height: 410px;
+  overflow: hidden;
+
+  .dark-bg {
+    display: block;
+
+    h4 { margin-top: 15px; }
+  }
+
+  a, figure, .dark-bg {
+    width: 16.66667%;
+    height: 205px;
+    text-align: center;
+  }
+
+  a { line-height: 200px; }
+}
+
+// Footer
+footer.mch-footer {
+  height: 320px;
+}
+
+// Copyright
+div.mch-copyright {
+  height: 64px;
+  text-align: right;
+}
+
+// Links
+nav.mch-links a {
+  display: inline-block;
+  width: 100%;
+}
+
+// Our staff
+div.mch-our-staff figure {
+  height: 450px;
+  position: relative;
+
+  figcaption h4 a {
+    position: relative;
+    bottom: 0;
+  }
+
+  figcaption a {
+    position: absolute;
+    bottom: 10px;
+  }
+}
+
+// Blockquote
+blockquote {
+  display: inline-block;
+}

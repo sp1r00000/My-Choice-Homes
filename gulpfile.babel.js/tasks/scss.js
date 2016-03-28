@@ -20,7 +20,6 @@ export function scss() {
     'source/iconic/scss/iconic-glyphs.scss',
     'source/scss/bootstrap-flex.scss',
     'source/scss/bootstrap-ie9.scss',
-    'source/scss/bootstrap-ie11.scss',
   ])
     .pipe(sourcemaps.init())
     .pipe(postcss(processors))

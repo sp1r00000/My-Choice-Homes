@@ -8,13 +8,16 @@ const Vision = require('vision');
 const MongoDB = require('hapi-mongodb');
 const PrerenderPlugin = require('hapi-prerender');
 
+const routes = require('./routes');
+const contact = require('./routes/contact-us');
+
 const server = new Hapi.Server({
   cache: [
     {
       name: 'mongoCache',
       engine: require('catbox-mongodb'),
       host: '127.0.0.1',
-      partition: 'cache',
+      partition: 'mch',
     },
   ],
 });
@@ -98,43 +101,13 @@ server.register([Inert, Vision], () => {
     config: {
       cache: {
         expiresIn: 31536000,
-        privacy: 'private',
+        privacy: 'public',
       },
     },
   });
 
-  /**
-   * setup routes
-   */
-  const routesConfig = require('./routes/routes-config');
-  const contact = require('./routes/contact-us');
+  routes(server);
   contact(server);
-
-  routesConfig.forEach(item => {
-    server.route({
-      method: 'GET',
-      path: item.path,
-      handler: (req, reply) => {
-        const db = req.server.plugins['hapi-mongodb'].db;
-
-        db.collection(item.collection).findOne((error, result) => {
-          if (error) throw error;
-
-          let data;
-
-          if (req.params.home) {
-            data = result[req.params.home];
-          } else {
-            data = result[item.subCollection];
-          }
-
-          if (result.links) data.links = result.links;
-
-          reply.view(item.view, data);
-        });
-      },
-    });
-  });
 
   server.start(err => {
     if (err) throw err;

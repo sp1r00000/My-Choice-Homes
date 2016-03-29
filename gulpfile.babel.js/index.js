@@ -26,11 +26,17 @@ gulp.task('default', gulp.series(
 ));
 
 /**
- * travis task runs scrips task
+ * build everything
  * then runs tests
  */
-gulp.task('travis', gulp.series(
-  scripts,
+gulp.task('build', gulp.series(
+  clean,
+  gulp.parallel(
+    scripts,
+    scss,
+    iconicFonts,
+    images
+  ),
   test
 ));
 

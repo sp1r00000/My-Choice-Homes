@@ -31,9 +31,14 @@
 {{> copyright}}
 
 <script src='https://www.google.com/recaptcha/api.js'></script>
+
 <script src="/assets/javascript/app.js"></script>
 {{#if bundle}}
 <script src="/assets/javascript/{{bundle}}.js"></script>
 {{/if}}
+
+<!--[if lt IE 10]>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script>
+<![endif]-->
 </body>
 </html>

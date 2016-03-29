@@ -51,8 +51,8 @@ const navLogo = function navLogo() {
   const body = document.body;
   const nav = document.querySelector('.mch-fixed-navbar');
 
-  window.onscroll = function scroll() {
-    if (body.scrollTop > 100) {
+  function scroll() {
+    if ((window.pageYOffset || body.scrollTop) > 100) {
       if (!nav.classList.contains('animate')) {
         setTimeout(() => {
           nav.classList.add('animate');
@@ -61,7 +61,9 @@ const navLogo = function navLogo() {
     } else {
       nav.classList.remove('animate');
     }
-  };
+  }
+
+  window.onscroll = scroll;
 };
 
 export default { toggleNav, navLogo };

@@ -21,7 +21,9 @@ export function scripts(done) {
       const fileName = entry.replace(/^.*[\\\/]/, '');
 
       return browserify({ entries: [entry] })
-        .transform(babelify)
+        .transform(babelify.configure({
+          presets: ['es2015'],
+        }))
         .bundle()
         .pipe(source(fileName))
         .pipe(gulp.dest('./public/assets/javascript'));

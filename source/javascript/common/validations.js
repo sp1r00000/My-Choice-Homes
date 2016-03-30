@@ -58,12 +58,17 @@ export function removeError(element) {
 
 export function displayRecaptchaError() {
   const recaptcha = document.querySelector('.g-recaptcha');
-  const tag = document.createElement('span');
+  const last = recaptcha.lastElementChild;
+  const hasMessage = last.classList.contains('small');
 
-  tag.innerText = 'Please verify you\'re human';
-  tag.classList.add('small');
+  if (!hasMessage) {
+    const tag = document.createElement('span');
 
-  recaptcha.appendChild(tag);
+    tag.innerText = 'Please verify you\'re human';
+    tag.classList.add('small');
+
+    recaptcha.appendChild(tag);
+  }
 }
 
 export default {

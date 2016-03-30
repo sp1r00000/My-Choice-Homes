@@ -1,13 +1,20 @@
 import helpers from '../helpers';
 import validations from '../common/validations';
 
-const sendSuccess = function sendSuccess(form) {
+const sendSuccess = function sendSuccess(form, response) {
   const success = form;
 
   success.name.value = '';
   success.email.value = '';
   success.telephone.value = '';
   success.message.value = '';
+
+  form.lastElementChild.classList.add('disabled');
+  form.lastElementChild.disabled = true;
+
+  const span = document.createElement('p');
+  span.innerText = response;
+  form.appendChild(span);
 };
 
 /**
@@ -30,7 +37,11 @@ const sendMessage = function sendMessage(form) {
 
   http.send(JSON.stringify(data));
 
-  sendSuccess(form);
+  http.onreadystatechange = function responseText() {
+    if (http.readyState === XMLHttpRequest.DONE) {
+      sendSuccess(form, http.responseText);
+    }
+  };
 };
 
 /**

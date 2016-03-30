@@ -8,7 +8,7 @@ const request = require('request');
 
 const transporter = nodemailer.createTransport(config.transporter);
 
-const sendMail = function sendMail(req) {
+const sendMail = function sendMail(req, reply) {
   const emailConfig = {};
   emailConfig.from = req.payload.email;
   emailConfig.to = config.emailTo;
@@ -16,7 +16,9 @@ const sendMail = function sendMail(req) {
   emailConfig.html = req.payload.message;
 
   transporter.sendMail(emailConfig, error => {
-    if (error) throw error;
+    if (error) reply('Sorry, there was an issue.');
+
+    reply('You\'re message has been sent and we will get back to you very soon.');
   });
 };
 
@@ -35,14 +37,14 @@ module.exports = function contactUs(server) {
         },
       },
     },
-    handler(req) {
+    handler(req, reply) {
       const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${config.captchaSecret}&response=${req.payload.recaptcha}`;
 
       request(verifyUrl, (error, response, body) => {
         if (error) throw error;
 
         const result = JSON.parse(body);
-        if (result.success) sendMail(req);
+        if (result.success) sendMail(req, reply);
       });
     },
   });

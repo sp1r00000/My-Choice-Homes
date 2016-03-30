@@ -1,5 +1,9 @@
 import helpers from '../helpers';
-import validations from '../common/validations';
+
+import watchField from '../common/validations/utils';
+import validateName from '../common/validations/name';
+import validateEmail from '../common/validations/email';
+import validateRecaptcha from '../common/validations/recaptcha';
 
 const sendSuccess = function sendSuccess(form, response) {
   const success = form;
@@ -54,15 +58,15 @@ const contactForm = function contactForm() {
   form.method = 'POST';
 
   form.onsubmit = function submit(event) {
-    const name = validations.nameField(event, form.name);
-    const email = validations.emailField(event, form.email);
-    const recaptcha = validations.recaptcha(event, form['g-recaptcha-response']);
+    const name = validateName(event, form.name);
+    const email = validateEmail(event, form.email);
+    const recaptcha = validateRecaptcha(event, form['g-recaptcha-response']);
 
     if (name && email && recaptcha) sendMessage(form);
   };
 
   helpers.forEach(form.elements, (index, item) => {
-    validations.watchField(item);
+    watchField(item);
   });
 };
 

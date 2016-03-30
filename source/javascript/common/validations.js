@@ -56,21 +56,6 @@ export function removeError(element) {
   if (hasError) element.removeChild(last);
 }
 
-export function displayRecaptchaError() {
-  const recaptcha = document.querySelector('.g-recaptcha');
-  const last = recaptcha.lastElementChild;
-  const hasMessage = last.classList.contains('small');
-
-  if (!hasMessage) {
-    const tag = document.createElement('span');
-
-    tag.innerText = 'Please verify you\'re human';
-    tag.classList.add('small');
-
-    recaptcha.appendChild(tag);
-  }
-}
-
 export default {
   /**
    * validates name
@@ -142,7 +127,7 @@ export default {
     const value = element.value;
 
     if (value === null || value === '') {
-      displayRecaptchaError();
+      displayError(element, 'Please verify you\'re human');
 
       return false;
     }

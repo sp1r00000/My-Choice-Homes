@@ -1,5 +1,7 @@
 'use strict';
 
+const tmpData = require('../scripts/careers/careers.json');
+
 module.exports = function routes(server) {
   const routesConfig = require('../routes/routes-config');
 
@@ -38,6 +40,8 @@ module.exports = function routes(server) {
           } else {
             data = result[route.subCollection];
           }
+
+          if (route.subCollection === 'careers') data.jobs = tmpData;
 
           if (result.links) data.links = result.links;
 

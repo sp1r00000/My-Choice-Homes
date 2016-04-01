@@ -41,7 +41,7 @@ server.connection({
 server.register({
   register: PrerenderPlugin,
   options: {
-    token: config.prerender,
+    serviceUrl: 'http://my-choice-homes.com:3000',
   },
 });
 

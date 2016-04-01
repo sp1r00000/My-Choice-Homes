@@ -1,9 +1,8 @@
 import helpers from '../helpers';
 
 /**
- * is adding 200ms to the
- * load timing really worth a
- * cool effect?
+ * ripple from click/touch
+ * position
  */
 const touchElement = function touch() {
   const elements = document.querySelectorAll('.mch-touch');
@@ -11,8 +10,6 @@ const touchElement = function touch() {
   helpers.forEach(elements, (index, item) => {
     item.addEventListener('click', event => {
       if (item.classList.contains('mch-touch')) {
-        event.preventDefault();
-
         const touchX = item.offsetLeft;
         const touchY = item.offsetTop;
         const x = event.pageX - touchX;
@@ -28,11 +25,6 @@ const touchElement = function touch() {
         span.style.top = `${y - (height / 2)}px`;
 
         item.appendChild(span);
-
-        setTimeout(() => {
-          item.removeChild(span);
-          window.location.pathname = item.pathname;
-        }, 200);
       }
     });
   });

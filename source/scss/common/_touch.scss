@@ -5,14 +5,14 @@
   .mch-touch-effect {
     position: absolute;
     border-radius: 50%;
-    width: 5rem;
-    height: 5rem;
-    background: white;
+    width: 4rem;
+    height: 4rem;
+    background: $white;
 
-    animation: ripple-animation 2s;
+    animation: ripple 2s;
   }
 
-  @keyframes ripple-animation {
+  @keyframes ripple {
     from {
       transform: scale(1);
       opacity: 0.4;

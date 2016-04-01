@@ -20,6 +20,12 @@ const server = new Hapi.Server({
       host: '127.0.0.1',
       partition: 'cache',
     },
+    /*{
+      name: 'redisCache',
+      engine: require('catbox-redis'),
+      host: '127.0.0.1',
+      partition: 'cache',
+    },*/
   ],
 });
 

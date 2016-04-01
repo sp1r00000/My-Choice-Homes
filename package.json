@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "catbox-mongodb": "^2.0.0",
+    "catbox-redis": "^1.0.10",
     "cheerio": "^0.20.0",
     "good": "^6.6.0",
     "good-console": "^5.3.1",

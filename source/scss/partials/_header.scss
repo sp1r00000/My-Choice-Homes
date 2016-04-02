@@ -1,6 +1,7 @@
 header.mch-header {
-  padding-top: 8%;
-  padding-bottom: 8%;
+  display: flex;
+  align-items: center;
+  height: 15rem;
   margin-bottom: 1rem;
   color: white;
   background-color: $mauve;
@@ -38,6 +39,7 @@ header.mch-header {
   &.mch-our-homes-header,
   &.mch-ivy-cottage-header,
   &.mch-kestrel-house-header,
+  &.mch-kingfisher-view-header,
   &.mch-maple-house-header,
   &.mch-oak-house-header,
   &.mch-ocean-pearl-header,
@@ -47,7 +49,7 @@ header.mch-header {
   }
 
   &.mch-services-header {
-    background: url('/assets/images/header/services.jpg') no-repeat scroll 0 0;
+    background: url('/assets/images/header/services.jpg') no-repeat scroll right bottom;
   }
 
   /*&.mch-keywork-support-header {
@@ -86,12 +88,6 @@ header.mch-header {
     text-shadow: 0 0 0.2rem $dark;
   }
 
-  h2 {
-    font-size: 1.4rem;
-    font-weight: 400;
-    line-height: 2.4rem;
-  }
-
   span {
     color: $mauve-light;
     text-shadow: none;
@@ -100,7 +96,7 @@ header.mch-header {
 
 @media (min-width: 75em) {
   header.mch-header {
-    padding-top: 6%;
-    padding-bottom: 5%;
+    padding-left: 15rem;
+    height: 17rem;
   }
 }

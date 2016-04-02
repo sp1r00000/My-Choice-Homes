@@ -1,0 +1,40 @@
+.mch-services {
+  figure { margin-bottom: $space; }
+  img { filter: grayscale(1); }
+}
+
+@media (min-width: 34em) {
+  .mch-services {
+    .mch-col-sm-4 {
+      flex: 0 0 37%;
+      max-width: 37%;
+
+      &.col-sm-pull-8 {
+        right: 63%;
+      }
+    }
+
+    .mch-col-sm-8 {
+      flex: 0 0 63%;
+      max-width: 63%;
+
+      &.col-sm-push-4 {
+        left: 37%;
+      }
+    }
+  }
+}
+
+@media (min-width: 62em) {
+  .mch-services {
+    .mch-col-lg-4 {
+      flex: 0 0 37%;
+      max-width: 37%;
+    }
+
+    .mch-col-lg-8 {
+      flex: 0 0 63%;
+      max-width: 63%;
+    }
+  }
+}

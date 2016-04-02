@@ -4,16 +4,82 @@ header.mch-header {
   margin-bottom: 1rem;
   color: white;
   background-color: $mauve;
+  box-shadow: 0 0 .5rem $dark inset;
+  background-size: cover !important;
 
   &.mch-home-header {
-    background: url('/assets/images/mch-header.jpeg') no-repeat scroll 0 0;
-    background-size: cover;
+    background: url('/assets/images/header/home.jpeg') no-repeat scroll 0 0;
+  }
 
-    span {
-      padding: 0;
-      color: $mauve-light;
-      background-color: transparent;
-    }
+  &.mch-about-us-header {
+    background: url('/assets/images/header/about-us.jpg') no-repeat scroll 0 0;
+  }
+
+  &.mch-our-staff-header {
+    background: url('/assets/images/header/our-staff.jpeg') no-repeat scroll 0 0;
+  }
+
+  &.mch-quotes-header {
+    background: url('/assets/images/header/quotes.jpg') no-repeat scroll 0 0;
+  }
+
+  &.mch-training-header {
+    background: url('/assets/images/header/training.jpeg') no-repeat scroll 0 0;
+  }
+
+  /*&.mch-programme-header {
+    background: url('/assets/images/header/programme.jpeg') no-repeat scroll 0 0;
+  }*/
+
+  &.mch-commitment-header {
+    background: url('/assets/images/header/commitment.jpg') no-repeat scroll 0 0;
+  }
+
+  &.mch-our-homes-header,
+  &.mch-ivy-cottage-header,
+  &.mch-kestrel-house-header,
+  &.mch-maple-house-header,
+  &.mch-oak-house-header,
+  &.mch-ocean-pearl-header,
+  &.mch-osprey-house-header,
+  &.mch-pebble-house-header {
+    background: url('/assets/images/header/our-homes.jpeg') no-repeat scroll 0 0;
+  }
+
+  &.mch-services-header {
+    background: url('/assets/images/header/services.jpg') no-repeat scroll 0 0;
+  }
+
+  /*&.mch-keywork-support-header {
+    background: url('/assets/images/services/keywork-support.jpg') no-repeat scroll 0 0;
+  }*/
+
+  &.mch-school-header {
+    background: url('/assets/images/header/my-choice-school.jpeg') no-repeat scroll 0 0;
+  }
+
+  &.mch-activities-header {
+    background: url('/assets/images/header/activities.jpeg') no-repeat scroll 0 0;
+  }
+
+  &.mch-referrals-header {
+    background: url('/assets/images/header/referrals.jpg') no-repeat scroll 0 0;
+  }
+
+  &.mch-careers-header {
+    background: url('/assets/images/header/careers.jpeg') no-repeat scroll 0 0;
+  }
+
+  &.mch-casual-worker-header {
+    background: url('/assets/images/header/casual-worker.jpeg') no-repeat scroll 0 0;
+  }
+
+  &.mch-support-worker-header {
+    background: url('/assets/images/header/support-worker.jpeg') no-repeat scroll 0 0;
+  }
+
+  &.mch-contact-us-header {
+    background: url('/assets/images/header/contact-us.jpeg') no-repeat scroll 0 0;
   }
 
   h1, h2 {
@@ -27,8 +93,7 @@ header.mch-header {
   }
 
   span {
-    padding: $halfSpace;
-    background-color: $teal-light;
+    color: $mauve-light;
     text-shadow: none;
   }
 }

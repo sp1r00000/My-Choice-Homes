@@ -29,7 +29,7 @@ const touchElement = function touch() {
 
       setTimeout(() => {
         window.location.pathname = item.pathname;
-      });
+      }, 200);
     });
   });
 };

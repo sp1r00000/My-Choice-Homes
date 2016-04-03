@@ -31,4 +31,36 @@ const filterTransition = function filterTransition() {
   document.onscroll = scroll;
 };
 
+/**
+ * keep custom blocks responsive
+ * with resize event
+ */
+const insetBlockWidth = function insetBlockWidth() {
+  const elements = document.getElementsByClassName('mch-inset');
+
+  function setWidth() {
+    const windowWidth = window.innerWidth;
+
+    helpers.forEach(elements, (index, item) => {
+      const element = item;
+
+      if (windowWidth >= 768) {
+        let space = window.getComputedStyle(element, null).getPropertyValue('padding-left');
+        space = parseInt(space, 0);
+
+        element.style.maxWidth = `${windowWidth / 3 - space}px`;
+        element.style.flex = `0 0 ${windowWidth / 3 - space}px`;
+      } else {
+        element.style.removeProperty('max-width');
+        element.style.removeProperty('flex');
+      }
+    });
+  }
+
+  setWidth();
+
+  window.addEventListener('resize', setWidth);
+};
+
 filterTransition();
+insetBlockWidth();

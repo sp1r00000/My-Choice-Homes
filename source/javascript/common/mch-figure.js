@@ -2,10 +2,10 @@ import helpers from '../helpers';
 
 /**
  * insert a span styled with
- * inset shadow
+ * inset shadow with class mch-is
  */
 export function insertShadow() {
-  const elements = document.getElementsByClassName('mch-figure');
+  const elements = document.getElementsByClassName('mch-is');
 
   helpers.forEach(elements, (index, item) => {
     const span = document.createElement('span');
@@ -14,16 +14,13 @@ export function insertShadow() {
   });
 }
 
-export default { insertShadow };
-
-
 /**
  * set the dimensions of elements
- * with class mch-set-dimensions
+ * with class mch-sd
  * resize event
  */
 export function setDimensions() {
-  const elements = document.getElementsByClassName('mch-figure');
+  const elements = document.getElementsByClassName('mch-sd');
 
   helpers.forEach(elements, (index, item) => {
     const element = item;
@@ -35,9 +32,7 @@ export function setDimensions() {
     element.style.height = `${height}px`;
   });
 
-  window.onresize = function resize() {
-    setDimensions();
-  };
+  window.addEventListener('resize', setDimensions);
 }
 
 export default { insertShadow, setDimensions };

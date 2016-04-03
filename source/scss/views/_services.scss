@@ -2,16 +2,39 @@
   figure { margin-bottom: $space; }
 }
 
-@media (min-width: 62em) {
+@media (min-width: 48em) {
   .mch-services {
-    .mch-col-lg-4 {
+
+    .mch-col-md-4 {
       flex: 0 0 37%;
       max-width: 37%;
     }
 
-    .mch-col-lg-8 {
+    .mch-col-md-8 {
       flex: 0 0 63%;
       max-width: 63%;
+    }
+
+    .mch-intro-block .small {
+      display: none;
+    }
+
+    .col-md-4.mch-inset {
+      &:nth-child(1) {
+        margin-right: $space;
+      }
+
+      &:nth-child(2) {
+        margin-right: $space;
+      }
+    }
+  }
+}
+
+@media (min-width: 62em) {
+  .mch-services {
+    .mch-intro-block .small {
+      display: block;
     }
   }
 }

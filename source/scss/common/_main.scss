@@ -10,12 +10,6 @@ h2 {
   margin-bottom: $doubleSpace;
 }
 
-h3.mch-big {
-  font-size: 3.8rem;
-  font-weight: 600;
-  margin-bottom: $doubleSpace;
-}
-
 h4 a {
   text-decoration: none;
 }
@@ -79,4 +73,28 @@ img.grayscale-on {
 img.grayscale-off {
   transition: 1s;
   filter: grayscale(0);
+}
+
+figcaption.mch-figcaption-bl {
+  position: absolute;
+  bottom: $space;
+  left: $space;
+  font-size: 2rem;
+  color: $white;
+  padding: 0;
+  font-weight: 600;
+  text-shadow: 0 0 .2rem $dark;
+}
+
+.mch-inset {
+  background: $gray;
+  margin-bottom: $space;
+  box-shadow: 0 0 .5rem #999 inset;
+  padding: 0 $space;
+
+  .iconic::before {
+    margin-bottom: $doubleSpace;
+  }
+
+  @extend .icon-md-round;
 }

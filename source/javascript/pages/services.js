@@ -28,7 +28,7 @@ const filterTransition = function filterTransition() {
     });
   }
 
-  document.onscroll = scroll;
+  window.addEventListener('scroll', scroll);
 };
 
 /**
@@ -36,7 +36,7 @@ const filterTransition = function filterTransition() {
  * with resize event
  */
 const insetBlockWidth = function insetBlockWidth() {
-  const elements = document.getElementsByClassName('mch-inset');
+  const elements = document.getElementsByClassName('mch-col ');
 
   function setWidth() {
     const windowWidth = window.innerWidth;
@@ -51,8 +51,8 @@ const insetBlockWidth = function insetBlockWidth() {
         element.style.maxWidth = `${windowWidth / 3 - space}px`;
         element.style.flex = `0 0 ${windowWidth / 3 - space}px`;
       } else {
-        element.style.removeProperty('max-width');
-        element.style.removeProperty('flex');
+        element.style.maxWidth = '100%';
+        element.style.flex = '0 0 100%';
       }
     });
   }

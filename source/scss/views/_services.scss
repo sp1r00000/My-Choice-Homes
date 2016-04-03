@@ -1,5 +1,16 @@
 .mch-services {
-  figure { margin-bottom: $space; }
+  figure {
+    overflow: hidden;
+    margin-bottom: $space;
+  }
+
+  .mch-intro-block .iconic:before {
+    color: $teal-lighter;
+  }
+
+  .mch-inset .iconic:before {
+    color: $mauve-lighter;
+  }
 }
 
 @media (min-width: 48em) {
@@ -15,18 +26,32 @@
       max-width: 63%;
     }
 
+    .section-a .mch-intro-block {
+      margin-right: $space;
+      margin-left: -$space;
+      padding-left: $doubleSpace;
+    }
+
+    .section-b figure {
+      margin-right: $space;
+      margin-left: -$space;
+
+      figcaption {
+        padding-left: $space;
+      }
+    }
+
+    .section-d figure {
+      margin-bottom: 0;
+    }
+
     .mch-intro-block .small {
       display: none;
     }
 
-    .col-md-4.mch-inset {
-      &:nth-child(1) {
-        margin-right: $space;
-      }
-
-      &:nth-child(2) {
-        margin-right: $space;
-      }
+    .mch-col:nth-child(2) {
+      margin-left: $space;
+      margin-right: $space;
     }
   }
 }

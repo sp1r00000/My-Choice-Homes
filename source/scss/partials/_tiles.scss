@@ -26,8 +26,6 @@ section.tiles {
     background-color: $dark;
     color: $white;
     padding: $halfSpace;
-    font-size: 0.8rem;
-    font-weight: 300;
 
     @extend .icon-md-round;
 
@@ -45,7 +43,6 @@ section.tiles {
     font-weight: 300;
     color: $white;
     text-decoration: none;
-    text-transform: uppercase;
 
     &:hover {
       text-decoration: none;

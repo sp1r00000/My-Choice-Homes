@@ -87,11 +87,6 @@ header.mch-header {
   h1, h2 {
     text-shadow: 0 0 0.2rem $dark;
   }
-
-  span {
-    color: $mauve-light;
-    text-shadow: none;
-  }
 }
 
 @media (min-width: 75em) {

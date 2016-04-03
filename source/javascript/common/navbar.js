@@ -63,7 +63,7 @@ const navLogo = function navLogo() {
     }
   }
 
-  window.onscroll = scroll;
+  window.addEventListener('scroll', scroll);
 };
 
 export default { toggleNav, navLogo };

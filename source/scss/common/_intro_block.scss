@@ -18,11 +18,3 @@
     font-size: 1.4rem;
   }
 }
-
-@media (min-width: 48em) {
-  .mch-intro-block.mch-left {
-    margin-right: $space;
-    margin-left: -$space;
-    padding-left: $doubleSpace;
-  }
-}

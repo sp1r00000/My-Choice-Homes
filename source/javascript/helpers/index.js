@@ -19,4 +19,12 @@ export function switchClass(element, from, to) {
   element.classList.add(to);
 }
 
-export default { forEach, switchClass };
+export function removeAllClassName(className) {
+  const classes = document.querySelectorAll(`.${className}`);
+
+  forEach(classes, (index, item) => {
+    item.classList.remove(className);
+  });
+}
+
+export default { forEach, switchClass, removeAllClassName };

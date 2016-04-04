@@ -35,14 +35,14 @@ const slideOpen = function slideOpen() {
   /**
    * close more info blocks when
    * clicking outside
-   * @param target
    */
   function closeAll(target) {
     const openElements = document.querySelectorAll('.open');
     const isMoreInfo = target.classList.contains('more-info');
+    const isViewMoreParent = target.parentElement.classList.contains('more-info');
 
     forEach(openElements, (index, item) => {
-      if (!isMoreInfo) switchClass(item, 'open', 'close');
+      if (!isMoreInfo && !isViewMoreParent) switchClass(item, 'open', 'close');
     });
   }
 

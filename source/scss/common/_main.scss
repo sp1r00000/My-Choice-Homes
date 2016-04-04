@@ -39,6 +39,16 @@ figcaption {
   padding: $halfSpace;
 }
 
+figure.mch-figure {
+  position: relative;
+
+  figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
 blockquote {
   border-left: $halfSpace solid $gray;
   padding: 0 $space;
@@ -65,25 +75,26 @@ button[type="submit"] {
   color: $teal-lighter;
 }
 
-img.grayscale-on {
-  transition: 1s;
-  filter: grayscale(1);
+.mauve-lighter-bg, .gray-bg {
+  display: flex;
+  flex-direction: column;
+  padding: $space;
 }
 
-img.grayscale-off {
-  transition: 1s;
-  filter: grayscale(0);
-}
-
-figcaption.mch-figcaption-bl {
-  position: absolute;
-  bottom: $space;
-  left: $space;
-  font-size: 2rem;
+.mauve-lighter-bg {
+  justify-content: center;
+  background-color: $mauve-lighter;
   color: $white;
-  padding: 0;
-  font-weight: 600;
-  text-shadow: 0 0 .2rem $dark;
+  box-shadow: 0 0 $halfSpace $dark inset;
+
+  a {
+    color: $white;
+  }
+}
+
+.gray-bg {
+  background-color: $gray;
+  box-shadow: 0 0 $halfSpace #999 inset;
 }
 
 .mch-inset {

@@ -1,4 +1,4 @@
-import helpers from '../helpers';
+import { forEach, switchClass } from '../helpers';
 import figureInset from '../common/figure';
 
 const slideOpen = function slideOpen() {
@@ -15,10 +15,8 @@ const slideOpen = function slideOpen() {
 
     currentSection.appendChild(block);
 
-    target.classList.remove('close');
-    target.classList.add('open');
-    block.classList.remove('close');
-    block.classList.add('open');
+    switchClass(target, 'close', 'open');
+    switchClass(block, 'close', 'open');
   }
 
   /**
@@ -30,10 +28,8 @@ const slideOpen = function slideOpen() {
   function close(target) {
     const block = document.querySelector('.more-info.open');
 
-    target.classList.remove('open');
-    target.classList.add('close');
-    block.classList.remove('open');
-    block.classList.add('close');
+    switchClass(target, 'open', 'close');
+    switchClass(block, 'open', 'close');
   }
 
   /**
@@ -45,11 +41,8 @@ const slideOpen = function slideOpen() {
     const openElements = document.querySelectorAll('.open');
     const isMoreInfo = target.classList.contains('more-info');
 
-    helpers.forEach(openElements, (index, item) => {
-      if (!isMoreInfo) {
-        item.classList.remove('open');
-        item.classList.add('close');
-      }
+    forEach(openElements, (index, item) => {
+      if (!isMoreInfo) switchClass(item, 'open', 'close');
     });
   }
 

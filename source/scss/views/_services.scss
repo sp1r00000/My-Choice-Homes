@@ -32,13 +32,8 @@
     overflow: hidden;
 
     @keyframes slide-open {
-      from {
-        width: 0;
-      }
-
-      to {
-        width: 80%;
-      }
+      from { width: 0; }
+      to { width: 80%; }
     }
 
     @keyframes slide-close {

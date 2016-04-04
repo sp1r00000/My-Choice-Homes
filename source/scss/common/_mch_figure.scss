@@ -25,11 +25,17 @@ figure.mch-figure {
     left: $space;
     height: 100%;
     cursor: pointer;
+    transition: .1s;
+    transition-delay: .2s;
 
     &.open {
-      left: 89%;
       transform: scaleX(-1);
-      transition: .1s;
+      left: 89%;
+    }
+
+    &.close {
+      transform: scaleX(1);
+      left: $space;
     }
   }
 

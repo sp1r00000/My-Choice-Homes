@@ -1,10 +1,42 @@
-.mch-figure {
+figure.mch-figure {
   position: relative;
   margin: 0;
 
-  .img-inset-shadow {
+  figcaption {
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    left: $space;
+    z-index: 1;
+    width: 95%;
+    height: 100%;
+    font-size: 2rem;
+    color: $white;
+    font-weight: 600;
+    text-shadow: 0 0 .2rem $dark;
+  }
+
+  figcaption span {
+    display: flex;
+    align-items: center;
     position: absolute;
     top: 0;
+    left: $space;
+    height: 100%;
+    cursor: pointer;
+
+    &.open {
+      left: 89%;
+      transform: scaleX(-1);
+      transition: .1s;
+    }
+  }
+
+  span.img-inset-shadow {
+    position: absolute;
+    top: 0;
+    z-index: 0;
     box-shadow: 0 0 $halfSpace $dark inset;
     padding: 0;
   }

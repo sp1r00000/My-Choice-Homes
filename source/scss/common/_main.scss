@@ -39,16 +39,6 @@ figcaption {
   padding: $halfSpace;
 }
 
-figure.mch-figure {
-  position: relative;
-
-  figcaption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-}
-
 blockquote {
   border-left: $halfSpace solid $gray;
   padding: 0 $space;
@@ -86,6 +76,7 @@ button[type="submit"] {
   background-color: $mauve-lighter;
   color: $white;
   box-shadow: 0 0 $halfSpace $dark inset;
+  font-size: 1.4rem;
 
   a {
     color: $white;

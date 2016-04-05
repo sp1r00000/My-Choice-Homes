@@ -26,7 +26,6 @@ figure.mch-figure {
     height: 100%;
     cursor: pointer;
     transition: .1s;
-    transition-delay: .2s;
 
     &.open {
       transform: scaleX(-1);
@@ -36,6 +35,7 @@ figure.mch-figure {
     &.close {
       transform: scaleX(1);
       left: $space;
+      transition-delay: .2s;
     }
   }
 

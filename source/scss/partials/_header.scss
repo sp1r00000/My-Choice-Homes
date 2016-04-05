@@ -1,12 +1,15 @@
 header.mch-header {
   display: flex;
-  align-items: center;
-  height: 15rem;
+  align-items: flex-start;
+  min-height: 15rem;
   margin-bottom: 1rem;
-  color: white;
+  color: $white;
   background-color: $mauve;
-  box-shadow: 0 0 .5rem $dark inset;
-  background-size: cover !important;
+  box-shadow: inset 0 0 .5rem $dark;
+  background-size: cover!important;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem;
 
   &.mch-home-header {
     background: url('/assets/images/header/home.jpeg') no-repeat scroll 0 0;

@@ -1,13 +1,9 @@
-<header class="container-fluid mch-header {{headerClass}}">
-  <div class="row">
-    <div class="col-xs-12">
-    {{#if header}}
-      <h1>{{header.title}}</h1>
-      <h2>{{header.subtitle}}</h2>
-    {{else}}
-      <h1>My Choice Children's Homes</h1>
-      <h2>A Pro-active Approach to the Development of Young People.</h2>
-    {{/if}}
-    </div>
-  </div>
+<header class="mch-header {{headerClass}}">
+  {{#if header}}
+  <h1>{{header.title}}</h1>
+  <h2>{{header.subtitle}}</h2>
+  {{else}}
+  <h1>My Choice Children's Homes</h1>
+  <h2>A Pro-active Approach to the Development of Young People.</h2>
+  {{/if}}
 </header>

@@ -16,7 +16,10 @@ const slideOpen = function slideOpen() {
     currentSection.appendChild(block);
 
     switchClass(target, 'close', 'open');
-    switchClass(block, 'close', 'open');
+
+    setTimeout(() => {
+      switchClass(block, 'close', 'open');
+    }, 200);
   }
 
   /**

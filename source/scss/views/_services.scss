@@ -1,8 +1,6 @@
 .mch-services {
 
-  .col-xs-12 {
-    margin-bottom: $space;
-  }
+  .col-xs-12 { margin-bottom: $space; }
 
   .gray-bg {
     padding-top: 0;
@@ -63,38 +61,33 @@
       animation-name: slide-close;
     }
   }
+
+  .section-c ul { margin-bottom: 0; }
+
+  .section-d .col-md-4:nth-child(3) { margin-bottom: 0; }
 }
 
 @media (min-width: 48em) {
   .mch-services {
+    .row { margin-bottom: $space; }
 
-    .row {
-      margin-bottom: $space;
+    .col-xs-12 { margin-bottom: 0; }
+
+    .section-a .col-md-4 {
+      flex: 0 0 35%;
+      max-width: 35%;
+      padding-right: 0;
     }
 
-    .col-xs-12 {
-      margin-bottom: 0;
+    .section-a .col-md-8 {
+      flex: 0 0 65%;
+      max-width: 65%;
+      padding-left: $space;
     }
 
-    .section-a {
-      .col-md-4 {
-        flex: 0 0 35%;
-        max-width: 35%;
-        padding-right: 0;
-      }
+    .section-a .small { display: none; }
 
-      .col-md-8 {
-        flex: 0 0 65%;
-        max-width: 65%;
-        padding-left: $space;
-      }
-
-      .small {
-        display: none;
-      }
-    }
-
-    .section-a .mauve-lighter-bg, .section-b .mauve-lighter-bg {
+    .section-a .mauve-lighter-bg, .section-b .mauve-lighter-bg,.section-c .mauve-lighter-bg {
       position: absolute;
       height: 100%;
     }
@@ -103,11 +96,9 @@
       margin-right: $space;
     }
 
-    .section-b figure {
-      padding-right: 0;
-    }
+    .section-b figure { padding-right: 0; }
 
-    .section-c .col-md-4 {
+    .section-d .col-md-4 {
       display: flex;
 
       &:nth-child(1) {
@@ -123,13 +114,20 @@
         padding-left: $halfSpace;
       }
     }
+
+    .section-c ul {
+      font-size: 1rem;
+
+      li:last-child { display: none; }
+    }
   }
 }
 
 @media (min-width: 62em) {
-  .mch-services {
-    .section-a .small {
-      display: block;
-    }
-  }
+  .mch-services .section-a .small { display: block; }
+  .mch-services .section-c ul li:last-child { display: block; }
+}
+
+@media (min-width: 75em) {
+  .mch-services .section-c ul { font-size: 1.4rem; }
 }

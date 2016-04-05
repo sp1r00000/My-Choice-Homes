@@ -72,3 +72,15 @@ section.tiles {
     padding: 0 $space;
   }
 }
+
+@media (min-width: 62em) {
+  section.tiles .dark-bg.small {
+    font-size: .8rem;
+  }
+}
+
+@media (min-width: 75em) {
+  section.tiles .dark-bg.small {
+    font-size: 1rem;
+  }
+}

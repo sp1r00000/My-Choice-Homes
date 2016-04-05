@@ -19,7 +19,7 @@ const slideOpen = function slideOpen() {
 
     setTimeout(() => {
       switchClass(block, 'close', 'open');
-    }, 200);
+    }, 50);
   }
 
   /**

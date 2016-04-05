@@ -31,8 +31,6 @@ module.exports = function routes(server) {
       path: route.path,
       handler: (req, reply) => {
         const agent = useragent.parse(req.headers['user-agent']);
-        console.log('agent', agent);
-
         const db = req.server.plugins['hapi-mongodb'].db;
 
         db.collection(route.collection).findOne((error, result) => {

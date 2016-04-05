@@ -1,5 +1,9 @@
 // Header
-header.mch-header { height: 260px; }
+header.mch-header {
+  height: 260px;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
 
 // Navbar
 nav.mch-navbar {
@@ -47,6 +51,26 @@ div.mch-copyright {
 nav.mch-links a {
   display: inline-block;
   width: 100%;
+}
+
+.mauve-lighter-bg, .gray-bg {
+  display: table;
+}
+
+.mch-figure {
+  display: inline-block;
+}
+
+figure.mch-figure figcaption, figure.mch-figure figcaption span {
+  display: inline-block;
+}
+
+.mch-service {
+  .section-a {
+    figure img {
+      padding-right: 1rem;
+    }
+  }
 }
 
 // Our staff

@@ -9,7 +9,7 @@ const touchElement = function touch() {
 
   helpers.forEach(elements, (index, item) => {
     item.addEventListener('click', event => {
-      event.preventDefault();
+      // event.preventDefault();
 
       const touchX = item.offsetLeft;
       const touchY = item.offsetTop;
@@ -27,9 +27,10 @@ const touchElement = function touch() {
 
       item.appendChild(span);
 
-      setTimeout(() => {
-        window.location.pathname = item.pathname;
-      }, 200);
+      // ie bug
+      // setTimeout(() => {
+      // location.pathname = item.pathname;
+      // }, 200);
     });
   });
 };

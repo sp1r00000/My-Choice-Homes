@@ -71,6 +71,7 @@
     "nodemailer": "^2.3.0",
     "npm": "^3.8.2",
     "request": "^2.69.0",
+    "useragent": "^2.1.9",
     "vision": "^4.0.1"
   }
 }

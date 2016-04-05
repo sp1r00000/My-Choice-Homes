@@ -17,9 +17,8 @@ export function scss() {
 
   return sass([
     'source/scss/app.scss',
+    'source/scss/app.ie.scss',
     'source/iconic/scss/iconic-glyphs.scss',
-    'source/scss/bootstrap-flex.scss',
-    'source/scss/bootstrap-ie9.scss',
   ])
     .pipe(sourcemaps.init())
     .pipe(postcss(processors))

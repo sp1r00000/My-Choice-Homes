@@ -1,5 +1,7 @@
 'use strict';
 
+const useragent = require('useragent');
+
 const tmpData = require('../scripts/careers/careers.json');
 
 module.exports = function routes(server) {
@@ -28,6 +30,9 @@ module.exports = function routes(server) {
       method: 'GET',
       path: route.path,
       handler: (req, reply) => {
+        const agent = useragent.parse(req.headers['user-agent']);
+        console.log('agent', agent);
+
         const db = req.server.plugins['hapi-mongodb'].db;
 
         db.collection(route.collection).findOne((error, result) => {
@@ -44,6 +49,15 @@ module.exports = function routes(server) {
           if (route.subCollection === 'careers') data.jobs = tmpData;
 
           if (result.links) data.links = result.links;
+
+          /**
+           * conditional css for ie
+           */
+          if (agent.family === 'IE') {
+            data.css = '/assets/stylesheets/app.ie.css';
+          } else {
+            data.css = '/assets/stylesheets/app.css';
+          }
 
           reply.view(route.view, data).header('Last-Modified', date(cacheDate).toUTCString());
         });

@@ -16,8 +16,9 @@ export function scss() {
   ];
 
   return sass([
-    'source/scss/app.scss',
-    'source/scss/app.ie.scss',
+    /*'source/scss/app.scss',
+    'source/scss/app.ie.scss',*/
+    'source/scss/app.nobs.scss',
     'source/iconic/scss/iconic-glyphs.scss',
   ])
     .pipe(sourcemaps.init())

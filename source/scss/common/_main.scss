@@ -1,5 +1,17 @@
+* {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  margin-top: 4rem;
+  display: inline-block;
+  font-family: "Josefin Slab", Helvetica, Arial, serif;
+  line-height: 1.4;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: $darker;
+  margin: 12% 0 0 0;
 }
 
 h1, h2 {
@@ -28,15 +40,13 @@ a.btn {
 }
 
 img {
+  display: block;
   width: 100%;
 }
 
-figure, .card {
-  margin: 0 0 $space;
-}
-
-figcaption {
-  padding: $halfSpace;
+figure, figcaption {
+  margin: 0;
+  padding: 0;
 }
 
 blockquote {
@@ -51,52 +61,4 @@ hr {
 
 button[type="submit"] {
   margin: $space 0;
-}
-
-.yellow {
-  color: $yellow;
-}
-
-.mauve-lighter {
-  color: $mauve-lighter;
-}
-
-.teal-lighter {
-  color: $teal-lighter;
-}
-
-.mauve-lighter-bg, .gray-bg {
-  display: flex;
-  flex-direction: column;
-  padding: $space;
-}
-
-.mauve-lighter-bg {
-  justify-content: center;
-  background-color: $mauve-lighter;
-  color: $white;
-  box-shadow: 0 0 $halfSpace $dark inset;
-  font-size: 1.4rem;
-
-  a {
-    color: $white;
-  }
-}
-
-.gray-bg {
-  background-color: $gray;
-  box-shadow: 0 0 $halfSpace #999 inset;
-}
-
-.mch-inset {
-  background: $gray;
-  margin-bottom: $space;
-  box-shadow: 0 0 .5rem #999 inset;
-  padding: 0 $space;
-
-  .iconic::before {
-    margin-bottom: $doubleSpace;
-  }
-
-  @extend .icon-md-round;
 }

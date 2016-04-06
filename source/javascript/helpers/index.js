@@ -19,4 +19,7 @@ export function switchClass(element, from, to) {
   element.classList.add(to);
 }
 
-export default { forEach, switchClass };
+export default {
+  forEach,
+  switchClass,
+};

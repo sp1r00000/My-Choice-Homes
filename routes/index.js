@@ -49,12 +49,17 @@ module.exports = function routes(server) {
           if (result.links) data.links = result.links;
 
           /**
-           * conditional css for ie
+           * conditional css
            */
           if (agent.family === 'IE') {
             data.css = '/assets/stylesheets/app.ie.css';
           } else {
-            data.css = '/assets/stylesheets/app.css';
+            if (route.subCollection === 'services') {
+              // lets strip the bs
+              data.css = '/assets/stylesheets/app.nobs.css';
+            } else {
+              data.css = '/assets/stylesheets/app.css';
+            }
           }
 
           reply.view(route.view, data).header('Last-Modified', date(cacheDate).toUTCString());

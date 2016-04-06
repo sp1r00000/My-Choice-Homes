@@ -1,5 +1,7 @@
 import { forEach, switchClass } from '../helpers';
 import figureInset from '../common/figure';
+import insertIcons from '../common/insert-icons';
+import matchHeight from '../common/match-height';
 
 const slideOpen = function slideOpen() {
   /**
@@ -60,8 +62,31 @@ const slideOpen = function slideOpen() {
   });
 };
 
+const iconic = function iconic() {
+  const icons = [
+    'mch-ellipses',
+    'mch-heart',
+    'mch-people',
+    'mch-home',
+  ];
+
+  insertIcons(icons);
+};
+
+const blockHeight = function blockHeight() {
+  const elementsArray = [
+    ['mch-block-2', 'mch-block-1'],
+    ['mch-block-4', 'mch-block-3'],
+    ['mch-block-7', 'mch-block-8', 'mch-block-9'],
+  ];
+
+  matchHeight(elementsArray);
+};
+
 figureInset.insertShadow();
 figureInset.setDimensions();
 figureInset.filter();
 
+iconic();
 slideOpen();
+blockHeight();

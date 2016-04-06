@@ -6,7 +6,8 @@ import {forEach} from '../helpers';
  * @param height
  */
 const setHeights = function setHeights(element, height) {
-  if (element.clientHeight !== height) element.style.height = `${height}px`;
+  const elm = element;
+  if (elm.clientHeight !== height) elm.style.height = `${height}px`;
 };
 
 /**
@@ -18,9 +19,7 @@ const getHighest = function getHighest(element, heights) {
   const highest = 0;
 
   for (let i = 0; i <= highest; i++) {
-    if (heights[i] > highest) {
-      setHeights(element, heights[i]);
-    }
+    if (heights[i] > highest) setHeights(element, heights[i]);
   }
 };
 

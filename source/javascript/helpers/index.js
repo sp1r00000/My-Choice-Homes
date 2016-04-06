@@ -15,8 +15,13 @@ export function forEach(array, cb, scope) {
  * @param to class
  */
 export function switchClass(element, from, to) {
-  element.classList.remove(from);
-  element.classList.add(to);
+  if (element.classList.contains(to)) {
+    element.classList.remove(to);
+    element.classList.add(from);
+  } else {
+    element.classList.remove(from);
+    element.classList.add(to);
+  }
 }
 
 export default {

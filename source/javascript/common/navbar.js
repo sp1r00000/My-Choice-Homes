@@ -1,45 +1,35 @@
-import helpers from '../helpers';
+import { switchClass } from '../helpers';
 
 /**
- * set height of menu items
- * to match window height
+ * insert fixed navbar, icon & logo
  */
-const navItem = function navItem() {
-  const fixed = document.querySelector('.mch-fixed-navbar').clientHeight;
-  const nav = document.querySelector('.mch-navbar');
-  const links = document.querySelectorAll('.mch-navbar a');
+const createFixedNav = function addIcon() {
+  const navbar = document.getElementsByClassName('mch-navbar')[0];
 
-  let height = (nav.clientHeight - fixed) / links.length;
+  const fixed = document.createElement('div');
+  fixed.classList.add('mch-fixed-nav');
 
-  if (height > 60) height = 60;
+  const icon = document.createElement('span');
+  icon.classList.add('iconic', 'mch-menu-icon');
+  icon.setAttribute('data-glyph', 'menu');
+  icon.setAttribute('aria-hidden', 'true');
 
-  helpers.forEach(links, index => {
-    links[index].style.height = `${height}px`;
-  });
+  document.body.insertBefore(fixed, navbar);
+  fixed.appendChild(icon);
 };
 
 /**
- * add open class to menu
- * & icon on click
+ * add open class to menu when
+ * icon clicked
  */
 const toggleNav = function toggleNav() {
-  const body = document.body;
+  const icon = document.getElementsByClassName('mch-menu-icon')[0];
 
-  body.addEventListener('click', event => {
-    const nav = document.querySelector('nav.mch-navbar');
-    const icon = document.querySelector('.mch-menu-icon');
+  icon.addEventListener('click', event => {
+    // const navbar = document.getElementsByClassName('mch-navbar')[0];
+    // Todo: move nav tag into a new div for overflow
 
-    navItem();
-
-    if (event.target === icon) {
-      icon.classList.toggle('open');
-      nav.classList.toggle('open');
-    } else {
-      if (nav.classList.contains('open')) {
-        icon.classList.remove('open');
-        nav.classList.remove('open');
-      }
-    }
+    if (event.target === icon) switchClass(document.body, 'close', 'open');
   });
 };
 
@@ -66,4 +56,8 @@ const navLogo = function navLogo() {
   window.addEventListener('scroll', scroll);
 };
 
-export default { toggleNav, navLogo };
+export default {
+  createFixedNav,
+  toggleNav,
+  navLogo,
+};

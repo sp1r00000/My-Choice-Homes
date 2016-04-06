@@ -1,138 +1,88 @@
-nav.mch-navbar {
-  display: none;
-  transition: all .5s ease;
+// menu open body
+
+@keyframes body-slide-left {
+  from { left: 0; }
+  to { left: -80%; }
+}
+
+@keyframes body-slide-right {
+  from { left: -80%; }
+  to { left: 0; }
+}
+
+body.open {
+  animation-duration: .1s;
+  animation-name: body-slide-left;
+  position: relative;
+  left: -80%;
+}
+
+body.close {
+  animation-duration: .1s;
+  animation-name: body-slide-right;
+  position: relative;
+  left: 0;
+}
+
+// generated fixed navbar
+div.mch-fixed-nav {
+  z-index: 3;
   position: fixed;
-  z-index: 1;
   top: 0;
-  background-color: white;
+  left: 0;
   width: 100%;
   height: 4rem;
-  box-shadow: 0 0 0.3rem $dark;
+  background-color: $white;
+  box-shadow: 0 0 .3rem $dark;
 
-  &.animate {
-    opacity: .3;
+  span.mch-menu-icon {
+    position: absolute;
+    top: 0.9rem;
+    right: 1%;
 
-    nav.mch-navbar a {
-      visibility: hidden;
-    }
-
-    &:hover {
-      opacity: 1;
-
-      nav.mch-navbar a {
-        visibility: visible;
-      }
-    }
-  }
-
-  .mch-logo img {
-    width: 4rem;
-    height: 4rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-
-  .menu-icon-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-  @keyframes slide-from-right {
-    from { right: -100%; }
-    to { right: 0; }
-  }
-
-  nav.mch-navbar {
-    animation-duration: .1s;
-    position: fixed;
-    top: 4rem;
-    right: -100%;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    background-color: $mauve-light;
-    width: 90%;
-    height: 100%;
-
-    &.open {
-      animation-name: slide-from-right;
-      right: 0;
-    }
-
-    a {
-      transition: .2s ease;
-      display: flex;
-      align-items: center;
-      padding: 0 $space;
-      color: $white;
-      border-bottom: 0.1rem solid $mauve-lighter;
-      text-decoration: none;
-
-      &:last-child {
-        border-bottom: 0 none;
-      }
-
-      &:hover {
-        background-color: $mauve;
-      }
-    }
+    &:before { font-size: 2rem !important; }
   }
 }
 
-@media (min-width: 75em) {
-  div.mch-fixed-navbar {
-    align-items: flex-start;
+// navbar nav
+body.open nav.mch-navbar {
+  animation-duration: .1s;
+  animation-name: slide-left;
+  right: 0;
+}
 
-    &.animate {
+body.close nav.mch-navbar {
+  animation-duration: .1s;
+  animation-name: slide-right;
+  right: -80%;
+}
 
-      .mch-logo img {
-        width: auto;
-        max-height: 4rem;
-        padding: 0.5rem 0;
-      }
-    }
+nav.mch-navbar {
+  z-index: 2;
+  position: fixed;
+  top: 4rem;
+  right: -80%;
+  background-color: $mauve-lighter;
+  width: 80%;
+  height: 100%;
+  box-shadow: inset 0 0 .3rem $dark;
+  overflow: visible;
 
-    .mch-logo {
+  @keyframes slide-left {
+    from { right: -80%; }
+    to { right: 0; }
+  }
 
-      img {
-        position: fixed;
-        width: 12.5rem;
-        height: 14rem;
-        background-color: white;
-        padding: 4rem 2rem 3rem;
-      }
-    }
+  @keyframes slide-right {
+    from { right: 0; }
+    to { right: -80%; }
+  }
 
-    .menu-icon-container {
-      display: none;
-    }
-
-    nav.mch-navbar {
-      position: relative;
-      top: 0;
-      right: 0;
-      display: flex;
-      background-color: $white;
-      width: auto;
-      height: auto;
-      flex-direction: row;
-
-      a {
-        display: inherit;
-        padding: 0 $space;
-        color: $teal;
-        border-bottom: 0 none;
-        height: 4rem !important;
-
-        &:hover {
-          background-color: $white;
-        }
-
-        &:nth-child(10), &:nth-child(11) {
-          display: none;
-        }
-      }
-    }
+  a {
+    display: block;
+    padding: 1rem;
+    color: $white;
+    text-decoration: none;
+    border-bottom: 0.1rem solid $mauve-light;
   }
 }

@@ -89,5 +89,5 @@ figureInset.setDimensions();
 figureInset.filter();
 
 iconic();
-slideOpen();
+// slideOpen();
 blockHeight();

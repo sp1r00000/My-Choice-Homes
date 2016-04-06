@@ -1,4 +1,4 @@
-import {forEach} from '../helpers';
+import { forEach } from '../helpers';
 
 /**
  * set new height

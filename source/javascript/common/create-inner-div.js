@@ -11,9 +11,7 @@ const createInnerDiv = function inset(arrayOfClasses) {
     const div = document.createElement('div');
 
     while (children.length > 0) {
-      if (children[0] !== div) {
-        div.appendChild(children[0]);
-      }
+      if (children[0] !== div) div.appendChild(children[0]);
     }
 
     element.appendChild(div);

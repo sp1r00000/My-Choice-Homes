@@ -2,9 +2,9 @@ footer.mch-footer {
   display: inline-block;
   color: white;
   background-color: $teal;
-  padding-top: $space;
-  padding-bottom: $space;
-  margin-top: $space;
+  padding: $space 1%;
+  font-size: 1.2rem;
+  text-align: center;
 
   h4 {
     margin: $space 0;
@@ -12,6 +12,30 @@ footer.mch-footer {
   }
 
   a {
-    color: white;
+    display: block;
+    width: 100%;
+    color: $white;
+  }
+
+  nav a { display: inline-block; }
+}
+
+@media (min-width: 34em) {
+  footer.mch-footer {
+    section.mch-footer-block-1, section.mch-footer-block-2,
+    section.mch-footer-block-3 { float: left; }
+    section.mch-footer-block-1 { width: 50%; }
+    section.mch-footer-block-2 { width: 50%; }
+    section.mch-footer-block-3 { width: 100%; }
+  }
+}
+
+@media (min-width: 62em) {
+  footer.mch-footer {
+    text-align: left;
+
+    section.mch-footer-block-1 { width: 25%; }
+    section.mch-footer-block-2 { width: 30%; }
+    section.mch-footer-block-3 { width: 45%; }
   }
 }

@@ -14,13 +14,11 @@ body {
   margin: 4rem 0 0 0;
 }
 
-h1, h2 {
-  font-weight: 600;
-}
+h1, h2 { font-weight: 600; }
 
-h2 {
-  margin-bottom: $doubleSpace;
-}
+h2 { margin-bottom: $doubleSpace; }
+
+h4 { font-size: 2rem; }
 
 h4 a {
   text-decoration: none;
@@ -35,9 +33,7 @@ a {
   }
 }
 
-a.btn {
-  text-decoration: none;
-}
+a.btn { text-decoration: none; }
 
 img {
   display: block;
@@ -55,10 +51,6 @@ blockquote {
   margin: $space 0 $space 0;
 }
 
-hr {
-  margin: $space 0;
-}
+hr { margin: $space 0; }
 
-button[type="submit"] {
-  margin: $space 0;
-}
+button[type="submit"] { margin: $space 0; }

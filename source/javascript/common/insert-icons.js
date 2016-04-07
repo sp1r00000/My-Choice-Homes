@@ -1,8 +1,8 @@
 import { forEach } from '../helpers';
 
 /**
- * insert iconic icon into element
- * class format: mch- + glyph name
+ * create new span node &
+ * append to element
  * @param element
  * @param icon
  */
@@ -17,19 +17,19 @@ const createIcon = function createIcon(element, icon) {
   elm.appendChild(span);
 };
 
-const insertIcons = function insertIcons(icons) {
+/**
+ * get elements with class &
+ * pass icon name
+ * @param arrayOfClassNames
+ */
+const insertIcons = function insertIcons(arrayOfClassNames) {
+  arrayOfClassNames.forEach(className => {
+    const elements = document.getElementsByClassName(className);
+    const icon = className.substr(4, className.length);
 
-  function setup(elements, icon) {
-    forEach(elements, (index, item) => {
-      createIcon(item, icon);
+    forEach(elements, (index, element) => {
+      createIcon(element, icon);
     });
-  }
-
-  icons.forEach(item => {
-    const elements = document.querySelectorAll(`.${item}`);
-    const icon = item.substr(4, item.length);
-
-    setup(elements, icon);
   });
 };
 

@@ -52,9 +52,8 @@ body.mch-services {
 
     .mch-block-5 {
       max-width: 50%;
-      font-size: 1rem;
 
-      div { padding: 0; }
+      li:nth-child(5), li:nth-child(6), li:nth-child(7), li:nth-child(8) { display: none; }
     }
 
     .mch-block-6 { max-width: 47%; }
@@ -79,11 +78,8 @@ body.mch-services {
   body.mch-services {
     .mch-block-1 { max-width: 34%; }
     .mch-block-2 { max-width: 63%; }
-  }
-}
 
-@media (min-width: 75em) {
-  body.mch-services {
-    .mch-block-5 { font-size: 1.4rem; }
+    .mch-block-5 li:nth-child(5), .mch-block-5 li:nth-child(6), .mch-block-5 li:nth-child(7),
+    .mch-block-5 li:nth-child(8) { display: block; }
   }
 }

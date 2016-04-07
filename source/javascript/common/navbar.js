@@ -42,19 +42,17 @@ const toggleNav = function toggleNav() {
 const navLogo = function navLogo() {
   const logo = document.getElementsByClassName('mch-logo')[0];
 
-  function scroll() {
-    if ((window.pageYOffset || document.body.scrollTop) > 100) {
-      if (!logo.classList.contains('shrink-logo')) {
-        switchClass(logo, 'enlarge-logo', 'shrink-logo');
-      }
-    } else {
-      if (!logo.classList.contains('enlarge-logo')) {
-        switchClass(logo, 'shrink-logo', 'enlarge-logo');
-      }
+  if ((window.pageYOffset || document.body.scrollTop) > 100) {
+    if (!logo.classList.contains('shrink-logo')) {
+      switchClass(logo, 'enlarge-logo', 'shrink-logo');
+    }
+  } else {
+    if (!logo.classList.contains('enlarge-logo')) {
+      switchClass(logo, 'shrink-logo', 'enlarge-logo');
     }
   }
 
-  window.addEventListener('scroll', scroll);
+  window.addEventListener('scroll', navLogo);
 };
 
 export default {

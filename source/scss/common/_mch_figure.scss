@@ -40,15 +40,53 @@ figure.mch-figure {
     padding: 0;
   }
 
-  img.grayscale-on, img.grayscale-off {
-    transition: 1s;
+  img.grayscale-on, img.grayscale-off { transition: 1s; }
+  img.grayscale-on { filter: grayscale(1); }
+  img.grayscale-off { filter: grayscale(0); }
+
+  span.toggle-figure-info {
+    position: absolute;
+    top: 45%;
+    left: 1%;
+    bottom: 55%;
+    width: 2rem;
+    height: 2rem;
+    color: $white;
+    cursor: pointer;
+
+    &::before {
+      font-size: 2rem;
+      text-shadow: 0 0 0.2rem $dark;
+    }
   }
 
-  img.grayscale-on {
-    filter: grayscale(1);
+  @keyframes slide-open-info {
+    from { width: 0; }
+    to { width: 75%; }
   }
 
-  img.grayscale-off {
-    filter: grayscale(0);
+  @keyframes slide-close-info {
+    from { width: 75%; }
+    to { width: 0; }
+  }
+
+  .hidden-figure-info {
+    animation-duration: .2s;
+    animation-name: slide-open-info;
+    display: inline-block !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75%;
+    overflow: hidden;
+    padding: 0 4%;
+
+    &.close {
+      animation-name: slide-close-info;
+      width: 0;
+      padding: 0;
+    }
   }
 }
+
+.hidden-figure-info { display: none !important; }

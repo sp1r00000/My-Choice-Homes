@@ -1,4 +1,4 @@
-import figureInset from '../common/figure';
+import figure from '../common/figure';
 import insertIcons from '../common/insert-icons';
 import matchHeight from '../common/match-height';
 import createInnerDiv from '../common/create-inner-div';
@@ -22,7 +22,7 @@ const iconic = function iconic() {
  */
 const blockHeight = function blockHeight() {
   const elementsArray = [
-    ['mch-block-2', 'mch-block-1'],
+    ['mch-block-2', 'mch-block-1', 'hidden-figure-info'],
     ['mch-block-4', 'mch-block-3'],
     ['mch-block-6', 'mch-block-5'],
     ['mch-block-7', 'mch-block-8', 'mch-block-9'],
@@ -47,9 +47,9 @@ const insetDesign = function insetDesign() {
   createInnerDiv(elementsArray);
 };
 
-figureInset.insertShadow();
-figureInset.setDimensions();
-figureInset.filter();
+figure.insertShadow();
+figure.setDimensions();
+figure.grayscaleSwitch();
 
 iconic();
 insetDesign();

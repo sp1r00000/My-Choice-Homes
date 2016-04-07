@@ -9,8 +9,6 @@ const touchElement = function touch() {
 
   helpers.forEach(elements, (index, item) => {
     item.addEventListener('click', event => {
-      // event.preventDefault();
-
       const touchX = item.offsetLeft;
       const touchY = item.offsetTop;
       const x = event.pageX - touchX;
@@ -26,11 +24,6 @@ const touchElement = function touch() {
       span.style.top = `${y - (height / 2)}px`;
 
       item.appendChild(span);
-
-      // ie bug
-      // setTimeout(() => {
-      // location.pathname = item.pathname;
-      // }, 200);
     });
   });
 };

@@ -30,7 +30,7 @@ const getHighest = function getHighest(element, heights) {
  * @param arrayOfArrays
  */
 export function matchHeight(arrayOfArrays) {
-  function start() {
+  const triggerMatchHeight = function triggerMatchHeight() {
     arrayOfArrays.forEach(arrayOfClasses => {
       const heights = [];
 
@@ -45,11 +45,11 @@ export function matchHeight(arrayOfArrays) {
         }
       });
     });
-  }
+  };
 
-  start();
+  triggerMatchHeight();
 
-  window.addEventListener('resize', start);
+  window.addEventListener('resize', triggerMatchHeight);
 }
 
 export default matchHeight;

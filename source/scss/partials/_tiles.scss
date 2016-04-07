@@ -5,17 +5,13 @@ section.tiles {
   &.mauve-bg a {
     background-color: $mauve;
 
-    &:hover {
-      background-color: $mauve-light;
-    }
+    &:hover { background-color: $mauve-light; }
   }
 
   &.teal-bg a {
     background-color: $teal;
 
-    &:hover {
-      background-color: $teal-light;
-    }
+    &:hover { background-color: $teal-light; }
   }
 
   .dark-bg {
@@ -29,9 +25,7 @@ section.tiles {
 
     @extend .icon-md-round;
 
-    h4 {
-      margin-bottom: $space;
-    }
+    h4 { margin-bottom: $space; }
   }
 
   a {
@@ -44,14 +38,10 @@ section.tiles {
     color: $white;
     text-decoration: none;
 
-    &:hover {
-      text-decoration: none;
-    }
+    &:hover { text-decoration: none; }
   }
 
-  a, figure {
-    transition: .3s ease;
-  }
+  a, figure { transition: .3s ease; }
 
   figure, div {
     padding: 0;
@@ -61,26 +51,18 @@ section.tiles {
   figure img {
     filter: grayscale(100%);
 
-    &:hover {
-      filter: grayscale(0);
-    }
+    &:hover { filter: grayscale(0); }
   }
 }
 
 @media only screen and (min-width: 34em) {
-  section.tiles {
-    padding: 0 $space;
-  }
+  section.tiles { padding: 0 $space; }
 }
 
 @media (min-width: 62em) {
-  section.tiles .dark-bg.small {
-    font-size: .8rem;
-  }
+  section.tiles .dark-bg.small { font-size: .8rem; }
 }
 
 @media (min-width: 75em) {
-  section.tiles .dark-bg.small {
-    font-size: 1rem;
-  }
+  section.tiles .dark-bg.small { font-size: 1rem; }
 }

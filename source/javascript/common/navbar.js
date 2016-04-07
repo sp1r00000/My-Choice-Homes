@@ -14,7 +14,12 @@ const createFixedNav = function addIcon() {
   icon.setAttribute('data-glyph', 'menu');
   icon.setAttribute('aria-hidden', 'true');
 
+  const logo = document.createElement('img');
+  logo.classList.add('mch-logo');
+  logo.setAttribute('src', '/assets/images/logo.png');
+
   document.body.insertBefore(fixed, navbar);
+  fixed.appendChild(logo);
   fixed.appendChild(icon);
 };
 
@@ -26,9 +31,6 @@ const toggleNav = function toggleNav() {
   const icon = document.getElementsByClassName('mch-menu-icon')[0];
 
   icon.addEventListener('click', event => {
-    // const navbar = document.getElementsByClassName('mch-navbar')[0];
-    // Todo: move nav tag into a new div for overflow
-
     if (event.target === icon) switchClass(document.body, 'close', 'open');
   });
 };
@@ -38,18 +40,17 @@ const toggleNav = function toggleNav() {
  * on scroll
  */
 const navLogo = function navLogo() {
-  const body = document.body;
-  const nav = document.querySelector('.mch-fixed-navbar');
+  const logo = document.getElementsByClassName('mch-logo')[0];
 
   function scroll() {
-    if ((window.pageYOffset || body.scrollTop) > 100) {
-      if (!nav.classList.contains('animate')) {
-        setTimeout(() => {
-          nav.classList.add('animate');
-        }, 10);
+    if ((window.pageYOffset || document.body.scrollTop) > 100) {
+      if (!logo.classList.contains('shrink-logo')) {
+        switchClass(logo, 'enlarge-logo', 'shrink-logo');
       }
     } else {
-      nav.classList.remove('animate');
+      if (!logo.classList.contains('enlarge-logo')) {
+        switchClass(logo, 'shrink-logo', 'enlarge-logo');
+      }
     }
   }
 

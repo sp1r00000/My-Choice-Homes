@@ -49,7 +49,12 @@ body.mch-services {
 
     .mch-block-6 { max-width: 47%; }
     .mch-block-7 { margin-right: .5%; }
-    .mch-block-7, .mch-block-8, .mch-block-9 { max-width: 32%; }
+
+    .mch-block-7, .mch-block-8, .mch-block-9 {
+      max-width: 32%;
+
+      div { vertical-align: top; }
+    }
 
     .mch-block-8 {
       margin-left: .5%;

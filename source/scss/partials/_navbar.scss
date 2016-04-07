@@ -1,5 +1,4 @@
 // menu open body
-
 @keyframes body-slide-left {
   from { left: 0; }
   to { left: -80%; }
@@ -34,6 +33,14 @@ div.mch-fixed-nav {
   height: 4rem;
   background-color: $white;
   box-shadow: 0 0 .3rem $dark;
+
+  img.mch-logo {
+    position: fixed;
+    top: .5rem;
+    left: 1%;
+    width: 4rem;
+    height: 3rem;
+  }
 
   span.mch-menu-icon {
     position: absolute;
@@ -79,9 +86,97 @@ nav.mch-navbar {
 
   a {
     display: block;
-    padding: 1rem;
+    padding: $space;
     color: $white;
     text-decoration: none;
     border-bottom: 0.1rem solid $mauve-light;
+  }
+}
+
+@media (min-width: 62em) {
+  body.open, body.close { left: 0; }
+  body.open nav.mch-navbar, body.close nav.mch-navbar { right: 0; }
+
+  nav.mch-navbar {
+    z-index: 4;
+    top: $space;
+    right: 0;
+    padding: 0 1% 0 0;
+    background-color: $white;
+    width: 91%;
+    height: 3rem;
+    box-shadow: none;
+    text-align: right;
+  }
+
+  nav.mch-navbar a {
+    display: inline;
+    padding: 0;
+    margin-right: $space;
+    font-size: 1.2rem;
+    color: $dark;
+    border-bottom: 0 none;
+
+    &:nth-child(9) { margin-right: 0; }
+
+    &:nth-child(10), &:nth-child(11) {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 75em) {
+  div.mch-fixed-nav img.mch-logo {
+    width: 10rem;
+    height: 8rem;
+    background-color: $white;
+    padding: 3.4rem 1.7rem 2rem 1rem;
+
+    @keyframes shrink-logo {
+      from {
+        width: 10rem;
+        height: 8rem;
+        padding: 3.4rem 1.7rem 2rem 1rem;
+      }
+      to {
+        width: 4rem;
+        height: 3rem;
+        padding: 0;
+      }
+    }
+
+    @keyframes enlarge-logo {
+      from {
+        width: 4rem;
+        height: 3rem;
+        padding: 0;
+      }
+      to {
+        width: 10rem;
+        height: 8rem;
+        padding: 3.4rem 1.7rem 2rem 1rem;
+      }
+    }
+
+    &.shrink-logo {
+      animation-duration: .2s;
+      animation-name: shrink-logo;
+      width: 4rem;
+      height: 3rem;
+      padding: 0;
+    }
+
+    &.enlarge-logo {
+      animation-duration: .2s;
+      animation-name: enlarge-logo;
+      width: 10rem;
+      height: 8rem;
+      padding: 3.4rem 1.7rem 2rem 1rem;
+    }
+  }
+
+  nav.mch-navbar {
+    width: 80%;
+    text-align: left;
   }
 }

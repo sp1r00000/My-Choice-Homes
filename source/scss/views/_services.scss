@@ -8,17 +8,25 @@ body.mch-services {
   .mch-block-1.mch-inset, .mch-block-3.mch-inset, .mch-block-5.mch-inset {
     background-color: $mauve-lighter;
     color: $white;
+    box-shadow: 0 0 .5rem $dark inset;
 
     a { color: $white; }
   }
 
-  .hidden-info {
-    display: none;
+  .mch-block-7 div, .mch-block-8 div, .mch-block-9 div {
+    padding-top: 0;
+
+    @extend .icon-md-round;
+
+    ::before {
+      color: $mauve-lighter;
+      margin-bottom: $space;
+    }
   }
 
-  ul.mch-block-5 {
-    list-style-type: none;
-  }
+  .hidden-info { display: none; }
+
+  ul.mch-block-5 { list-style-type: none; }
 }
 
 @media (min-width: 48em) {
@@ -45,6 +53,8 @@ body.mch-services {
     .mch-block-5 {
       max-width: 50%;
       font-size: 1rem;
+
+      div { padding: 0; }
     }
 
     .mch-block-6 { max-width: 47%; }

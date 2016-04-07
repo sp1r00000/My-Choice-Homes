@@ -5,7 +5,6 @@
 }
 
 body {
-  display: inline-block;
   font-family: "Josefin Slab", Helvetica, Arial, serif;
   line-height: 1.4;
   font-size: 1.4rem;
@@ -14,10 +13,13 @@ body {
   margin: 4rem 0 0 0;
 }
 
-h1, h2 { font-weight: 600; }
+h1, h2 {
+  margin: 0 0 $space 0;
+  font-weight: 600;
+}
 
-h2 { margin-bottom: $doubleSpace; }
-
+h1 { font-size: 3.6rem; }
+h2 { font-size: 2rem; }
 h4 { font-size: 2rem; }
 
 h4 a {

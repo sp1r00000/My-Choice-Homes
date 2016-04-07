@@ -1,7 +1,8 @@
-div.mch-copyright {
+p.mch-copyright {
     color: $white;
     background-color: $dark;
-    padding-top: $space;
-    padding-bottom: $space;
-    border-top: $space solid $darker;
+    padding: $space 1%;
+    border-top: 1rem solid $darker;
+    font-size: 1rem;
+    text-align: right;
 }

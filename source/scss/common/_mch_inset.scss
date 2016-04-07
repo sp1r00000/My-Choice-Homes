@@ -1,5 +1,12 @@
 .mch-inset {
+  display: table;
   background: $gray;
   box-shadow: 0 0 .5rem darken($gray, 25%) inset;
   text-align: center;
+
+  div {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 5%;
+  }
 }

@@ -2,6 +2,7 @@ import { forEach, switchClass } from '../helpers';
 import figureInset from '../common/figure';
 import insertIcons from '../common/insert-icons';
 import matchHeight from '../common/match-height';
+import createInnerDiv from '../common/create-inner-div';
 
 const slideOpen = function slideOpen() {
   /**
@@ -84,6 +85,19 @@ const blockHeight = function blockHeight() {
   matchHeight(elementsArray);
 };
 
+const insetDesign = function blockHeight() {
+  const elementsArray = [
+    'mch-block-1',
+    'mch-block-3',
+    'mch-block-5',
+    'mch-block-7',
+    'mch-block-8',
+    'mch-block-9',
+  ];
+
+  createInnerDiv(elementsArray);
+};
+
 figureInset.insertShadow();
 figureInset.setDimensions();
 figureInset.filter();
@@ -91,3 +105,4 @@ figureInset.filter();
 iconic();
 // slideOpen();
 blockHeight();
+insetDesign();

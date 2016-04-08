@@ -1,6 +1,10 @@
 body.mch-home {
 
-  article { display: inline-block; }
+  article {
+    display: inline-block;
+    text-align: center;
+  }
+
   article.mch-tiles-0 { background-color: $mauve-lighter; }
   article.mch-tiles-1 { background-color: $teal-light; }
 
@@ -13,6 +17,12 @@ body.mch-home {
   .mch-block-1, .mch-block-7 { display: none; }
 
   .mch-block-2, .mch-block-5, .mch-block-6, .mch-block-10, .mch-block-11 {
+    display: table;
     color: $white;
+
+    div {
+      display: table-cell;
+      vertical-align: middle;
+    }
   }
 }

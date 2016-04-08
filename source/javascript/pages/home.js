@@ -1,4 +1,5 @@
 import matchHeight from '../common/match-height';
+import createInnerDiv from '../common/create-inner-div';
 
 /**
  * match block heights
@@ -24,6 +25,18 @@ const blockHeight = function blockHeight() {
   matchHeight(elementsArray, true);
 };
 
+const verticallyMiddle = function insetDesign() {
+  const elementsArray = [
+    'mch-block-2',
+    'mch-block-5',
+    'mch-block-6',
+    'mch-block-10',
+    'mch-block-11',
+  ];
+
+  createInnerDiv(elementsArray);
+};
+
 /**
  * toggle class for accordion
  * content
@@ -46,6 +59,7 @@ const accordion = function accordion() {
   });
 };
 
+verticallyMiddle();
 accordion();
 
 // run last

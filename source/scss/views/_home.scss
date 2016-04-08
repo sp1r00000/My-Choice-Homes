@@ -3,10 +3,11 @@ body.mch-home {
   article {
     display: inline-block;
     text-align: center;
+    margin: 0 1%;
   }
 
-  article.mch-tiles-0 { background-color: $mauve-lighter; }
-  article.mch-tiles-1 { background-color: $teal-light; }
+  article.mch-tiles-0 { background-color: $mauve; }
+  article.mch-tiles-1 { background-color: $teal; }
 
   .mch-block-1, .mch-block-2, .mch-block-3, .mch-block-4, .mch-block-5, .mch-block-6, .mch-block-7,
   .mch-block-8, .mch-block-9, .mch-block-10, .mch-block-11, .mch-block-12 {
@@ -19,10 +20,69 @@ body.mch-home {
   .mch-block-2, .mch-block-5, .mch-block-6, .mch-block-10, .mch-block-11 {
     display: table;
     color: $white;
+    text-decoration: none;
 
     div {
       display: table-cell;
       vertical-align: middle;
     }
+  }
+
+  figure img { filter: grayscale(1); }
+}
+
+@media (min-width: 34em) {
+  body.mch-home {
+    .mch-block-1, .mch-block-2, .mch-block-3, .mch-block-4, .mch-block-5, .mch-block-6, .mch-block-7,
+    .mch-block-8, .mch-block-9, .mch-block-10, .mch-block-11, .mch-block-12 {
+      position: relative;
+      width: 25%;
+    }
+
+    .mch-block-4, .mch-block-6 { left: 25%; }
+    .mch-block-5, .mch-block-8 { right: 25%; }
+    .mch-block-11 { width: 75% }
+  }
+}
+
+@media (min-width: 48em) {
+  body.mch-home {
+    .mch-block-1, .mch-block-2, .mch-block-3, .mch-block-4, .mch-block-5, .mch-block-6, .mch-block-7,
+    .mch-block-8, .mch-block-9, .mch-block-10, .mch-block-11, .mch-block-12 {
+      width: 20%;
+    }
+
+    .mch-block-4, .mch-block-9 { left: 20%; }
+    .mch-block-5, .mch-block-10 { right: 20%; }
+    .mch-block-6 { left: 0; }
+    .mch-block-8 { right: 0; }
+  }
+}
+
+@media (min-width: 62em) {
+  body.mch-home {
+    .mch-block-1, .mch-block-2, .mch-block-3, .mch-block-4, .mch-block-5, .mch-block-6, .mch-block-7,
+    .mch-block-8, .mch-block-9, .mch-block-10, .mch-block-11, .mch-block-12 {
+      width: 16.66666666666667%;
+    }
+
+    .mch-block-1, .mch-block-7 {
+      display: table;
+      color: $white;
+      text-decoration: none;
+      background-color: $dark;
+
+      div {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0 2%;
+      }
+    }
+
+    .mch-block-4, .mch-block-9 { left: 16.66666666666667%; }
+    .mch-block-5, .mch-block-10 { right: 16.66666666666667%; }
+    .mch-block-6 { left: 0; }
+    .mch-block-7 { font-size: 1rem; }
+    .mch-block-8 { right: 0; }
   }
 }

@@ -12,26 +12,6 @@ figure.mch-figure {
     text-shadow: 0 0 .2rem $dark;
   }
 
-  figcaption span {
-    position: absolute;
-    top: 0;
-    left: $space;
-    height: 100%;
-    cursor: pointer;
-    transition: .1s;
-
-    &.open {
-      transform: scaleX(-1);
-      left: 89%;
-    }
-
-    &.close {
-      transform: scaleX(1);
-      left: $space;
-      transition-delay: .05s;
-    }
-  }
-
   span.img-inset-shadow {
     position: absolute;
     top: 0;
@@ -59,34 +39,4 @@ figure.mch-figure {
       text-shadow: 0 0 0.2rem $dark;
     }
   }
-
-  @keyframes slide-open-info {
-    from { width: 0; }
-    to { width: 75%; }
-  }
-
-  @keyframes slide-close-info {
-    from { width: 75%; }
-    to { width: 0; }
-  }
-
-  .hidden-figure-info {
-    animation-duration: .2s;
-    animation-name: slide-open-info;
-    display: inline-block !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 75%;
-    overflow: hidden;
-    padding: 0 4%;
-
-    &.close {
-      animation-name: slide-close-info;
-      width: 0;
-      padding: 0;
-    }
-  }
 }
-
-.hidden-figure-info { display: none !important; }

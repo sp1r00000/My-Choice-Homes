@@ -4,7 +4,7 @@ import { forEach, switchClass } from '../helpers';
  * set width/height of inset span element
  * resize event
  */
-export function setDimensions() {
+const setDimensions = function setDimensions() {
   const elements = document.getElementsByClassName('img-inset-shadow');
 
   forEach(elements, (index, item) => {
@@ -18,7 +18,7 @@ export function setDimensions() {
   });
 
   window.addEventListener('resize', setDimensions);
-}
+};
 
 /**
  * insert a span element styled with inset shadow
@@ -39,7 +39,7 @@ export function insertShadow() {
  * when element is in full view, toggle grayscale-off
  * else toggle grayscale-on
  */
-const grayscaleSwitch = function grayscaleSwitch() {
+export function grayscaleSwitch() {
   const elements = document.getElementsByClassName('mch-figure');
 
   forEach(elements, (index, element) => {
@@ -60,10 +60,9 @@ const grayscaleSwitch = function grayscaleSwitch() {
   });
 
   window.addEventListener('scroll', grayscaleSwitch);
-};
+}
 
 export default {
   insertShadow,
-  setDimensions,
   grayscaleSwitch,
 };

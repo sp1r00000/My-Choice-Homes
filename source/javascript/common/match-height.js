@@ -7,6 +7,7 @@ import { forEach } from '../helpers';
  */
 const setHeights = function setHeights(height, elementsArray) {
   let element;
+
   elementsArray.forEach(elementInArray => {
     element = elementInArray;
     element.style.height = `${height}px`;

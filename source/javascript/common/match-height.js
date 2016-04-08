@@ -1,12 +1,14 @@
+import { forEach } from '../helpers';
+
 /**
  * set new height
  * @param height
  * @param elementsArray
  */
 const setHeights = function setHeights(height, elementsArray) {
-  elementsArray.forEach(item => {
-    const element = item;
-    element.style = '';
+  let element;
+  elementsArray.forEach(elementInArray => {
+    element = elementInArray;
     element.style.height = `${height}px`;
   });
 };
@@ -40,16 +42,22 @@ export function matchHeight(arrayOfArrays, xs) {
       const elementsArray = [];
 
       arrayOfClasses.forEach(classString => {
-        const element = document.getElementsByClassName(classString)[0];
-        elementsArray.push(element);
+        const elements = document.getElementsByClassName(classString);
 
-        if (xs || window.innerWidth > 768) {
-          heights.push(element.clientHeight);
+        forEach(elements, (index, item) => {
+          const element = item;
 
-          if (classString === arrayOfClasses[last]) getHighest(heights, elementsArray);
-        } else {
-          element.style = '';
-        }
+          elementsArray.push(element);
+
+          if (xs || window.innerWidth > 768) {
+            element.style = '';
+            heights.push(element.clientHeight);
+
+            if (classString === arrayOfClasses[last]) getHighest(heights, elementsArray);
+          } else {
+            element.style = '';
+          }
+        });
       });
     });
   };

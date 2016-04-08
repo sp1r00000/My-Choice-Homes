@@ -46,7 +46,7 @@ const insertInnerDivs = function insetDesign() {
 const iconic = function iconic() {
   const icons = [
     'mch-easel',
-    'mch-home',
+    // 'mch-home',
   ];
 
   insertIcons(icons, false);

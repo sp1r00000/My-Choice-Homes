@@ -14,9 +14,12 @@ const createIcon = function createIcon(element, icon, replace) {
   span.setAttribute('data-glyph', icon);
   span.setAttribute('aria-hidden', 'true');
 
-  if (replace) elm.innerText = '';
-
-  elm.insertBefore(span, elm.firstChild);
+  if (replace) {
+    elm.innerText = '';
+    elm.appendChild(span);
+  } else {
+    elm.firstChild.insertBefore(span, elm.firstChild.firstChild);
+  }
 };
 
 /**

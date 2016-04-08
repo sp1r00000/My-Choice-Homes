@@ -2,7 +2,7 @@
 <article class="mch-tiles-{{@index}}">
 
   {{!-- title dark block --}}
-  <h4 class="mch-block-1">{{{title}}}</h4>
+  <h4 class="mch-block-1 mch-{{icon}}">{{{title}}}</h4>
 
   {{!-- about us || ocean pearl : text block --}}
   <a class="mch-block-2" href="{{blocks.0.href}}">
@@ -62,12 +62,10 @@
 </article>
 {{/each}}
 
-<div class="accordion">
+<div class="mch-accordion">
   {{#each accordion}}
   <h4 class="accordion-title">
-    <span class="iconic iconic-sm"
-          data-glyph="{{glyph}}"
-          title="{{title}}"
+    <span class="iconic iconic-sm" data-glyph="{{glyph}}" title="{{title}}"
           aria-hidden="true"></span>
     {{{title}}}
   </h4>

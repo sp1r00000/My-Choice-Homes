@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport(config.transporter);
 
 const sendMail = function sendMail(req, reply) {
   const emailConfig = {};
-  emailConfig.from = req.payload.email;
+  emailConfig.from = `My Choice Homes <${req.payload.email}>`;
   emailConfig.to = config.emailTo;
   emailConfig.subject = 'My Choice Homes';
   emailConfig.html = req.payload.message;

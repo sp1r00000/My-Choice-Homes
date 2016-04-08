@@ -18,6 +18,8 @@ h1, h2 {
   font-weight: 600;
 }
 
+h3, h4 { font-weight: 600; }
+
 h1 { font-size: 3.6rem; }
 h2 { font-size: 2rem; }
 h4 { font-size: 2rem; }
@@ -56,3 +58,5 @@ hr { margin: $space 0; }
 button[type="submit"] { margin: $space 0; }
 
 .mauve-lighter { color: $mauve-lighter; }
+.yellow { color: $yellow; }
+.teal-lighter { color: $teal-lighter; }

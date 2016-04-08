@@ -47,7 +47,7 @@ const navLogo = function navLogo() {
       switchClass(logo, 'enlarge-logo', 'shrink-logo');
     }
   } else {
-    if (!logo.classList.contains('enlarge-logo')) {
+    if (logo.classList.contains('shrink-logo')) {
       switchClass(logo, 'shrink-logo', 'enlarge-logo');
     }
   }

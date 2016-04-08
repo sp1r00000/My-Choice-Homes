@@ -14,7 +14,7 @@ const iconic = function iconic() {
     'mch-home',
   ];
 
-  insertIcons(icons);
+  insertIcons(icons, true);
 };
 
 /**

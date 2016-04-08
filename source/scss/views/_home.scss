@@ -1,4 +1,4 @@
-body.mch-home {
+body.mch-home-view {
 
   article {
     display: inline-block;
@@ -6,17 +6,30 @@ body.mch-home {
     margin: 0 1%;
   }
 
-  article.mch-tiles-0 { background-color: $mauve; }
-  article.mch-tiles-1 { background-color: $teal; }
+  article.mch-tiles-0 {
+    background-color: $mauve;
+
+    .mch-block-2, .mch-block-5, .mch-block-6, .mch-block-10, .mch-block-11 {
+      background-color: $mauve;
+
+      &:hover { background-color: $mauve-lighter; }
+    }
+  }
+
+  article.mch-tiles-1 {
+    background-color: $teal;
+
+    .mch-block-2, .mch-block-5, .mch-block-6, .mch-block-10, .mch-block-11 {
+      background-color: $teal;
+
+      &:hover { background-color: $teal-lighter; }
+    }
+  }
 
   .mch-block-1, .mch-block-2, .mch-block-3, .mch-block-4, .mch-block-5, .mch-block-6, .mch-block-7,
   .mch-block-8, .mch-block-9, .mch-block-10, .mch-block-11, .mch-block-12 {
     float: left;
     width: 50%;
-  }
-
-  .mch-block-1 {
-    @extend .icon-md-round
   }
 
   .mch-block-1, .mch-block-7 { display: none; }
@@ -25,6 +38,7 @@ body.mch-home {
     display: table;
     color: $white;
     text-decoration: none;
+    transition: .1s;
 
     div {
       display: table-cell;
@@ -36,7 +50,7 @@ body.mch-home {
 }
 
 @media (min-width: 34em) {
-  body.mch-home {
+  body.mch-home-view {
     .mch-block-1, .mch-block-2, .mch-block-3, .mch-block-4, .mch-block-5, .mch-block-6, .mch-block-7,
     .mch-block-8, .mch-block-9, .mch-block-10, .mch-block-11, .mch-block-12 {
       position: relative;
@@ -50,7 +64,7 @@ body.mch-home {
 }
 
 @media (min-width: 48em) {
-  body.mch-home {
+  body.mch-home-view {
     .mch-block-1, .mch-block-2, .mch-block-3, .mch-block-4, .mch-block-5, .mch-block-6, .mch-block-7,
     .mch-block-8, .mch-block-9, .mch-block-10, .mch-block-11, .mch-block-12 {
       width: 20%;
@@ -64,10 +78,27 @@ body.mch-home {
 }
 
 @media (min-width: 62em) {
-  body.mch-home {
+  body.mch-home-view {
     .mch-block-1, .mch-block-2, .mch-block-3, .mch-block-4, .mch-block-5, .mch-block-6, .mch-block-7,
     .mch-block-8, .mch-block-9, .mch-block-10, .mch-block-11, .mch-block-12 {
       width: 16.66666666666667%;
+    }
+
+    .mch-block-1 {
+      font-size: 1.4rem;
+      line-height: 1;
+
+      span.iconic {
+        display: block;
+        margin-bottom: $space;
+
+        &::before {
+          padding: $space;
+          margin-top: $space;
+          border: .16rem solid;
+          border-radius: 2rem;
+        }
+      }
     }
 
     .mch-block-1, .mch-block-7 {
@@ -88,5 +119,20 @@ body.mch-home {
     .mch-block-6 { left: 0; }
     .mch-block-7 { font-size: 1rem; }
     .mch-block-8 { right: 0; }
+  }
+}
+
+@media (min-width: 75em) {
+  body.mch-home-view {
+    .mch-block-1 {
+      font-size: 1.8rem;
+
+      span.iconic::before {
+        font-size: 2rem;
+        padding: 1.4rem;
+        margin-top: $space;
+        border-radius: 3rem;
+      }
+    }
   }
 }

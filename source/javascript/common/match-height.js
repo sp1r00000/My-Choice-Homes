@@ -1,7 +1,7 @@
 import { forEach } from '../helpers';
 
 /**
- * set new height
+ * for each element, set new height
  * @param height
  * @param elementsArray
  */
@@ -28,9 +28,9 @@ const getHighest = function getHighest(heights, elementsArray) {
 };
 
 /**
- * get elements from class names
- * in array, then push the element
- * heights into array
+ * get elements from class names in array,
+ * then push the element heights into array
+ * resize event
  * @param arrayOfArrays
  * @param xs
  */

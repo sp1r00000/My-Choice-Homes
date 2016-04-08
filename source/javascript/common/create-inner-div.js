@@ -1,8 +1,8 @@
 import { forEach } from '../helpers';
 
 /**
- * create inner div &
- * append element children
+ * create inner div & append element children
+ * used for styling, just pass in an array of element classes
  * @param arrayOfClasses
  */
 const createInnerDiv = function inset(arrayOfClasses) {

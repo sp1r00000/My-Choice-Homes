@@ -9,14 +9,14 @@
   to { left: 0; }
 }
 
-body.open {
+body.navbar-open {
   animation-duration: .1s;
   animation-name: body-slide-left;
   position: relative;
   left: -80%;
 }
 
-body.close {
+body.navbar-close {
   animation-duration: .1s;
   animation-name: body-slide-right;
   position: relative;
@@ -52,13 +52,13 @@ div.mch-fixed-nav {
 }
 
 // navbar nav
-body.open nav.mch-navbar {
+body.navbar-open nav.mch-navbar {
   animation-duration: .1s;
   animation-name: slide-left;
   right: 0;
 }
 
-body.close nav.mch-navbar {
+body.navbar-close nav.mch-navbar {
   animation-duration: .1s;
   animation-name: slide-right;
   right: -80%;
@@ -94,8 +94,8 @@ nav.mch-navbar {
 }
 
 @media (min-width: 62em) {
-  body.open, body.close { left: 0; }
-  body.open nav.mch-navbar, body.close nav.mch-navbar { right: 0; }
+  body.navbar-open, body.navbar-close { left: 0; }
+  body.navbar-open nav.mch-navbar, body.navbar-close nav.mch-navbar { right: 0; }
 
   nav.mch-navbar {
     z-index: 4;

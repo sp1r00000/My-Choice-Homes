@@ -2,11 +2,9 @@ import matchHeight from '../common/match-height';
 import createInnerDiv from '../common/create-inner-div';
 import insertIcons from '../common/insert-icons';
 
-/**
- * match block heights
- */
+// match block heights
 const blockHeight = function blockHeight() {
-  const elementsArray = [
+  return matchHeight([
     [
       'mch-block-1',
       'mch-block-2',
@@ -21,13 +19,12 @@ const blockHeight = function blockHeight() {
       'mch-block-11',
       'mch-block-12',
     ],
-  ];
-
-  matchHeight(elementsArray, true);
+  ], true);
 };
 
+// insert inner divs
 const insertInnerDivs = function insetDesign() {
-  const elementsArray = [
+  return createInnerDiv([
     'mch-block-1',
     'mch-block-2',
     'mch-block-5',
@@ -35,27 +32,18 @@ const insertInnerDivs = function insetDesign() {
     'mch-block-7',
     'mch-block-10',
     'mch-block-11',
-  ];
-
-  createInnerDiv(elementsArray);
+  ]);
 };
 
-/**
- * insert iconic icons
- */
+// insert iconic icons
 const iconic = function iconic() {
-  const icons = [
+  return insertIcons([
     'mch-easel',
     'mch-home',
-  ];
-
-  insertIcons(icons, false);
+  ], false);
 };
 
-/**
- * toggle class for accordion
- * content
- */
+// toggle class for accordion content
 const accordion = function accordion() {
   const accord = document.querySelector('.mch-accordion');
 
@@ -69,10 +57,7 @@ const accordion = function accordion() {
   });
 };
 
-/**
- * create inner div before
- * inserting icons
- */
+// create inner div before inserting icons
 insertInnerDivs();
 
 iconic();

@@ -7,14 +7,13 @@ const tmpData = require('../scripts/careers/careers.json');
 module.exports = function routes(server) {
   const routesConfig = require('../routes/routes-config');
 
-  const cacheDate = new Date();
-
   /**
    * generate new Date if cacheDate
    * is more than 1 day behind
    * @param currentDate
    * @returns Date
    */
+  const cacheDate = new Date();
   const date = function date(currentDate) {
     const newDate = new Date();
     const timeDifference = Math.abs(newDate.getTime() - currentDate.getTime());
@@ -44,8 +43,10 @@ module.exports = function routes(server) {
             data = result[route.subCollection];
           }
 
+          // add local jobs data to careers object
           if (route.subCollection === 'careers') data.jobs = tmpData;
 
+          // set sidebar links
           if (result.links) data.links = result.links;
 
           // detect ie

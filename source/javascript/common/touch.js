@@ -1,8 +1,7 @@
 import helpers from '../helpers';
 
 /**
- * ripple from click/touch
- * position
+ * ripple from click/touch position
  */
 const touchElement = function touch() {
   const elements = document.querySelectorAll('.mch-touch');

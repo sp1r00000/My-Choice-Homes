@@ -1,8 +1,7 @@
 import { forEach } from '../helpers';
 
 /**
- * create new span node &
- * append to element
+ * create new span node & append to element
  * @param element
  * @param icon
  * @param replace
@@ -23,8 +22,7 @@ const createIcon = function createIcon(element, icon, replace) {
 };
 
 /**
- * get elements with class &
- * pass icon name
+ * for each element class in the array passed, createIcon fn
  * @param arrayOfClassNames
  * @param replace
  */

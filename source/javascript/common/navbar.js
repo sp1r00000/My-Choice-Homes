@@ -24,20 +24,18 @@ const createFixedNav = function addIcon() {
 };
 
 /**
- * add open class to menu when
- * icon clicked
+ * add menu-open class to body when icon clicked
  */
 const toggleNav = function toggleNav() {
   const icon = document.getElementsByClassName('mch-menu-icon')[0];
 
   icon.addEventListener('click', event => {
-    if (event.target === icon) switchClass(document.body, 'close', 'open');
+    if (event.target === icon) switchClass(document.body, 'navbar-close', 'navbar-open');
   });
 };
 
 /**
- * add animate class to navbar
- * on scroll
+ * add animate class to logo if scrolled...
  */
 const navLogo = function navLogo() {
   const logo = document.getElementsByClassName('mch-logo')[0];

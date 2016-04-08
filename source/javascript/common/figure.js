@@ -1,21 +1,7 @@
 import { forEach, switchClass } from '../helpers';
 
 /**
- * insert a span styled with
- * inset shadow
- */
-export function insertShadow() {
-  const elements = document.getElementsByClassName('mch-figure');
-
-  forEach(elements, (index, item) => {
-    const span = document.createElement('span');
-    span.classList.add('img-inset-shadow');
-    item.appendChild(span);
-  });
-}
-
-/**
- * set width/height of inset radius
+ * set width/height of inset span element
  * resize event
  */
 export function setDimensions() {
@@ -35,8 +21,23 @@ export function setDimensions() {
 }
 
 /**
- * toggle grayscale filter
- * when element in full view
+ * insert a span element styled with inset shadow
+ */
+export function insertShadow() {
+  const elements = document.getElementsByClassName('mch-figure');
+
+  forEach(elements, (index, item) => {
+    const span = document.createElement('span');
+    span.classList.add('img-inset-shadow');
+    item.appendChild(span);
+
+    setDimensions();
+  });
+}
+
+/**
+ * when element is in full view, toggle grayscale-off
+ * else toggle grayscale-on
  */
 const grayscaleSwitch = function grayscaleSwitch() {
   const elements = document.getElementsByClassName('mch-figure');

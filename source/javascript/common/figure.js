@@ -61,24 +61,6 @@ const grayscaleSwitch = function grayscaleSwitch() {
   window.addEventListener('scroll', grayscaleSwitch);
 };
 
-/*const figureInfo = function figureInfo(arrayOfClasses) {
-  arrayOfClasses.forEach(figureClass => {
-    const figure = document.getElementsByClassName(figureClass)[0];
-    const span = document.createElement('span');
-    span.classList.add('iconic', 'toggle-figure-info');
-    span.setAttribute('data-glyph', 'chevron-right');
-    span.setAttribute('aria-hidden', 'true');
-
-    figure.appendChild(span);
-
-    span.addEventListener('click', event => {
-      const hiddenBlock = event.target.parentElement.nextElementSibling;
-      figure.appendChild(hiddenBlock);
-      console.log(event);
-    });
-  });
-};*/
-
 export default {
   insertShadow,
   setDimensions,

@@ -1,3 +1,29 @@
+import matchHeight from '../common/match-height';
+
+/**
+ * match block heights
+ */
+const blockHeight = function blockHeight() {
+  const elementsArray = [
+    [
+      'mch-block-1',
+      'mch-block-2',
+      'mch-block-3',
+      'mch-block-4',
+      'mch-block-5',
+      'mch-block-6',
+      'mch-block-7',
+      'mch-block-8',
+      'mch-block-9',
+      'mch-block-10',
+      'mch-block-11',
+      'mch-block-12',
+    ],
+  ];
+
+  matchHeight(elementsArray, true);
+};
+
 /**
  * toggle class for accordion
  * content
@@ -20,4 +46,7 @@ const accordion = function accordion() {
   });
 };
 
-export default accordion();
+accordion();
+
+// run last
+setTimeout(() => blockHeight());

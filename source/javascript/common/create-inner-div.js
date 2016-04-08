@@ -6,7 +6,6 @@
 const createInnerDiv = function inset(arrayOfClasses) {
   arrayOfClasses.forEach(item => {
     const element = document.getElementsByClassName(item)[0];
-
     const children = element.childNodes;
     const div = document.createElement('div');
 

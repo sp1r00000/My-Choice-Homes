@@ -54,7 +54,7 @@ module.exports = function routes(server) {
           if (agent.family === 'IE') {
             data.css = '/assets/stylesheets/app.ie.css';
           } else {
-            if (route.subCollection === 'services') {
+            if (route.subCollection === 'services' || route.subCollection === 'home') {
               // lets strip the bs
               data.css = '/assets/stylesheets/app.nobs.css';
             } else {

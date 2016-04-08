@@ -1,26 +1,29 @@
-import { forEach } from '../helpers';
+import {forEach} from '../helpers';
 
 /**
  * set new height
- * @param element
  * @param height
+ * @param arrayOfClasses
  */
-const setHeights = function setHeights(element, height) {
-  const elm = element;
-  if (elm.clientHeight !== height) elm.style.height = `${height}px`;
+const setHeights = function setHeights(height, arrayOfClasses) {
+  forEach(arrayOfClasses, (index, classString) => {
+    const element = document.getElementsByClassName(classString)[0];
+    element.style.height = `${height}px`;
+  });
 };
 
 /**
  * find highest value in array
- * @param element
  * @param heights
+ * @param arrayOfClasses
  */
-const getHighest = function getHighest(element, heights) {
-  const highest = 0;
+const getHighest = function getHighest(heights, arrayOfClasses) {
+  let highest = 0;
 
-  for (let i = 0; i <= highest; i++) {
-    if (heights[i] > highest) setHeights(element, heights[i]);
-  }
+  heights.forEach((height, index) => {
+    if (highest < height) highest = height;
+    if (heights.length - 1 === index) setHeights(highest, arrayOfClasses);
+  });
 };
 
 /**
@@ -28,18 +31,21 @@ const getHighest = function getHighest(element, heights) {
  * in array, then push the element
  * heights into array
  * @param arrayOfArrays
+ * @param xs
  */
-export function matchHeight(arrayOfArrays) {
+export function matchHeight(arrayOfArrays, xs) {
   const triggerMatchHeight = function triggerMatchHeight() {
     arrayOfArrays.forEach(arrayOfClasses => {
+      const last = arrayOfClasses.length;
       const heights = [];
 
       forEach(arrayOfClasses, (index, classString) => {
         const element = document.getElementsByClassName(classString)[0];
 
-        if (window.innerWidth > 768) {
+        if (xs || window.innerWidth > 768) {
           heights.push(element.clientHeight);
-          getHighest(element, heights);
+
+          if (classString === arrayOfClasses[last - 1]) getHighest(heights, arrayOfClasses);
         } else {
           element.style = '';
         }

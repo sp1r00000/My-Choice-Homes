@@ -48,18 +48,14 @@ module.exports = function routes(server) {
 
           if (result.links) data.links = result.links;
 
-          /**
-           * conditional css
-           */
-          if (agent.family === 'IE') {
-            data.css = '/assets/stylesheets/app.ie.css';
+          // detect ie
+          if (agent.family === 'IE') data.ie = true;
+
+          if (route.subCollection === 'services'
+            || route.subCollection === 'home') {
+            data.css = '/assets/stylesheets/app.nobs.css';
           } else {
-            if (route.subCollection === 'services' || route.subCollection === 'home') {
-              // lets strip the bs
-              data.css = '/assets/stylesheets/app.nobs.css';
-            } else {
-              data.css = '/assets/stylesheets/app.css';
-            }
+            data.css = '/assets/stylesheets/app.css';
           }
 
           reply.view(route.view, data).header('Last-Modified', date(cacheDate).toUTCString());

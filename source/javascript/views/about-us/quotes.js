@@ -1,8 +1,8 @@
-import helpers from '../helpers';
+import helpers from '../../helpers';
 
-import watchField from '../common/validations/utils';
-import validateName from '../common/validations/name';
-import validateRecaptcha from '../common/validations/recaptcha';
+import watchField from '../../common/validations/utils';
+import validateName from '../../common/validations/name';
+import validateRecaptcha from '../../common/validations/recaptcha';
 
 const sendSuccess = function sendSuccess(form, response) {
   const success = form;

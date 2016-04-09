@@ -12,7 +12,7 @@ import es from 'event-stream';
  * babelify & bundle
  */
 export function scripts(done) {
-  glob('source/javascript/pages/**/*.js', (err, files) => {
+  glob('source/javascript/views/**/*.js', (err, files) => {
     if (err) done(err);
 
     files.push('source/javascript/app.js');

@@ -1,8 +1,8 @@
-import figure from '../common/figure';
-import insertIcons from '../common/insert-icons';
-import matchHeight from '../common/match-height';
-import createInnerDiv from '../common/create-inner-div';
-import slider from '../common/slider';
+import figure from '../../common/figure';
+import insertIcons from '../../common/insert-icons';
+import matchHeight from '../../common/match-height';
+import createInnerDiv from '../../common/create-inner-div';
+import slider from '../../common/slider';
 
 // insert iconic icons
 const iconic = function iconic() {

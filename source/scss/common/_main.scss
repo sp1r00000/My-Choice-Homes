@@ -63,7 +63,19 @@ button[type="submit"] { margin: $space 0; }
 
 .container {
   display: table;
-  max-width: 80%;
   position: relative;
+  max-width: 98%;
   margin: 0 auto;
+}
+
+@media (min-width: 34em) {
+  .container { max-width: 90%; }
+}
+
+@media (min-width: 48em) {
+  .container { max-width: 85%; }
+}
+
+@media (min-width: 62em) {
+  .container { max-width: 80%; }
 }

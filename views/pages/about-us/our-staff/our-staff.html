@@ -1,12 +1,11 @@
 {{#each staff}}
 <figure class="mch-block-{{@index}}">
-  <img class="img-thumbnail" src="{{image}}" alt="{{name}}">
+  <img src="{{image}}" alt="{{name}}">
+
   <figcaption>
     <h4>{{name}}</h4>
-    <p>
-      <small class="text-muted">{{position}}</small>
-    </p>
-    <p class="figure-caption">{{limitTo description 90}}</p>
+    <p><small>{{position}}</small></p>
+    <p>{{limitTo description 90}}</p>
     <a>More about {{name}}</a>
   </figcaption>
 </figure>

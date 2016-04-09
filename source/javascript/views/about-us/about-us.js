@@ -1,4 +1,4 @@
-import insertContainer from '../common/insert-container';
+import insertContainer from '../../common/insert-container';
 
 const container = function container() {
   insertContainer([

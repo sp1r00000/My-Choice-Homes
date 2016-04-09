@@ -1,0 +1,24 @@
+.mch-programme [class*='mch-block-'] {
+  float: left;
+  width: 100%;
+}
+
+@media (min-width: 62em) {
+  .mch-programme {
+    .mch-block-1 {
+      float: right;
+      width: 69%;
+      padding-left: 1%;
+    }
+
+    .mch-programme {
+      width: 29%;
+      padding-right: 1%;
+
+      figure {
+        width: 100%;
+        float: none;
+      }
+    }
+  }
+}

@@ -52,14 +52,7 @@ module.exports = function routes(server) {
           // detect ie
           if (agent.family === 'IE') data.ie = true;
 
-          if (route.subCollection === 'services'
-            || route.subCollection === 'home'
-            || route.subCollection === 'aboutUs'
-            || route.subCollection === 'ourStaff') {
-            data.css = '/assets/stylesheets/app.nobs.css';
-          } else {
-            data.css = '/assets/stylesheets/app.css';
-          }
+          data.css = '/assets/stylesheets/app.css';
 
           reply.view(route.view, data).header('Last-Modified', date(cacheDate).toUTCString());
         });

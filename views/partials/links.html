@@ -1,13 +1,15 @@
-<h3>Links</h3>
-<nav class="mch-links">
-  {{#each links}}
-  <a href="{{href}}">{{title}}</a>
-  {{#if subLinks}}
+<aside class="mch-links">
+  Additional Information
   <nav>
-    {{#each subLinks}}
+    {{#each links}}
     <a href="{{href}}">{{title}}</a>
+    {{#if subLinks}}
+    <nav>
+      {{#each subLinks}}
+      <a href="{{href}}">{{title}}</a>
+      {{/each}}
+    </nav>
+    {{/if}}
     {{/each}}
   </nav>
-  {{/if}}
-  {{/each}}
-</nav>
+</aside>

@@ -1,12 +1,50 @@
-nav.mch-links {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: $doubleSpace;
-  font-weight: 600;
+aside.mch-links {
+  position: absolute;
+  right: 4%;
+  bottom: 0;
+  cursor: pointer;
+  padding: .5rem .5rem 0;
+  background: $white;
+  border-radius: .2rem .2rem 0 0;
+  text-shadow: none;
+  color: $dark;
+
+  &.open nav { max-height: 5rem; }
+  &.close nav { max-height: 0; }
+
+  &.open span {
+    transform: scaleY(-1) translateY(18%);
+  }
+
+  &.close span {
+    transform: scaleY(1);
+  }
+
+  a {
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  span {
+    display: inline-block;
+    transition: .2s;
+  }
 
   nav {
-    display: flex;
-    flex-direction: column;
-    padding-left: $halfSpace;
+    transition: .1s;
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    background-color: $white;
+    text-shadow: none;
+    width: 100%;
+    min-height: 0;
+    overflow: hidden;
+
+    a {
+      line-height: 3rem;
+      padding: 0 $halfSpace;
+    }
   }
 }

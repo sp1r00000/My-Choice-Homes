@@ -1,24 +1,17 @@
 <div class="container mch-our-staff">
   <div class="row">
-
-    <div class="col-xs-12 col-lg-9">
-      <div class="row">
-        {{#each staff}}
-        <figure class="col-xs-12 col-sm-6 col-md-4">
-          <img class="img-thumbnail" src="{{image}}" alt="{{name}}">
-          <figcaption>
-            <h4>{{name}}</h4>
-            <p><small class="text-muted">{{position}}</small></p>
-            <p class="figure-caption">{{limitTo description 90}}</p>
-            <a>More about {{name}}</a>
-          </figcaption>
-        </figure>
-        {{/each}}
-      </div>
-    </div>
-
-    <aside class="col-xs-12 col-lg-3">
-      {{> links}}
-    </aside>
+    {{#each staff}}
+      <figure class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <img class="img-thumbnail" src="{{image}}" alt="{{name}}">
+        <figcaption>
+          <h4>{{name}}</h4>
+          <p>
+            <small class="text-muted">{{position}}</small>
+          </p>
+          <p class="figure-caption">{{limitTo description 90}}</p>
+          <a>More about {{name}}</a>
+        </figcaption>
+      </figure>
+    {{/each}}
   </div>
 </div>

@@ -53,7 +53,8 @@ module.exports = function routes(server) {
           if (agent.family === 'IE') data.ie = true;
 
           if (route.subCollection === 'services'
-            || route.subCollection === 'home') {
+            || route.subCollection === 'home'
+            || route.subCollection === 'aboutUs') {
             data.css = '/assets/stylesheets/app.nobs.css';
           } else {
             data.css = '/assets/stylesheets/app.css';

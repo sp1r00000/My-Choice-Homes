@@ -1,3 +1,32 @@
-.mch-about-us section {
-  margin-bottom: $space;
+.mch-about-us .mch-block-1, .mch-about-us .mch-block-2 {
+  float: left;
+  width: 100%;
+}
+
+@media (min-width: 48em) {
+  .mch-about-us .mch-block-2 figure {
+    width: 48%;
+    float: left;
+    padding: 0 1%;
+  }
+}
+
+@media (min-width: 62em) {
+  .mch-about-us {
+    .mch-block-1 {
+      float: right;
+      width: 69%;
+      padding-left: 1%;
+    }
+
+    .mch-block-2 {
+      width: 29%;
+      padding-right: 1%;
+
+      figure {
+        width: 100%;
+        float: none;
+      }
+    }
+  }
 }

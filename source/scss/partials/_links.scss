@@ -9,7 +9,7 @@ aside.mch-links {
   text-shadow: none;
   color: $dark;
 
-  &.open nav { max-height: 5rem; }
+  &.open nav { max-height: 30rem; }
   &.close nav { max-height: 0; }
 
   &.open span {
@@ -18,12 +18,6 @@ aside.mch-links {
 
   &.close span {
     transform: scaleY(1);
-  }
-
-  a {
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
   }
 
   span {
@@ -43,7 +37,11 @@ aside.mch-links {
     overflow: hidden;
 
     a {
-      line-height: 3rem;
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      line-height: 2;
       padding: 0 $halfSpace;
     }
   }

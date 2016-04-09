@@ -60,3 +60,10 @@ button[type="submit"] { margin: $space 0; }
 .mauve-lighter { color: $mauve-lighter; }
 .yellow { color: $yellow; }
 .teal-lighter { color: $teal-lighter; }
+
+.container {
+  display: table;
+  max-width: 80%;
+  position: relative;
+  margin: 0 auto;
+}

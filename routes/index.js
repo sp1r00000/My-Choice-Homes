@@ -54,7 +54,8 @@ module.exports = function routes(server) {
 
           if (route.subCollection === 'services'
             || route.subCollection === 'home'
-            || route.subCollection === 'aboutUs') {
+            || route.subCollection === 'aboutUs'
+            || route.subCollection === 'ourStaff') {
             data.css = '/assets/stylesheets/app.nobs.css';
           } else {
             data.css = '/assets/stylesheets/app.css';

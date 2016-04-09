@@ -1,2 +1,18 @@
-.mch-our-staff {
+@media (min-width: 34em) {
+  .mch-our-staff [class*='mch-block-'] {
+    float: left;
+    width: 50%;
+  }
+}
+
+@media (min-width: 48em) {
+  .mch-our-staff [class*='mch-block-'] {
+    width: 33.33333333333333%;
+  }
+}
+
+@media (min-width: 62em) {
+  .mch-our-staff [class*='mch-block-'] {
+    width: 25%;
+  }
 }

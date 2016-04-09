@@ -26,8 +26,7 @@ body.mch-home-view {
     }
   }
 
-  .mch-block-1, .mch-block-2, .mch-block-3, .mch-block-4, .mch-block-5, .mch-block-6, .mch-block-7,
-  .mch-block-8, .mch-block-9, .mch-block-10, .mch-block-11, .mch-block-12 {
+  [class*='mch-block-'] {
     float: left;
     width: 50%;
   }
@@ -51,8 +50,7 @@ body.mch-home-view {
 
 @media (min-width: 34em) {
   body.mch-home-view {
-    .mch-block-1, .mch-block-2, .mch-block-3, .mch-block-4, .mch-block-5, .mch-block-6, .mch-block-7,
-    .mch-block-8, .mch-block-9, .mch-block-10, .mch-block-11, .mch-block-12 {
+    [class*='mch-block-'] {
       position: relative;
       width: 25%;
     }
@@ -65,8 +63,7 @@ body.mch-home-view {
 
 @media (min-width: 48em) {
   body.mch-home-view {
-    .mch-block-1, .mch-block-2, .mch-block-3, .mch-block-4, .mch-block-5, .mch-block-6, .mch-block-7,
-    .mch-block-8, .mch-block-9, .mch-block-10, .mch-block-11, .mch-block-12 {
+    [class*='mch-block-'] {
       width: 20%;
     }
 
@@ -79,8 +76,7 @@ body.mch-home-view {
 
 @media (min-width: 62em) {
   body.mch-home-view {
-    .mch-block-1, .mch-block-2, .mch-block-3, .mch-block-4, .mch-block-5, .mch-block-6, .mch-block-7,
-    .mch-block-8, .mch-block-9, .mch-block-10, .mch-block-11, .mch-block-12 {
+    [class*='mch-block-'] {
       width: 16.66666666666667%;
     }
 

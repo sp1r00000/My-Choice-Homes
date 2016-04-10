@@ -1,10 +1,7 @@
 'use strict';
 
-const useragent = require('useragent');
-
-const tmpData = require('../scripts/careers/careers.json');
-
 module.exports = function routes(server) {
+  const useragent = require('useragent');
   const routesConfig = require('../routes/routes-config');
 
   /**
@@ -43,16 +40,11 @@ module.exports = function routes(server) {
             data = result[route.subCollection];
           }
 
-          // add local jobs data to careers object
-          if (route.subCollection === 'careers') data.jobs = tmpData;
-
-          // set sidebar links
+          // set links
           if (result.links) data.links = result.links;
 
           // detect ie
           if (agent.family === 'IE') data.ie = true;
-
-          data.css = '/assets/stylesheets/app.css';
 
           reply.view(route.view, data).header('Last-Modified', date(cacheDate).toUTCString());
         });

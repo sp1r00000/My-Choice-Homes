@@ -1,3 +1,4 @@
+import currentBreakpoint from './current-breakpoint';
 import { forEach } from '../helpers';
 
 /**
@@ -15,7 +16,7 @@ const setHeights = function setHeights(height, elementsArray) {
 };
 
 /**
- * find highest value in array
+ * find highest element value in array
  * @param heights
  * @param elementsArray
  */
@@ -29,38 +30,47 @@ const getHighest = function getHighest(heights, elementsArray) {
 };
 
 /**
- * get elements from class names in array,
- * then push the element heights into array
- * resize event
- * @param arrayOfArrays
- * @param xs
+ * get the heights of all elements
+ * @param object
  */
-export function matchHeight(arrayOfArrays, xs) {
-  const triggerMatchHeight = function triggerMatchHeight() {
-    arrayOfArrays.forEach(arrayOfClasses => {
-      const last = arrayOfClasses.length - 1;
-      const heights = [];
-      const elementsArray = [];
+const matchHeight = function matchHeight(object) {
+  object.elements.forEach(arrayOfClasses => {
+    const last = arrayOfClasses.length - 1;
+    const heights = [];
+    const elementsArray = [];
 
-      arrayOfClasses.forEach(classString => {
-        const elements = document.getElementsByClassName(classString);
+    arrayOfClasses.forEach(classString => {
+      const elements = document.getElementsByClassName(classString);
 
-        forEach(elements, (index, item) => {
-          const element = item;
+      forEach(elements, (index, item) => {
+        const element = item;
 
-          elementsArray.push(element);
+        elementsArray.push(element);
+        element.style = '';
+        heights.push(element.clientHeight);
 
-          if (xs || window.innerWidth > 768) {
-            element.style = '';
-            heights.push(element.clientHeight);
-
-            if (classString === arrayOfClasses[last]) getHighest(heights, elementsArray);
-          } else {
-            element.style = '';
-          }
-        });
+        if (classString === arrayOfClasses[last]) getHighest(heights, elementsArray);
       });
     });
+  });
+};
+
+/**
+ * determine which object to use based on
+ * breakpoints array in object
+ * @param arrayOfObjects
+ */
+export function breakpointCondition(arrayOfObjects) {
+  const triggerMatchHeight = function triggerMatchHeight() {
+    const breakpoint = currentBreakpoint();
+
+    if (arrayOfObjects.length === 1) {
+      if (arrayOfObjects[0].breakpoints.indexOf(breakpoint) > -1) matchHeight(arrayOfObjects[0]);
+    } else {
+      arrayOfObjects.forEach(object => {
+        if (object.breakpoints.indexOf(breakpoint) > -1) matchHeight(object);
+      });
+    }
   };
 
   triggerMatchHeight();
@@ -68,4 +78,4 @@ export function matchHeight(arrayOfArrays, xs) {
   window.addEventListener('resize', triggerMatchHeight);
 }
 
-export default matchHeight;
+export default breakpointCondition;

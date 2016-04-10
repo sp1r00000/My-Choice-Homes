@@ -2,7 +2,7 @@ import currentBreakpoint from './current-breakpoint';
 import { forEach, arrayContainsValue } from '../helpers';
 
 /**
- * for each element, set new height
+ * for each element in single array, set height to highest
  * @param height
  * @param elementsArray
  */
@@ -17,7 +17,7 @@ const setHeights = function setHeights(height, elementsArray) {
 };
 
 /**
- * find highest element value in array
+ * find highest element height in array
  * @param heights
  * @param elementsArray
  */
@@ -32,6 +32,7 @@ const getHighest = function getHighest(heights, elementsArray) {
 };
 
 /**
+ * push heights of elements in single array to new array
  * @param arrayOfClasses
  */
 const getElementsHeights = function getElementsHeights(arrayOfClasses) {
@@ -57,13 +58,27 @@ const getElementsHeights = function getElementsHeights(arrayOfClasses) {
 };
 
 /**
- * returns array of classes
+ * returns single arrays of classes
  * @param arrayOfArrays
  * @returns {*}
  */
 const getArrayOfClasses = function getArrayOfClasses(arrayOfArrays) {
-  return arrayOfArrays.filter(arrayOfClasses => {
-    return getElementsHeights(arrayOfClasses);
+  return arrayOfArrays.filter(arrayOfClasses => getElementsHeights(arrayOfClasses));
+};
+
+/**
+ * clear inline styles of elements when current
+ * breakpoint doesn't match any in breakpoints array
+ * @param arrayOfObjects
+ */
+const clearInlineStyles = function clearInlineStyles(arrayOfObjects) {
+  const elementsArray = arrayOfObjects[0].elements;
+
+  elementsArray.filter(arrayOfClasses => {
+    arrayOfClasses.filter(classString => {
+      const element = document.getElementsByClassName(classString)[0];
+      element.style.height = '';
+    });
   });
 };
 
@@ -74,22 +89,31 @@ const getArrayOfClasses = function getArrayOfClasses(arrayOfArrays) {
  */
 const breakpointCondition = function breakpointCondition(arrayOfObjects) {
   const breakpoint = currentBreakpoint();
+
   let containsBreakpoint;
 
   if (arrayOfObjects.length === 1) {
     containsBreakpoint = arrayContainsValue(breakpoint, arrayOfObjects[0].breakpoints);
 
-    if (containsBreakpoint) getArrayOfClasses(arrayOfObjects[0]);
+    if (containsBreakpoint) {
+      getArrayOfClasses(arrayOfObjects[0].elements);
+    } else {
+      clearInlineStyles(arrayOfObjects);
+    }
   } else {
-    const elementsArrays = arrayOfObjects.filter(matchedArray => {
-      containsBreakpoint = arrayContainsValue(breakpoint, matchedArray.breakpoints);
+    const elementsArrays = arrayOfObjects.filter(array => {
+      containsBreakpoint = arrayContainsValue(breakpoint, array.breakpoints);
 
-      if (containsBreakpoint) return matchedArray;
+      if (containsBreakpoint) return array;
 
       return false;
     });
 
-    if (elementsArrays) getArrayOfClasses(elementsArrays[0].elements);
+    if (elementsArrays.length) {
+      getArrayOfClasses(elementsArrays[0].elements);
+    } else {
+      clearInlineStyles(arrayOfObjects);
+    }
   }
 };
 

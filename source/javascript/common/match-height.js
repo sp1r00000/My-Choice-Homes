@@ -9,9 +9,10 @@ import { forEach, arrayContainsValue } from '../helpers';
 const setHeights = function setHeights(height, elementsArray) {
   let element;
 
-  elementsArray.forEach(elementInArray => {
+  elementsArray.filter(elementInArray => {
     element = elementInArray;
     element.style.height = `${height}px`;
+    return true;
   });
 };
 
@@ -23,35 +24,44 @@ const setHeights = function setHeights(height, elementsArray) {
 const getHighest = function getHighest(heights, elementsArray) {
   let highest = 0;
 
-  heights.forEach((height, index) => {
+  heights.filter((height, index) => {
     if (highest < height) highest = height;
     if (heights.length - 1 === index) setHeights(highest, elementsArray);
+    return true;
   });
 };
 
 /**
- * get the heights of all elements
- * @param object
+ * @param arrayOfClasses
  */
-const matchHeight = function matchHeight(object) {
-  object.elements.forEach(arrayOfClasses => {
-    const last = arrayOfClasses.length - 1;
-    const heights = [];
-    const elementsArray = [];
+const getElementsHeights = function getArrayOfClasses(arrayOfClasses) {
+  const last = arrayOfClasses.length - 1;
+  const heights = [];
+  const elementsArray = [];
 
-    arrayOfClasses.forEach(classString => {
-      const elements = document.getElementsByClassName(classString);
+  return arrayOfClasses.filter(classString => {
+    const elements = document.getElementsByClassName(classString);
 
-      forEach(elements, (index, item) => {
-        const element = item;
+    forEach(elements, (index, item) => {
+      const element = item;
 
-        elementsArray.push(element);
-        element.style = '';
-        heights.push(element.clientHeight);
+      elementsArray.push(element);
+      element.style.height = '';
+      heights.push(element.clientHeight);
 
-        if (classString === arrayOfClasses[last]) getHighest(heights, elementsArray);
-      });
+      if (classString === arrayOfClasses[last]) getHighest(heights, elementsArray);
     });
+
+    return true;
+  });
+};
+
+/**
+ * @param arrayOfArrays
+ */
+const getArrayOfClasses = function matchHeight(arrayOfArrays) {
+  return arrayOfArrays.filter(arrayOfClasses => {
+    return getElementsHeights(arrayOfClasses);
   });
 };
 
@@ -68,13 +78,17 @@ export function breakpointCondition(arrayOfObjects) {
     if (arrayOfObjects.length === 1) {
       containsBreakpoint = arrayContainsValue(breakpoint, arrayOfObjects[0].breakpoints);
 
-      if (containsBreakpoint) matchHeight(arrayOfObjects[0]);
+      if (containsBreakpoint) getArrayOfClasses(arrayOfObjects[0]);
     } else {
-      arrayOfObjects.forEach(object => {
-        containsBreakpoint = arrayContainsValue(breakpoint, object.breakpoints);
+      const elementsArrays = arrayOfObjects.filter(matchedArray => {
+        containsBreakpoint = arrayContainsValue(breakpoint, matchedArray.breakpoints);
 
-        if (containsBreakpoint) matchHeight(object);
+        if (containsBreakpoint) return matchedArray;
+
+        return false;
       });
+
+      if (elementsArrays) getArrayOfClasses(elementsArrays[0].elements);
     }
   };
 

@@ -1,6 +1,8 @@
 /**
  * loop over non live NodeLists.
- * eg querySelectorAll
+ * @param array
+ * @param cb
+ * @param scope
  */
 export function forEach(array, cb, scope) {
   for (let i = 0, l = array.length; i < l; i++) {
@@ -24,7 +26,18 @@ export function switchClass(element, from, to) {
   }
 }
 
+/**
+ * returns true if value exists in array
+ * @param value
+ * @param array
+ * @returns {boolean}
+ */
+export function arrayContainsValue(value, array) {
+  return array.indexOf(value) > -1;
+}
+
 export default {
   forEach,
   switchClass,
+  arrayContainsValue,
 };

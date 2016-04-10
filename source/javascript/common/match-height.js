@@ -1,5 +1,5 @@
 import currentBreakpoint from './current-breakpoint';
-import { forEach } from '../helpers';
+import { forEach, arrayContainsValue } from '../helpers';
 
 /**
  * for each element, set new height
@@ -63,12 +63,17 @@ const matchHeight = function matchHeight(object) {
 export function breakpointCondition(arrayOfObjects) {
   const triggerMatchHeight = function triggerMatchHeight() {
     const breakpoint = currentBreakpoint();
+    let containsBreakpoint;
 
     if (arrayOfObjects.length === 1) {
-      if (arrayOfObjects[0].breakpoints.indexOf(breakpoint) > -1) matchHeight(arrayOfObjects[0]);
+      containsBreakpoint = arrayContainsValue(breakpoint, arrayOfObjects[0].breakpoints);
+
+      if (containsBreakpoint) matchHeight(arrayOfObjects[0]);
     } else {
       arrayOfObjects.forEach(object => {
-        if (object.breakpoints.indexOf(breakpoint) > -1) matchHeight(object);
+        containsBreakpoint = arrayContainsValue(breakpoint, object.breakpoints);
+
+        if (containsBreakpoint) matchHeight(object);
       });
     }
   };

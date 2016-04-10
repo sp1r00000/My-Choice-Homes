@@ -34,7 +34,7 @@ const getHighest = function getHighest(heights, elementsArray) {
 /**
  * @param arrayOfClasses
  */
-const getElementsHeights = function getArrayOfClasses(arrayOfClasses) {
+const getElementsHeights = function getElementsHeights(arrayOfClasses) {
   const last = arrayOfClasses.length - 1;
   const heights = [];
   const elementsArray = [];
@@ -57,9 +57,11 @@ const getElementsHeights = function getArrayOfClasses(arrayOfClasses) {
 };
 
 /**
+ * returns array of classes
  * @param arrayOfArrays
+ * @returns {*}
  */
-const getArrayOfClasses = function matchHeight(arrayOfArrays) {
+const getArrayOfClasses = function getArrayOfClasses(arrayOfArrays) {
   return arrayOfArrays.filter(arrayOfClasses => {
     return getElementsHeights(arrayOfClasses);
   });
@@ -70,31 +72,36 @@ const getArrayOfClasses = function matchHeight(arrayOfArrays) {
  * breakpoints array in object
  * @param arrayOfObjects
  */
-export function breakpointCondition(arrayOfObjects) {
-  const triggerMatchHeight = function triggerMatchHeight() {
-    const breakpoint = currentBreakpoint();
-    let containsBreakpoint;
+const breakpointCondition = function breakpointCondition(arrayOfObjects) {
+  const breakpoint = currentBreakpoint();
+  let containsBreakpoint;
 
-    if (arrayOfObjects.length === 1) {
-      containsBreakpoint = arrayContainsValue(breakpoint, arrayOfObjects[0].breakpoints);
+  if (arrayOfObjects.length === 1) {
+    containsBreakpoint = arrayContainsValue(breakpoint, arrayOfObjects[0].breakpoints);
 
-      if (containsBreakpoint) getArrayOfClasses(arrayOfObjects[0]);
-    } else {
-      const elementsArrays = arrayOfObjects.filter(matchedArray => {
-        containsBreakpoint = arrayContainsValue(breakpoint, matchedArray.breakpoints);
+    if (containsBreakpoint) getArrayOfClasses(arrayOfObjects[0]);
+  } else {
+    const elementsArrays = arrayOfObjects.filter(matchedArray => {
+      containsBreakpoint = arrayContainsValue(breakpoint, matchedArray.breakpoints);
 
-        if (containsBreakpoint) return matchedArray;
+      if (containsBreakpoint) return matchedArray;
 
-        return false;
-      });
+      return false;
+    });
 
-      if (elementsArrays) getArrayOfClasses(elementsArrays[0].elements);
-    }
-  };
+    if (elementsArrays) getArrayOfClasses(elementsArrays[0].elements);
+  }
+};
 
-  triggerMatchHeight();
+/**
+ * trigger breakpoint condition & add resize event
+ * @param arrayOfObjects
+ */
+const matchHeight = function matchHeight(arrayOfObjects) {
+  const objectsArray = arrayOfObjects;
 
-  window.addEventListener('resize', triggerMatchHeight);
-}
+  breakpointCondition(objectsArray);
+  window.addEventListener('resize', () => breakpointCondition(objectsArray));
+};
 
-export default breakpointCondition;
+export default matchHeight;

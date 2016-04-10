@@ -69,17 +69,17 @@ const getArrayOfClasses = function getArrayOfClasses(arrayOfArrays) {
 /**
  * clear inline styles of elements when current
  * breakpoint doesn't match any in breakpoints array
- * @param arrayOfObjects
+ * @param arrayOfArrays
  */
-const clearInlineStyles = function clearInlineStyles(arrayOfObjects) {
-  const elementsArray = arrayOfObjects[0].elements;
-
-  elementsArray.filter(arrayOfClasses => {
-    arrayOfClasses.filter(classString => {
-      const element = document.getElementsByClassName(classString)[0];
+const clearInlineStyles = function clearInlineStyles(arrayOfArrays) {
+  const classNames = function classNames(elementClasses) {
+    elementClasses.forEach(elementClass => {
+      const element = document.getElementsByClassName(elementClass)[0];
       element.style.height = '';
     });
-  });
+  };
+
+  arrayOfArrays.forEach(arrayOfClasses => classNames(arrayOfClasses));
 };
 
 /**
@@ -90,30 +90,18 @@ const clearInlineStyles = function clearInlineStyles(arrayOfObjects) {
 const breakpointCondition = function breakpointCondition(arrayOfObjects) {
   const breakpoint = currentBreakpoint();
 
-  let containsBreakpoint;
+  const elementsArrays = arrayOfObjects.filter(array => {
+    const containsBreakpoint = arrayContainsValue(breakpoint, array.breakpoints);
 
-  if (arrayOfObjects.length === 1) {
-    containsBreakpoint = arrayContainsValue(breakpoint, arrayOfObjects[0].breakpoints);
+    if (containsBreakpoint) return array;
 
-    if (containsBreakpoint) {
-      getArrayOfClasses(arrayOfObjects[0].elements);
-    } else {
-      clearInlineStyles(arrayOfObjects);
-    }
+    return false;
+  });
+
+  if (elementsArrays.length) {
+    getArrayOfClasses(elementsArrays[0].elements);
   } else {
-    const elementsArrays = arrayOfObjects.filter(array => {
-      containsBreakpoint = arrayContainsValue(breakpoint, array.breakpoints);
-
-      if (containsBreakpoint) return array;
-
-      return false;
-    });
-
-    if (elementsArrays.length) {
-      getArrayOfClasses(elementsArrays[0].elements);
-    } else {
-      clearInlineStyles(arrayOfObjects);
-    }
+    clearInlineStyles(arrayOfObjects[0].elements);
   }
 };
 

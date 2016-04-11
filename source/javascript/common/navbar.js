@@ -32,15 +32,11 @@ const createFixedNav = function addIcon() {
  * add menu-open class to body when icon clicked
  */
 const toggleNav = function toggleNav() {
-  const breakpoint = currentBreakpoint();
+  const icon = document.getElementsByClassName('mch-menu-icon')[0];
 
-  if (breakpoint !== 'XL') {
-    const icon = document.getElementsByClassName('mch-menu-icon')[0];
-
-    icon.addEventListener('click', event => {
-      if (event.target === icon) switchClass(document.body, 'navbar-close', 'navbar-open');
-    });
-  }
+  icon.addEventListener('click', event => {
+    if (event.target === icon) switchClass(document.body, 'navbar-close', 'navbar-open');
+  });
 };
 
 /**
@@ -50,13 +46,9 @@ const navLogo = function navLogo() {
   const logo = document.getElementsByClassName('mch-logo')[0];
 
   if ((window.pageYOffset || document.body.scrollTop) > 100) {
-    if (!logo.classList.contains('shrink-logo')) {
-      switchClass(logo, 'enlarge-logo', 'shrink-logo');
-    }
+    if (!logo.classList.contains('shrink-logo')) switchClass(logo, 'enlarge-logo', 'shrink-logo');
   } else {
-    if (logo.classList.contains('shrink-logo')) {
-      switchClass(logo, 'shrink-logo', 'enlarge-logo');
-    }
+    if (logo.classList.contains('shrink-logo')) switchClass(logo, 'shrink-logo', 'enlarge-logo');
   }
 
   window.addEventListener('scroll', navLogo);

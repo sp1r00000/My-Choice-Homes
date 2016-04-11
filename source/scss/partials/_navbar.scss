@@ -1,19 +1,20 @@
 // menu open body
 @keyframes body-slide-left {
   from { left: 0; }
-  to { left: -80%; }
+  to { left: -94%; }
 }
 
 @keyframes body-slide-right {
-  from { left: -80%; }
+  from { left: -94%; }
   to { left: 0; }
 }
 
 body.navbar-open {
+  overflow: hidden;
   animation-duration: .1s;
   animation-name: body-slide-left;
   position: relative;
-  left: -80%;
+  left: -94%;
 }
 
 body.navbar-close {
@@ -61,27 +62,29 @@ body.navbar-open nav.mch-navbar {
 body.navbar-close nav.mch-navbar {
   animation-duration: .1s;
   animation-name: slide-right;
-  right: -80%;
+  right: -94%;
 }
 
 nav.mch-navbar {
   z-index: 2;
   position: fixed;
   top: 4rem;
-  right: -80%;
+  bottom: 0;
+  right: -94%;
   background-color: $mauve-lighter;
-  width: 80%;
-  height: 100%;
+  width: 94%;
+  height: 100% -4rem;
   box-shadow: inset 0 0 .3rem $dark;
+  overflow: auto;
 
   @keyframes slide-left {
-    from { right: -80%; }
+    from { right: -94%; }
     to { right: 0; }
   }
 
   @keyframes slide-right {
     from { right: 0; }
-    to { right: -80%; }
+    to { right: -94%; }
   }
 
   a {
@@ -176,7 +179,7 @@ nav.mch-navbar {
   }
 
   nav.mch-navbar {
-    width: 80%;
+    width: 94%;
     text-align: left;
   }
 }

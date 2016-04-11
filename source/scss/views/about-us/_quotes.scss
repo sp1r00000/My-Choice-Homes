@@ -1,0 +1,32 @@
+.mch-quotes {
+  figure {
+    display: table;
+
+    img {
+      float: left;
+      width: 5rem;
+      margin-right: $halfSpace;
+    }
+
+    figcaption {
+      display: table;
+      margin: 0;
+    }
+  }
+}
+
+@media (min-width: 62em) {
+  .mch-quotes {
+    .mch-block-1, .mch-block-2 { float: left; }
+
+    .mch-block-1 {
+      width: 69%;
+      margin-right: 1%;
+    }
+
+    .mch-block-2 {
+      width: 29%;
+      margin-left: 1%;
+    }
+  }
+}

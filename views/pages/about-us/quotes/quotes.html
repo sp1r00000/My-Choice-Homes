@@ -1,15 +1,17 @@
-<h3>Children &amp; Professionals</h3>
+<section class="mch-block-1">
+  <h3>Children &amp; Professionals</h3>
 
-{{#each quotes}}
-<figure class="mch-block-{{@index}}">
-  <img src="/assets/images/about-us/placeholder.jpg" alt="{{name}}">
+  {{#each quotes}}
+  <figure>
+    <img src="/assets/images/about-us/placeholder.jpg" alt="{{name}}">
 
-  <figcaption>
-    <p>{{comment}}</p>
-    <p>{{name}}</p>
-  </figcaption>
-</figure>
-{{/each}}
+    <figcaption>
+      <p>{{comment}}</p>
+      <p>{{name}}</p>
+    </figcaption>
+  </figure>
+  {{/each}}
+</section>
 
 <form class="mch-block-2" name="quote" novalidate>
   <h3>Share your comment</h3>

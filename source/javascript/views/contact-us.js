@@ -5,6 +5,15 @@ import validateName from '../common/validations/name';
 import validateEmail from '../common/validations/email';
 import validateRecaptcha from '../common/validations/recaptcha';
 
+import insertContainer from '../common/insert-container';
+
+const container = function container() {
+  insertContainer([
+    'mch-block-1',
+    'mch-block-2',
+  ]);
+};
+
 const sendSuccess = function sendSuccess(form, response) {
   const success = form;
 
@@ -70,4 +79,5 @@ const contactForm = function contactForm() {
   });
 };
 
+container();
 contactForm();

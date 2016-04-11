@@ -1,7 +1,13 @@
-span.mch-error {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  right: $space;
-  margin-top: 0.4rem;
+form {
+
+  .form-group {
+    label { display: block; }
+  }
+  span.mch-error {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: $space;
+    margin-top: 0.4rem;
+  }
 }

@@ -8,16 +8,18 @@ aside.mch-links {
   border-radius: .2rem .2rem 0 0;
   text-shadow: none;
   color: $dark;
+  overflow: hidden;
 
-  &.open nav { max-height: 30rem; }
-  &.close nav { max-height: 0; }
+  &.open {
+    overflow: visible;
 
-  &.open span {
-    transform: scaleY(-1) translateY(18%);
+    nav { max-height: 30rem; }
+    span { transform: scaleY(-1) translateY(18%); }
   }
 
-  &.close span {
-    transform: scaleY(1);
+  &.close {
+    nav { max-height: 0; }
+    span { transform: scaleY(1); }
   }
 
   span {

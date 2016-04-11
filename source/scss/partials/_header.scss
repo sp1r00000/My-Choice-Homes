@@ -8,7 +8,10 @@ header.mch-header {
   padding: 5% 4% 6% 4%;
   text-shadow: 0 0 0.2rem $dark;
 
-  h1 { margin-bottom: 0; }
+  h1 {
+    margin-bottom: 0;
+    font-size: 3.6rem;
+  }
 }
 
 body.mch-home-view header.mch-header {
@@ -73,6 +76,10 @@ body.mch-support-worker header.mch-header {
 
 body.mch-contact-us header.mch-header {
   background: url('/assets/images/header/contact-us.jpeg') no-repeat scroll 0 0;
+}
+
+@media (min-width: 62em) {
+  header.mch-header { max-height: 8rem; }
 }
 
 @media (min-width: 75em) {

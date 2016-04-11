@@ -12,6 +12,7 @@
   }
 
   .slider-right {
+    display: none;
     animation-duration: .1s;
     position: absolute;
     top: 50%;
@@ -82,4 +83,8 @@
       vertical-align: middle;
     }
   }
+}
+
+@media (min-width: 34em) {
+  .mch-slider .slider-right { display: block; }
 }

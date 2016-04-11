@@ -9,17 +9,13 @@
       margin-right: 1%;
     }
 
-    .mch-block-2, .mch-block-4, .mch-block-5, .mch-block-6, .mch-block-7 {
+    .mch-block-2, .mch-block-4, .mch-block-5 {
       width: 69%;
       margin-left: 1%;
     }
 
     .mch-block-5, .mch-block-6, .mch-block-7 { float: right; }
-  }
-}
 
-@media (min-width: 62em) {
-  .mch-school {
     .mch-block-6, .mch-block-7 { width: 34.65%; }
     .mch-block-6 { margin-left: 1%; }
     .mch-block-7 { margin-right: 1%; }

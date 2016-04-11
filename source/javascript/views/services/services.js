@@ -26,6 +26,12 @@ const blockHeight = function blockHeight() {
         ['mch-block-7', 'mch-block-8', 'mch-block-9'],
       ],
     },
+    {
+      breakpoints: ['SM'],
+      elements: [
+        ['mch-block-2', 'hidden-slider'],
+      ],
+    },
   ]);
 };
 

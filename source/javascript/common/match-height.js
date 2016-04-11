@@ -79,7 +79,7 @@ const clearInlineStyles = function clearInlineStyles(arrayOfArrays) {
     });
   };
 
-  arrayOfArrays.forEach(arrayOfClasses => classNames(arrayOfClasses));
+  arrayOfArrays.filter(arrayOfClasses => classNames(arrayOfClasses));
 };
 
 /**

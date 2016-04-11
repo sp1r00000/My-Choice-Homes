@@ -1,18 +1,44 @@
-@media (min-width: 34em) {
-  .mch-our-staff [class*='mch-block-'] {
+.mch-our-staff {
+  [class*='mch-block-'] {
     float: left;
-    width: 50%;
+    width: 49%;
+
+    &:nth-child(odd) { margin-right: .5%; }
+    &:nth-child(even) { margin-left: .5%; }
   }
+
+  figure img { filter: grayscale(1); }
+  figure figcaption { margin-bottom: $space; }
+  figure figcaption small { display: block; }
+}
+
+@media (min-width: 34em) {
+
 }
 
 @media (min-width: 48em) {
   .mch-our-staff [class*='mch-block-'] {
-    width: 33.33333333333333%;
+    width: 32.66666666666667%;
+
+    &:nth-child(odd) { margin-right: 0; }
+    &:nth-child(even) { margin-left: 0; }
+
+    &:nth-child(3n+1) { margin-right: .5%; }
+    &:nth-child(3n+3) { margin-left: .5%; }
+    &:nth-child(3n+2) { margin: 0 .5% 0 .5%; }
   }
 }
 
 @media (min-width: 62em) {
   .mch-our-staff [class*='mch-block-'] {
-    width: 25%;
+    width: 24.25%;
+
+    &:nth-child(3n+1) { margin-right: 0; }
+    &:nth-child(3n+3) { margin-left: 0; }
+    &:nth-child(3n+2) { margin: 0; }
+
+    &:nth-child(4n+1) { margin-right: .5%; }
+    &:nth-child(4n+2), &:nth-child(4n+3) { margin: 0 .5% 0 .5%; }
+    &:nth-child(4n+4) { margin-left: .5%; }
   }
 }

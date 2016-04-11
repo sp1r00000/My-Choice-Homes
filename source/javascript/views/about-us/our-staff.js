@@ -1,4 +1,5 @@
 import insertContainer from '../../common/insert-container';
+import figure from '../../common/figure';
 import matchHeight from '../../common/match-height';
 
 // insert container
@@ -31,7 +32,7 @@ const container = function container() {
 const blockHeight = function blockHeight() {
   matchHeight([
     {
-      breakpoints: ['SM'],
+      breakpoints: ['XS', 'SM'],
       elements: [
         ['mch-block-0', 'mch-block-1'],
         ['mch-block-2', 'mch-block-3'],
@@ -71,5 +72,7 @@ const blockHeight = function blockHeight() {
 };
 
 container();
+
+// figure.insertShadow();
 
 setTimeout(() => blockHeight());

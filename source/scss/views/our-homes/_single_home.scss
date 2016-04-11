@@ -1,57 +1,47 @@
 .mch-single-home {
-
-  figure.mch-fig-a img {
-    margin-bottom: $space;
+  [class*='mch-block-'] {
+    float: left;
+    width: 100%;
   }
 
-  figure.mch-fig-b {
+  figure figure {
+    width: 49%;
+    float: left;
+    margin-top: 1%;
 
-    &:nth-child(odd), &:nth-child(even) {
-      margin-bottom: 0;
-    }
-
-    &:nth-child(odd) {
-      padding-right: $halfSpace;
-    }
-
-    &:nth-child(even) {
-      padding-left: $halfSpace;
-    }
+    &:nth-child(odd) { margin-left: .5%; }
+    &:nth-child(even) { margin-right: .5%; }
   }
+
+  figcaption { clear: both; }
 }
 
 @media (min-width: 48em) {
   .mch-single-home {
+    figure figure {
+      width: 24.25%;
 
-    figure.mch-fig-b {
+      &:nth-child(odd) { margin-left: 0; }
+      &:nth-child(even) { margin-right: 0; }
 
-      &:nth-child(odd) {
-        padding-right: $space;
-      }
-
-      &:nth-child(even) {
-        padding-left: $space;
-      }
+      &:nth-child(2) { margin-right: .5%; }
+      &:nth-child(3), &:nth-child(4) { margin: 1% .5% 1% .5%; }
+      &:nth-child(5) { margin-left: .5%; }
     }
   }
 }
 
 @media (min-width: 62em) {
   .mch-single-home {
+    .mch-block-1 {
+      float: right;
+      width: 64.5%;
+      margin-left: .5%;
+    }
 
-    figure.mch-fig-b {
-
-      &:nth-child(odd), &:nth-child(even) {
-        margin-bottom: 0;
-      }
-
-      &:nth-child(odd) {
-        padding-right: $halfSpace;
-      }
-
-      &:nth-child(even) {
-        padding-left: $halfSpace;
-      }
+    .mch-block-2 {
+      width: 34.5%;
+      margin-right: .5%;
     }
   }
 }

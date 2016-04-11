@@ -1,5 +1,4 @@
 import insertContainer from '../../common/insert-container';
-import figure from '../../common/figure';
 import matchHeight from '../../common/match-height';
 
 // insert container

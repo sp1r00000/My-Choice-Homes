@@ -111,6 +111,7 @@ nav.mch-navbar {
     box-shadow: none;
     text-align: right;
     line-height: 4rem;
+    overflow: hidden;
   }
 
   nav.mch-navbar a {
@@ -179,7 +180,7 @@ nav.mch-navbar {
   }
 
   nav.mch-navbar {
-    width: 94%;
+    width: 80%;
     text-align: left;
   }
 }

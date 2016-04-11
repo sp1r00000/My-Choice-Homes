@@ -1,18 +1,16 @@
 import { switchClass } from '../helpers';
+import currentBreakpoint from './current-breakpoint';
 
 /**
  * insert fixed navbar, icon & logo
  */
 const createFixedNav = function addIcon() {
+  const breakpoint = currentBreakpoint();
+
   const navbar = document.getElementsByClassName('mch-navbar')[0];
 
   const fixed = document.createElement('div');
   fixed.classList.add('mch-fixed-nav');
-
-  const icon = document.createElement('span');
-  icon.classList.add('iconic', 'mch-menu-icon');
-  icon.setAttribute('data-glyph', 'menu');
-  icon.setAttribute('aria-hidden', 'true');
 
   const logo = document.createElement('img');
   logo.classList.add('mch-logo');
@@ -20,18 +18,29 @@ const createFixedNav = function addIcon() {
 
   document.body.insertBefore(fixed, navbar);
   fixed.appendChild(logo);
-  fixed.appendChild(icon);
+
+  if (breakpoint !== 'XL') {
+    const icon = document.createElement('span');
+    icon.classList.add('iconic', 'mch-menu-icon');
+    icon.setAttribute('data-glyph', 'menu');
+    icon.setAttribute('aria-hidden', 'true');
+    fixed.appendChild(icon);
+  }
 };
 
 /**
  * add menu-open class to body when icon clicked
  */
 const toggleNav = function toggleNav() {
-  const icon = document.getElementsByClassName('mch-menu-icon')[0];
+  const breakpoint = currentBreakpoint();
 
-  icon.addEventListener('click', event => {
-    if (event.target === icon) switchClass(document.body, 'navbar-close', 'navbar-open');
-  });
+  if (breakpoint !== 'XL') {
+    const icon = document.getElementsByClassName('mch-menu-icon')[0];
+
+    icon.addEventListener('click', event => {
+      if (event.target === icon) switchClass(document.body, 'navbar-close', 'navbar-open');
+    });
+  }
 };
 
 /**

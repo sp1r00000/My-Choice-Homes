@@ -1,0 +1,45 @@
+input, textarea, button { outline: none; }
+
+input, textarea {
+  border: .1rem solid $gray;
+  border-radius: .2rem;
+  padding: .4rem .5rem .2rem .5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  border: 0 none;
+  background-color: $gray;
+  padding: $halfSpace $space;
+  line-height: 1.2;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: $space;
+
+  &.has-danger::after {
+    content: 'x';
+    position: absolute;
+    bottom: .2rem;
+    right: $space;
+  }
+
+  label { display: block; }
+}
+
+span.mch-error {
+  position: absolute;
+  right: $space;
+  margin-top: 0.4rem;
+}
+
+.g-recaptcha {
+  position: relative;
+  margin-bottom: $doubleSpace;
+
+  span.mch-error {
+    left: 0;
+  }
+}

@@ -59,6 +59,11 @@ blockquote {
   margin: $space 0 $space 0;
 }
 
+address {
+  margin-bottom: $space;
+  font-size: 1rem;
+}
+
 hr { margin: $space 0; }
 
 button[type="submit"] { margin: $space 0; }
@@ -68,6 +73,8 @@ ul { margin: 0 0 $space $doubleSpace; }
 .mauve-lighter { color: $mauve-lighter; }
 .yellow { color: $yellow; }
 .teal-lighter { color: $teal-lighter; }
+
+.small { font-size: 90%; }
 
 .container {
   display: table;

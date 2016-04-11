@@ -21,7 +21,8 @@ const appendChevron = function appendChevron(arrayOfObjects) {
   arrayOfObjects.forEach(sliderConfig => {
     const element = document.getElementsByClassName('mch-slider')[0];
     const span = document.createElement('span');
-    span.classList.add('iconic', `slider-${sliderConfig.direction}`);
+    span.classList.add('iconic');
+    span.classList.add(`slider-${sliderConfig.direction}`);
     span.setAttribute('data-glyph', `chevron-${sliderConfig.direction}`);
     span.setAttribute('aria-hidden', 'true');
 

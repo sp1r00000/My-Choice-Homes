@@ -1,0 +1,38 @@
+.mch-referrals dl dt { font-weight: 600; }
+.mch-referrals dl dd { margin: $halfSpace 0 $space; }
+
+@media (min-width: 34em) {
+  .mch-referrals {
+
+    dl { display: table; }
+    dl dt, dl dd { float: left; }
+
+    dl dt {
+      width: 29.5%;
+      margin-right: .5%;
+    }
+
+    dl dd {
+      width: 69.5%;
+      margin-left: .5%;
+    }
+  }
+}
+
+@media (min-width: 48em) {
+  .mch-referrals {
+    .mch-block-1, .mch-block-2 {
+      float: left;
+    }
+
+    .mch-block-1 {
+      width: 29.5%;
+      margin-right: .5%;
+    }
+
+    .mch-block-2 {
+      width: 69.5%;
+      margin-left: .5%;
+    }
+  }
+}

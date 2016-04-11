@@ -1,3 +1,27 @@
-.mch-school section {
-  margin-bottom: $space;
+@media (min-width: 48em) {
+  .mch-school {
+    [class*='mch-block-'] {
+      float: left;
+    }
+
+    .mch-block-1, .mch-block-3 {
+      width: 29.5%;
+      margin-right: .5%;
+    }
+
+    .mch-block-2, .mch-block-4, .mch-block-5, .mch-block-6, .mch-block-7 {
+      width: 69.5%;
+      margin-left: .5%;
+    }
+
+    .mch-block-5, .mch-block-6, .mch-block-7 { float: right; }
+  }
+}
+
+@media (min-width: 62em) {
+  .mch-school {
+    .mch-block-6, .mch-block-7 { width: 34.75%; }
+    .mch-block-6 { margin-left: .5%; }
+    .mch-block-7 { margin-right: .5%; }
+  }
 }

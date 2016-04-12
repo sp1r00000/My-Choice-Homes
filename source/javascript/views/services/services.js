@@ -39,7 +39,6 @@ const blockHeight = function blockHeight() {
 const insetDesign = function insetDesign() {
   return createInnerDiv([
     'mch-block-1',
-    'hidden-slider',
     'mch-block-3',
     'mch-block-5',
     'mch-block-7',

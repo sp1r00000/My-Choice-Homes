@@ -1,3 +1,33 @@
+import { forEach } from '../helpers';
+
+/**
+ * return the total height of children
+ * @param children
+ * @returns {number}
+ */
+const getInnerHeight = function getInnerHeight(children) {
+  let height = 0;
+
+  forEach(children, (index, child) => {
+    height = height + child.clientHeight;
+  });
+
+  return height;
+};
+
+/**
+ * animate children into middle
+ * @param slider
+ */
+const animateChildren = function animateChildren(slider) {
+  const children = slider.children;
+  const outerHeight = slider.clientHeight / 2;
+  const innerHeight = getInnerHeight(children) / 2;
+  const top = outerHeight - innerHeight;
+
+  TweenMax.to(children, 0.2, { top: top });
+};
+
 /**
  * animate slider & icon
  * @param slider
@@ -5,14 +35,8 @@
  * @param state
  */
 const animateSlider = function toggleClasses(slider, icon, state) {
-  const div = slider.querySelector('div');
-
-  function divFromTop() {
-    TweenMax.to(div, 0.2, { top: '30%' });
-  }
-
   if (state) {
-    TweenMax.to(slider, 0.2, { width: '90%', onComplete: divFromTop });
+    TweenMax.to(slider, 0.2, { width: '90%', onComplete: () => animateChildren(slider) });
     TweenMax.to(icon, 0.1, {
       left: '92%',
       rotationY: 180,
@@ -26,11 +50,14 @@ const animateSlider = function toggleClasses(slider, icon, state) {
       transformOrigin: 'middle',
     });
   }
+
+  window.addEventListener('resize', () => animateChildren(slider));
 };
 
 const appendChevron = function appendChevron(arrayOfObjects) {
   arrayOfObjects.forEach(sliderConfig => {
     const element = document.getElementsByClassName('mch-slider')[0];
+
     const span = document.createElement('span');
     span.classList.add('iconic');
     span.classList.add(`slider-${sliderConfig.direction}`);

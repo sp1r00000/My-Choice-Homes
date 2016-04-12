@@ -32,10 +32,7 @@
   text-align: center;
   max-height: 100%;
 
-  div {
-    position: relative;
-    padding: 0 $space;
-  }
+  * { position: relative; }
 }
 
 @media (min-width: 34em) {

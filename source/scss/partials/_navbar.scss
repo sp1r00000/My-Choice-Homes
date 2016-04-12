@@ -44,7 +44,7 @@ nav.mch-navbar {
     padding: $space;
     color: $white;
     text-decoration: none;
-    border-bottom: 0.1rem solid $mauve-light;
+    border-bottom: 0.1rem solid lighten($mauve, 15%);
   }
 }
 

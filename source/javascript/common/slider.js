@@ -6,14 +6,14 @@
  */
 const animateSlider = function toggleClasses(slider, icon, state) {
   if (state) {
-    TweenLite.to(slider, 0.2, { width: '90%' });
+    TweenMax.to(slider, 0.2, { width: '90%' });
     TweenMax.to(icon, 0.1, {
       left: '92%',
       rotationY: 180,
       transformOrigin: 'middle',
     });
   } else {
-    TweenLite.to(slider, 0.1, { width: 0 });
+    TweenMax.to(slider, 0.1, { width: 0 });
     TweenMax.to(icon, 0.2, {
       left: '1%',
       rotationY: 0,

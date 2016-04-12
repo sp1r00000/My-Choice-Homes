@@ -1,23 +1,27 @@
 /**
  * animate dropdown
+ * @param event
+ * @param opener
  * @param nav
  * @param icon
  * @param height
  * @param state
  */
-const openDropdown = function openList(nav, icon, height, state) {
-  if (state) {
-    TweenLite.to(nav, 0.1, { height: height });
-    TweenMax.to(icon, 0.1, {
-      rotationX: 180,
-      transformOrigin: 'middle',
-    });
-  } else {
-    TweenLite.to(nav, 0.1, { height: 0 });
-    TweenMax.to(icon, 0.1, {
-      rotationX: 0,
-      transformOrigin: 'middle',
-    });
+const openDropdown = function openList(event, opener, nav, icon, height, state) {
+  if (event.target === opener || event.target === icon) {
+    if (state) {
+      TweenMax.to(nav, 0.1, { height: height });
+      TweenMax.to(icon, 0.1, {
+        rotationX: 180,
+        transformOrigin: 'middle',
+      });
+    } else {
+      TweenMax.to(nav, 0.1, { height: 0 });
+      TweenMax.to(icon, 0.1, {
+        rotationX: 0,
+        transformOrigin: 'middle',
+      });
+    }
   }
 };
 
@@ -44,7 +48,8 @@ const dropdown = function openList() {
 
     let state = false;
 
-    document.body.addEventListener('click', () => openDropdown(nav, icon, height, state = !state));
+    document.body.addEventListener('click', event => openDropdown(
+      event, opener, nav, icon, height, state = !state));
   }
 };
 

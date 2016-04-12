@@ -1,55 +1,79 @@
-import { switchClass } from '../helpers';
 import currentBreakpoint from './current-breakpoint';
 
 /**
- * insert fixed navbar, icon & logo
+ * create logo
+ * @returns {Element}
  */
-const createFixedNav = function addIcon() {
-  const breakpoint = currentBreakpoint();
-
-  const navbar = document.getElementsByClassName('mch-navbar')[0];
-
-  const fixed = document.createElement('div');
-  fixed.classList.add('mch-fixed-nav');
-
-  const aTag = document.createElement('a');
-  aTag.setAttribute('href', '/');
+const createLogo = function createLogo() {
+  const link = document.createElement('a');
+  link.setAttribute('href', '/');
 
   const logo = document.createElement('img');
   logo.classList.add('mch-logo');
   logo.setAttribute('src', '/assets/images/logo.png');
+  link.appendChild(logo);
 
-  aTag.appendChild(logo);
+  return link;
+};
 
-  document.body.insertBefore(fixed, navbar);
-  fixed.appendChild(aTag);
+/**
+ * create fixed nav (div)
+ * @returns {Element}
+ */
+const createFixedNav = function createFixedNav() {
+  const fixed = document.createElement('div');
+  fixed.classList.add('mch-fixed-nav');
 
-  if (breakpoint !== 'XL') {
-    const icon = document.createElement('span');
-    icon.classList.add('iconic', 'mch-menu-icon');
-    icon.setAttribute('data-glyph', 'menu');
-    icon.setAttribute('aria-hidden', 'true');
-    fixed.appendChild(icon);
+  return fixed;
+};
+
+/**
+ * create menu icon
+ * @returns {Element}
+ */
+const createMenuIcon = function createMenuIcon() {
+  const icon = document.createElement('span');
+  icon.classList.add('iconic');
+  icon.classList.add('mch-menu-icon');
+  icon.setAttribute('data-glyph', 'menu');
+  icon.setAttribute('aria-hidden', 'true');
+
+  return icon;
+};
+
+/**
+ * animate mobile nav
+ * @param state
+ */
+const animateMobileNav = function animateMobileNav(state) {
+  const navbar = document.getElementsByClassName('mch-navbar')[0];
+
+  if (state) {
+    document.body.style.overflow = 'auto';
+    TweenLite.to(navbar, 0.1, { right: '-95%' });
+  } else {
+    document.body.style.overflow = 'hidden';
+    TweenLite.to(navbar, 0.1, { right: 0 });
   }
 };
 
 /**
- * add menu-open class to body when icon clicked
+ * add click event to menu icon
  */
 const toggleNav = function toggleNav() {
   const icon = document.getElementsByClassName('mch-menu-icon')[0];
+  let state = true;
 
-  icon.addEventListener('click', event => {
-    if (event.target === icon) switchClass(document.body, 'navbar-close', 'navbar-open');
-  });
+  icon.addEventListener('click', () => animateMobileNav(state = !state));
 };
 
 /**
- * add animate class to logo if scrolled...
+ * animate logo for XL devices
  */
 const navLogo = function navLogo() {
   const breakpoint = currentBreakpoint();
   const logo = document.getElementsByClassName('mch-logo')[0];
+  logo.style = '';
 
   if (breakpoint === 'XL') {
     if ((window.pageYOffset || document.body.scrollTop) > 100) {
@@ -71,8 +95,27 @@ const navLogo = function navLogo() {
   window.addEventListener('resize', navLogo);
 };
 
-export default {
-  createFixedNav,
-  toggleNav,
-  navLogo,
+/**
+ * insert fixed navbar, icon & logo
+ */
+const buildFixedNav = function foo() {
+  const navbar = document.getElementsByClassName('mch-navbar')[0];
+  const fixed = createFixedNav();
+  const logo = createLogo();
+  const icon = createMenuIcon();
+
+  document.body.insertBefore(fixed, navbar);
+  fixed.appendChild(logo);
+
+  navLogo();
+
+  fixed.appendChild(icon);
+
+  toggleNav();
+
+  window.addEventListener('resize', () => {
+    navbar.style = '';
+  });
 };
+
+export default buildFixedNav;

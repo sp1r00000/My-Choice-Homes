@@ -1,29 +1,3 @@
-// menu open body
-@keyframes body-slide-left {
-  from { left: 0; }
-  to { left: -94%; }
-}
-
-@keyframes body-slide-right {
-  from { left: -94%; }
-  to { left: 0; }
-}
-
-body.navbar-open {
-  overflow: hidden;
-  animation-duration: .1s;
-  animation-name: body-slide-left;
-  position: relative;
-  left: -94%;
-}
-
-body.navbar-close {
-  animation-duration: .1s;
-  animation-name: body-slide-right;
-  position: relative;
-  left: 0;
-}
-
 // generated fixed navbar
 div.mch-fixed-nav {
   z-index: 3;
@@ -52,19 +26,7 @@ div.mch-fixed-nav {
   }
 }
 
-// navbar nav
-body.navbar-open nav.mch-navbar {
-  animation-duration: .1s;
-  animation-name: slide-left;
-  right: 0;
-}
-
-body.navbar-close nav.mch-navbar {
-  animation-duration: .1s;
-  animation-name: slide-right;
-  right: -94%;
-}
-
+// nav element
 nav.mch-navbar {
   z-index: 2;
   position: fixed;
@@ -77,16 +39,6 @@ nav.mch-navbar {
   box-shadow: inset 0 0 .3rem $dark;
   overflow: auto;
 
-  @keyframes slide-left {
-    from { right: -94%; }
-    to { right: 0; }
-  }
-
-  @keyframes slide-right {
-    from { right: 0; }
-    to { right: -94%; }
-  }
-
   a {
     display: block;
     padding: $space;
@@ -97,9 +49,6 @@ nav.mch-navbar {
 }
 
 @media (min-width: 62em) {
-  body.navbar-open, body.navbar-close { left: 0; }
-  body.navbar-open nav.mch-navbar, body.navbar-close nav.mch-navbar { right: 0; }
-
   nav.mch-navbar {
     z-index: 4;
     top: 0;
@@ -122,10 +71,7 @@ nav.mch-navbar {
     border-bottom: 0 none;
 
     &:nth-child(9) { margin-right: 0; }
-
-    &:nth-child(10), &:nth-child(11) {
-      display: none;
-    }
+    &:nth-child(10), &:nth-child(11) { display: none; }
   }
 }
 

@@ -28,7 +28,7 @@ const blockHeight = function blockHeight() {
 };
 
 // insert inner divs
-const insertInnerDivs = function insetDesign() {
+const insertInnerDivs = function insertInnerDivs() {
   return createInnerDiv([
     'mch-block-1',
     'mch-block-2',

@@ -49,9 +49,7 @@ const insetDesign = function insetDesign() {
 
 const sliders = function sliders() {
   slider([
-    {
-      direction: 'right',
-    },
+    { direction: 'right' },
   ]);
 };
 

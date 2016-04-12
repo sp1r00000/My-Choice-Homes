@@ -1,4 +1,4 @@
-import helpers from '../helpers';
+import { forEach } from '../helpers';
 
 import watchField from '../common/validations/utils';
 import validateName from '../common/validations/name';
@@ -21,9 +21,8 @@ const sendSuccess = function sendSuccess(form, response) {
   success.email.value = '';
   success.telephone.value = '';
   success.message.value = '';
-
-  form.lastElementChild.classList.add('disabled');
-  form.lastElementChild.disabled = true;
+  success.lastElementChild.classList.add('disabled');
+  success.lastElementChild.disabled = true;
 
   const span = document.createElement('p');
   span.innerText = response;
@@ -74,9 +73,7 @@ const contactForm = function contactForm() {
     if (name && email && recaptcha) sendMessage(form);
   };
 
-  helpers.forEach(form.elements, (index, item) => {
-    watchField(item);
-  });
+  forEach(form.elements, (index, item) => watchField(item));
 };
 
 container();

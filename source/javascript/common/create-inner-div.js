@@ -6,10 +6,10 @@ import { forEach } from '../helpers';
  * @param arrayOfClasses
  */
 const createInnerDiv = function inset(arrayOfClasses) {
-  arrayOfClasses.forEach(classString => {
+  arrayOfClasses.filter(classString => {
     const elements = document.getElementsByClassName(classString);
 
-    forEach(elements, (index, element) => {
+    return forEach(elements, (index, element) => {
       const children = element.childNodes;
       const div = document.createElement('div');
 
@@ -17,7 +17,7 @@ const createInnerDiv = function inset(arrayOfClasses) {
         if (children[0] !== div) div.appendChild(children[0]);
       }
 
-      element.appendChild(div);
+      return element.appendChild(div);
     });
   });
 };

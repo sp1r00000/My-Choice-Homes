@@ -27,13 +27,11 @@ const createIcon = function createIcon(element, icon, replace) {
  * @param replace
  */
 const insertIcons = function insertIcons(arrayOfClassNames, replace) {
-  arrayOfClassNames.forEach(className => {
+  arrayOfClassNames.filter(className => {
     const elements = document.getElementsByClassName(className);
     const icon = className.substr(4, className.length);
 
-    forEach(elements, (index, element) => {
-      createIcon(element, icon, replace);
-    });
+    return forEach(elements, (index, element) => createIcon(element, icon, replace));
   });
 };
 

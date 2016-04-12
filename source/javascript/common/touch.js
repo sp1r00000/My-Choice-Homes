@@ -1,4 +1,4 @@
-import helpers from '../helpers';
+import { forEach } from '../helpers';
 
 /**
  * ripple from click/touch position
@@ -6,7 +6,7 @@ import helpers from '../helpers';
 const touchElement = function touch() {
   const elements = document.querySelectorAll('.mch-touch');
 
-  helpers.forEach(elements, (index, item) => {
+  forEach(elements, (index, item) => {
     item.addEventListener('click', event => {
       const touchX = item.offsetLeft;
       const touchY = item.offsetTop;

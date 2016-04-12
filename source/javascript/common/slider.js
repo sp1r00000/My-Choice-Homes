@@ -55,7 +55,7 @@ const animateSlider = function animateSlider(slider, icon, state) {
 };
 
 const appendChevron = function appendChevron(arrayOfObjects) {
-  arrayOfObjects.forEach(sliderConfig => {
+  arrayOfObjects.filter(sliderConfig => {
     const element = document.getElementsByClassName('mch-slider')[0];
 
     const span = document.createElement('span');
@@ -72,6 +72,8 @@ const appendChevron = function appendChevron(arrayOfObjects) {
     let state = false;
 
     span.addEventListener('click', () => animateSlider(slider, span, state = !state));
+
+    return false;
   });
 };
 

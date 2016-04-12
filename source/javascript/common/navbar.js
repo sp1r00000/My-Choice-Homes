@@ -43,6 +43,7 @@ const createMenuIcon = function createMenuIcon() {
 
 /**
  * animate mobile nav
+ * when open set body overflow to hidden
  * @param state
  */
 const animateMobileNav = function animateMobileNav(state) {
@@ -73,7 +74,6 @@ const toggleNav = function toggleNav() {
 const navLogo = function navLogo() {
   const breakpoint = currentBreakpoint();
   const logo = document.getElementsByClassName('mch-logo')[0];
-  logo.style = '';
 
   if (breakpoint === 'XL') {
     if ((window.pageYOffset || document.body.scrollTop) > 100) {
@@ -92,7 +92,10 @@ const navLogo = function navLogo() {
   }
 
   window.addEventListener('scroll', navLogo);
-  window.addEventListener('resize', navLogo);
+
+  window.addEventListener('resize', () => {
+    logo.style = '';
+  });
 };
 
 /**

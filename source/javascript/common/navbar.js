@@ -109,11 +109,9 @@ const buildFixedNav = function foo() {
 
   document.body.insertBefore(fixed, navbar);
   fixed.appendChild(logo);
-
-  navLogo();
-
   fixed.appendChild(icon);
 
+  navLogo();
   toggleNav();
 
   window.addEventListener('resize', () => {

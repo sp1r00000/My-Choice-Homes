@@ -30,10 +30,12 @@
   overflow: hidden;
   background-color: $white;
   text-align: center;
-  margin: .5%;
-  opacity: .9;
-  max-height: 98.1%;
-  height: 98.1%;
+  max-height: 100%;
+
+  div {
+    position: relative;
+    padding: 0 $space;
+  }
 }
 
 @media (min-width: 34em) {

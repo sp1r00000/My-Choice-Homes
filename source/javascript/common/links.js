@@ -48,7 +48,7 @@ const dropdown = function openList() {
 
     let state = false;
 
-    document.body.addEventListener('click', event => openDropdown(
+    opener.addEventListener('click', event => openDropdown(
       event, opener, nav, icon, height, state = !state));
   }
 };

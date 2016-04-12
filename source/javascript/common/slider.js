@@ -5,8 +5,14 @@
  * @param state
  */
 const animateSlider = function toggleClasses(slider, icon, state) {
+  const div = slider.querySelector('div');
+
+  function divFromTop() {
+    TweenMax.to(div, 0.2, { top: '30%' });
+  }
+
   if (state) {
-    TweenMax.to(slider, 0.2, { width: '90%' });
+    TweenMax.to(slider, 0.2, { width: '90%', onComplete: divFromTop });
     TweenMax.to(icon, 0.1, {
       left: '92%',
       rotationY: 180,

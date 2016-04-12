@@ -1,11 +1,8 @@
 .mch-inset {
   display: table;
-  background: $teal-light;
-  box-shadow: 0 0 .5rem $dark inset;
-  color: $white;
+  background: $gray;
+  box-shadow: 0 0 .5rem lighten($dark, 25%) inset;
   text-align: center;
-
-  a { color: $white; }
 
   div {
     display: table-cell;

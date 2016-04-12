@@ -5,7 +5,7 @@ body.mch-services {
   }
 
   .mch-block-1.mch-inset, .mch-block-3.mch-inset, .mch-block-5.mch-inset {
-    background-color: $mauve-lighter;
+    background-color: $mauve-light;
     color: $white;
     box-shadow: 0 0 .5rem $dark inset;
 
@@ -19,7 +19,7 @@ body.mch-services {
 
     ::before {
       font-size: 2.6rem;
-      text-shadow: 0 0 .2rem $dark;
+      color: $mauve-light;
       border-radius: 2.6rem;
       margin-bottom: $halfSpace;
     }

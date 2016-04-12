@@ -38,9 +38,10 @@ gulp.task('build', gulp.series(
     scripts,
     scss,
     iconicFonts,
-    images
-  ),
-  test
+    images,
+    bowerJs,
+    bowerCss
+  )
 ));
 
 /**

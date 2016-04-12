@@ -72,6 +72,4 @@ const blockHeight = function blockHeight() {
 
 container();
 
-// figure.insertShadow();
-
 setTimeout(() => blockHeight());

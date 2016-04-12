@@ -3,8 +3,9 @@ input, textarea, button { outline: none; }
 input, textarea {
   border: .1rem solid $gray;
   border-radius: .2rem;
-  padding: .4rem .5rem .2rem .5rem;
+  padding: 0 .2rem;
   width: 100%;
+  height: 2rem;
   box-sizing: border-box;
 }
 
@@ -39,7 +40,5 @@ span.mch-error {
   position: relative;
   margin-bottom: $doubleSpace;
 
-  span.mch-error {
-    left: 0;
-  }
+  span.mch-error { left: 0; }
 }

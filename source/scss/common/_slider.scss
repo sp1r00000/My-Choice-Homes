@@ -1,88 +1,39 @@
-.hidden-slider { display: none !important; }
+.hidden-slider {
+  display: none !important;
+}
 
-.mch-slider {
-  @keyframes icon-open {
-    from { left: 1%; }
-    to { left: 92%; }
+.mch-slider .slider-right {
+  display: none;
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  left: 1%;
+  margin: auto;
+  width: 2rem;
+  height: 2rem;
+  color: $white;
+  text-shadow: 0 0 .2rem $dark;
+  cursor: pointer;
+
+  &::before {
+    font-size: 2rem;
   }
+}
 
-  @keyframes icon-close {
-    from { left: 92%; }
-    to { left: 1%; }
-  }
-
-  .slider-right {
-    display: none;
-    animation-duration: .1s;
-    position: absolute;
-    top: 50%;
-    bottom: 50%;
-    left: 1%;
-    margin: auto;
-    width: 2rem;
-    height: 2rem;
-    color: $white;
-    text-shadow: 0 0 .2rem $dark;
-    cursor: pointer;
-    transition: .2s;
-
-    &.open {
-      animation-name: icon-open;
-      left: 92%;
-      transform: scaleX(-1);
-    }
-
-    &.close {
-      animation-name: icon-close;
-      left: 1%;
-      transform: scaleX(1);
-    }
-
-    &::before { font-size: 2rem; }
-  }
-
-  @keyframes slider-open {
-    from { width: 0; }
-    to { width: 90%; }
-  }
-
-  @keyframes slider-close {
-    from { width: 90%; }
-    to { width: 0; }
-  }
-
-  .hidden-slider {
-    animation-duration: .1s;
-    display: inline !important;
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    overflow: hidden;
-    background-color: $white;
-    text-align: center;
-    margin: .5%;
-    opacity: .9;
-    max-height: 98.1%;
-    height: 98.1%;
-
-    &.open {
-      animation-name: slider-open;
-      width: 90%;
-      display: inline-table !important;
-    }
-
-    &.close {
-      animation-name: slider-close;
-      width: 0;
-    }
-
-    div {
-      display: table-cell;
-      vertical-align: middle;
-    }
-  }
+.mch-slider .hidden-slider {
+  display: inline !important;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  overflow: hidden;
+  background-color: $white;
+  text-align: center;
+  margin: .5%;
+  opacity: .9;
+  max-height: 98.1%;
+  height: 98.1%;
 }
 
 @media (min-width: 34em) {

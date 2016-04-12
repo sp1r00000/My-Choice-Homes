@@ -16,7 +16,9 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "v4.0.0-alpha.2"
+    "normalize-css": "normalize.css#^4.0.0",
+    "gsap": "^1.18.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "license": "MIT"
 }

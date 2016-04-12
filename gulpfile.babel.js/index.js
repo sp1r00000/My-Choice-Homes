@@ -6,6 +6,7 @@ import { scripts } from './tasks/scripts';
 import { scss } from './tasks/scss';
 import { iconicFonts } from './tasks/fonts';
 import { images } from './tasks/images';
+import { bowerJs, bowerCss } from './tasks/bower';
 import { watch } from './tasks/watch';
 
 import { preTest, test } from './tasks/test';
@@ -20,7 +21,9 @@ gulp.task('default', gulp.series(
     scripts,
     scss,
     iconicFonts,
-    images
+    images,
+    bowerJs,
+    bowerCss
   ),
   watch
 ));

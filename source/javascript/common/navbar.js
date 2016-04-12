@@ -12,12 +12,17 @@ const createFixedNav = function addIcon() {
   const fixed = document.createElement('div');
   fixed.classList.add('mch-fixed-nav');
 
+  const aTag = document.createElement('a');
+  aTag.setAttribute('href', '/');
+
   const logo = document.createElement('img');
   logo.classList.add('mch-logo');
   logo.setAttribute('src', '/assets/images/logo.png');
 
+  aTag.appendChild(logo);
+
   document.body.insertBefore(fixed, navbar);
-  fixed.appendChild(logo);
+  fixed.appendChild(aTag);
 
   if (breakpoint !== 'XL') {
     const icon = document.createElement('span');

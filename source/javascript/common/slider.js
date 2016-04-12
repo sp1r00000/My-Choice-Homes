@@ -1,19 +1,24 @@
-import { switchClass } from '../helpers';
-
-const toggleClasses = function toggleClasses(slider, icon) {
-  if (!slider.classList.contains('open')) {
-
-    setTimeout(() => {
-      switchClass(slider, 'close', 'open');
-    }, 50);
-
-    switchClass(icon, 'close', 'open');
+/**
+ * animate slider & icon
+ * @param slider
+ * @param icon
+ * @param state
+ */
+const animateSlider = function toggleClasses(slider, icon, state) {
+  if (!state) {
+    TweenLite.to(slider, 0.2, { width: '90%' });
+    TweenMax.to(icon, 0.1, {
+      left: '92%',
+      rotationY: 180,
+      transformOrigin: 'middle',
+    });
   } else {
-    switchClass(slider, 'open', 'close');
-
-    setTimeout(() => {
-      switchClass(icon, 'open', 'close');
-    }, 50);
+    TweenLite.to(slider, 0.1, { width: 0 });
+    TweenMax.to(icon, 0.2, {
+      left: '1%',
+      rotationY: 0,
+      transformOrigin: 'middle',
+    });
   }
 };
 
@@ -31,7 +36,9 @@ const appendChevron = function appendChevron(arrayOfObjects) {
     const slider = element.nextElementSibling;
     element.appendChild(slider);
 
-    span.addEventListener('click', () => toggleClasses(slider, span));
+    let state = true;
+
+    span.addEventListener('click', () => animateSlider(slider, span, state = !state));
   });
 };
 

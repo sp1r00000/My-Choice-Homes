@@ -12,13 +12,15 @@ const sendMail = function sendMail(req, reply) {
   const emailConfig = {};
   emailConfig.from = `My Choice Homes <${req.payload.email}>`;
   emailConfig.to = config.emailTo;
-  emailConfig.subject = 'My Choice Homes';
+  emailConfig.subject = 'My Choice Children\'s Homes';
   emailConfig.html = req.payload.message;
 
   transporter.sendMail(emailConfig, error => {
-    if (error) reply('Sorry, there was an issue.');
-
-    reply('You\'re message has been sent and we will get back to you very soon.');
+    if (error) {
+      reply('Sorry, there was an issue.');
+    } else {
+      reply('You\'re message has been sent and we will get back to you very soon.');
+    }
   });
 };
 

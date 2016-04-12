@@ -3,9 +3,8 @@ aside.mch-links {
   right: 4%;
   bottom: 0;
   cursor: pointer;
-  padding: .5rem .5rem 0;
+  padding: .7rem 1rem .1rem .7rem;
   background: $white;
-  border-radius: .2rem .2rem 0 0;
   text-shadow: none;
   color: $dark;
 
@@ -22,11 +21,9 @@ aside.mch-links {
 
     a {
       display: block;
-      font-size: 1rem;
       font-weight: 600;
       text-decoration: none;
-      line-height: 2;
-      padding: 0 $halfSpace;
+      padding: .5rem .7rem;
     }
 
     nav {

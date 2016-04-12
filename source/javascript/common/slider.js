@@ -34,7 +34,7 @@ const animateChildren = function animateChildren(slider) {
  * @param icon
  * @param state
  */
-const animateSlider = function toggleClasses(slider, icon, state) {
+const animateSlider = function animateSlider(slider, icon, state) {
   if (state) {
     TweenMax.to(slider, 0.2, { width: '90%', onComplete: () => animateChildren(slider) });
     TweenMax.to(icon, 0.1, {

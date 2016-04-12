@@ -18,8 +18,10 @@ body.mch-services {
     @extend .icon-md-round;
 
     ::before {
-      color: $mauve-lighter;
-      margin-bottom: $space;
+      font-size: 2.6rem;
+      text-shadow: 0 0 .2rem $dark;
+      border-radius: 2.6rem;
+      margin-bottom: $halfSpace;
     }
   }
 
@@ -37,8 +39,8 @@ body.mch-services {
     .mch-block-1, .mch-block-3, .mch-block-5, .mch-block-7 { clear: left; }
     .mch-block-2, .mch-block-4, .mch-block-6 { clear: right; }
     .mch-block-1, .mch-block-5 { margin-right: 0; }
-    .mch-block-1 { max-width: 32%; }
-    .mch-block-2 { max-width: 65%; }
+    .mch-block-1 { max-width: 30%; }
+    .mch-block-2 { max-width: 67%; }
 
     .mch-block-3 {
       max-width: 47%;
@@ -83,5 +85,12 @@ body.mch-services {
 
     .mch-block-5 li:nth-child(5), .mch-block-5 li:nth-child(6), .mch-block-5 li:nth-child(7),
     .mch-block-5 li:nth-child(8) { display: block; }
+  }
+}
+
+@media (min-width: 75em) {
+  body.mch-services {
+    .mch-block-1 { max-width: 36%; }
+    .mch-block-2 { max-width: 61%; }
   }
 }

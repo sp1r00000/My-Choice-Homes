@@ -48,15 +48,27 @@ const toggleNav = function toggleNav() {
  * add animate class to logo if scrolled...
  */
 const navLogo = function navLogo() {
+  const breakpoint = currentBreakpoint();
   const logo = document.getElementsByClassName('mch-logo')[0];
 
-  if ((window.pageYOffset || document.body.scrollTop) > 100) {
-    if (!logo.classList.contains('shrink-logo')) switchClass(logo, 'enlarge-logo', 'shrink-logo');
-  } else {
-    if (logo.classList.contains('shrink-logo')) switchClass(logo, 'shrink-logo', 'enlarge-logo');
+  if (breakpoint === 'XL') {
+    if ((window.pageYOffset || document.body.scrollTop) > 100) {
+      TweenLite.to(logo, 0.2, {
+        width: '4rem',
+        height: '3rem',
+        padding: '0',
+      });
+    } else {
+      TweenLite.to(logo, 0.2, {
+        width: '10rem',
+        height: '8rem',
+        padding: '3.4rem 1.7rem 2rem 1rem',
+      });
+    }
   }
 
   window.addEventListener('scroll', navLogo);
+  window.addEventListener('resize', navLogo);
 };
 
 export default {

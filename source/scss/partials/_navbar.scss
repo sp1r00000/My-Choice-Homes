@@ -40,7 +40,7 @@ div.mch-fixed-nav {
     top: .5rem;
     left: 1%;
     width: 4rem;
-    height: 3rem;
+    padding: 0;
   }
 
   span.mch-menu-icon {
@@ -135,48 +135,6 @@ nav.mch-navbar {
     height: 8rem;
     background-color: $white;
     padding: 3.4rem 1.7rem 2rem 1rem;
-
-    @keyframes shrink-logo {
-      from {
-        width: 10rem;
-        height: 8rem;
-        padding: 3.4rem 1.7rem 2rem 1rem;
-      }
-      to {
-        width: 4rem;
-        height: 3rem;
-        padding: 0;
-      }
-    }
-
-    @keyframes enlarge-logo {
-      from {
-        width: 4rem;
-        height: 3rem;
-        padding: 0;
-      }
-      to {
-        width: 10rem;
-        height: 8rem;
-        padding: 3.4rem 1.7rem 2rem 1rem;
-      }
-    }
-
-    &.shrink-logo {
-      animation-duration: .2s;
-      animation-name: shrink-logo;
-      width: 4rem;
-      height: 3rem;
-      padding: 0;
-    }
-
-    &.enlarge-logo {
-      animation-duration: .2s;
-      animation-name: enlarge-logo;
-      width: 10rem;
-      height: 8rem;
-      padding: 3.4rem 1.7rem 2rem 1rem;
-    }
   }
 
   nav.mch-navbar {

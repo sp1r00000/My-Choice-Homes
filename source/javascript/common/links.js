@@ -1,7 +1,5 @@
-import { switchClass } from '../helpers';
-
 /**
- * toggle open/close classes
+ * animate dropdown
  * @param nav
  * @param icon
  * @param height

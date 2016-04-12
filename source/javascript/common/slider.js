@@ -5,7 +5,7 @@
  * @param state
  */
 const animateSlider = function toggleClasses(slider, icon, state) {
-  if (!state) {
+  if (state) {
     TweenLite.to(slider, 0.2, { width: '90%' });
     TweenMax.to(icon, 0.1, {
       left: '92%',
@@ -36,7 +36,7 @@ const appendChevron = function appendChevron(arrayOfObjects) {
     const slider = element.nextElementSibling;
     element.appendChild(slider);
 
-    let state = true;
+    let state = false;
 
     span.addEventListener('click', () => animateSlider(slider, span, state = !state));
   });

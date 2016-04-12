@@ -2,17 +2,24 @@ import { switchClass } from '../helpers';
 
 /**
  * toggle open/close classes
- * @param event
- * @param opener
+ * @param nav
  * @param icon
+ * @param height
+ * @param state
  */
-const openDropdown = function openList(event, opener, icon) {
-  if (event.target === opener || event.target === icon) {
-    switchClass(opener, 'close', 'open');
+const openDropdown = function openList(nav, icon, height, state) {
+  if (state) {
+    TweenLite.to(nav, 0.1, { height: height });
+    TweenMax.to(icon, 0.1, {
+      rotationX: 180,
+      transformOrigin: 'middle',
+    });
   } else {
-    if (opener.classList.contains('open')) {
-      switchClass(opener, 'close', 'open');
-    }
+    TweenLite.to(nav, 0.1, { height: 0 });
+    TweenMax.to(icon, 0.1, {
+      rotationX: 0,
+      transformOrigin: 'middle',
+    });
   }
 };
 
@@ -25,18 +32,21 @@ const dropdown = function openList() {
 
   if (opener) {
     const header = document.getElementsByClassName('mch-header')[0];
-
     header.appendChild(opener);
 
     const icon = document.createElement('span');
     icon.classList.add('iconic');
     icon.setAttribute('data-glyph', 'chevron-bottom');
     icon.setAttribute('aria-hidden', 'true');
-
-    opener.classList.add('close');
     opener.appendChild(icon);
 
-    document.body.addEventListener('click', event => openDropdown(event, opener, icon));
+    const nav = opener.querySelector('nav');
+    const height = nav.clientHeight;
+    nav.style.height = 0;
+
+    let state = false;
+
+    document.body.addEventListener('click', () => openDropdown(nav, icon, height, state = !state));
   }
 };
 

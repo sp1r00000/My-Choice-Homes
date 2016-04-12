@@ -8,34 +8,16 @@ aside.mch-links {
   border-radius: .2rem .2rem 0 0;
   text-shadow: none;
   color: $dark;
-  overflow: hidden;
 
-  &.open {
-    overflow: visible;
-
-    nav { max-height: 30rem; }
-    span { transform: scaleY(-1) translateY(18%); }
-  }
-
-  &.close {
-    nav { max-height: 0; }
-    span { transform: scaleY(1); }
-  }
-
-  span {
-    display: inline-block;
-    transition: .2s;
-  }
+  span { display: inline-block; }
 
   nav {
-    transition: .1s;
     z-index: 1;
     position: absolute;
     left: 0;
     background-color: $white;
     text-shadow: none;
     width: 100%;
-    min-height: 0;
     overflow: hidden;
 
     a {

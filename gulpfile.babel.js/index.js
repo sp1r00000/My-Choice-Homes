@@ -5,7 +5,7 @@ import { clean } from './tasks/clean';
 import { scripts } from './tasks/scripts';
 import { scss } from './tasks/scss';
 import { iconicFonts } from './tasks/fonts';
-import { images, preload } from './tasks/images';
+import { images } from './tasks/images';
 import { bowerJs, bowerCss } from './tasks/bower';
 import { watch } from './tasks/watch';
 
@@ -25,7 +25,6 @@ gulp.task('default', gulp.series(
     bowerJs,
     bowerCss
   ),
-  preload,
   watch
 ));
 
@@ -74,11 +73,6 @@ gulp.task('iconic-fonts', gulp.parallel(iconicFonts));
  * run images task
  */
 gulp.task('images', gulp.parallel(images));
-
-/**
- * run preload task
- */
-gulp.task('preload', gulp.parallel(preload));
 
 /**
  * run watch task

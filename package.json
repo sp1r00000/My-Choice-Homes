@@ -32,7 +32,6 @@
     "event-stream": "^3.3.2",
     "glob": "^7.0.3",
     "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-image-preload": "0.0.6",
     "gulp-imagemin": "^2.4.0",
     "gulp-istanbul": "^0.10.3",
     "gulp-nodemon": "^2.0.6",

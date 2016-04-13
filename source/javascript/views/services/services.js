@@ -1,3 +1,4 @@
+import preload from '../../common/image-preload';
 import figure from '../../common/figure';
 import insertIcons from '../../common/insert-icons';
 import matchHeight from '../../common/match-height';
@@ -53,11 +54,25 @@ const sliders = function sliders() {
   ]);
 };
 
-figure.insertShadow();
-figure.grayscaleSwitch();
+const preloadImages = function preloadImages() {
+  return preload([
+    '/assets/images/services/services-part.jpg',
+    '/assets/images/services/services-food.jpg',
+    '/assets/images/services/services-group.jpg',
+  ]);
+};
 
-iconic();
-insetDesign();
-sliders();
+const init = function init() {
+  Promise.all(preloadImages()).then(() => {
+    figure.insertShadow();
+    figure.grayscaleSwitch();
 
-setTimeout(() => blockHeight());
+    iconic();
+    insetDesign();
+    sliders();
+
+    setTimeout(() => blockHeight());
+  });
+};
+
+init();

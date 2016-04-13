@@ -1,3 +1,4 @@
+import preload from '../../common/image-preload';
 import insertContainer from '../../common/insert-container';
 import matchHeight from '../../common/match-height';
 
@@ -38,6 +39,24 @@ const blockHeight = function blockHeight() {
   ]);
 };
 
-container();
+const preloadImages = function preloadImages() {
+  return preload([
+    '/assets/images/our-homes/ivy-cottage.jpg',
+    '/assets/images/our-homes/kestrel-house.jpg',
+    '/assets/images/our-homes/kingfisher-view.jpg',
+    '/assets/images/our-homes/maple-house.jpg',
+    '/assets/images/our-homes/oak-house.jpg',
+    '/assets/images/our-homes/ocean-pearl.jpg',
+    '/assets/images/our-homes/osprey-house.jpg',
+    '/assets/images/our-homes/pebble-house.jpg',
+  ]);
+};
 
-setTimeout(() => blockHeight());
+const init = function init() {
+  Promise.all(preloadImages()).then(() => {
+    container();
+    setTimeout(() => blockHeight());
+  });
+};
+
+init();

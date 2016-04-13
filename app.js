@@ -67,7 +67,7 @@ server.register([Inert, Vision], () => {
       html: require('handlebars'),
     },
     path: 'views',
-    layoutPath: 'views/generated-layout',
+    layoutPath: 'views/layout',
     layout: 'default',
     partialsPath: 'views/partials',
     helpersPath: 'views/helpers',

@@ -31,6 +31,12 @@ const blockHeight = function blockHeight() {
         ['mch-block-2', 'hidden-slider'],
       ],
     },
+    {
+      breakpoints: ['XS'],
+      elements: [
+        [],
+      ],
+    },
   ]);
 };
 
@@ -67,7 +73,7 @@ const init = function init() {
     insetDesign();
     sliders();
 
-    setTimeout(() => blockHeight());
+    blockHeight();
   });
 };
 

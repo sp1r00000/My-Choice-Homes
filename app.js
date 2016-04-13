@@ -97,6 +97,6 @@ server.register([Inert, Vision], () => {
   quotes(server);
 
   server.start(err => {
-    if (err) throw err;
+    if (err) console.log('err', err);
   });
 });

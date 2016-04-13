@@ -2,118 +2,185 @@ import currentBreakpoint from './current-breakpoint';
 import { forEach, arrayContainsValue } from '../helpers';
 
 /**
- * for each element in single array, set height to highest
- * @param height
- * @param elementsArray
+ * set new element height on elements in array
+ * @param highest
+ * @param elements
  */
-const setHeights = function setHeights(height, elementsArray) {
-  let element;
+const setElementHeights = function setElementHeights(highest, elements) {
+  let elm;
 
-  elementsArray.filter(elementInArray => {
-    element = elementInArray;
-    element.style.height = `${height}px`;
+  elements.filter(element => {
+    elm = element;
+    elm.style.height = `${highest}px`;
+
     return true;
   });
 };
 
 /**
- * find highest element height in array
+ * get the highest value in array
+ * @param elements
  * @param heights
- * @param elementsArray
- */
-const getHighest = function getHighest(heights, elementsArray) {
-  let highest = 0;
-
-  heights.filter((height, index) => {
-    if (highest < height) highest = height;
-    if (heights.length - 1 === index) setHeights(highest, elementsArray);
-    return true;
-  });
-};
-
-/**
- * push heights of elements in single array to new array
- * @param arrayOfClasses
- */
-const getElementsHeights = function getElementsHeights(arrayOfClasses) {
-  const last = arrayOfClasses.length - 1;
-  const heights = [];
-  const elementsArray = [];
-
-  return arrayOfClasses.filter(classString => {
-    const elements = document.getElementsByClassName(classString);
-
-    forEach(elements, (index, item) => {
-      const element = item;
-
-      elementsArray.push(element);
-      element.style.height = '';
-      heights.push(element.clientHeight);
-
-      if (classString === arrayOfClasses[last]) getHighest(heights, elementsArray);
-    });
-
-    return true;
-  });
-};
-
-/**
- * returns single arrays of classes
- * @param arrayOfArrays
  * @returns {*}
  */
-const getArrayOfClasses = function getArrayOfClasses(arrayOfArrays) {
-  return arrayOfArrays.filter(arrayOfClasses => getElementsHeights(arrayOfClasses));
+const getHighestElement = function getHighestElement(elements, heights) {
+  let highest = 0;
+
+  return heights.filter((height, index) => {
+    if (highest < height) highest = height;
+    if (heights.length - 1 === index) setElementHeights(highest, elements);
+
+    return true;
+  });
 };
 
 /**
- * clear inline styles of elements when current
- * breakpoint doesn't match any in breakpoints array
- * @param arrayOfArrays
+ * get all element heights from class array
+ * @param classArray
  */
-const clearInlineStyles = function clearInlineStyles(arrayOfArrays) {
-  const classNames = function classNames(elementClasses) {
-    elementClasses.forEach(elementClass => {
-      const element = document.getElementsByClassName(elementClass)[0];
-      element.style.height = '';
+const elementHeights = function usedClassString(classArray) {
+  const elements = [];
+  const heights = [];
+
+  classArray.filter(classString => {
+    const element = document.getElementsByClassName(classString);
+
+    forEach(element, (index, item) => {
+      const elm = item;
+
+      elm.style.height = '';
+      elements.push(elm);
+      heights.push(elm.clientHeight);
     });
-  };
-
-  arrayOfArrays.filter(arrayOfClasses => classNames(arrayOfClasses));
-};
-
-/**
- * determine which object to use based on
- * breakpoints array in object
- * @param arrayOfObjects
- */
-const breakpointCondition = function breakpointCondition(arrayOfObjects) {
-  const breakpoint = currentBreakpoint();
-
-  const elementsArrays = arrayOfObjects.filter(array => {
-    const containsBreakpoint = arrayContainsValue(breakpoint, array.breakpoints);
-
-    if (containsBreakpoint) return array;
 
     return false;
   });
 
-  if (elementsArrays.length) {
-    getArrayOfClasses(elementsArrays[0].elements);
+  return getHighestElement(elements, heights);
+};
+
+/**
+ * returns the class array for the used object
+ * @param current
+ * @returns {*}
+ */
+const usedClassArray = function getElementsHeights(current) {
+  return current.elements.filter(classArray => elementHeights(classArray));
+};
+
+/**
+ * clear the inline height of all elements in unused objects
+ * callback for promise
+ * @param classString
+ * @param cb
+ */
+const clearInlineHeight = function clearInlineHeight(classString, cb) {
+  const element = document.getElementsByClassName(classString)[0];
+  element.style.height = '';
+
+  cb();
+};
+
+/**
+ *
+ * @returns {Array}
+ * @param classArray
+ * @param cb
+ */
+const unusedClassString = function unusedClassString(classArray, cb) {
+  return classArray.filter(classString => clearInlineHeight(classString, cb));
+};
+
+/**
+ * returns array of classes
+ * @param object
+ * @param cb
+ */
+const unusedClassArray = function unusedClassArray(object, cb) {
+  return object.elements.filter(classArray => unusedClassString(classArray, cb));
+};
+
+/**
+ * returns an unused object
+ * @param unusedObjects
+ * @param cb
+ * @returns {*}
+ */
+const unusedObject = function unusedObject(unusedObjects, cb) {
+  return unusedObjects.filter(object => unusedClassArray(object, cb));
+};
+
+/**
+ * returns an array of unused object('s)
+ * @param usedObject
+ * @param arrayOfObjects
+ * @param cb
+ */
+const filteredUnused = function filteredUnused(usedObject, arrayOfObjects, cb) {
+  const unusedObjects = arrayOfObjects.filter(object => {
+    if (object !== usedObject[0]) return object;
+
+    return false;
+  });
+
+  return unusedObject(unusedObjects, cb);
+};
+
+/**
+ * filter objects array to contain object for resize
+ * create promise
+ * @param arrayOfObjects
+ */
+const filteredCurrent = function filteredCurrent(arrayOfObjects) {
+  const breakpoint = currentBreakpoint();
+
+  return arrayOfObjects.filter(object => new Promise(resolve => {
+    const containsBreakpoint = arrayContainsValue(breakpoint, object.breakpoints);
+    if (containsBreakpoint) return filteredUnused(object, arrayOfObjects, resolve);
+
+    return false;
+  }));
+};
+
+/**
+ * filter objects array to contain current object for resize
+ * @param arrayOfObjects
+ * @returns {*}
+ */
+const filteredCurrentForResize = function filteredCurrentForResize(arrayOfObjects) {
+  const breakpoint = currentBreakpoint();
+
+  return arrayOfObjects.filter(object => {
+    const containsBreakpoint = arrayContainsValue(breakpoint, object.breakpoints);
+    if (containsBreakpoint) return usedClassArray(object);
+
+    return false;
+  });
+};
+
+/**
+ * after removing inline heights for unused elements
+ * begin the process for resizing current elements
+ * @param arrayOfObjects
+ */
+const promise = function promise(arrayOfObjects) {
+  if (arrayOfObjects.length === 1) {
+    filteredCurrentForResize(arrayOfObjects);
   } else {
-    clearInlineStyles(arrayOfObjects[0].elements);
+    Promise.all(filteredCurrent(arrayOfObjects)).then(() => {
+      filteredCurrentForResize(arrayOfObjects);
+    });
   }
 };
 
 /**
- * trigger breakpoint condition & add resize event
+ * trigger filterArrayOfObjects fn & add resize event
  * @param arrayOfObjects
  */
 const matchHeight = function matchHeight(arrayOfObjects) {
-  const objectsArray = arrayOfObjects;
+  promise(arrayOfObjects);
 
-  breakpointCondition(objectsArray);
-  window.addEventListener('resize', () => breakpointCondition(objectsArray));
+  window.addEventListener('resize', () => promise(arrayOfObjects));
 };
 
 export default matchHeight;

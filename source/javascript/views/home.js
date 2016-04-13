@@ -68,6 +68,4 @@ insertInnerDivs();
 iconic();
 accordion();
 
-setTimeout(() => {
-  blockHeight();
-}, 500);
+setTimeout(() => blockHeight());

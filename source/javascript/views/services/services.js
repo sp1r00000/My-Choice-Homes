@@ -60,6 +60,4 @@ iconic();
 insetDesign();
 sliders();
 
-setTimeout(() => {
-  blockHeight();
-}, 500);
+setTimeout(() => blockHeight());

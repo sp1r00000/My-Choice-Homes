@@ -40,4 +40,6 @@ const blockHeight = function blockHeight() {
 
 container();
 
-setTimeout(() => blockHeight());
+setTimeout(() => {
+  blockHeight();
+}, 500);

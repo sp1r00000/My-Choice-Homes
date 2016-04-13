@@ -1,13 +1,11 @@
 import { forEach } from '../../helpers';
-
 import watchField from '../../common/validations/utils';
 import validateName from '../../common/validations/name';
 import validateRecaptcha from '../../common/validations/recaptcha';
-
 import insertContainer from '../../common/insert-container';
 
 const container = function container() {
-  insertContainer([
+  return insertContainer([
     'mch-block-1',
     'mch-block-2',
   ]);

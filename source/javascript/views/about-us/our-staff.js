@@ -4,7 +4,7 @@ import matchHeight from '../../common/match-height';
 
 // insert container
 const container = function container() {
-  insertContainer([
+  return insertContainer([
     'mch-block-0',
     'mch-block-1',
     'mch-block-2',
@@ -30,7 +30,7 @@ const container = function container() {
 
 // match block heights
 const blockHeight = function blockHeight() {
-  matchHeight([
+  return matchHeight([
     {
       breakpoints: ['XS', 'SM'],
       elements: [

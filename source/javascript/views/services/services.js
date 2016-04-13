@@ -5,7 +5,6 @@ import matchHeight from '../../common/match-height';
 import createInnerDiv from '../../common/create-inner-div';
 import slider from '../../common/slider';
 
-// insert iconic icons
 const iconic = function iconic() {
   return insertIcons([
     'mch-ellipses',
@@ -15,7 +14,6 @@ const iconic = function iconic() {
   ], true);
 };
 
-// match block heights
 const blockHeight = function blockHeight() {
   return matchHeight([
     {
@@ -36,7 +34,6 @@ const blockHeight = function blockHeight() {
   ]);
 };
 
-// insert div for inset design
 const insetDesign = function insetDesign() {
   return createInnerDiv([
     'mch-block-1',
@@ -49,7 +46,7 @@ const insetDesign = function insetDesign() {
 };
 
 const sliders = function sliders() {
-  slider([
+  return slider([
     { direction: 'right' },
   ]);
 };
@@ -66,7 +63,6 @@ const init = function init() {
   Promise.all(preloadImages()).then(() => {
     figure.insertShadow();
     figure.grayscaleSwitch();
-
     iconic();
     insetDesign();
     sliders();

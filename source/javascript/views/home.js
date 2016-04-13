@@ -1,8 +1,8 @@
+import preload from '../common/image-preload';
 import matchHeight from '../common/match-height';
 import createInnerDiv from '../common/create-inner-div';
 import insertIcons from '../common/insert-icons';
 
-// match block heights
 const blockHeight = function blockHeight() {
   return matchHeight([
     {
@@ -27,7 +27,6 @@ const blockHeight = function blockHeight() {
   ]);
 };
 
-// insert inner divs
 const insertInnerDivs = function insertInnerDivs() {
   return createInnerDiv([
     'mch-block-1',
@@ -40,7 +39,6 @@ const insertInnerDivs = function insertInnerDivs() {
   ]);
 };
 
-// insert iconic icons
 const iconic = function iconic() {
   return insertIcons([
     'mch-easel',
@@ -48,7 +46,6 @@ const iconic = function iconic() {
   ], false);
 };
 
-// toggle class for accordion content
 const accordion = function accordion() {
   const accord = document.querySelector('.mch-accordion');
 
@@ -62,10 +59,29 @@ const accordion = function accordion() {
   });
 };
 
-// create inner div before inserting icons
-insertInnerDivs();
+const preloadImages = function preloadImages() {
+  return preload([
+    '/assets/images/home/about-us.jpg',
+    '/assets/images/home/support.jpg',
+    '/assets/images/home/key-working.jpg',
+    '/assets/images/home/activities.jpg',
+    '/assets/images/home/my-choice-school.jpg',
+    '/assets/images/home/ocean-pearl.jpg',
+    '/assets/images/home/kestrel-house.jpg',
+    '/assets/images/home/kingfisher-view.jpg',
+    '/assets/images/home/ivy-cottage.jpg',
+    '/assets/images/home/osprey-house.jpg',
+  ]);
+};
 
-iconic();
-accordion();
+const init = function init() {
+  Promise.all(preloadImages()).then(() => {
+    insertInnerDivs();
+    iconic();
+    accordion();
 
-setTimeout(() => blockHeight());
+    setTimeout(() => blockHeight());
+  });
+};
+
+init();

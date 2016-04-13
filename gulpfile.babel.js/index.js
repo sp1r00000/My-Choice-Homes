@@ -75,6 +75,17 @@ gulp.task('iconic-fonts', gulp.parallel(iconicFonts));
 gulp.task('images', gulp.parallel(images));
 
 /**
+ * run bower js task
+ */
+gulp.task('bowerJs', gulp.parallel(bowerJs));
+
+/**
+ * run bower css task
+ */
+gulp.task('bowerCss', gulp.parallel(bowerCss));
+
+
+/**
  * run watch task
  */
 gulp.task('watch', gulp.parallel(watch));

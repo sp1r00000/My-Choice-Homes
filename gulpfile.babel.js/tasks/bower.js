@@ -1,7 +1,10 @@
 import gulp from 'gulp';
 
 export function bowerJs() {
-  return gulp.src('bower_components/gsap/src/minified/TweenMax.min.js')
+  return gulp.src([
+    'bower_components/gsap/src/minified/TweenMax.min.js',
+    'bower_components/es6-promise-polyfill/promise.min.js',
+  ])
     .pipe(gulp.dest('public/assets/lib'));
 }
 

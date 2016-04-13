@@ -6,6 +6,7 @@ coverage
 public/assets
 data
 config.js
+views/generated-layout
 
 scripts/careers/careers.json
 

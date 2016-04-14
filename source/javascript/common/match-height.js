@@ -38,7 +38,7 @@ const getHighestElement = function getHighestElement(elements, heights) {
  * returns all element heights from class array
  * @param classArray
  */
-const elementHeights = function usedClassString(classArray) {
+const elementHeights = function elementHeights(classArray) {
   const elements = [];
   const heights = [];
 
@@ -64,7 +64,7 @@ const elementHeights = function usedClassString(classArray) {
  * @param current
  * @returns {*}
  */
-const usedClassArray = function getElementsHeights(current) {
+const usedClassArray = function usedClassArray(current) {
   return current.elements.filter(classArray => elementHeights(classArray));
 };
 

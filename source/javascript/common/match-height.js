@@ -18,7 +18,7 @@ const setElementHeights = function setElementHeights(highest, elements) {
 };
 
 /**
- * get the highest value in array
+ * returns the highest value in array
  * @param elements
  * @param heights
  * @returns {*}
@@ -35,7 +35,7 @@ const getHighestElement = function getHighestElement(elements, heights) {
 };
 
 /**
- * get all element heights from class array
+ * returns all element heights from class array
  * @param classArray
  */
 const elementHeights = function usedClassString(classArray) {
@@ -69,7 +69,7 @@ const usedClassArray = function getElementsHeights(current) {
 };
 
 /**
- * clear the inline height of all elements in unused objects
+ * clear the inline height of all unused elements
  * callback for promise
  * @param classString
  * @param cb
@@ -82,7 +82,7 @@ const clearInlineHeight = function clearInlineHeight(classString, cb) {
 };
 
 /**
- *
+ * returns unused class strings
  * @returns {Array}
  * @param classArray
  * @param cb
@@ -170,7 +170,7 @@ const promise = function promise(arrayOfObjects) {
 };
 
 /**
- * trigger filterArrayOfObjects fn & add resize event
+ * trigger promise filteredCurrent & add resize event
  * @param arrayOfObjects
  */
 const matchHeight = function matchHeight(arrayOfObjects) {

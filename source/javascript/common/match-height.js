@@ -164,13 +164,9 @@ const filteredCurrentForResize = function filteredCurrentForResize(arrayOfObject
  * @param arrayOfObjects
  */
 const promise = function promise(arrayOfObjects) {
-  if (arrayOfObjects.length === 1) {
+  Promise.all(filteredCurrent(arrayOfObjects)).then(() => {
     filteredCurrentForResize(arrayOfObjects);
-  } else {
-    Promise.all(filteredCurrent(arrayOfObjects)).then(() => {
-      filteredCurrentForResize(arrayOfObjects);
-    });
-  }
+  });
 };
 
 /**

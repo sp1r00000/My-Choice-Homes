@@ -1,23 +1,92 @@
-@media (min-width: 48em) {
-  .mch-school {
-    [class*='mch-block-'] {
-      float: left;
-    }
+.mch-school {
+  [class*='mch-block-'] {
+    position: relative;
+    margin-bottom: 1%;
+  }
 
-    .mch-block-1, .mch-block-3 {
-      width: 29%;
+  .mch-block-1.mch-inset, .mch-block-3.mch-inset, .mch-block-5.mch-inset {
+    background-color: $teal;
+    color: $white;
+    box-shadow: 0 0 .5rem $dark inset;
+
+    a { color: $white; }
+  }
+
+  .mch-block-7.mch-inset, .mch-block-8.mch-inset {
+    background-color: $white;
+    text-align: left;
+    box-shadow: inset 0 0 .5rem darken($gray, 20%);
+
+    div { vertical-align: top; }
+  }
+}
+
+@media (min-width: 34em) {
+  .mch-school {
+    .mch-block-3, .mch-block-5, .mch-block-4, .mch-block-6 { float: left; }
+
+    .mch-block-3, .mch-block-5 {
+      left: 28.5%;
+      width: 70%;
+      margin-left: .5%;
       margin-right: 1%;
     }
 
-    .mch-block-2, .mch-block-4, .mch-block-5 {
-      width: 69%;
+    .mch-block-4, .mch-block-6 {
+      right: 71.5%;
+      width: 27%;
       margin-left: 1%;
+      margin-right: .5%;
+    }
+  }
+}
+
+@media (min-width: 48em) {
+  .mch-school {
+    [class*='mch-block-'] { float: left; }
+
+    .mch-block-1 { max-width: 36.5%; }
+    .mch-block-2 { max-width: 60.5%; }
+
+    .mch-block-1, .mch-block-4, .mch-block-6, .mch-block-7 {
+      margin-left: 1%;
+      margin-right: .5%;
     }
 
-    .mch-block-5, .mch-block-6, .mch-block-7 { float: right; }
+    .mch-block-2, .mch-block-3, .mch-block-5, .mch-block-8 {
+      margin-left: .5%;
+      margin-right: 1%;
+    }
 
-    .mch-block-6, .mch-block-7 { width: 34.65%; }
-    .mch-block-6 { margin-left: 1%; }
-    .mch-block-7 { margin-right: 1%; }
+    .mch-block-3, .mch-block-5 {
+      left: 28.5%;
+      max-width: 70%;
+    }
+
+    .mch-block-4, .mch-block-6 {
+      right: 71.5%;
+      max-width: 27%;
+    }
+
+    .mch-block-7, .mch-block-8 { max-width: 48.5%; }
+  }
+}
+
+@media (min-width: 62em) {
+  .mch-school {
+    .mch-block-3, .mch-block-5 {
+      left: 14.5%;
+      max-width: 34%;
+    }
+
+    .mch-block-4, .mch-block-6 {
+      right: 35%;
+      max-width: 13.5%;
+    }
+
+    .mch-block-3 { margin-left: 1%; }
+    .mch-block-3, .mch-block-4, .mch-block-5 { margin-right: .5%; }
+    .mch-block-4, .mch-block-5, .mch-block-6 { margin-left: .5%; }
+    .mch-block-6 { margin-right: 1%; }
   }
 }

@@ -4,6 +4,7 @@ import figure from '../common/figure';
 import createInnerDiv from '../common/create-inner-div';
 import insertIcons from '../common/insert-icons';
 import paragraphViewer from '../common/paragraph-viewer';
+import modal from '../common/modal';
 
 const iconic = function iconic() {
   return insertIcons([
@@ -60,6 +61,7 @@ const init = function init() {
     iconic();
     insetDesign();
     paragraphViewer();
+    modal();
     blockHeight();
   });
 };

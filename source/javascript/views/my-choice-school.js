@@ -3,6 +3,7 @@ import matchHeight from '../common/match-height';
 import figure from '../common/figure';
 import createInnerDiv from '../common/create-inner-div';
 import insertIcons from '../common/insert-icons';
+import paragraphViewer from '../common/paragraph-viewer';
 
 const iconic = function iconic() {
   return insertIcons([
@@ -41,8 +42,6 @@ const insetDesign = function insetDesign() {
     'mch-block-1',
     'mch-block-3',
     'mch-block-5',
-    'mch-block-7',
-    'mch-block-8',
   ]);
 };
 
@@ -60,6 +59,7 @@ const init = function init() {
     figure.grayscaleSwitch();
     iconic();
     insetDesign();
+    paragraphViewer();
     blockHeight();
   });
 };

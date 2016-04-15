@@ -1,8 +1,11 @@
 .mch-school {
   [class*='mch-block-'] {
+    display: block;
     position: relative;
-    margin-bottom: 1%;
+    margin: 1%;
   }
+
+  .mch-block-6 { margin-bottom: $doubleSpace; }
 
   .mch-block-1.mch-inset, .mch-block-3.mch-inset, .mch-block-5.mch-inset {
     background-color: $teal;
@@ -15,9 +18,11 @@
 
 @media (min-width: 34em) {
   .mch-school {
+    [class*='mch-block-'] { display: table; }
+
     .mch-block-3, .mch-block-4, .mch-block-5, .mch-block-6 {
       float: left;
-      margin-bottom: 2%;
+      margin-top: 0;
     }
 
     .mch-block-3, .mch-block-5 {
@@ -40,7 +45,14 @@
   .mch-school {
     [class*='mch-block-'] { float: left; }
 
-    .mch-block-1 { max-width: 36.5%; }
+    .mch-block-1, .mch-block-2 { margin-top: 0; }
+
+    .mch-block-1 {
+      max-width: 36.5%;
+
+      a, .iconic { display: none; }
+    }
+
     .mch-block-2 { max-width: 60.5%; }
 
     .mch-block-1, .mch-block-4 {
@@ -67,6 +79,8 @@
 
 @media (min-width: 62em) {
   .mch-school {
+    .mch-block-1 a, .mch-block-1 .iconic { display: block; }
+    
     .mch-block-3, .mch-block-5 {
       left: 14.5%;
       max-width: 34%;

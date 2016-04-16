@@ -1,38 +1,12 @@
 import preload from '../../common/image-preload';
-import insertContainer from '../../common/insert-container';
 import matchHeight from '../../common/match-height';
-
-// insert container
-const container = function container() {
-  return insertContainer([
-    'mch-block-0',
-    'mch-block-1',
-    'mch-block-2',
-    'mch-block-3',
-    'mch-block-4',
-    'mch-block-5',
-    'mch-block-6',
-    'mch-block-7',
-    'mch-block-8',
-    'mch-block-9',
-    'mch-block-10',
-    'mch-block-11',
-    'mch-block-12',
-    'mch-block-13',
-    'mch-block-14',
-    'mch-block-15',
-    'mch-block-16',
-    'mch-block-17',
-    'mch-block-18',
-    'mch-block-19',
-  ]);
-};
+import modal from '../../common/modal';
 
 // match block heights
 const blockHeight = function blockHeight() {
   return matchHeight([
     {
-      breakpoints: ['XS', 'SM'],
+      breakpoints: ['XS'],
       elements: [
         ['mch-block-0', 'mch-block-1'],
         ['mch-block-2', 'mch-block-3'],
@@ -47,7 +21,7 @@ const blockHeight = function blockHeight() {
       ],
     },
     {
-      breakpoints: ['MD'],
+      breakpoints: ['SM'],
       elements: [
         ['mch-block-0', 'mch-block-1', 'mch-block-2'],
         ['mch-block-3', 'mch-block-4', 'mch-block-5'],
@@ -59,13 +33,22 @@ const blockHeight = function blockHeight() {
       ],
     },
     {
-      breakpoints: ['LG', 'XL'],
+      breakpoints: ['MD', 'LG'],
       elements: [
         ['mch-block-0', 'mch-block-1', 'mch-block-2', 'mch-block-3'],
         ['mch-block-4', 'mch-block-5', 'mch-block-6', 'mch-block-7'],
         ['mch-block-8', 'mch-block-9', 'mch-block-10', 'mch-block-11'],
         ['mch-block-12', 'mch-block-13', 'mch-block-14', 'mch-block-15'],
         ['mch-block-16', 'mch-block-17', 'mch-block-18', 'mch-block-19'],
+      ],
+    },
+    {
+      breakpoints: ['XL'],
+      elements: [
+        ['mch-block-0', 'mch-block-1', 'mch-block-2', 'mch-block-3', 'mch-block-4'],
+        ['mch-block-5', 'mch-block-6', 'mch-block-7', 'mch-block-8', 'mch-block-9'],
+        ['mch-block-10', 'mch-block-11', 'mch-block-12', 'mch-block-13', 'mch-block-14'],
+        ['mch-block-15', 'mch-block-16', 'mch-block-17', 'mch-block-18', 'mch-block-19'],
       ],
     },
   ]);
@@ -98,7 +81,7 @@ const preloadImages = function preloadImages() {
 
 const init = function init() {
   Promise.all(preloadImages()).then(() => {
-    container();
+    modal();
     blockHeight();
   });
 };

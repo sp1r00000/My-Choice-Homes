@@ -5,7 +5,12 @@
   <figcaption>
     <h4>{{name}} <small>{{position}}</small></h4>
     <p>{{limitTo description 90}}</p>
-    <a>More details</a>
+    <p class="mch-open-modal">More details</p>
   </figcaption>
 </figure>
+
+<section class="mch-modal">
+  <h4>{{name}} <small>{{position}}</small></h4>
+  <p>{{description}}</p>
+</section>
 {{/each}}

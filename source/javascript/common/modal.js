@@ -1,5 +1,15 @@
 import { forEach } from '../helpers';
 
+const bodyOverflow = function bodyOverflow() {
+  const body = document.body;
+
+  if (body.style.overflow === '') {
+    body.style.position = 'fixed';
+  } else {
+    body.style.overflow = '';
+  }
+};
+
 const hideModal = function hideModal(overlay) {
   TweenMax.to(overlay, 0.4, {
     zIndex: -1,
@@ -13,6 +23,8 @@ const modalCloseStart = function modalCloseStart(overlay, modal) {
     autoAlpha: 0,
     onComplete: () => hideModal(overlay),
   });
+
+  bodyOverflow();
 };
 
 const displayModal = function displayModal(modal) {
@@ -28,6 +40,8 @@ const modalOpenStart = function modalOpenStart(overlay, modal) {
     autoAlpha: 0.8,
     onComplete: () => displayModal(modal),
   });
+
+  bodyOverflow();
 };
 
 const addCloseButton = function addCloseButton(overlay, modal) {

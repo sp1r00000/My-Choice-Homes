@@ -4,9 +4,9 @@ const bodyOverflow = function bodyOverflow() {
   const body = document.body;
 
   if (body.style.overflow === '') {
-    body.style.position = 'fixed';
+    body.style.overflow = 'hidden';
   } else {
-    body.style.position = '';
+    body.style.overflow = '';
   }
 };
 

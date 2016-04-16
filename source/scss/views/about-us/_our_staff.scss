@@ -65,12 +65,12 @@
   .mch-our-staff [class*='mch-block-'] {
     width: 17.2%;
 
-    &:nth-child(5n+1), &:nth-child(5n+3), &:nth-child(5n+5) {
+    &:nth-child(5n+1), &:nth-child(5n+2), &:nth-child(5n+5) {
       margin-left: .5%;
       margin-right: .5%;
     }
 
-    &:nth-child(5n+2) {
+    &:nth-child(5n+3) {
       clear: right;
       margin-left: .5%;
       margin-right: 5%;

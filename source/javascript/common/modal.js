@@ -6,7 +6,7 @@ const bodyOverflow = function bodyOverflow() {
   if (body.style.overflow === '') {
     body.style.position = 'fixed';
   } else {
-    body.style.overflow = '';
+    body.style.position = '';
   }
 };
 

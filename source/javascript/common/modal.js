@@ -18,13 +18,13 @@ const hideModal = function hideModal(overlay) {
 };
 
 const modalCloseStart = function modalCloseStart(overlay, modal) {
+  bodyOverflow();
+
   TweenMax.to(modal, 0.4, {
     zIndex: -1,
     autoAlpha: 0,
     onComplete: () => hideModal(overlay),
   });
-
-  bodyOverflow();
 };
 
 const displayModal = function displayModal(modal) {
@@ -35,13 +35,13 @@ const displayModal = function displayModal(modal) {
 };
 
 const modalOpenStart = function modalOpenStart(overlay, modal) {
+  bodyOverflow();
+
   TweenMax.to(overlay, 0.5, {
     zIndex: 4,
     autoAlpha: 0.8,
     onComplete: () => displayModal(modal),
   });
-
-  bodyOverflow();
 };
 
 const addCloseButton = function addCloseButton(overlay, modal) {

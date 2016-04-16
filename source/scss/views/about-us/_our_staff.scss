@@ -2,6 +2,8 @@
   [class*='mch-block-'] {
     float: left;
     width: 48.5%;
+    position: relative;
+    padding-bottom: $space;
 
     &:nth-child(odd) {
       margin-right: 1%;
@@ -12,6 +14,11 @@
       margin-left: 1%;
       margin-right: .5%;
     }
+  }
+
+  .mch-open-modal {
+    position: absolute;
+    bottom: 0;
   }
 
   figure img { filter: grayscale(1); }

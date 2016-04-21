@@ -1,7 +1,6 @@
 'use strict';
 
 const config = require('./config');
-const hostInfo = require('./host-info');
 
 const Hapi = require('hapi');
 const Inert = require('inert');
@@ -41,8 +40,8 @@ server.register({
 });
 
 server.connection({
-  host: hostInfo.host,
-  port: hostInfo.port,
+  host: config.host,
+  port: config.port,
 });
 
 server.register({

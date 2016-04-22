@@ -17,15 +17,9 @@ const server = new Hapi.Server({
     {
       name: 'mongoCache',
       engine: require('catbox-mongodb'),
-      host: '127.0.0.1',
+      host: config.host,
       partition: 'cache',
     },
-    /*{
-      name: 'redisCache',
-      engine: require('catbox-redis'),
-      host: '127.0.0.1',
-      partition: 'cache',
-    },*/
   ],
 });
 

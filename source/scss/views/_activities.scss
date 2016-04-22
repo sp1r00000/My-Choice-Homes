@@ -1,23 +1,30 @@
+.mch-activities {
+  [class*='mch-block-'] {
+    margin: 1%;
+  }
+
+  .mch-block-2, .mch-paragraph-viewer { margin-bottom: $doubleSpace !important; }
+
+  .mch-block-1.mch-inset {
+    background-color: $teal-light;
+    color: $white;
+    box-shadow: 0 0 .5rem $dark inset;
+  }
+}
+
 @media (min-width: 48em) {
   .mch-activities {
+
+    .mch-block-1, .mch-block-2 { float: left; }
+
     .mch-block-1 {
-      float: left;
-      width: 29%;
-      margin-right: 1%;
+      max-width: 36.5%;
+      margin: 0 .5% $doubleSpace 1%;
     }
 
     .mch-block-2 {
-      float: right;
-      width: 69%;
-      margin-left: 1%;
+      max-width: 60.5%;
+      margin: 0 1% $doubleSpace .5%;
     }
-
-    .mch-block-3, .mch-block-4 {
-      float: right;
-      width: 34.65%;
-    }
-
-    .mch-block-3 { margin-left: 1%; }
-    .mch-block-4 { margin-right: 1%; }
   }
 }

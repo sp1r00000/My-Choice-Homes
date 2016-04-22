@@ -47,7 +47,7 @@ server.connection({
 server.register({
   register: PrerenderPlugin,
   options: {
-    serviceUrl: 'http://my-choice-homes.com:3000',
+    serviceUrl: config.prerender.serviceUrl,
   },
 });
 
@@ -59,9 +59,7 @@ server.register({
 });
 
 server.register([Inert, Vision], () => {
-  /**
-   * configure views
-   */
+  //** configure views
   server.views({
     engines: {
       html: require('handlebars'),

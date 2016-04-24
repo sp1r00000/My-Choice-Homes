@@ -174,7 +174,7 @@ const promise = function promise(arrayOfObjects) {
  * @param arrayOfObjects
  */
 const matchHeight = function matchHeight(arrayOfObjects) {
-  promise(arrayOfObjects);
+  setTimeout(() => promise(arrayOfObjects), 0);
 
   window.addEventListener('resize', () => promise(arrayOfObjects));
 };

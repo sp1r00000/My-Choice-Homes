@@ -101,7 +101,7 @@ const navLogo = function navLogo() {
 /**
  * insert fixed navbar, icon & logo
  */
-const buildFixedNav = function foo() {
+const buildFixedNav = function buildFixedNav() {
   const navbar = document.getElementsByClassName('mch-navbar')[0];
   const fixed = createFixedNav();
   const logo = createLogo();
@@ -119,4 +119,4 @@ const buildFixedNav = function foo() {
   });
 };
 
-export default buildFixedNav;
+export default buildFixedNav();

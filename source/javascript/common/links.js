@@ -29,7 +29,7 @@ const openDropdown = function openList(event, opener, nav, icon, height, state) 
  * create/append elements
  * body click event
  */
-const dropdown = function openList() {
+const links = function links() {
   const opener = document.getElementsByClassName('mch-links')[0];
 
   if (opener) {
@@ -53,4 +53,4 @@ const dropdown = function openList() {
   }
 };
 
-export default dropdown;
+export default links();

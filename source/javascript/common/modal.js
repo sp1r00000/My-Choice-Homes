@@ -72,4 +72,4 @@ const modal = function modal() {
   }
 };
 
-export default modal;
+export default modal();

@@ -6,7 +6,7 @@ import { addErrorClasses, displayError } from './utils';
  * @param element (field)
  * @returns {boolean}
  */
-const validateEmail = function emailField(event, element) {
+export default function validateEmail(event, element) {
   event.preventDefault();
 
   const value = element.value;
@@ -20,6 +20,4 @@ const validateEmail = function emailField(event, element) {
   }
 
   return true;
-};
-
-export default validateEmail;
+}

@@ -62,11 +62,9 @@ export function removeError(element) {
  * remove error message
  * @param element (field)
  */
-const watchField = function watchField(element) {
+export default function watchField(element) {
   element.addEventListener('keyup', () => {
     removeErrorClasses(element);
     removeError(element.parentElement);
   });
-};
-
-export default watchField;
+}

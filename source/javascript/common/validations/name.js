@@ -6,7 +6,7 @@ import { addErrorClasses, displayError } from './utils';
  * @param element (field)
  * @returns {boolean}
  */
-const validateName = function nameField(event, element) {
+export default function validateName(event, element) {
   const value = element.value;
 
   /**
@@ -34,6 +34,4 @@ const validateName = function nameField(event, element) {
   }
 
   return true;
-};
-
-export default validateName;
+}

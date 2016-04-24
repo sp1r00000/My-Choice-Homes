@@ -1,6 +1,8 @@
 import gulp from 'gulp';
 import browserify from 'browserify';
 import babelify from 'babelify';
+import uglify from 'gulp-uglify';
+import buffer from 'vinyl-buffer';
 import source from 'vinyl-source-stream';
 import glob from 'glob';
 import es from 'event-stream';
@@ -12,7 +14,7 @@ import es from 'event-stream';
  * babelify & bundle
  */
 export function scripts(done) {
-  glob('source/javascript/views/**/*.js', (err, files) => {
+  glob('source/javascript/views/**/**/*-index.js', (err, files) => {
     if (err) done(err);
 
     files.push('source/javascript/app.js');
@@ -26,6 +28,8 @@ export function scripts(done) {
         }))
         .bundle()
         .pipe(source(fileName))
+        .pipe(buffer())
+        .pipe(uglify())
         .pipe(gulp.dest('./public/assets/javascript'));
     });
 

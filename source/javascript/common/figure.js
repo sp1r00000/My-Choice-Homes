@@ -23,7 +23,7 @@ const setDimensions = function setDimensions() {
 /**
  * insert a span element styled with inset shadow
  */
-export function insertShadow() {
+const insertShadow = function insertShadow() {
   const elements = document.getElementsByClassName('mch-figure');
 
   forEach(elements, (index, item) => {
@@ -33,13 +33,13 @@ export function insertShadow() {
 
     setDimensions();
   });
-}
+};
 
 /**
  * when element is in full view, toggle grayscale-off
  * else toggle grayscale-on
  */
-export function grayscaleSwitch() {
+const grayscaleSwitch = function grayscaleSwitch() {
   const elements = document.getElementsByClassName('mch-figure');
 
   forEach(elements, (index, element) => {
@@ -60,9 +60,6 @@ export function grayscaleSwitch() {
   });
 
   window.addEventListener('scroll', grayscaleSwitch);
-}
-
-export default {
-  insertShadow,
-  grayscaleSwitch,
 };
+
+export default insertShadow(); grayscaleSwitch();

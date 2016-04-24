@@ -35,9 +35,3 @@ export function switchClass(element, from, to) {
 export function arrayContainsValue(value, array) {
   return array.indexOf(value) > -1;
 }
-
-export default {
-  forEach,
-  switchClass,
-  arrayContainsValue,
-};

@@ -6,7 +6,7 @@ import { displayError } from './utils';
  * @param element
  * @returns {boolean}
  */
-const validateRecaptcha = function recaptcha(event, element) {
+export default function validateRecaptcha(event, element) {
   event.preventDefault();
 
   const value = element.value;
@@ -18,6 +18,4 @@ const validateRecaptcha = function recaptcha(event, element) {
   }
 
   return true;
-};
-
-export default validateRecaptcha;
+}

@@ -54,7 +54,7 @@ const animateSlider = function animateSlider(slider, icon, state) {
   window.addEventListener('resize', () => animateChildren(slider));
 };
 
-const appendChevron = function appendChevron(arrayOfObjects) {
+export default function appendChevron(arrayOfObjects) {
   arrayOfObjects.filter(sliderConfig => {
     const element = document.getElementsByClassName('mch-slider')[0];
 
@@ -75,6 +75,4 @@ const appendChevron = function appendChevron(arrayOfObjects) {
 
     return false;
   });
-};
-
-export default appendChevron;
+}

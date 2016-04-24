@@ -73,7 +73,7 @@ const init = function init() {
     insetDesign();
     sliders();
 
-    blockHeight();
+    setTimeout(() => blockHeight(), 0);
   });
 };
 

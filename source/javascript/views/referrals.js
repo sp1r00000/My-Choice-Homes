@@ -59,7 +59,8 @@ const init = function init() {
     iconic();
     insetDesign();
     sliders();
-    blockHeight();
+
+    setTimeout(() => blockHeight(), 0);
   });
 };
 

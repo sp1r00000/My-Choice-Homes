@@ -55,7 +55,8 @@ const preloadImages = function preloadImages() {
 const init = function init() {
   Promise.all(preloadImages()).then(() => {
     container();
-    setTimeout(() => blockHeight());
+
+    setTimeout(() => blockHeight(), 0);
   });
 };
 

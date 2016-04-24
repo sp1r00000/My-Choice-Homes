@@ -47,7 +47,8 @@ const init = function init() {
     iconic();
     insetDesign();
     paragraphViewer();
-    blockHeight();
+
+    setTimeout(() => blockHeight(), 0);
   });
 };
 

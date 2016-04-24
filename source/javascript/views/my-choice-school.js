@@ -62,7 +62,8 @@ const init = function init() {
     insetDesign();
     paragraphViewer();
     modal();
-    blockHeight();
+
+    setTimeout(() => blockHeight(), 0);
   });
 };
 

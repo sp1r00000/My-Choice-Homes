@@ -80,7 +80,7 @@ const init = function init() {
     iconic();
     accordion();
 
-    blockHeight();
+    setTimeout(() => blockHeight(), 0);
   });
 };
 

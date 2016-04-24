@@ -82,7 +82,8 @@ const preloadImages = function preloadImages() {
 const init = function init() {
   Promise.all(preloadImages()).then(() => {
     modal();
-    blockHeight();
+
+    setTimeout(() => blockHeight(), 0);
   });
 };
 

@@ -62,7 +62,7 @@
     "good": "^6.6.0",
     "good-console": "^5.3.1",
     "handlebars": "^4.0.5",
-    "hapi": "^13.2.1",
+    "hapi": "^13.3.0",
     "hapi-mongodb": "^6.0.0",
     "hapi-prerender": "^1.0.0",
     "inert": "^3.2.0",

@@ -12,16 +12,7 @@ const routes = require('./routes');
 const contact = require('./routes/contact-us');
 const quotes = require('./routes/quotes');
 
-const server = new Hapi.Server({
-  cache: [
-    {
-      name: 'mongoCache',
-      engine: require('catbox-mongodb'),
-      host: config.host,
-      partition: 'cache',
-    },
-  ],
-});
+const server = new Hapi.Server();
 
 server.register({
   register: require('good'),

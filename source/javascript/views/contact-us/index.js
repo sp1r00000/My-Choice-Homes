@@ -1,8 +1,12 @@
-import { forEach } from '../../../helpers';
-import watchField from '../../../common/validations/utils';
-import validateName from '../../../common/validations/name';
-import validateRecaptcha from '../../../common/validations/recaptcha';
-import insertContainer from '../../../common/container';
+import '../../common/navbar';
+
+import { forEach } from '../../helpers';
+
+import watchField from '../../common/validations/utils';
+import validateName from '../../common/validations/name';
+import validateEmail from '../../common/validations/email';
+import validateRecaptcha from '../../common/validations/recaptcha';
+import insertContainer from '../../common/container';
 
 const container = function container() {
   return insertContainer([
@@ -15,7 +19,9 @@ const sendSuccess = function sendSuccess(form, response) {
   const success = form;
 
   success.name.value = '';
-  success.comment.value = '';
+  success.email.value = '';
+  success.telephone.value = '';
+  success.message.value = '';
   success.lastElementChild.classList.add('disabled');
   success.lastElementChild.disabled = true;
 
@@ -28,7 +34,7 @@ const sendSuccess = function sendSuccess(form, response) {
  * async post request
  * @param form
  */
-const sendQuote = function sendMessage(form) {
+const sendMessage = function sendMessage(form) {
   const http = new XMLHttpRequest();
 
   http.open(form.method, form.action, true);
@@ -36,7 +42,9 @@ const sendQuote = function sendMessage(form) {
 
   const data = {
     name: form.name.value,
-    comment: form.comment.value,
+    email: form.email.value,
+    telephone: form.telephone.value || 'n/a',
+    message: form.message.value || 'User did not write a message.',
     recaptcha: form['g-recaptcha-response'].value,
   };
 
@@ -53,22 +61,21 @@ const sendQuote = function sendMessage(form) {
  * validate form
  * then sendMessage fn
  */
-const quoteForm = function contactForm() {
-  const form = document.forms.quote;
-  form.action = '/about-us/quotes';
+const contactForm = function contactForm() {
+  const form = document.forms.contact;
+  form.action = '/contact-us';
   form.method = 'POST';
 
   form.onsubmit = function submit(event) {
     const name = validateName(event, form.name);
+    const email = validateEmail(event, form.email);
     const recaptcha = validateRecaptcha(event, form['g-recaptcha-response']);
 
-    if (name && recaptcha) sendQuote(form);
+    if (name && email && recaptcha) sendMessage(form);
   };
 
-  forEach(form.elements, (index, item) => {
-    watchField(item);
-  });
+  forEach(form.elements, (index, item) => watchField(item));
 };
 
 container();
-quoteForm();
+contactForm();

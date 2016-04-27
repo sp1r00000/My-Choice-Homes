@@ -1,15 +1,17 @@
+import '../../common/navbar';
+
 import '../../common/figure';
 
 import icons from './icons';
 import innerDiv from './inner-div';
 import matchHeight from './match-height';
-import paragraphViewer from './paragraph-viewer';
 import preload from './preload';
+import slider from './slider';
 
 export default function init() {
   icons();
   innerDiv();
-  paragraphViewer();
+  slider();
 
   Promise.all(preload()).then(() => matchHeight);
 }

@@ -8,19 +8,16 @@ import glob from 'glob';
 import es from 'event-stream';
 
 /**
- * find all page specific js using glob
- * push global js to the files array
- * for each js file, run browserify,
- * babelify & bundle
+ * transform es6 modules into es2015 amd
+ * @param done
  */
 export function scripts(done) {
-  glob('source/javascript/views/**/**/*-index.js', (err, files) => {
+  glob('source/javascript/**/*.js', (err, files) => {
     if (err) done(err);
-
-    files.push('source/javascript/app.js');
 
     const tasks = files.map(entry => {
       const fileName = entry.replace(/^.*[\\\/]/, '');
+      const dest = entry.substring(entry.length - fileName.length, 7);
 
       return browserify({ entries: [entry] })
         .transform(babelify.configure({
@@ -30,7 +27,7 @@ export function scripts(done) {
         .pipe(source(fileName))
         .pipe(buffer())
         .pipe(uglify())
-        .pipe(gulp.dest('./public/assets/javascript'));
+        .pipe(gulp.dest(`./public/assets/${dest}`));
     });
 
     es.merge(tasks).on('end', done);

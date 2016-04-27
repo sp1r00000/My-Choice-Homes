@@ -38,9 +38,6 @@
 
 <script src="/assets/lib/TweenMax.min.js"></script>
 
-<script src="/assets/javascript/app.js"></script>
-{{#if bundle}}
-<script src="/assets/javascript/{{bundle}}-index.js"></script>
-{{/if}}
+<script data-main="{{require}}" src="/assets/lib/require.js"></script>
 </body>
 </html>

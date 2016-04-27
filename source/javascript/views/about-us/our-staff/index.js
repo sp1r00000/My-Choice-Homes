@@ -1,3 +1,6 @@
+import '../../../common/navbar';
+import '../../../common/links';
+
 import '../../../common/modal';
 
 import preload from './preload';

@@ -62,5 +62,5 @@ const grayscaleSwitch = function grayscaleSwitch() {
   window.addEventListener('scroll', grayscaleSwitch);
 };
 
-export default setTimeout(() => insertShadow(), 0);
-export default setTimeout(() => grayscaleSwitch(), 0);
+export default insertShadow();
+export default grayscaleSwitch();

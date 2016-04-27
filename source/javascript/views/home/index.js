@@ -1,3 +1,5 @@
+import '../../common/navbar';
+
 import './accordion';
 
 import icons from './icons';

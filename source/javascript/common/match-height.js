@@ -4,12 +4,12 @@ import { arrayContainsValue } from '../helpers';
 /**
  * set new element height on elements in array
  * @param highest
- * @param elements
+ * @param elementsArray
  */
-const setElementHeights = function setElementHeights(highest, elements) {
+const setElementHeights = function setElementHeights(highest, elementsArray) {
   let elm;
 
-  elements.filter(element => {
+  elementsArray.filter(element => {
     elm = element;
     elm.style.height = `${highest}px`;
 
@@ -18,56 +18,63 @@ const setElementHeights = function setElementHeights(highest, elements) {
 };
 
 /**
- * returns the highest value in array
- * @param elements
- * @param heights
+ * get highest element then setElementHeights fn
  * @returns {*}
+ * @param elementsArray
+ * @param heightsArray
  */
-const getHighestElement = function getHighestElement(elements, heights) {
+const getHighestElement = function getHighestElement(elementsArray, heightsArray) {
   let highest = 0;
 
-  return heights.filter((height, index) => {
+  return heightsArray.filter((height, index) => {
     if (highest < height) highest = height;
-    if (heights.length - 1 === index) setElementHeights(highest, elements);
+    if (heightsArray.length - 1 === index) setElementHeights(highest, elementsArray);
 
     return true;
   });
 };
 
 /**
- * returns all element heights from class array
- * @param classArray
+ * pushes elements & heights into individual arrays
+ * @param elementsArray
+ * @param heightsArray
+ * @param classString
  */
-const elementHeights = function elementHeights(classArray) {
-  const elementsArray = [];
-  const heightsArray = [];
+const createUsedArrays = function createUsedArrays(elementsArray, heightsArray, classString) {
+  const elements = Array.from(document.getElementsByClassName(classString));
 
-  classArray.filter(classString => {
-    const elements = Array.from(document.getElementsByClassName(classString));
+  elements.filter(element => {
+    const elm = element;
 
-    elements.filter(element => {
-      const elm = element;
-
-      elm.style.height = '';
-      elementsArray.push(elm);
-      heightsArray.push(elm.clientHeight);
-
-      return false;
-    });
+    elm.style.height = '';
+    elementsArray.push(elm);
+    heightsArray.push(elm.clientHeight);
 
     return false;
   });
+};
+
+/**
+ * createUsedArrays fn for each class string in class array
+ * returns getHighestElement fn
+ * @param classArray
+ */
+const usedClassString = function usedClassString(classArray) {
+  const elementsArray = [];
+  const heightsArray = [];
+
+  classArray.filter(classString => createUsedArrays(elementsArray, heightsArray, classString));
 
   return getHighestElement(elementsArray, heightsArray);
 };
 
 /**
  * returns the class array for the used object
- * @param current
  * @returns {*}
+ * @param usedObject
  */
-const usedClassArray = function usedClassArray(current) {
-  return current.elements.filter(classArray => elementHeights(classArray));
+const usedClassArray = function usedClassArray(usedObject) {
+  return usedObject.elements.filter(classArray => usedClassString(classArray));
 };
 
 /**
@@ -166,9 +173,7 @@ const filteredCurrentForResize = function filteredCurrentForResize(arrayOfObject
  * @param arrayOfObjects
  */
 const beginHeightReset = function beginHeightReset(arrayOfObjects) {
-  Promise.all(filteredCurrent(arrayOfObjects)).then(() => {
-    filteredCurrentForResize(arrayOfObjects);
-  });
+  Promise.all(filteredCurrent(arrayOfObjects)).then(() => filteredCurrentForResize(arrayOfObjects));
 };
 
 /**

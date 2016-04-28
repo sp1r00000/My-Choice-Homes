@@ -1,3 +1,5 @@
 import icons from '../../common/icons';
 
-export default icons(['mch-ellipses'], true);
+export default icons([
+  'mch-ellipses',
+], true);

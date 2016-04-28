@@ -67,7 +67,7 @@ const addArrows = function addArrows(viewer, paragraph) {
  * activeClass fn to first paragraph
  * add mouse over event
  */
-export default function paragraphViewer() {
+const paragraphViewer = function paragraphViewer() {
   const viewers = document.getElementsByClassName('mch-paragraph-viewer');
 
   forEach(viewers, (index, viewer) => {
@@ -76,4 +76,6 @@ export default function paragraphViewer() {
     activeClass(paragraphs, paragraphs[0]);
     viewer.addEventListener('mouseover', event => overViewer(event, paragraphs));
   });
-}
+};
+
+export default paragraphViewer();

@@ -1,5 +1,4 @@
 import '../../common/navbar';
-
 import '../../common/figure';
 
 import icons from './icons';

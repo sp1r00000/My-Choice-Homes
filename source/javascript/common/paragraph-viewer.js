@@ -28,8 +28,8 @@ const setPosition = function setPosition(arrow, paragraph) {
 
   const left = paragraph.offsetLeft - 3;
 
-  TweenMax.to(element, 0.1, { top: top });
-  TweenMax.to(element, 0.1, { left: left });
+  TweenLite.to(element, 0.1, { top: top });
+  TweenLite.to(element, 0.1, { left: left });
 };
 
 /**

@@ -5,8 +5,7 @@
   "main": "app.js",
   "directories": {
     "test": "test",
-    "baseURL": "./",
-    "packages": "./jspm_packages"
+    "baseURL": "./"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/d-rivers/My-Choice-Homes/issues"
   },
-  "homepage": "https://github.com/d-rivers/My-Choice-Homes#readme",
+  "homepage": "http://www.my-choice-homes.com",
   "devDependencies": {
     "autoprefixer": "^6.3.5",
     "babel-core": "^6.7.2",
@@ -59,10 +58,10 @@
   },
   "dependencies": {
     "catbox-mongodb": "^2.0.0",
-    "catbox-redis": "^1.0.10",
     "cheerio": "^0.20.0",
     "good": "^6.6.0",
     "good-console": "^5.3.1",
+    "gsap": "^1.18.3",
     "handlebars": "^4.0.5",
     "hapi": "^13.3.0",
     "hapi-mongodb": "^6.0.0",

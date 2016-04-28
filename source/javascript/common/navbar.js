@@ -51,10 +51,10 @@ const animateMobileNav = function animateMobileNav(state) {
 
   if (state) {
     document.body.style.overflow = 'auto';
-    TweenLite.to(navbar, 0.1, { right: '-95%' });
+    TweenMax.to(navbar, 0.1, { right: '-95%' });
   } else {
     document.body.style.overflow = 'hidden';
-    TweenLite.to(navbar, 0.1, { right: 0 });
+    TweenMax.to(navbar, 0.1, { right: 0 });
   }
 };
 
@@ -77,13 +77,13 @@ const navLogo = function navLogo() {
 
   if (breakpoint === 'XL') {
     if ((window.pageYOffset || document.body.scrollTop) > 100) {
-      TweenLite.to(logo, 0.2, {
+      TweenMax.to(logo, 0.2, {
         width: '4rem',
         height: '3rem',
         padding: '0',
       });
     } else {
-      TweenLite.to(logo, 0.2, {
+      TweenMax.to(logo, 0.2, {
         width: '10rem',
         height: '8rem',
         padding: '3.4rem 1.7rem 2rem 1rem',

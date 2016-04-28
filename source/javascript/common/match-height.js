@@ -163,20 +163,21 @@ const filteredCurrentForResize = function filteredCurrentForResize(arrayOfObject
  * begin the process for resizing current elements
  * @param arrayOfObjects
  */
-const promise = function promise(arrayOfObjects) {
+const beginHeightReset = function beginHeightReset(arrayOfObjects) {
   Promise.all(filteredCurrent(arrayOfObjects)).then(() => {
     filteredCurrentForResize(arrayOfObjects);
   });
 };
 
 /**
- * trigger promise filteredCurrent & add resize event
+ * init filteredCurrentForResize
+ * add resize event
  * @param arrayOfObjects
  */
 const matchHeight = function matchHeight(arrayOfObjects) {
   filteredCurrentForResize(arrayOfObjects);
 
-  window.addEventListener('resize', () => promise(arrayOfObjects));
+  window.addEventListener('resize', () => beginHeightReset(arrayOfObjects));
 };
 
 export default matchHeight;

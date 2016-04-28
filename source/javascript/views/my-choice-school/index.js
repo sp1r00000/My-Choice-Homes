@@ -1,6 +1,5 @@
 import '../../common/navbar';
 import '../../common/links';
-
 import '../../common/figure';
 import '../../common/modal';
 
@@ -9,7 +8,6 @@ import innerDiv from './inner-div';
 import matchHeight from './match-height';
 import paragraphViewer from './paragraph-viewer';
 import preload from './preload';
-
 
 export default function init() {
   icons();

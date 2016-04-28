@@ -33,6 +33,6 @@ export default function icons(arrayOfClassNames, replace) {
     const elements = Array.from(document.getElementsByClassName(className));
     const icon = className.substr(4, className.length);
 
-    return elements.filter(element => createIcon(element, icon, replace))
+    return elements.filter(element => createIcon(element, icon, replace));
   });
 }

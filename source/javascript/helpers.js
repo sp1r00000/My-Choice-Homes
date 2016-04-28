@@ -1,16 +1,4 @@
 /**
- * loop over non live NodeLists.
- * @param array
- * @param cb
- * @param scope
- */
-export function forEach(array, cb, scope) {
-  for (let i = 0, l = array.length; i < l; i++) {
-    cb.call(scope, i, array[i]);
-  }
-}
-
-/**
  * toggle/switch from class a to b
  * @param element
  * @param from class

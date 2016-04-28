@@ -1,5 +1,5 @@
 import currentBreakpoint from './current-breakpoint';
-import { forEach, arrayContainsValue } from '../helpers';
+import { arrayContainsValue } from '../helpers';
 
 /**
  * set new element height on elements in array
@@ -39,24 +39,26 @@ const getHighestElement = function getHighestElement(elements, heights) {
  * @param classArray
  */
 const elementHeights = function elementHeights(classArray) {
-  const elements = [];
-  const heights = [];
+  const elementsArray = [];
+  const heightsArray = [];
 
   classArray.filter(classString => {
-    const element = document.getElementsByClassName(classString);
+    const elements = Array.from(document.getElementsByClassName(classString));
 
-    forEach(element, (index, item) => {
-      const elm = item;
+    elements.filter(element => {
+      const elm = element;
 
       elm.style.height = '';
-      elements.push(elm);
-      heights.push(elm.clientHeight);
+      elementsArray.push(elm);
+      heightsArray.push(elm.clientHeight);
+
+      return false;
     });
 
     return false;
   });
 
-  return getHighestElement(elements, heights);
+  return getHighestElement(elementsArray, heightsArray);
 };
 
 /**

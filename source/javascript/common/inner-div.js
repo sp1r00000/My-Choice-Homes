@@ -1,5 +1,3 @@
-import { forEach } from '../helpers';
-
 /**
  * create inner div & append element children
  * used for styling, just pass in an array of element classes
@@ -7,9 +5,9 @@ import { forEach } from '../helpers';
  */
 export default function innerDiv(arrayOfClasses) {
   arrayOfClasses.filter(classString => {
-    const elements = document.getElementsByClassName(classString);
+    const elements = Array.from(document.getElementsByClassName(classString));
 
-    return forEach(elements, (index, element) => {
+    elements.filter(element => {
       const children = element.childNodes;
       const div = document.createElement('div');
 
@@ -19,5 +17,7 @@ export default function innerDiv(arrayOfClasses) {
 
       return element.appendChild(div);
     });
+
+    return false;
   });
 }

@@ -1,5 +1,3 @@
-import { forEach } from '../helpers';
-
 /**
  * return the total height of children
  * @param children
@@ -7,9 +5,12 @@ import { forEach } from '../helpers';
  */
 const getInnerHeight = function getInnerHeight(children) {
   let height = 0;
+  const array = Array.from(children);
 
-  forEach(children, (index, child) => {
+  array.filter(child => {
     height = height + child.clientHeight;
+
+    return false;
   });
 
   return height;

@@ -1,20 +1,22 @@
-import { forEach, switchClass } from '../helpers';
+import { switchClass } from '../helpers';
 
 /**
  * set width/height of inset span element
  * resize event
  */
 const setDimensions = function setDimensions() {
-  const elements = document.getElementsByClassName('img-inset-shadow');
+  const elements = Array.from(document.getElementsByClassName('img-inset-shadow'));
 
-  forEach(elements, (index, item) => {
-    const element = item;
+  elements.filter(element => {
+    const elm = element;
     const img = element.parentElement.getElementsByTagName('img')[0];
     const width = img.clientWidth;
     const height = img.clientHeight;
 
-    element.style.width = `${width}px`;
-    element.style.height = `${height}px`;
+    elm.style.width = `${width}px`;
+    elm.style.height = `${height}px`;
+
+    return false;
   });
 
   window.addEventListener('resize', setDimensions);
@@ -24,14 +26,14 @@ const setDimensions = function setDimensions() {
  * insert a span element styled with inset shadow
  */
 const insertShadow = function insertShadow() {
-  const elements = document.getElementsByClassName('mch-figure');
+  const elements = Array.from(document.getElementsByClassName('mch-figure'));
 
-  forEach(elements, (index, item) => {
+  elements.filter(element => {
     const span = document.createElement('span');
     span.classList.add('img-inset-shadow');
-    item.appendChild(span);
+    element.appendChild(span);
 
-    setDimensions();
+    return setDimensions();
   });
 };
 
@@ -40,9 +42,9 @@ const insertShadow = function insertShadow() {
  * else toggle grayscale-on
  */
 const grayscaleSwitch = function grayscaleSwitch() {
-  const elements = document.getElementsByClassName('mch-figure');
+  const elements = Array.from(document.getElementsByClassName('mch-figure'));
 
-  forEach(elements, (index, element) => {
+  elements.filter(element => {
     const img = element.getElementsByTagName('img')[0];
     const top = element.offsetTop;
     const height = element.offsetHeight;
@@ -57,6 +59,8 @@ const grayscaleSwitch = function grayscaleSwitch() {
         switchClass(img, 'grayscale-off', 'grayscale-on');
       }
     }
+
+    return false;
   });
 
   window.addEventListener('scroll', grayscaleSwitch);

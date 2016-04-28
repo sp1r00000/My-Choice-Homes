@@ -1,5 +1,3 @@
-import { forEach } from '../helpers';
-
 /**
  * create new span node & appendChild or insertBefore element
  * insertBefore (replace false): setTimeout used to make sure
@@ -32,9 +30,9 @@ const createIcon = function createIcon(element, icon, replace) {
  */
 export default function icons(arrayOfClassNames, replace) {
   arrayOfClassNames.filter(className => {
-    const elements = document.getElementsByClassName(className);
+    const elements = Array.from(document.getElementsByClassName(className));
     const icon = className.substr(4, className.length);
 
-    return forEach(elements, (index, element) => createIcon(element, icon, replace));
+    return elements.filter(element => createIcon(element, icon, replace))
   });
 }

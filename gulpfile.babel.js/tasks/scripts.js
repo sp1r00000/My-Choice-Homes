@@ -8,7 +8,7 @@ import glob from 'glob';
 import es from 'event-stream';
 
 /**
- * transform es6 modules into es2015 amd
+ * transform es6 modules into es5 amd
  * @param done
  */
 export function scripts(done) {

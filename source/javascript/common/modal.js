@@ -1,5 +1,3 @@
-import { forEach } from '../helpers';
-
 const bodyOverflow = function bodyOverflow() {
   const body = document.body;
 
@@ -55,7 +53,7 @@ const addCloseButton = function addCloseButton(overlay, modal) {
 };
 
 const modal = function modal() {
-  const openers = document.getElementsByClassName('mch-open-modal');
+  const openers = Array.from(document.getElementsByClassName('mch-open-modal'));
   const modals = document.getElementsByClassName('mch-modal');
   const match = openers.length === modals.length;
 
@@ -64,10 +62,12 @@ const modal = function modal() {
     overlay.classList.add('overlay');
     document.body.appendChild(overlay);
 
-    forEach(openers, (index, opener) => {
+    openers.filter((opener, index) => {
       addCloseButton(overlay, modals[index]);
       opener.classList.add(`open-modal-${index}`);
       opener.addEventListener('click', () => modalOpenStart(overlay, modals[index]));
+
+      return false;
     });
   }
 };

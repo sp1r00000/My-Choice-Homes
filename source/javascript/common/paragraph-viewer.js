@@ -1,13 +1,13 @@
-import { forEach } from '../helpers';
-
 /**
  * add active class to paragraph
  * @param paragraphs
  * @param currentParagraph
  */
 const activeClass = function activeClass(paragraphs, currentParagraph) {
-  forEach(paragraphs, (index, p) => {
+  paragraphs.filter(p => {
     if (p.classList.contains('active')) p.classList.remove('active');
+
+    return false;
   });
 
   currentParagraph.classList.add('active');
@@ -68,13 +68,15 @@ const addArrows = function addArrows(viewer, paragraph) {
  * add mouse over event
  */
 const paragraphViewer = function paragraphViewer() {
-  const viewers = document.getElementsByClassName('mch-paragraph-viewer');
+  const viewers = Array.from(document.getElementsByClassName('mch-paragraph-viewer'));
 
-  forEach(viewers, (index, viewer) => {
-    const paragraphs = viewer.getElementsByTagName('p');
+  viewers.filter(viewer => {
+    const paragraphs = Array.from(viewer.getElementsByTagName('p'));
     addArrows(viewer, paragraphs[0]);
     activeClass(paragraphs, paragraphs[0]);
     viewer.addEventListener('mouseover', event => overViewer(event, paragraphs));
+
+    return false;
   });
 };
 

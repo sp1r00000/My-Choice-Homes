@@ -84,7 +84,6 @@ gulp.task('bowerJs', gulp.parallel(bowerJs));
  */
 gulp.task('bowerCss', gulp.parallel(bowerCss));
 
-
 /**
  * run watch task
  */

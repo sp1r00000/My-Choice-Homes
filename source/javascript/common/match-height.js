@@ -7,6 +7,7 @@ import { arrayContainsValue } from '../helpers';
  * @param elementsArray
  */
 const setElementHeights = function setElementHeights(highest, elementsArray) {
+  console.log('highest', highest);
   let elm;
 
   elementsArray.filter(element => {

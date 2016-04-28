@@ -7,7 +7,6 @@ import { arrayContainsValue } from '../helpers';
  * @param elementsArray
  */
 const setElementHeights = function setElementHeights(highest, elementsArray) {
-  console.log('highest', highest);
   let elm;
 
   elementsArray.filter(element => {
@@ -40,8 +39,9 @@ const getHighestElement = function getHighestElement(elementsArray, heightsArray
  * @param elementsArray
  * @param heightsArray
  * @param classString
+ * @param cb
  */
-const createUsedArrays = function createUsedArrays(elementsArray, heightsArray, classString) {
+const createUsedArrays = function createUsedArrays(elementsArray, heightsArray, classString, cb) {
   const elements = Array.from(document.getElementsByClassName(classString));
 
   elements.filter(element => {
@@ -53,29 +53,35 @@ const createUsedArrays = function createUsedArrays(elementsArray, heightsArray, 
 
     return false;
   });
+
+  return cb({ elementsArray, heightsArray });
 };
 
 /**
- * createUsedArrays fn for each class string in class array
- * returns getHighestElement fn
+ * return createUsedArrays fn for each class string
+ * in class array
  * @param classArray
+ * @param cb
  */
-const usedClassString = function usedClassString(classArray) {
+const usedClassString = function usedClassString(classArray, cb) {
   const elementsArray = [];
   const heightsArray = [];
 
-  classArray.filter(classString => createUsedArrays(elementsArray, heightsArray, classString));
-
-  return getHighestElement(elementsArray, heightsArray);
+  return classArray.filter(classString => createUsedArrays(
+    elementsArray, heightsArray, classString, cb));
 };
 
 /**
- * returns the class array for the used object
+ * filters a class array for the used object
+ * after promise resolved, getHighestElement fn
  * @returns {*}
  * @param usedObject
  */
+// Todo: Remove unnecessary promise
 const usedClassArray = function usedClassArray(usedObject) {
-  return usedObject.elements.filter(classArray => usedClassString(classArray));
+  return usedObject.elements.filter(classArray => new Promise(resolve => usedClassString(
+    classArray, resolve))
+    .then(data => getHighestElement(data.elementsArray, data.heightsArray)));
 };
 
 /**
@@ -183,7 +189,14 @@ const beginHeightReset = function beginHeightReset(arrayOfObjects) {
  * @param arrayOfObjects
  */
 const matchHeight = function matchHeight(arrayOfObjects) {
-  filteredCurrentForResize(arrayOfObjects);
+  const interval = setInterval(() => {
+    if (document.readyState === 'complete') {
+      clearInterval(interval);
+      filteredCurrentForResize(arrayOfObjects);
+    }
+  }, 10);
+
+  interval();
 
   window.addEventListener('resize', () => beginHeightReset(arrayOfObjects));
 };

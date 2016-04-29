@@ -1,7 +1,6 @@
 import '../../../common/navbar';
 import '../../../common/links';
 
-import { forEach } from '../../../helpers';
 import watchField from '../../../common/validations/utils';
 import validateName from '../../../common/validations/name';
 import validateRecaptcha from '../../../common/validations/recaptcha';
@@ -68,9 +67,8 @@ const quoteForm = function contactForm() {
     if (name && recaptcha) sendQuote(form);
   };
 
-  forEach(form.elements, (index, item) => {
-    watchField(item);
-  });
+  const elements = Array.from(form.elements);
+  elements.filter(element => watchField(element));
 };
 
 container();

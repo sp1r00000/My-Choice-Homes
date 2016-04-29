@@ -1,3 +1,5 @@
+import '../../lib/TweenMax.min';
+
 /**
  * animate dropdown
  * @param event
@@ -10,7 +12,7 @@
 const openDropdown = function openList(event, opener, nav, icon, height, state) {
   if (event.target === opener || event.target === icon) {
     if (state) {
-      TweenMax.to(nav, 0.1, { height: height });
+      TweenMax.to(nav, 0.1, { height });
       TweenMax.to(icon, 0.1, {
         rotationX: 180,
         transformOrigin: 'middle',

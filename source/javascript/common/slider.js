@@ -1,4 +1,6 @@
-import Icon from '../classes/iconic-icon';
+import '../../lib/TweenLite.min';
+
+import Icon from '../web-components/iconic-icon';
 
 /**
  * return the total height of children
@@ -28,7 +30,7 @@ const animateChildren = function animateChildren(slider) {
   const innerHeight = getInnerHeight(children) / 2;
   const top = outerHeight - innerHeight;
 
-  TweenMax.to(children, 0.2, { top });
+  TweenLite.to(children, 0.2, { top });
 };
 
 /**
@@ -39,15 +41,15 @@ const animateChildren = function animateChildren(slider) {
  */
 const animateSlider = function animateSlider(slider, icon, state) {
   if (state) {
-    TweenMax.to(slider, 0.2, { width: '90%', onComplete: () => animateChildren(slider) });
-    TweenMax.to(icon, 0.1, {
+    TweenLite.to(slider, 0.2, { width: '90%', onComplete: () => animateChildren(slider) });
+    TweenLite.to(icon, 0.1, {
       left: '92%',
       rotationY: 180,
       transformOrigin: 'middle',
     });
   } else {
-    TweenMax.to(slider, 0.1, { width: 0 });
-    TweenMax.to(icon, 0.2, {
+    TweenLite.to(slider, 0.1, { width: 0 });
+    TweenLite.to(icon, 0.2, {
       left: '1%',
       rotationY: 0,
       transformOrigin: 'middle',

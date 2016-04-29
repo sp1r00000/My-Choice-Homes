@@ -1,3 +1,5 @@
+import '../../lib/TweenMax.min';
+
 const bodyOverflow = function bodyOverflow() {
   const body = document.body;
 

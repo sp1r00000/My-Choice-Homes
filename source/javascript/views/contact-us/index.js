@@ -1,7 +1,5 @@
 import '../../common/navbar';
 
-import { forEach } from '../../helpers';
-
 import watchField from '../../common/validations/utils';
 import validateName from '../../common/validations/name';
 import validateEmail from '../../common/validations/email';
@@ -74,7 +72,8 @@ const contactForm = function contactForm() {
     if (name && email && recaptcha) sendMessage(form);
   };
 
-  forEach(form.elements, (index, item) => watchField(item));
+  const elements = Array.from(form.elements);
+  elements.filter(element => watchField(element));
 };
 
 container();

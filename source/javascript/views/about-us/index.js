@@ -2,16 +2,13 @@ import '../../common/navbar';
 import '../../common/links';
 import '../../common/figure';
 
-import icons from './icons';
-import innerDiv from './inner-div';
+import './icons';
+import './inner-div';
+import './slider';
+
 import matchHeight from './match-height';
 import preload from './preload';
-import slider from './slider';
 
 export default function init() {
-  icons();
-  innerDiv();
-  slider();
-
-  Promise.all(preload()).then(() => matchHeight);
+  Promise.all(preload).then(() => matchHeight);
 }

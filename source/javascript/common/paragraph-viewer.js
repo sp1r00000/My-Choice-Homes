@@ -1,3 +1,5 @@
+import '../../lib/TweenLite.min';
+
 /**
  * add active class to paragraph
  * @param paragraphs

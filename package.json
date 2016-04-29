@@ -59,9 +59,10 @@
   "dependencies": {
     "catbox-mongodb": "^2.0.0",
     "cheerio": "^0.20.0",
+    "document-register-element": "^0.5.4",
     "good": "^6.6.0",
     "good-console": "^5.3.1",
-    "gsap": "^1.18.3",
+    "gsap": "^1.18.4",
     "handlebars": "^4.0.5",
     "hapi": "^13.3.0",
     "hapi-mongodb": "^6.0.0",
@@ -73,6 +74,7 @@
     "npm": "^3.8.2",
     "request": "^2.69.0",
     "useragent": "^2.1.9",
-    "vision": "^4.0.1"
+    "vision": "^4.0.1",
+    "webcomponents.js": "^0.7.22"
   }
 }

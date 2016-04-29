@@ -77,7 +77,6 @@ const usedClassString = function usedClassString(classArray, cb) {
  * @returns {*}
  * @param usedObject
  */
-// Todo: Remove unnecessary promise
 const usedClassArray = function usedClassArray(usedObject) {
   return usedObject.elements.filter(classArray => new Promise(resolve => usedClassString(
     classArray, resolve))
@@ -189,14 +188,7 @@ const beginHeightReset = function beginHeightReset(arrayOfObjects) {
  * @param arrayOfObjects
  */
 const matchHeight = function matchHeight(arrayOfObjects) {
-  const interval = setInterval(() => {
-    if (document.readyState === 'complete') {
-      clearInterval(interval);
-      filteredCurrentForResize(arrayOfObjects);
-    }
-  }, 10);
-
-  interval();
+  filteredCurrentForResize(arrayOfObjects);
 
   window.addEventListener('resize', () => beginHeightReset(arrayOfObjects));
 };

@@ -1,3 +1,5 @@
+import Icon from '../classes/iconic-icon';
+
 /**
  * return the total height of children
  * @param children
@@ -26,7 +28,7 @@ const animateChildren = function animateChildren(slider) {
   const innerHeight = getInnerHeight(children) / 2;
   const top = outerHeight - innerHeight;
 
-  TweenMax.to(children, 0.2, { top: top });
+  TweenMax.to(children, 0.2, { top });
 };
 
 /**
@@ -59,20 +61,22 @@ export default function appendChevron(arrayOfObjects) {
   arrayOfObjects.filter(sliderConfig => {
     const element = document.getElementsByClassName('mch-slider')[0];
 
-    const span = document.createElement('span');
-    span.classList.add('iconic');
-    span.classList.add(`slider-${sliderConfig.direction}`);
-    span.setAttribute('data-glyph', `chevron-${sliderConfig.direction}`);
-    span.setAttribute('aria-hidden', 'true');
+    const SliderIcon = document.registerElement('slider-icon', Icon);
+    const icon = new SliderIcon;
 
-    element.appendChild(span);
+    icon.properties = {
+      class: `slider-${sliderConfig.direction}`,
+      dataGlyph: `chevron-${sliderConfig.direction}`,
+    };
+
+    element.appendChild(icon);
 
     const slider = element.nextElementSibling;
     element.appendChild(slider);
 
     let state = false;
 
-    span.addEventListener('click', () => animateSlider(slider, span, state = !state));
+    icon.addEventListener('click', () => animateSlider(slider, icon.children[0], state = !state));
 
     return false;
   });

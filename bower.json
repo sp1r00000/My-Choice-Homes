@@ -19,7 +19,8 @@
     "normalize-css": "normalize.css#^4.0.0",
     "gsap": "^1.18.2",
     "es6-promise-polyfill": "^1.1.1",
-    "requirejs": "^2.2.0"
+    "requirejs": "^2.2.0",
+    "webcomponentsjs": "^0.7.22"
   },
   "devDependencies": {},
   "license": "MIT"

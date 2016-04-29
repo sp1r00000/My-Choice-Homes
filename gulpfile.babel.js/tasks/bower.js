@@ -5,6 +5,7 @@ export function bowerJs() {
     'bower_components/gsap/src/minified/TweenMax.min.js',
     'bower_components/es6-promise-polyfill/promise.min.js',
     'bower_components/requirejs/require.js',
+    'bower_components/webcomponentsjs/webcomponents.js',
   ])
     .pipe(gulp.dest('public/assets/lib'));
 }

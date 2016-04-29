@@ -25,8 +25,8 @@ export function scripts(done) {
         }))
         .bundle()
         .pipe(source(fileName))
-        .pipe(buffer())
-        .pipe(uglify())
+        // .pipe(buffer())
+        // .pipe(uglify())
         .pipe(gulp.dest(`./public/assets/${dest}`));
     });
 

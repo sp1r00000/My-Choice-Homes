@@ -19,9 +19,9 @@ const setElementHeights = function setElementHeights(highest, elementsArray) {
 
 /**
  * get highest element then setElementHeights fn
- * @returns {*}
  * @param elementsArray
  * @param heightsArray
+ * @returns {*}
  */
 const getHighestElement = function getHighestElement(elementsArray, heightsArray) {
   let highest = 0;
@@ -40,6 +40,7 @@ const getHighestElement = function getHighestElement(elementsArray, heightsArray
  * @param heightsArray
  * @param classString
  * @param cb
+ * @returns {*}
  */
 const createUsedArrays = function createUsedArrays(elementsArray, heightsArray, classString, cb) {
   const elements = Array.from(document.getElementsByClassName(classString));
@@ -62,6 +63,7 @@ const createUsedArrays = function createUsedArrays(elementsArray, heightsArray, 
  * in class array
  * @param classArray
  * @param cb
+ * @returns {*}
  */
 const usedClassString = function usedClassString(classArray, cb) {
   const elementsArray = [];
@@ -74,8 +76,8 @@ const usedClassString = function usedClassString(classArray, cb) {
 /**
  * filters a class array for the used object
  * after promise resolved, getHighestElement fn
- * @returns {*}
  * @param usedObject
+ * @returns {*}
  */
 const usedClassArray = function usedClassArray(usedObject) {
   return usedObject.elements.filter(classArray => new Promise(resolve => usedClassString(
@@ -98,9 +100,9 @@ const clearInlineHeight = function clearInlineHeight(classString, cb) {
 
 /**
  * returns unused class strings
- * @returns {Array}
  * @param classArray
  * @param cb
+ * @returns {*}
  */
 const unusedClassString = function unusedClassString(classArray, cb) {
   return classArray.filter(classString => clearInlineHeight(classString, cb));
@@ -110,6 +112,7 @@ const unusedClassString = function unusedClassString(classArray, cb) {
  * returns array of classes
  * @param object
  * @param cb
+ * @returns {*}
  */
 const unusedClassArray = function unusedClassArray(object, cb) {
   return object.elements.filter(classArray => unusedClassString(classArray, cb));
@@ -130,6 +133,7 @@ const unusedObject = function unusedObject(unusedObjects, cb) {
  * @param usedObject
  * @param arrayOfObjects
  * @param cb
+ * @returns {*}
  */
 const filteredUnused = function filteredUnused(usedObject, arrayOfObjects, cb) {
   const unusedObjects = arrayOfObjects.filter(object => {
@@ -145,13 +149,14 @@ const filteredUnused = function filteredUnused(usedObject, arrayOfObjects, cb) {
  * filter objects array to contain object for resize
  * create promise
  * @param arrayOfObjects
+ * @returns {*}
  */
 const filteredCurrent = function filteredCurrent(arrayOfObjects) {
   const breakpoint = currentBreakpoint();
 
   return arrayOfObjects.filter(object => new Promise(resolve => {
     const containsBreakpoint = arrayContainsValue(breakpoint, object.breakpoints);
-    if (containsBreakpoint) return filteredUnused(object, arrayOfObjects, resolve);
+    if (containsBreakpoint) filteredUnused(object, arrayOfObjects, resolve);
 
     return false;
   }));

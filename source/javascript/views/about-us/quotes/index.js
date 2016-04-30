@@ -1,3 +1,5 @@
+import 'https://www.google.com/recaptcha/api.js';
+
 import '../../../common/navbar';
 import '../../../common/links';
 

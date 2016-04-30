@@ -6,15 +6,17 @@
   <meta name="fragment" content="!">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 
-  <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon-precomposed" href="/assets/images/favicon.ico">
+  <link rel="subresource shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+  <link rel="subresource apple-touch-icon-precomposed" href="/assets/images/favicon.ico">
 
   <title>My Choice Children's Homes</title>
   <meta name="HandheldFriendly" content="True"/>
 
-  <link rel="stylesheet" href="/assets/lib/normalize.css">
-  <link rel="stylesheet" href="/assets/stylesheets/iconic-glyphs.css">
-  <link rel="stylesheet" href="/assets/stylesheets/app.css">
+  <link rel="subresource stylesheet" href="/assets/lib/normalize.css">
+  <link rel="subresource stylesheet" href="/assets/stylesheets/iconic-glyphs.css">
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,100,300,600,700'
+        rel='prerender stylesheet' type='text/css'>
+  <link rel="subresource stylesheet" href="/assets/stylesheets/app.css">
 </head>
 <body class="{{bodyClass}}">
 
@@ -29,7 +31,6 @@
 
 {{> copyright}}
 
-<script src='https://www.google.com/recaptcha/api.js'></script>
 {{#if ie}}
 <script src="/assets/lib/promise.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script>

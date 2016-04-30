@@ -9,5 +9,5 @@ import matchHeight from './match-height';
 import preload from './preload';
 
 export default function init() {
-  Promise.all(preload()).then(() => matchHeight);
+  Promise.all(preload).then(() => matchHeight);
 }

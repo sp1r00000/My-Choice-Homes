@@ -18,4 +18,10 @@ export default matchHeight([
       ['mch-block-6', 'mch-block-7'],
     ],
   },
+  {
+    breakpoints: ['XS', 'SM'],
+    elements: [
+      [],
+    ],
+  },
 ]);

@@ -4,6 +4,7 @@ import sourcemaps from 'gulp-sourcemaps';
 import postcss from 'gulp-postcss';
 import cssnext from 'postcss-cssnext';
 import cssnano from 'cssnano';
+import assets from 'postcss-assets';
 
 /**
  * prefix css
@@ -11,6 +12,9 @@ import cssnano from 'cssnano';
  */
 export function scss() {
   const processors = [
+    assets({
+      loadPaths: ['/assets/images', '/assets/fonts'],
+    }),
     cssnext,
     cssnano(),
   ];

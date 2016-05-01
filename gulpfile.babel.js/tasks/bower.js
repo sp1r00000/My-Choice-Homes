@@ -8,7 +8,7 @@ export function bowerJs() {
     'bower_components/document-register-element/build/document-register-element.js',
     'bower_components/document-register-element/build/innerHTML.js',
     'bower_components/gsap/src/minified/TweenMax.min.js',
-    'bower_components/gsap/src/minified/TweenLite.min.js',
+    'bower_components/babel-polyfill/browser-polyfill.js',
   ])
     .pipe(gulp.dest('public/assets/lib'));
 }

@@ -21,7 +21,8 @@
     "requirejs": "^2.2.0",
     "gsap": "^1.18.4",
     "webcomponentsjs": "^0.7.22",
-    "document-register-element": "^0.5.4"
+    "document-register-element": "^0.5.4",
+    "babel-polyfill": "^0.0.1"
   },
   "devDependencies": {},
   "license": "MIT"

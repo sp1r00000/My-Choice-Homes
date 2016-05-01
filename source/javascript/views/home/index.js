@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import '../../common/navbar';
 
 import './accordion';

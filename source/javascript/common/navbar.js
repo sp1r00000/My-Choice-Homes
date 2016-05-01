@@ -1,5 +1,3 @@
-import '../../lib/TweenMax.min';
-
 import currentBreakpoint from './current-breakpoint';
 
 /**

@@ -1,5 +1,3 @@
-import '../../lib/TweenMax.min';
-
 /**
  * animate dropdown
  * @param event

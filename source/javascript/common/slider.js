@@ -1,5 +1,3 @@
-import '../../lib/TweenLite.min';
-
 /**
  * return the total height of children
  * @returns {number}

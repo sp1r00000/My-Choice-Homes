@@ -1,17 +1,14 @@
 import '../../lib/TweenLite.min';
 
-import Icon from '../web-components/iconic-icon';
-
 /**
  * return the total height of children
- * @param children
  * @returns {number}
+ * @param children
  */
 const getInnerHeight = function getInnerHeight(children) {
   let height = 0;
-  const array = Array.from(children);
 
-  array.filter(child => {
+  children.filter(child => {
     height = height + child.clientHeight;
 
     return false;
@@ -25,7 +22,7 @@ const getInnerHeight = function getInnerHeight(children) {
  * @param slider
  */
 const animateChildren = function animateChildren(slider) {
-  const children = slider.children;
+  const children = Array.from(slider.children);
   const outerHeight = slider.clientHeight / 2;
   const innerHeight = getInnerHeight(children) / 2;
   const top = outerHeight - innerHeight;
@@ -40,6 +37,7 @@ const animateChildren = function animateChildren(slider) {
  * @param state
  */
 const animateSlider = function animateSlider(slider, icon, state) {
+  console.log('slider', slider);
   if (state) {
     TweenLite.to(slider, 0.2, { width: '90%', onComplete: () => animateChildren(slider) });
     TweenLite.to(icon, 0.1, {
@@ -59,27 +57,63 @@ const animateSlider = function animateSlider(slider, icon, state) {
   window.addEventListener('resize', () => animateChildren(slider));
 };
 
-export default function appendChevron(arrayOfObjects) {
-  arrayOfObjects.filter(sliderConfig => {
-    const element = document.getElementsByClassName('mch-slider')[0];
+/**
+ * initial toggle appends slider
+ * animateSlider fn
+ * @param element
+ * @param icon
+ * @param state
+ * @param counter
+ */
+const toggleSlider = function toggleSlider(element, icon, state, counter) {
+  let hiddenSlider;
 
-    const SliderIcon = document.registerElement('slider-icon', Icon);
-    const icon = new SliderIcon;
+  if (counter === 0) {
+    hiddenSlider = element.nextElementSibling;
+    element.appendChild(hiddenSlider);
+  } else {
+    hiddenSlider = element.lastChild;
+  }
 
-    icon.properties = {
-      class: `slider-${sliderConfig.direction}`,
-      dataGlyph: `chevron-${sliderConfig.direction}`,
-    };
+  animateSlider(hiddenSlider, icon, state);
+};
 
-    element.appendChild(icon);
+/**
+ * create slider icon
+ * @param sliderConfig
+ * @returns {Element}
+ */
+const createIcon = function createIcon(sliderConfig) {
+  const icon = document.createElement('span');
+  icon.classList.add('iconic');
+  icon.classList.add(`slider-${sliderConfig.direction}`);
+  icon.setAttribute('data-glyph', `chevron-${sliderConfig.direction}`);
+  icon.setAttribute('aria-hidden', 'true');
 
-    const slider = element.nextElementSibling;
-    element.appendChild(slider);
+  return icon;
+};
 
-    let state = false;
+/**
+ * append created icon
+ * click event / toggleSlider fn
+ * @param sliderConfig
+ * @param index
+ */
+const filteredObject = function filteredObject(sliderConfig, index) {
+  const element = document.getElementsByClassName('mch-slider')[index];
+  const icon = createIcon(sliderConfig);
 
-    icon.addEventListener('click', () => animateSlider(slider, icon.children[0], state = !state));
+  element.appendChild(icon);
 
-    return false;
-  });
+  let state = false;
+  let counter = 0;
+  icon.addEventListener('click', () => toggleSlider(element, icon, state = !state, counter++));
+};
+
+/**
+ * filteredObject fn for each slider config
+ * @param arrayOfObjects
+ */
+export default function slider(arrayOfObjects) {
+  arrayOfObjects.filter((sliderConfig, index) => filteredObject(sliderConfig, index));
 }

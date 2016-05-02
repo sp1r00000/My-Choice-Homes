@@ -22,13 +22,11 @@ const getHeights = function getHeights(classString, heights, cb) {
  * @returns {*}
  */
 const setElementHeight = function setElementHeight(classArray) {
-  const heights = [];
   return classArray.filter(classString => new Promise(resolve => getHeights(
-    classString, heights, resolve)).then(data => {
+    classString, [], resolve)).then(data => {
       const element = data.element;
       const highest = Math.max.apply(Math, data.heights.map(height => height));
 
-      element.style.height = '';
       element.style.height = `${highest}px`;
     })
   );

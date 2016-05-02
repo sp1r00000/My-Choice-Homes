@@ -12,15 +12,12 @@ import { arrayContainsValue } from '../helpers';
 const getHeights = function getHeights(classString, heights, cb) {
   const elements = Array.from(document.getElementsByClassName(classString));
 
-  if (elements.length === 1) {
-    heights.push(elements[0].clientHeight);
-  } else {
-    elements.filter((element, index) => {
-      heights.push(elements[index].clientHeight);
+  elements.filter((element, index) => {
+    elements[index].style.height = '';
+    heights.push(elements[index].clientHeight);
 
-      return false;
-    });
-  }
+    return false;
+  });
 
   return cb({ heights, elements });
 };

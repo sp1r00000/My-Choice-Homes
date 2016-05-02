@@ -1,29 +1,47 @@
 .mch-our-homes {
   [class*='mch-block-'] {
     float: left;
-    width: 100%;
-    margin-bottom: $space;
+    width: 98%;
+    margin: 0 1% $space;
   }
 }
 
-@media (min-width: 48em) {
+@media (min-width: 34em) {
   .mch-our-homes [class*='mch-block-'] {
-    width: 49.5%;
+    width: 44.5%;
 
-    &:nth-child(odd) { margin-right: .5%; }
-    &:nth-child(even) { margin-left: .5%; }
+    &:nth-child(odd) {
+      margin-left: .5%;
+      margin-right: 5%;
+    }
+
+    &:nth-child(even) {
+      margin-left: 5%;
+      margin-right: .5%;
+    }
   }
 }
 
-@media (min-width: 75em) {
+@media (min-width: 62em) {
   .mch-our-homes [class*='mch-block-'] {
-    width: 32.66666666666667%;
+    width: 29.334%;
 
     &:nth-child(odd) { margin-right: 0; }
     &:nth-child(even) { margin-left: 0; }
 
-    &:nth-child(3n+1) { margin-right: .5%; }
-    &:nth-child(3n+3) { margin-left: .5%; }
-    &:nth-child(3n+2) { margin: 0 .5% 0 .5%; }
+    &:nth-child(3n+1) {
+      margin-left: 5%;
+      margin-right: .5%;
+    }
+
+    &:nth-child(3n+2) {
+      margin-left: .5%;
+      margin-right: .5%;
+    }
+
+    &:nth-child(3n+3) {
+      margin-left: .5%;
+      margin-right: 5%;
+    }
   }
 }

@@ -1,8 +1,6 @@
 import '../../common/navbar';
 import '../../common/links';
 
-import './container';
-
 import matchHeight from './match-height';
 import preload from './preload';
 

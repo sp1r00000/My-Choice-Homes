@@ -2,75 +2,36 @@ import currentBreakpoint from './current-breakpoint';
 import { arrayContainsValue } from '../helpers';
 
 /**
- * set new element height on elements in array
- * @param highest
- * @param elementsArray
- */
-const setElementHeights = function setElementHeights(highest, elementsArray) {
-  let elm;
-
-  elementsArray.filter(element => {
-    elm = element;
-    elm.style.height = `${highest}px`;
-
-    return true;
-  });
-};
-
-/**
- * get highest element then setElementHeights fn
- * @param elementsArray
- * @param heightsArray
- * @returns {*}
- */
-const getHighestElement = function getHighestElement(elementsArray, heightsArray) {
-  let highest = 0;
-
-  return heightsArray.filter((height, index) => {
-    if (highest < height) highest = height;
-    if (heightsArray.length - 1 === index) setElementHeights(highest, elementsArray);
-
-    return true;
-  });
-};
-
-/**
- * pushes elements & heights into individual arrays
- * @param elementsArray
- * @param heightsArray
+ * callback containing array of heights and the
+ * element it applies to
  * @param classString
+ * @param heights
  * @param cb
  * @returns {*}
  */
-const createUsedArrays = function createUsedArrays(elementsArray, heightsArray, classString, cb) {
-  const elements = Array.from(document.getElementsByClassName(classString));
+const getHeights = function getHeights(classString, heights, cb) {
+  const element = document.getElementsByClassName(classString)[0];
+  heights.push(element.clientHeight);
 
-  elements.filter(element => {
-    const elm = element;
-
-    elm.style.height = '';
-    elementsArray.push(elm);
-    heightsArray.push(elm.clientHeight);
-
-    return false;
-  });
-
-  return cb({ elementsArray, heightsArray });
+  return cb({ heights, element });
 };
 
 /**
- * return createUsedArrays fn for each class string
- * in class array
+ * get heights into array, then set new height
  * @param classArray
- * @param cb
  * @returns {*}
  */
-const usedClassString = function usedClassString(classArray, cb) {
-  const elementsArray = [];
-  const heightsArray = [];
+const setElementHeight = function setElementHeight(classArray) {
+  const heights = [];
+  return classArray.filter(classString => new Promise(resolve => getHeights(
+    classString, heights, resolve)).then(data => {
+      const element = data.element;
+      const highest = Math.max.apply(Math, data.heights.map(height => height));
 
-  return classArray.filter(classString => createUsedArrays(
-    elementsArray, heightsArray, classString, cb));
+      element.style.height = '';
+      element.style.height = `${highest}px`;
+    })
+  );
 };
 
 /**
@@ -80,9 +41,7 @@ const usedClassString = function usedClassString(classArray, cb) {
  * @returns {*}
  */
 const usedClassArray = function usedClassArray(usedObject) {
-  return usedObject.elements.filter(classArray => new Promise(resolve => usedClassString(
-    classArray, resolve))
-    .then(data => getHighestElement(data.elementsArray, data.heightsArray)));
+  return usedObject.elements.filter(classArray => setElementHeight(classArray));
 };
 
 /**

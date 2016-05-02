@@ -29,6 +29,7 @@ const getHeights = function getHeights(classString, heights, cb) {
  */
 const setElementHeight = function setElementHeight(classArray) {
   const heights = [];
+
   return classArray.filter(classString => new Promise(resolve => getHeights(
     classString, heights, resolve)).then(data => {
       const elements = data.elements;

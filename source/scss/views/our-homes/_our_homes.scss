@@ -4,6 +4,8 @@
     width: 98%;
     margin: 0 1% $space;
   }
+
+  img { filter: grayscale(.5) blur(.02rem); }
 }
 
 @media (min-width: 34em) {

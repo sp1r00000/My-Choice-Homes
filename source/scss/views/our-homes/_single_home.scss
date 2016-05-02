@@ -1,8 +1,11 @@
 .mch-single-home {
   [class*='mch-block-'] {
     float: left;
-    width: 100%;
+    width: 98%;
+    margin: 0 1%;
   }
+
+  img { filter: grayscale(.5) blur(.02rem); }
 
   figure { margin: 0; }
   
@@ -18,8 +21,13 @@
   figcaption { clear: both; }
 }
 
-@media (min-width: 48em) {
+@media (min-width: 34em) {
   .mch-single-home {
+    [class*='mch-block-'] {
+      width: 90%;
+      margin: 0 5% $space;
+    }
+
     figure figure {
       width: 24.25%;
 
@@ -33,11 +41,11 @@
   }
 }
 
-@media (min-width: 62em) {
+@media (min-width: 48em) {
   .mch-single-home {
     .mch-block-1 {
       float: right;
-      width: 64%;
+      width: 54%;
       margin-left: 1%;
     }
 

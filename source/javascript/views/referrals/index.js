@@ -3,7 +3,7 @@ import '../../common/figure';
 
 import './icons';
 import './inner-div';
-/*import './slider';*/
+import './slider';
 
 import matchHeight from './match-height';
 import preload from './preload';

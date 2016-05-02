@@ -10,10 +10,19 @@ import { arrayContainsValue } from '../helpers';
  * @returns {*}
  */
 const getHeights = function getHeights(classString, heights, cb) {
-  const element = document.getElementsByClassName(classString)[0];
-  heights.push(element.clientHeight);
+  const elements = Array.from(document.getElementsByClassName(classString));
 
-  return cb({ heights, element });
+  if (elements.length === 1) {
+    heights.push(elements[0].clientHeight);
+  } else {
+    elements.filter((element, index) => {
+      heights.push(elements[index].clientHeight);
+
+      return false;
+    });
+  }
+
+  return cb({ heights, elements });
 };
 
 /**
@@ -22,12 +31,21 @@ const getHeights = function getHeights(classString, heights, cb) {
  * @returns {*}
  */
 const setElementHeight = function setElementHeight(classArray) {
+  const heights = [];
   return classArray.filter(classString => new Promise(resolve => getHeights(
-    classString, [], resolve)).then(data => {
-      const element = data.element;
+    classString, heights, resolve)).then(data => {
+      const elements = data.elements;
       const highest = Math.max.apply(Math, data.heights.map(height => height));
 
-      element.style.height = `${highest}px`;
+      if (elements.length === 1) {
+        elements[0].style.height = `${highest}px`;
+      } else {
+        elements.filter((element, index) => {
+          elements[index].style.height = `${highest}px`;
+
+          return false;
+        });
+      }
     })
   );
 };

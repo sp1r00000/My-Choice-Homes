@@ -1,11 +1,13 @@
-{{#each homes}}
-<figure class="mch-block-{{@index}}">
-  <img src="{{thumbnail}}" alt="{{home}}">
-  <figcaption>
-    <h4><a href="{{href}}">{{home}}</a></h4>
-    <p><small>{{location}}</small></p>
-    <p>{{limitTo description 290}}</p>
-    <a href="{{href}}">More about {{home}}</a>
-  </figcaption>
-</figure>
-{{/each}}
+<article>
+  {{#each homes}}
+  <figure class="mch-block-{{@index}}">
+    <img src="{{thumbnail}}" alt="{{home}}">
+    <figcaption>
+      <h4><a href="{{href}}">{{home}}</a></h4>
+      <p><small>{{location}}</small></p>
+      <p>{{limitTo description 290}}</p>
+      <a href="{{href}}">More about {{home}}</a>
+    </figcaption>
+  </figure>
+  {{/each}}
+</article>

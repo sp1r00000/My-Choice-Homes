@@ -8,43 +8,36 @@ body.mch-our-homes {
 }
 
 @media (min-width: 34em) {
+  body.mch-our-homes article {
+    display: table;
+    width: 90%;
+    margin: 0 auto;
+  }
+
   body.mch-our-homes [class*='mch-block-'] {
-    width: 44%;
+    width: 49%;
 
-    &:nth-child(odd) {
-      margin-left: $margin-xs / 2;
-      margin-right: $margin;
-    }
-
-    &:nth-child(even) {
-      margin-left: $margin;
-      margin-right: $margin-xs / 2;
-    }
+    &:nth-child(odd) { margin-right: $margin-xs / 2; }
+    &:nth-child(even) { margin-left: $margin-xs / 2; }
   }
 }
 
 @media (min-width: 62em) {
   body.mch-our-homes {
     [class*='mch-block-'] {
-      width: 29.333%;
+      width: 32.65%;
 
       &:nth-child(odd) { margin-right: 0; }
       &:nth-child(even) { margin-left: 0; }
 
-      &:nth-child(3n+1) {
-        margin-left: $margin;
-        margin-right: $margin-md / 2;
-      }
+      &:nth-child(3n+1) { margin-right: $margin-md / 2; }
 
       &:nth-child(3n+2) {
         margin-left: $margin-md / 2;
         margin-right: $margin-md / 2;
       }
 
-      &:nth-child(3n+3) {
-        margin-left: $margin-md / 2;
-        margin-right: $margin;
-      }
+      &:nth-child(3n+3) { margin-left: $margin-md / 2; }
     }
   }
 }

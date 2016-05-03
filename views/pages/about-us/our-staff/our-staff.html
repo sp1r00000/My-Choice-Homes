@@ -1,20 +1,21 @@
-{{#each staff}}
-<figure class="mch-block-{{@index}}">
-  <img src="{{image}}" alt="{{name}}">
+<article>
+  {{#each staff}}
+  <figure class="mch-block-{{@index}}">
+    <img src="{{image}}" alt="{{name}}">
 
-  <figcaption>
+    <figcaption>
+      <h4>{{name}} <small>{{position}}</small></h4>
+      <p>{{limitTo description 90}}</p>
+      <p class="mch-open-modal">More details</p>
+    </figcaption>
+  </figure>
+
+  {{/each}}
+
+  {{#each staff}}
+  <section class="mch-modal">
     <h4>{{name}} <small>{{position}}</small></h4>
-    <p>{{limitTo description 90}}</p>
-    <p class="mch-open-modal">More details</p>
-  </figcaption>
-</figure>
-
-{{/each}}
-
-{{#each staff}}
-<section class="mch-modal">
-  <h4>{{name}} <small>{{position}}</small></h4>
-  <p>{{description}}</p>
-</section>
-
-{{/each}}
+    <p>{{description}}</p>
+  </section>
+  {{/each}}
+</article>

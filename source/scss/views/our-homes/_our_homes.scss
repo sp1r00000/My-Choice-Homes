@@ -1,14 +1,12 @@
-.mch-our-homes {
-  [class*='mch-block-'] {
-    float: left;
-    width: 100%;
-  }
-
-  img { filter: grayscale(.5); }
+body.mch-our-homes [class*='mch-block-'] {
+  float: left;
+  width: 100%;
 }
 
+body.mch-our-homes img { filter: grayscale(.5); }
+
 @media (min-width: 34em) {
-  .mch-our-homes [class*='mch-block-'] {
+  body.mch-our-homes [class*='mch-block-'] {
     width: 44%;
 
     &:nth-child(odd) {

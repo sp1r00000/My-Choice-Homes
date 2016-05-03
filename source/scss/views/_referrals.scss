@@ -14,7 +14,8 @@ body.mch-referrals dl dd { margin: $halfSpace 0 $space; }
 
 @media (min-width: 34em) {
   body.mch-referrals dl { display: table; }
-  body.mch-referrals dl dt, body.mch-referrals dl dd { float: left; }
+  body.mch-referrals dl dt,
+  body.mch-referrals dl dd { float: left; }
 
   body.mch-referrals dl dt {
     width: 29%;
@@ -29,7 +30,8 @@ body.mch-referrals dl dd { margin: $halfSpace 0 $space; }
 
 @media (min-width: 48em) {
   body.mch-referrals [class*='mch-block-'] { margin-bottom: $margin-md; }
-  body.mch-referrals .mch-block-1, body.mch-referrals .mch-block-2 { float: left; }
+  body.mch-referrals .mch-block-1,
+  body.mch-referrals .mch-block-2 { float: left; }
 
   body.mch-referrals .mch-block-1 {
     width: 40%;

@@ -1,16 +1,18 @@
-body.mch-about-us .mch-block-1, body.mch-about-us .mch-block-2 {
+body.mch-about-us .mch-block-1,
+body.mch-about-us .mch-block-2 {
   width: 100%;
   margin-bottom: $margin-xs;
 }
 
-body.mch-about-us .mch-block-1.mch-inset {
+body.mch-about-us .mch-inset {
   background-color: $mauve-light;
   color: $white;
   box-shadow: 0 0 .5rem $dark inset;
 }
 
 @media (min-width: 48em) {
-  body.mch-about-us .mch-block-1, body.mch-about-us .mch-block-2 {
+  body.mch-about-us .mch-block-1,
+  body.mch-about-us .mch-block-2 {
     float: left;
     margin-bottom: $margin-md;
   }
@@ -25,14 +27,20 @@ body.mch-about-us .mch-block-1.mch-inset {
     margin-left: $margin-md / 2;
   }
 
-  body.mch-about-us .mch-block-3, body.mch-about-us .mch-block-4, body.mch-about-us .mch-block-5, .mch-block-6 {
+  body.mch-about-us .mch-block-3,
+  body.mch-about-us .mch-block-4,
+  body.mch-about-us .mch-block-5,
+  body.mch-about-us .mch-block-6 {
     max-width: 80%;
     margin: 0 auto;
   }
 }
 
 @media (min-width: 62em) {
-  body.mch-about-us .mch-block-3, body.mch-about-us .mch-block-4, body.mch-about-us .mch-block-5, body.mch-about-us .mch-block-6 {
+  body.mch-about-us .mch-block-3,
+  body.mch-about-us .mch-block-4,
+  body.mch-about-us .mch-block-5,
+  body.mch-about-us .mch-block-6 {
     max-width: 60%;
     margin: 0 auto;
   }

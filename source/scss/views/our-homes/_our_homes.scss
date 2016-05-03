@@ -1,9 +1,11 @@
-body.mch-our-homes [class*='mch-block-'] {
-  float: left;
-  width: 100%;
-}
+body.mch-our-homes {
+  [class*='mch-block-'] {
+    float: left;
+    width: 100%;
+  }
 
-body.mch-our-homes img { filter: grayscale(.5); }
+  img { filter: grayscale(.5); }
+}
 
 @media (min-width: 34em) {
   body.mch-our-homes [class*='mch-block-'] {
@@ -22,25 +24,27 @@ body.mch-our-homes img { filter: grayscale(.5); }
 }
 
 @media (min-width: 62em) {
-  .mch-our-homes [class*='mch-block-'] {
-    width: 29.333%;
+  body.mch-our-homes {
+    [class*='mch-block-'] {
+      width: 29.333%;
 
-    &:nth-child(odd) { margin-right: 0; }
-    &:nth-child(even) { margin-left: 0; }
+      &:nth-child(odd) { margin-right: 0; }
+      &:nth-child(even) { margin-left: 0; }
 
-    &:nth-child(3n+1) {
-      margin-left: $margin;
-      margin-right: $margin-md / 2;
-    }
+      &:nth-child(3n+1) {
+        margin-left: $margin;
+        margin-right: $margin-md / 2;
+      }
 
-    &:nth-child(3n+2) {
-      margin-left: $margin-md / 2;
-      margin-right: $margin-md / 2;
-    }
+      &:nth-child(3n+2) {
+        margin-left: $margin-md / 2;
+        margin-right: $margin-md / 2;
+      }
 
-    &:nth-child(3n+3) {
-      margin-left: $margin-md / 2;
-      margin-right: $margin;
+      &:nth-child(3n+3) {
+        margin-left: $margin-md / 2;
+        margin-right: $margin;
+      }
     }
   }
 }

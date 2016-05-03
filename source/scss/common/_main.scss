@@ -95,6 +95,15 @@ ul { margin: 0 0 $space $doubleSpace; }
   margin: 0 auto;
 }
 
+hr.divider {
+  display: inline-block;
+  width: 100%;
+  height: 1px;
+  border: 0 none;
+  background-color: $gray;
+  margin: $doubleSpace 0 $space;
+}
+
 @media (min-width: 34em) {
   .container { max-width: 90%; }
 }

@@ -1,49 +1,48 @@
 .mch-our-homes {
   [class*='mch-block-'] {
     float: left;
-    width: 98%;
-    margin: 0 1% $space;
+    width: 100%;
   }
 
-  img { filter: grayscale(.5) blur(.02rem); }
+  img { filter: grayscale(.5); }
 }
 
 @media (min-width: 34em) {
   .mch-our-homes [class*='mch-block-'] {
-    width: 44.5%;
+    width: 44%;
 
     &:nth-child(odd) {
-      margin-left: .5%;
-      margin-right: 5%;
+      margin-left: $margin-xs / 2;
+      margin-right: $margin;
     }
 
     &:nth-child(even) {
-      margin-left: 5%;
-      margin-right: .5%;
+      margin-left: $margin;
+      margin-right: $margin-xs / 2;
     }
   }
 }
 
 @media (min-width: 62em) {
   .mch-our-homes [class*='mch-block-'] {
-    width: 29.334%;
+    width: 29.333%;
 
     &:nth-child(odd) { margin-right: 0; }
     &:nth-child(even) { margin-left: 0; }
 
     &:nth-child(3n+1) {
-      margin-left: 5%;
-      margin-right: .5%;
+      margin-left: $margin;
+      margin-right: $margin-md / 2;
     }
 
     &:nth-child(3n+2) {
-      margin-left: .5%;
-      margin-right: .5%;
+      margin-left: $margin-md / 2;
+      margin-right: $margin-md / 2;
     }
 
     &:nth-child(3n+3) {
-      margin-left: .5%;
-      margin-right: 5%;
+      margin-left: $margin-md / 2;
+      margin-right: $margin;
     }
   }
 }

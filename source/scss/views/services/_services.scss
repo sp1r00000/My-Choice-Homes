@@ -1,57 +1,51 @@
-body.mch-services {
-  [class*='mch-block-'] { margin-bottom: $margin-xs; }
+body.mch-services [class*='mch-block-'] { margin-bottom: $margin-xs; }
 
-  .mch-block-5 {
-    max-width: 95%;
-    margin: 0 auto;
-  }
-
-  .mch-inset {
-    background-color: $mauve-light;
-    color: $white;
-    box-shadow: inset 0 0 .5rem $dark;
-
-    a { color: $white; }
-  }
-
-  .hidden-info { display: none; }
+body.mch-services .mch-block-5 {
+  width: 95%;
+  margin: 0 auto;
 }
 
+body.mch-services .mch-inset {
+  background-color: $mauve-light;
+  color: $white;
+  box-shadow: inset 0 0 .5rem $dark;
+
+  a { color: $white; }
+}
+
+body.mch-services .hidden-info { display: none; }
+
 @media (min-width: 34em) {
-  .mch-block-5 { max-width: 80%; }
+  body.mch-services .mch-block-5 { width: 80%; }
 }
 
 @media (min-width: 48em) {
-  body.mch-services {
-    [class*='mch-block-'] {
-      float: left;
-      margin-bottom: $margin-md;
-    }
+  body.mch-services [class*='mch-block-'] {
+    float: left;
+    margin-bottom: $margin-md;
+  }
 
-    .mch-block-1 {
-      max-width: 32%;
-      margin-right: $margin-md / 2;
-    }
+  body.mch-services .mch-block-1 {
+    width: 32%;
+    margin-right: $margin-md / 2;
+  }
 
-    .mch-block-2 {
-      max-width: 67%;
-      margin-left: $margin-md / 2;
-    }
+  body.mch-services .mch-block-2 {
+    width: 67%;
+    margin-left: $margin-md / 2;
+  }
 
-    .mch-block-3.mch-thumb, .mch-block-4.mch-thumb { width: 49.5%; }
-    .mch-block-3.mch-thumb { margin-right: $margin-md / 2; }
-    .mch-block-4.mch-thumb { margin-left: $margin-md / 2; }
+  body.mch-services .mch-block-3.mch-thumb, body.mch-services .mch-block-4.mch-thumb { width: 49.5%; }
+  body.mch-services .mch-block-3.mch-thumb { margin-right: $margin-md / 2; }
+  body.mch-services .mch-block-4.mch-thumb { margin-left: $margin-md / 2; }
 
-    .mch-block-5 {
-      float: none;
-      max-width: 60%;
-    }
+  body.mch-services .mch-block-5 {
+    float: none;
+    width: 60%;
   }
 }
 
 @media (min-width: 62em) {
-  body.mch-services {
-    .mch-block-1 { max-width: 36%; }
-    .mch-block-2 { max-width: 63%; }
-  }
+  body.mch-services .mch-block-1 { width: 36%; }
+  body.mch-services .mch-block-2 { width: 63%; }
 }

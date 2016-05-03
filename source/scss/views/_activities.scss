@@ -1,30 +1,27 @@
-.mch-activities {
-  [class*='mch-block-'] {
-    margin: 1%;
-  }
+body.mch-activities [class*='mch-block-'] { margin-bottom: $margin-xs; }
 
-  .mch-block-2, .mch-paragraph-viewer { margin-bottom: $doubleSpace !important; }
-
-  .mch-block-1.mch-inset {
-    background-color: $teal-light;
-    color: $white;
-    box-shadow: 0 0 .5rem $dark inset;
-  }
+body.mch-activities .mch-inset {
+  background-color: $teal-light;
+  color: $white;
+  box-shadow: 0 0 .5rem $dark inset;
 }
 
 @media (min-width: 48em) {
-  .mch-activities {
+  body.mch-activities [class*='mch-block-'] { margin-bottom: $margin-md; }
+  body.mch-activities .mch-block-1, body.mch-activities .mch-block-2 { float: left; }
 
-    .mch-block-1, .mch-block-2 { float: left; }
-
-    .mch-block-1 {
-      max-width: 36.5%;
-      margin: 0 .5% $doubleSpace 1%;
-    }
-
-    .mch-block-2 {
-      max-width: 60.5%;
-      margin: 0 1% $doubleSpace .5%;
-    }
+  body.mch-activities .mch-block-1 {
+    width: 34%;
+    margin-right: $margin-md / 2;
   }
+
+  body.mch-activities .mch-block-2 {
+    width: 65%;
+    margin-left: $margin-md / 2;
+  }
+}
+
+@media (min-width: 62em) {
+  body.mch-activities .mch-block-1 { width: 37%; }
+  body.mch-activities .mch-block-2 { width: 62%; }
 }

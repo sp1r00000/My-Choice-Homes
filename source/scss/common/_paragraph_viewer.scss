@@ -3,10 +3,10 @@
   max-width: 95%;
   float: none !important;
   clear: both;
-  margin: 0 auto !important;
+  margin: 0 auto $doubleSpace !important;
 
   h1, h2, h3 {
-    margin-bottom: $space;
+    margin: 0 0 $space;
   }
 
   p {

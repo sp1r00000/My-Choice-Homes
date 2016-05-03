@@ -5,6 +5,7 @@ footer.mch-footer {
   padding: $space 1%;
   text-align: center;
   clear: both;
+  margin: 0 -$margin-xs;
 
   h4 {
     margin: $space 0;
@@ -27,6 +28,12 @@ footer.mch-footer {
     section.mch-footer-block-1 { width: 50%; }
     section.mch-footer-block-2 { width: 50%; }
     section.mch-footer-block-3 { width: 100%; }
+  }
+}
+
+@media (min-width: 48em) {
+  footer.mch-footer {
+    margin: 0 -$margin-md;
   }
 }
 

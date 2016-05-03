@@ -11,6 +11,7 @@ body {
   font-weight: 400;
   color: $darker;
   margin: 4rem 0 0 0;
+  padding: 0 $margin-xs;
 }
 
 h1, h2, h3, h4 {
@@ -99,6 +100,7 @@ ul { margin: 0 0 $space $doubleSpace; }
 }
 
 @media (min-width: 48em) {
+  body { padding: 0 $margin-md; }
   .container { max-width: 85%; }
 }
 

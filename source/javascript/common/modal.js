@@ -1,8 +1,9 @@
 /**
- * animate in modal content
+ * animate modal content
+ * @param modal
  * @param modalContent
  */
-const toggleModalContent = function toggleModalContent(modalContent) {
+const toggleModalContent = function toggleModalContent(modal, modalContent) {
   const tl = new TimelineLite();
   tl.add('stagger', '+=0.2');
 
@@ -17,24 +18,28 @@ const toggleModalContent = function toggleModalContent(modalContent) {
     autoAlpha: 1,
     scale: 1,
   }, 0.02, 'stagger');
+
+  const currentModal = modal;
+  currentModal.style.backgroundColor = '#fff';
 };
 
 /**
- * animate in body parts
+ * animate body parts
+ * @param modal
  * @param modalContent
  * @param partsContainer
  */
-const toggleModalBody = function toggleModalBody(modalContent, partsContainer) {
+const toggleModalBody = function toggleModalBody(modal, modalContent, partsContainer) {
   const parts = partsContainer.children;
   const tl = new TimelineLite();
 
-  const animateTo = tl.to(parts, 0.2, {
+  const animateTo = tl.to(parts, 0.3, {
     autoAlpha: 1,
     width: '50%',
     height: '50%',
   });
 
-  animateTo.eventCallback('onComplete', toggleModalContent, [modalContent]);
+  animateTo.eventCallback('onComplete', toggleModalContent, [modal, modalContent]);
 };
 
 /**
@@ -60,9 +65,13 @@ const modalAndContentVisibility = function modalAndContentVisibility(modal, part
     return false;
   });
 
-  return toggleModalBody(modalContent, partsContainer);
+  return toggleModalBody(modal, modalContent, partsContainer);
 };
 
+/**
+ * clear inline styles
+ * @param modal
+ */
 const clearInlineStyles = function clearInlineStyles(modal) {
   const children = Array.from(modal.children);
   const parts = Array.from(modal.getElementsByClassName('mch-modal-parts-container')[0].children);
@@ -86,6 +95,11 @@ const clearInlineStyles = function clearInlineStyles(modal) {
  * @param modal
  */
 const closeModal = function closeModal(modal) {
+  document.body.style.overflow = '';
+
+  const currentModal = modal;
+  currentModal.style.backgroundColor = '';
+
   const overlay = document.getElementsByClassName('overlay')[0];
   const tl = new TimelineLite();
 
@@ -118,6 +132,8 @@ const appendReusable = function appendReusable(modal) {
  * @param modal
  */
 const toggleOverlay = function toggleOverlay(modal) {
+  document.body.style.overflow = 'hidden';
+
   const overlay = document.getElementsByClassName('overlay')[0];
   const tl = new TimelineLite();
 
@@ -164,7 +180,7 @@ const addBodyParts = function addBodyParts(modal) {
 /**
  * add overlay span to document
  */
-const addOverlay = function addOverlay(modal) {
+const addOverlay = function addOverlay() {
   const overlay = document.createElement('span');
   overlay.classList.add('overlay');
   document.body.appendChild(overlay);

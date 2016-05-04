@@ -1,48 +1,47 @@
 /**
- * toggle modal content
+ * animate in modal content
  * @param modalContent
  */
 const toggleModalContent = function toggleModalContent(modalContent) {
   const tl = new TimelineLite();
-  tl.add('stagger', '+=0.5');
+  tl.add('stagger', '+=0.2');
 
   tl.set(modalContent, {
     scale: 0,
     opacity: 0,
   });
 
-  tl.staggerTo(modalContent, 0.5, {
+  tl.staggerTo(modalContent, 0.2, {
     position: 'relative',
     zIndex: 6,
-    opacity: 1,
+    autoAlpha: 1,
     scale: 1,
-  }, 0.05, 'stagger');
+  }, 0.02, 'stagger');
 };
 
 /**
- * toggle modal
- * @param stripesContainer
+ * animate in body parts
  * @param modalContent
+ * @param partsContainer
  */
-const toggleStripes = function toggleStripes(modalContent, stripesContainer) {
-  const stripes = stripesContainer.children;
-
+const toggleModalBody = function toggleModalBody(modalContent, partsContainer) {
+  const parts = partsContainer.children;
   const tl = new TimelineLite();
-  tl.add('stagger', '+=0.5');
 
-  const animateTo = tl.staggerTo(stripes, 0.1, {
-    top: 0,
-    opacity: 1,
-  }, 0.05, 'stagger');
+  const animateTo = tl.to(parts, 0.2, {
+    autoAlpha: 1,
+    width: '50%',
+    height: '50%',
+  });
 
   animateTo.eventCallback('onComplete', toggleModalContent, [modalContent]);
 };
 
 /**
  * @param modal
- * @param stripesContainer
+ * @param partsContainer
  */
-const modalAndContentVisibility = function modalAndContentVisibility(modal, stripesContainer) {
+const modalAndContentVisibility = function modalAndContentVisibility(modal, partsContainer) {
   const currentModal = modal;
   currentModal.style.zIndex = 5;
   currentModal.style.opacity = 1;
@@ -51,7 +50,7 @@ const modalAndContentVisibility = function modalAndContentVisibility(modal, stri
   const modalContent = [];
 
   modalContents.filter((child, index) => {
-    if (child !== stripesContainer) {
+    if (child !== partsContainer) {
       modalContent.push(child);
       modalContents[index].style.opacity = 0;
       modalContents[index].style.scale = 0;
@@ -60,64 +59,102 @@ const modalAndContentVisibility = function modalAndContentVisibility(modal, stri
     return false;
   });
 
-  return toggleStripes(modalContent, stripesContainer);
+  return toggleModalBody(modalContent, partsContainer);
 };
 
 /**
+ * fade out modal & overlay
+ * reset parts width & height
  * @param modal
  */
-const appendStripes = function appendStripes(modal) {
-  const stripesContainer = document.getElementsByClassName('mch-modal-stripe-container')[0];
-  modal.appendChild(stripesContainer);
+const closeModal = function closeModal(modal) {
+  const overlay = document.getElementsByClassName('overlay')[0];
+  const parts = Array.from(document.getElementsByClassName(
+    'mch-modal-parts-container')[0].children);
+  const tl = new TimelineLite();
 
-  return modalAndContentVisibility(modal, stripesContainer);
+  tl.to([overlay, modal], 0.1, {
+    zIndex: -1,
+    autoAlpha: 0,
+  });
+
+  parts.filter((part, index) => {
+    parts[index].style.width = 0;
+    parts[index].style.height = 0;
+
+    return false;
+  });
 };
 
 /**
- * make the current modal visible
- * fade in the overlay
+ * append body parts & close icon to
+ * select modal
+ * @param modal
+ */
+const appendReusable = function appendReusable(modal) {
+  const partsContainer = document.getElementsByClassName('mch-modal-parts-container')[0];
+  modal.appendChild(partsContainer);
+
+  const closeButton = document.getElementsByClassName('mch-modal-close')[0];
+  closeButton.addEventListener('mouseup', () => closeModal(modal));
+
+  modal.appendChild(closeButton);
+
+  return modalAndContentVisibility(modal, partsContainer);
+};
+
+/**
+ * fade in overlay
  * @param modal
  */
 const toggleOverlay = function toggleOverlay(modal) {
   const overlay = document.getElementsByClassName('overlay')[0];
   const tl = new TimelineLite();
-  tl.to(overlay, 0.1, { zIndex: 4, opacity: 0.8 });
 
-  return appendStripes(modal);
+  tl.to(overlay, 0.1, {
+    zIndex: 4,
+    autoAlpha: 0.8,
+  });
+
+  return appendReusable(modal);
 };
 
 /**
- * add stripes container + stripes
- * set style width for each stripe
- * set style left for each stripe
+ * create & append close icon
  * @param modal
  */
-const addStripes = function addStripes(modal) {
-  const stripeContainer = document.createElement('div');
-  stripeContainer.classList.add('mch-modal-stripe-container');
-  modal.appendChild(stripeContainer);
+const addCloseButton = function addCloseButton(modal) {
+  const icon = document.createElement('span');
+  icon.classList.add('iconic');
+  icon.classList.add('mch-modal-close');
+  icon.setAttribute('data-glyph', 'x');
+  icon.setAttribute('aria-hidden', 'true');
+  modal.appendChild(icon);
+};
 
-  const modalWidth = modal.clientWidth;
-  const stripeWidth = modalWidth / 10;
-  const numberOfStripes = Math.floor(modalWidth / stripeWidth);
+/**
+ * add parts container + parts
+ * add class for each part
+ * @param modal
+ */
+const addBodyParts = function addBodyParts(modal) {
+  const partsContainer = document.createElement('div');
+  partsContainer.classList.add('mch-modal-parts-container');
+  modal.appendChild(partsContainer);
 
-  let leftPosition = 0;
+  for (let i = 0, l = 4; i < l; i++) {
+    const part = document.createElement('span');
+    part.classList.add('mch-modal-part');
+    part.classList.add(`mch-modal-part-${i}`);
 
-  for (let i = 0, l = numberOfStripes; i < l; i++) {
-    const stripe = document.createElement('span');
-    stripe.classList.add('mch-modal-stripe');
-    stripe.style.width = `${stripeWidth}px`;
-
-    if (i !== 0) stripe.style.left = `${leftPosition += stripeWidth}px`;
-
-    stripeContainer.appendChild(stripe);
+    partsContainer.appendChild(part);
   }
 };
 
 /**
  * add overlay span to document
  */
-const addOverlay = function addOverlay() {
+const addOverlay = function addOverlay(modal) {
   const overlay = document.createElement('span');
   overlay.classList.add('overlay');
   document.body.appendChild(overlay);
@@ -126,7 +163,7 @@ const addOverlay = function addOverlay() {
 /**
  * check openers to modals length match
  * init addOverlay fn
- * init addStripes fn for each modal
+ * init addBodyParts fn for first modal
  * add mouseup event on opener
  */
 const modal = function modal() {
@@ -136,10 +173,11 @@ const modal = function modal() {
 
   if (match) {
     addOverlay();
-    addStripes(modals[0]);
+    addBodyParts(modals[0]);
+    addCloseButton(modals[0]);
 
     openers.filter((opener, index) => {
-      opener.addEventListener('click', () => toggleOverlay(modals[index]));
+      opener.addEventListener('mouseup', () => toggleOverlay(modals[index]));
 
       return false;
     });

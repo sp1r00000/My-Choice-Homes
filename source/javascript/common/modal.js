@@ -103,7 +103,7 @@ const closeModal = function closeModal(modal) {
   const overlay = document.getElementsByClassName('overlay')[0];
   const tl = new TimelineLite();
 
-  tl.to([overlay, modal], 0.1, {
+  tl.to([overlay, modal], 0.2, {
     zIndex: -1,
     autoAlpha: 0,
     onComplete: clearInlineStyles(modal),

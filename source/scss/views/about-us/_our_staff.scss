@@ -3,7 +3,7 @@ body.mch-our-staff {
     float: left;
     width: 49%;
     position: relative;
-    padding-bottom: $doubleSpace;
+    padding-bottom: $space;
 
     &:nth-child(even) { margin-left: $margin-xs / 2; }
     &:nth-child(odd) { margin-right: $margin-xs / 2; }
@@ -17,6 +17,8 @@ body.mch-our-staff {
   figure img { filter: grayscale(1); }
   figure figcaption { margin-bottom: $space; }
   figure figcaption small { display: block; }
+
+  figure.mch-modal img { filter: grayscale(0); }
 }
 
 @media (min-width: 34em) {
@@ -40,6 +42,21 @@ body.mch-our-staff {
     }
 
     &:nth-child(3n+3) { margin-left: $margin-xs / 2; }
+  }
+
+  body.mch-our-staff figure.mch-modal {
+    img {
+      width: 27.5%;
+      float: left;
+      margin-right: 2.5%;
+    }
+
+    figcaption {
+      width: 60%;
+      float: left;
+      margin-left: 2.5%;
+      padding-right: 7.5%;
+    }
   }
 }
 

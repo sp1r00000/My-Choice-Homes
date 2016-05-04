@@ -40,8 +40,8 @@
     position: absolute;
     background-color: $white;
 
-    &.mch-modal-part-0, &.mch-modal-part-2 { left: 0; }
     &.mch-modal-part-0, &.mch-modal-part-1 { top: 0; }
+    &.mch-modal-part-0, &.mch-modal-part-2 { left: 0; }
     &.mch-modal-part-1, &.mch-modal-part-3 { right: 0; }
     &.mch-modal-part-2, &.mch-modal-part-3 { bottom: 0; }
   }

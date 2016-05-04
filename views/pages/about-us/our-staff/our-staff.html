@@ -12,9 +12,13 @@
   {{/each}}
 
   {{#each staff}}
-  <section class="mch-modal">
-    <h4>{{name}} <small>{{position}}</small></h4>
-    <p>{{description}}</p>
-  </section>
+  <figure class="mch-modal">
+    <img src="{{image}}" alt="{{name}}">
+
+    <figcaption>
+      <h4>{{name}} <small>{{position}}</small></h4>
+      <p>{{description}}</p>
+    </figcaption>
+  </figure>
   {{/each}}
 </article>

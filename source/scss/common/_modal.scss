@@ -9,19 +9,14 @@
 }
 
 .mch-modal {
-  z-index: -1;
   opacity: 0;
+  z-index: -1;
   position: fixed;
   top: 10%;
-  right: 0;
+  right: 10%;
   bottom: 10%;
-  left: 0;
-  margin: auto;
-  width: 80%;
-  max-height: 80%;
-  background-color: $white;
+  left: 10%;
   padding: $doubleSpace;
-  overflow: auto;
 
   .close-modal {
     position: absolute;
@@ -29,4 +24,33 @@
     right: $space;
     cursor: pointer;
   }
+
+  .mch-modal-stripe-container {
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .mch-modal-stripe {
+    opacity: 0;
+    position: absolute;
+    top: -150%;
+    left: 0;
+    height: 100%;
+    background-color: $white;
+  }
+}
+
+.overlay {
+  z-index: -1;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $dark;
 }

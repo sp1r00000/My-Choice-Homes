@@ -77,17 +77,6 @@ ul { margin: 0 0 $space $doubleSpace; }
 
 .small { font-size: 90%; }
 
-.overlay {
-  z-index: -1;
-  opacity: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: $dark;
-}
-
 .container {
   display: table;
   position: relative;

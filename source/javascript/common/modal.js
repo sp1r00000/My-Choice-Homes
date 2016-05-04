@@ -45,6 +45,7 @@ const modalAndContentVisibility = function modalAndContentVisibility(modal, part
   const currentModal = modal;
   currentModal.style.zIndex = 5;
   currentModal.style.opacity = 1;
+  currentModal.style.visibility = 'visible';
 
   const modalContents = Array.from(currentModal.children);
   const modalContent = [];
@@ -62,6 +63,23 @@ const modalAndContentVisibility = function modalAndContentVisibility(modal, part
   return toggleModalBody(modalContent, partsContainer);
 };
 
+const clearInlineStyles = function clearInlineStyles(modal) {
+  const children = Array.from(modal.children);
+  const parts = Array.from(modal.getElementsByClassName('mch-modal-parts-container')[0].children);
+
+  children.filter((item, index) => {
+    children[index].style = '';
+
+    return false;
+  });
+
+  parts.filter((item, index) => {
+    parts[index].style = '';
+
+    return false;
+  });
+};
+
 /**
  * fade out modal & overlay
  * reset parts width & height
@@ -69,20 +87,12 @@ const modalAndContentVisibility = function modalAndContentVisibility(modal, part
  */
 const closeModal = function closeModal(modal) {
   const overlay = document.getElementsByClassName('overlay')[0];
-  const parts = Array.from(document.getElementsByClassName(
-    'mch-modal-parts-container')[0].children);
   const tl = new TimelineLite();
 
   tl.to([overlay, modal], 0.1, {
     zIndex: -1,
     autoAlpha: 0,
-  });
-
-  parts.filter((part, index) => {
-    parts[index].style.width = 0;
-    parts[index].style.height = 0;
-
-    return false;
+    onComplete: clearInlineStyles(modal),
   });
 };
 

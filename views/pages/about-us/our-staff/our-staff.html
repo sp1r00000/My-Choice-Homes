@@ -11,14 +11,12 @@
   </figure>
   {{/each}}
 
-  {{#each staff}}
-  <figure class="mch-modal">
-    <img src="{{image}}" alt="{{name}}">
+  <figure class="mch-modal mch-async-modal">
+    <img src="{{staff.0.image}}" alt="{{staff.0.name}}">
 
     <figcaption>
-      <h4>{{name}} <small>{{position}}</small></h4>
-      <p>{{description}}</p>
+      <h4>{{staff.0.name}} <small>{{staff.0.position}}</small></h4>
+      <p>{{staff.0.description}}</p>
     </figcaption>
   </figure>
-  {{/each}}
 </article>

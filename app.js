@@ -11,6 +11,7 @@ const PrerenderPlugin = require('hapi-prerender');
 const routes = require('./routes');
 const contact = require('./routes/contact-us');
 const quotes = require('./routes/quotes');
+const ourStaff = require('./routes/our-staff');
 
 const server = new Hapi.Server({
   cache: [
@@ -87,6 +88,7 @@ server.register([Inert, Vision], () => {
   routes(server);
   contact(server);
   quotes(server);
+  ourStaff(server);
 
   server.start(err => {
     if (err) console.log('err', err);

@@ -1,3 +1,5 @@
+// Todo: tidy / improve
+
 /**
  * animate modal content
  * @param modal
@@ -195,21 +197,20 @@ const addOverlay = function addOverlay() {
 const modal = function modal() {
   const openers = Array.from(document.getElementsByClassName('mch-open-modal'));
   const modals = Array.from(document.getElementsByClassName('mch-modal'));
-  const match = openers.length === modals.length;
 
-  if (match) {
-    addOverlay();
-    addBodyParts(modals[0]);
-    addCloseButton(modals[0]);
+  addOverlay();
+  addBodyParts(modals[0]);
+  addCloseButton(modals[0]);
 
-    openers.filter((opener, index) => {
+  openers.filter((opener, index) => {
+    if (modals.length === 1) {
+      opener.addEventListener('mouseup', () => toggleOverlay(modals[0]));
+    } else {
       opener.addEventListener('mouseup', () => toggleOverlay(modals[index]));
+    }
 
-      return false;
-    });
-  } else {
-    console.log('openers to modals do not match');
-  }
+    return false;
+  });
 };
 
 export default modal();

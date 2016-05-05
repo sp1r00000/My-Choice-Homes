@@ -3,6 +3,7 @@
 module.exports = function routes(server) {
   const useragent = require('useragent');
   const routesConfig = require('../routes/routes-config');
+  const Boom = require('boom');
 
   routesConfig.forEach(route => {
     server.route({
@@ -23,10 +24,8 @@ module.exports = function routes(server) {
             data = result[route.subCollection];
           }
 
-          // set links
           if (result.links) data.links = result.links;
 
-          // detect ie
           if (agent.family === 'IE') data.ie = true;
 
           reply.view(route.view, data);
